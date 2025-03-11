@@ -1,0 +1,58 @@
+@import "mocha.css"; /* Импортируем стили из файла mocha.css */
+
+* {
+    font-family: "BitstromWera Nerd Font"; /* Устанавливаем шрифт */
+    font-size: 12px; /* Устанавливаем размер шрифта */
+    font-weight: bold; /* Устанавливаем жирное начертание шрифта */
+    background-image: none; /* Убираем фоновое изображение */
+    box-shadow: none; /* Убираем тень */
+}
+
+window {
+    background-color: rgba(30, 30, 46, 0.75); /* Устанавливаем цвет фона с прозрачностью */
+}
+
+button {
+    border-radius: 32px; /* Устанавливаем радиус скругления углов */
+    border-color: @crust; /* Устанавливаем цвет границы */
+    text-decoration-color: @text; /* Устанавливаем цвет подчеркивания текста */
+    color: @text; /* Устанавливаем цвет текста */
+    background-color: @base; /* Устанавливаем цвет фона */
+    border-style: solid; /* Устанавливаем стиль границы */
+    border-width: 4px; /* Устанавливаем ширину границы */
+    background-repeat: no-repeat; /* Запрещаем повторение фонового изображения */
+    background-position: center; /* Устанавливаем положение фонового изображения по центру */
+    background-size: 20%; /* Устанавливаем размер фонового изображения */
+    margin: 0px; /* Устанавливаем отступы */
+    animation: gradient_f 20s ease-in infinite; /* Устанавливаем анимацию */
+}
+
+button:focus {
+    background-color: @mantle; /* Устанавливаем цвет фона при фокусе */
+    background-size: 25%; /* Устанавливаем размер фонового изображения при фокусе */
+    transition: all 0.15s cubic-bezier(.55,0.0,0.28,1.682); /* Устанавливаем transition для плавного изменения */
+}
+
+button:hover {
+    background-color: @mantle; /* Устанавливаем цвет фона при наведении */
+    background-size: 30%; /* Устанавливаем размер фонового изображения при наведении */
+    outline-style: none; /* Убираем обводку */
+    animation: gradient_f 20s ease-in infinite; /* Устанавливаем анимацию */
+    transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682); /* Устанавливаем transition для плавного изменения */
+}
+
+#lock {
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png")); /* Устанавливаем фоновое изображение для кнопки блокировки */
+}
+
+#suspend {
+    background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png")); /* Устанавливаем фоновое изображение для кнопки сна */
+}
+
+#shutdown {
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png")); /* Устанавливаем фоновое изображение для кнопки выключения */
+}
+
+#reboot {
+    background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png")); /* Устанавливаем фоновое изображение для кнопки перезагрузки */
+}
