@@ -12,7 +12,7 @@ sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/ya
 ## Необходимые пакеты
 
 ```
-yay -S --needed waybar hyprpaper xdg-desktop-portal-hyprland xdg-desktop-portal-gtk hyprpolkitagent hyprsysteminfo nwg-look kora-icon-theme-git dracula-gtk-theme swaync pipewire wireplumber hyprshot slurp grim hyprland-qtutils hyprgraphics Hyprlang hyprwayland-scanner aquamarine hyprutils hyprlock qt6-svg qt6-declarative qt5-quickcontrols2 wlogout nwg-drawer networkmanager gnome-calendar thunar leafpad pavucontrol sddm ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender libxcursor pixman wayland-protocols cairo pango libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang-git hyprcursor-git hyprwayland-scanner-git xcb-util-errors hyprutils-git glaze hyprgraphics-git aquamarine-git re2 hyprland-qtutils qt5ct qt6ct qt5-wayland qt6-wayland
+yay -S --needed waybar hyprpaper xdg-desktop-portal-hyprland xdg-desktop-portal-gtk hyprpolkitagent hyprsysteminfo nwg-look kora-icon-theme dracula-gtk-theme swaync pipewire wireplumber hyprshot slurp grim hyprland-qtutils hyprgraphics Hyprlang hyprwayland-scanner aquamarine hyprutils hyprlock qt6-svg qt6-declarative qt5-quickcontrols2 wlogout nwg-drawer networkmanager gnome-calendar thunar leafpad pavucontrol sddm ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender libxcursor pixman wayland-protocols cairo pango libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang hyprcursor hyprwayland-scanner xcb-util-errors hyprutils glaze hyprgraphics aquamarine re2 hyprland-qtutils qt5ct qt6ct qt5-wayland qt6-wayland lib32-pipewire
 ```
 
 
@@ -20,34 +20,25 @@ yay -S --needed waybar hyprpaper xdg-desktop-portal-hyprland xdg-desktop-portal-
 
 ## Софт
 
-1) файловый менеджер - thunar (нужен пакет GVfs для нормальной работы)
-2) текстовый редактор - leafpad
+1) файловый менеджер - pcmanfm + gvfs
+2) текстовый редактор - gedit
 3) управление звуком - pavucontrol
-4) запуск приложений -  nwg-drawer
+4) запуск приложений -  walker
+5) Плеер mpv
+6) Картинки - eog
+7) Офис - OnlyOffice
+8) Архиватор - file-roller 
+9) Pdf - pappers
+10) torrent - transmisson
+11) Диски - [gnome-disk-utility](https://github.com/GNOME/gnome-disk-utility)
+12) Системный монитор - [Mission Center](https://gitlab.com/mission-center-devs/mission-center)
+13) FTP клиент - [Filezilla](https://filezilla-project.org/)
+14) Браузер brave
 
+```
+yay -S --needed pcmanfm gvfs gedit pavucontrol walker-bin mpv eog onlyoffice-bin file-roller papers transmission-gtk gnome-disk-utility mission-center mission-center filezilla  brave-bin 
+```
 
-
-## Настройка монтирования дисков
-
-1) установить пакет hyprpolkitagent
-2) прописать в автостарт - exec-once = systemctl --user start hyprpolkitagent
-
-
-## Установка темы
-
-1) Установить программу nwg-look
-2) В программе поменять тему
-
-## Иконки 
-
-1) papirus
-2) fluent
-3) kora (favorite)
-4) flat remix
-
-## Обои
-
-поменять картинку в ~/Изображения/1.jpg
 
 ## Waybar
 
@@ -56,10 +47,6 @@ yay -S --needed waybar hyprpaper xdg-desktop-portal-hyprland xdg-desktop-portal-
 ```
 sudo usermod -a -G input "$(whoami)"
 ```
-
-## Скриншоты
-
-Hyprshot
 
 ## Визуальное изменение громкости 
 
@@ -89,3 +76,4 @@ Current=catppuccin-mocha
 Numlock=on
 EOF'
 ```
+
