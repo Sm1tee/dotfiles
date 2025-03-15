@@ -1,0 +1,127 @@
+# ~/.config/starship.toml
+
+add_newline = true
+
+format = """
+$battery\
+$os\
+$hostname\
+$directory\
+$cmd_duration\
+$container\
+$docker_context\
+$localip\
+$fill
+$line_break\
+$username\
+$time\
+$character\
+"""
+
+[character]
+format = "$symbol "  
+success_symbol = "[➜](bold #00bfff) "  
+error_symbol = "[✗](bold #ff007f) "    
+disabled = false  
+
+[battery]
+full_symbol = "[🔋 FULL](bold #40e0d0) "  
+charging_symbol = "[⚡️ CHRG](bold #4682b4) "
+discharging_symbol = "[🪫 DSCH](bold #5f9ea0) " 
+unknown_symbol = "[❓ UNKN](bold #add8e6) "
+empty_symbol = "[💀 EMPTY](bold #000080) "   
+format = "[$symbol$percentage]($style) "  
+disabled = false  
+
+[[battery.display]]  
+threshold = 10        
+style = "bold #4169e1"    
+
+[[battery.display]]  
+threshold = 30        
+style = "bold #1e90ff" 
+discharging_symbol = "[⚠️ LOW](bold #1e90ff) "  
+
+[[battery.display]]  
+threshold = 75        
+style = "bold #6495ed"  
+charging_symbol = "[✅ CHRG](bold #6495ed) "   
+
+[cmd_duration]
+min_time = 100  
+show_milliseconds = false  
+format = "[⏳$duration](bold #00ced1) "  
+disabled = false  
+
+[container]
+symbol = "🐳 "  
+style = "bold #4682b4"  
+format = "[$symbol$name]($style) "  
+disabled = false  
+
+[docker_context]
+format = "via [$symbol$context](bold #5f9ea0) "  
+symbol = "🐳 "  
+only_with_files = true  
+detect_extensions = []   
+detect_files = ["docker-compose.yml", "Dockerfile"]  
+detect_folders = []  
+style = "bold #5f9ea0"  
+disabled = false  
+
+[directory]
+truncation_length = 8       
+truncate_to_repo = true      
+format = "[$path]($style)[$read_only]($read_only_style) "  
+style = "bold #20b2aa"         
+disabled = false            
+read_only = "🔒"           
+read_only_style = "bold #008b8b"  
+truncation_symbol = "../"   
+home_symbol = "🏠"          
+use_os_path_sep = true       
+
+[fill]
+symbol = "━"
+style = "bold #00ff7f"  
+disabled = false  
+
+[hostname]
+ssh_only = false  
+ssh_symbol = "🌐 "  
+format = "[$ssh_symbol$hostname](bold #7fffd4) "  
+disabled = false  
+
+[line_break]
+disabled = false  
+
+[localip]
+ssh_only = false  
+format = "[$localipv4](bold #48d1cc) "  
+style = "bold #48d1cc"  
+disabled = false  
+
+[os]
+format = "[$symbol]($style)"  
+style = "bold #00bfff"  
+disabled = false  
+[os.symbols]      
+Windows = " "
+Macos = " "
+Linux = "🙁"
+Arch = " "
+Unknown = " "
+
+[time]
+format = "[$time](bold #87ceeb) "  
+use_12hr = false  
+time_format = "%T"  
+style = "bold #87ceeb"  
+disabled = false  
+
+[username]
+style_root = "bold #00ffff"  
+style_user = "bold #4682b4"  
+format = "[👤$user]($style) "  
+show_always = true  
+disabled = false  
