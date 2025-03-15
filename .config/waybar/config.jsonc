@@ -28,13 +28,11 @@
  ****************************************************************************************/
 
     "modules-left": [             // модули слева
-        "custom/apps",
-        "hyprland/workspaces",
-        "hyprland/language"
+        "hyprland/workspaces"
+      
         
     ],
-    "modules-center": [  
-               // модули по центру 
+    "modules-center": [           // модули по центру 
         "custom/power",
         "clock"
         
@@ -42,10 +40,8 @@
         
     ],
     "modules-right": [           // модули справа
-    //  "bluetooth",
-    //  "battery",
-    //  "backlight",
-       "wlr/taskbar",
+    //  "wlr/taskbar",
+        "hyprland/language",
         "privacy",
         "custom/swaync",
         "wireplumber",
@@ -68,50 +64,11 @@
 
  "tray": {
 
-  "icon-size": 20, // Размер иконок в трее
+  "icon-size": 22, // Размер иконок в трее
   // Расстояние между иконками в трее
   "spacing": 8
 },
 
-/****************************************************************************************
- *                                                                                      *
- *                                     БАТАРЕЯ                                          *
- *                                                                                      *
- ****************************************************************************************/
-    
-        // "battery": {
-        //     "bat": "BAT0",       //  Имя батареи (узнать: `ls /sys/class/power_supply/`)
-        //     "format": "{capacity}% {icon}", //  Как показывать информацию (проценты и иконка)
-        //     "format-icons": ["", "", "", "", ""], //  Иконки для разных уровней заряда (от пустого к полному)
-        //     "interval": 60,  
-        //     "states": {
-        //       "warning": 30,   // Когда заряд <= 30%, модуль будет иметь класс CSS "warning" (можно настроить цвет в style.css)
-        //       "critical": 15,  // Когда заряд <= 15%, модуль будет иметь класс CSS "critical"
-        //       "tooltip": true
-        //     }
-        // },
-
-
-/****************************************************************************************
- *                                                                                      *
- *                                     BLUETOOTH                                        *
- *                                                                                      *
- ****************************************************************************************/
-         
-     // "bluetooth": {
-
-    //   "format": " {status}",  // Формат по умолчанию. Отображает иконку Bluetooth и статус.  
-    //   "format-disabled": "󰂳",    // Формат, когда контроллер отключен. Пустая строка скрывает модуль.
-    //   "format-off": " Off",       // Формат, когда контроллер выключен.
-    //   "format-on": " On",        // Формат, когда контроллер включен, но нет подключенных устройств.
-    //   "format-connected": " {num_connections} connected", // Формат, когда есть хотя бы одно подключенное устройство. Показывает количество подключений.
-    //   "tooltip": true,  
-    //   "tooltip-format": " {device_alias}",
-	  //   "tooltip-format-connected": "{device_enumerate}",
-    // 	 "tooltip-format-enumerate-connected": " {device_alias} 󰂄{device_battery_percentage}%",    // Включить/выключить всплывающую подсказку.
-    //   "on-click": "blueman-manager" // Команда, выполняемая при клике левой кнопкой мыши.
-    // },
-  
     
 /****************************************************************************************
  *                                                                                      *
@@ -125,7 +82,8 @@
      "tooltip": false,       // Включить всплывающую подсказку.
      "locale": "ru_RU.utf8",
      "timezone": "Europe/Moscow", // Часовой пояс.  См.  https://en.wikipedia.org/wiki/List_of_tz_database_time_zones  для списка доступных значений.    // "timezones": [ "Etc/UTC", "America/New_York" ], // Список часовых поясов, переключаемых колесом мыши.  Исключает "timezone". 
-     "on-click": "gnome-calendar" // Команда, выполняемая при клике левой кнопкой мыши.
+     "on-click": "gnome-calendar", // Команда, выполняемая при клике левой кнопкой мыши.
+     "on-click-right": "walker" 
       },
 
 /****************************************************************************************
@@ -149,38 +107,6 @@
 
   },
 
-/****************************************************************************************
- *                                                                                      *
- *                                     ПОДСВЕТКА                                        *
- *                                                                                      *
- ****************************************************************************************/
-
-//  "backlight": {
-// 	"interval": 2,
-// 	"align": 0,
-// 	"rotate": 0,
-// 	//"format": "{icon} {percent}%",
-// 	"format-icons": [
-// 		" ",
-// 		" ",
-// 		" ",
-// 		"󰃝 ",
-// 		"󰃞 ",
-// 		"󰃟 ",
-// 		"󰃠 "
-// 	],
-// 	"format": "{icon}",
-// 	//"format-icons": ["","","","","","","","","","","","","","",""],
-// 	"tooltip-format": "backlight {percent}%",
-// 	"icon-size": 10,
-// 	"on-click": "",
-// 	"on-click-middle": "",
-// 	"on-click-right": "",
-// 	"on-update": "",
-// 	"on-scroll-up": "$HOME/.config/hypr/scripts/Brightness.sh --inc",
-// 	"on-scroll-down": "$HOME/.config/hypr/scripts/Brightness.sh --dec",
-// 	"smooth-scrolling-threshold": 1
-// },
 
 /****************************************************************************************
  *                                                                                      *
@@ -189,37 +115,40 @@
  ****************************************************************************************/
 
  "hyprland/workspaces": {
-  // "on-click": "activate",
-  "format": "{icon} {windows}", // Добавляем {windows}
+  "format": " {icon} {windows} ", 
   "format-icons": {
-      "default": "",
-      "1": "I",
-      "2": "II",
-      "3": "III",
-      "4": "IV",
-      "5": "V",
-      "6": "VI",
-      "7": "VII",
-      "8": "VIII",
-      "9": "IX",
-      "active": "●",
-      "urgent": "🔔"
+    "1": "1",
+		"2": "2",
+		"3": "3",
+		"4": "4",
+		"5": "5",
+		"6": "6",
+		"7": "7",
+		"8": "8",
+		"9": "9",
+		"10": "10",
+      "default": "",
+      "empty": "  ",
+      "urgent": "⚠️"
   },
     "persistent-workspaces": {
-      "*": 6
+      "*": 5
     },
     "window-rewrite": {
+     
       "class<thunar>": "",  // Используем стандартную иконку папки
-      "class<Vivaldi-stable>": "",  // Стандартный (рекомендуется)
+      "class<Vivaldi-stable>": "",  // Стандартный (рекомендуется)
       "class<kitty>": "", 
       "class<Dota2>": "󰸶", 
       "class<Steam>": "", 
       "class<org.telegram.desktop>": "", // Иконка Telegram
-      "class<Obsidian>": "󱓶",
+      "class<Obsidian>": "",
       "Code": "󰨞"
 
     },
-   "window-rewrite-default": "" 
+    "window-rewrite-default": " "
+
+
 },
 
 /****************************************************************************************
@@ -231,8 +160,8 @@
 "network": {
 	"format": "{ifname}",
 	"format-wifi": "{icon}",
-	"format-ethernet": "󰱔",
-	"format-disconnected": "󰱟",
+	"format-ethernet": "󰱔 ",
+	"format-disconnected": "󰱟 ",
 	"tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
 	"format-linked": "󰈁 {ifname} (No IP)",
 	"tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
@@ -270,18 +199,18 @@
  *                                                                                      *
  ****************************************************************************************/
 
-"wlr/taskbar": {
-	"format": "{icon}",
-	"icon-size": 26,
-	"all-outputs": false,
-	"tooltip-format": "{title}",
-	"on-click": "activate",
-	"on-click-middle": "close",
-	"ignore-list": [
-		"wofi",
-		"rofi"
-		]
-},
+// "wlr/taskbar": {
+// 	"format": "{icon}",
+// 	"icon-size": 26,
+// 	"all-outputs": false,
+// 	"tooltip-format": "{title}",
+// 	"on-click": "activate",
+// 	"on-click-middle": "close",
+// 	"ignore-list": [
+// 		"wofi",
+// 		"rofi"
+// 		]
+// },
 
 /****************************************************************************************
  *                                                                                      *
@@ -310,7 +239,7 @@
 "custom/swaync": {
 	"tooltip": true,
 	"tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
-	"format": "{} {icon} ",
+	"format": "{} {icon}",
 	"format-icons": {
 		"notification": "<span foreground='red'><sup></sup></span>",
 		"none": "",
@@ -326,7 +255,7 @@
 	"exec": "swaync-client -swb",
 	"on-click": "sleep 0.1 && swaync-client -t -sw",
 	"on-click-right": "swaync-client -d -sw",
-	"escape": true,
+	"escape": true
 
 },
 
@@ -338,25 +267,9 @@
  ****************************************************************************************/
 
 "custom/power": {
-  "format": " ", // Формат отображения иконки выключения
+  "format": "", // Формат отображения иконки выключения
   "exec": "echo ; echo 󰟡 power // blur", // Команда для выполнения
   "on-click": "wlogout" // Команда при клике левой кнопкой мыши
-},
-
-
-/****************************************************************************************
- *                                                                                      *
- *                              Панель приложений                                       *
- *                                                                                      *
- ****************************************************************************************/
-
- "custom/apps": {
-  "format": "󰀻", // Формат отображения иконки выключения
-  "exec": "echo ; echo 󰟡 power // blur", // Команда для выполнения
-  "on-click": "walker" // Команда при клике левой кнопкой мыши
 }
 
-
-
 }
-  
