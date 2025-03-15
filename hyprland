@@ -20,23 +20,25 @@ yay -S --needed waybar hyprpaper xdg-desktop-portal-hyprland xdg-desktop-portal-
 
 ## Софт
 
-1) файловый менеджер - pcmanfm + gvfs
-2) текстовый редактор - gedit
-3) управление звуком - pavucontrol
-4) запуск приложений -  walker
-5) Плеер mpv
-6) Картинки - eog
-7) Офис - OnlyOffice
-8) Архиватор - file-roller 
-9) Pdf - pappers
-10) torrent - transmisson
-11) Диски - [gnome-disk-utility](https://github.com/GNOME/gnome-disk-utility)
-12) Системный монитор - [Mission Center](https://gitlab.com/mission-center-devs/mission-center)
-13) FTP клиент - [Filezilla](https://filezilla-project.org/)
-14) Браузер brave
+1) файловый менеджер - caja
+2) Терминал - kitty
+3) Терминал стиль - starship
+4) текстовый редактор - gedit
+5) управление звуком - pavucontrol
+6) запуск приложений -  walker
+7) Плеер mpv
+8) Картинки - eog
+9) Офис - OnlyOffice
+10) Архиватор - file-roller 
+11) Pdf - pappers
+12) torrent - transmisson
+13) Диски - [gnome-disk-utility](https://github.com/GNOME/gnome-disk-utility)
+14) Системный монитор - [Mission Center](https://gitlab.com/mission-center-devs/mission-center)
+15) FTP клиент - [Filezilla](https://filezilla-project.org/)
+16) Браузер vivaldi
 
 ```
-yay -S --needed pcmanfm gvfs gedit pavucontrol walker-bin mpv eog onlyoffice-bin file-roller papers transmission-gtk gnome-disk-utility mission-center mission-center filezilla  brave-bin 
+yay -S --needed kitty starship caja gedit pavucontrol walker-bin mpv eog onlyoffice-bin file-roller papers transmission-gtk gnome-disk-utility mission-center mission-center filezilla vivaldi 
 ```
 
 
@@ -76,4 +78,5 @@ Current=catppuccin-mocha
 Numlock=on
 EOF'
 ```
+
 
