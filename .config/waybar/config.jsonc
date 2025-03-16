@@ -128,9 +128,9 @@
 		"9": "9",
 		"10": "10",
       "default": "",
-      "empty": "  ",
-      "urgent": "⚠️"
+      "empty": "  "
   },
+  
     "persistent-workspaces": {
       "*": 5
     },
