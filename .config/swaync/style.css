@@ -1,311 +1,364 @@
-@define-color cc-bg rgba(26, 27, 38, 1);
-@define-color noti-border-color rgba(255, 255, 255, 0.15);
-@define-color noti-bg rgb(17, 17, 27);
-@define-color noti-bg-darker rgb(43, 43, 57);
-@define-color noti-bg-hover rgb(27, 27, 43);
-@define-color noti-bg-focus rgba(27, 27, 27, 0.6);
-@define-color noti-close-bg rgba(255, 255, 255, 0.1);
-@define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);
-@define-color text-color rgba(169, 177, 214, 1);
-@define-color text-color-disabled rgb(150, 150, 150);
-@define-color bg-selected rgb(0, 128, 255);
+/* Определяем пользовательские переменные для цветов */
+
+
+@define-color cc-bg rgba(26, 27, 38, 1);  /* Цвет фона центра управления */
+@define-color noti-border-color rgba(255, 255, 255, 0.15);  /* Цвет границы уведомлений */
+@define-color noti-bg rgb(17, 17, 27);  /* Цвет фона уведомлений */
+@define-color noti-bg-darker rgb(43, 43, 57); /* Более темный цвет фона уведомлений (используется для наведения/фокуса) */
+@define-color noti-bg-hover rgb(27, 27, 43);  /* Цвет фона уведомлений при наведении */
+@define-color noti-bg-focus rgba(27, 27, 27, 0.6);  /* Цвет фона уведомлений при фокусе (с прозрачностью) */
+@define-color noti-close-bg rgba(255, 255, 255, 0.1);  /* Цвет фона кнопки закрытия */
+@define-color noti-close-bg-hover rgba(255, 255, 255, 0.15);  /* Цвет фона кнопки закрытия при наведении */
+@define-color text-color rgba(169, 177, 214, 1);  /* Основной цвет текста */
+@define-color text-color-disabled rgb(150, 150, 150); /* Цвет отключенного текста */
+@define-color bg-selected rgb(0, 128, 255);  /* Цвет фона выбранных элементов */
+
+/* Глобальный стиль: устанавливаем шрифт по умолчанию */
+
 
 * {
-  font-family: JetBrainsMono NFM SemiBold;
+  font-family: JetBrainsMono NFM SemiBold;  /* Используем шрифт JetBrains Mono с начертанием SemiBold */
 }
 
+/* Стиль для строк уведомлений в центре управления при фокусе и наведении */
 .control-center .notification-row:focus,
 .control-center .notification-row:hover {
-  opacity: 1;
-  background: @noti-bg-darker;
+  opacity: 1;              /* Обеспечиваем полную непрозрачность */
+  background: @noti-bg-darker;  /* Используем более темный фон уведомлений */
 }
 
+/* Стиль для строк уведомлений (сбрасываем некоторые стили по умолчанию) */
 .notification-row {
-  outline: none;
-  margin: 0px;
-  padding: 0px;
+  outline: none;  /* Убираем обводку */
+  margin: 0px;     /* Убираем внешние отступы */
+  padding: 0px;    /* Убираем внутренние отступы */
 }
 
+/* Стиль для отдельных уведомлений */
 .notification {
-  background: @cc-bg;
-  border: 2px solid #34548a;
-  border-radius: 0px;
-  margin: 3px -2px 3px 0px;
+  background: @cc-bg;            /* Используем цвет фона центра управления */
+  border: 2px solid #34548a; /* Добавляем границу */
+  border-radius: 30px;       /* Скругленные углы */
+  margin: 3px -2px 3px 0px;   /* Корректируем внешние отступы */
+}
+.notification-content{
+  background: @cc-bg; /*Использовать цвет фона центра управления*/
 }
 
-.notification-content {
-  background: @cc-bg;
-}
-
+/* Стиль для кнопки действия по умолчанию в уведомлении */
 .notification-default-action {
-  margin: 0;
-  padding: 0;
-  border-radius: 0px;
+  margin: 0;        /* Убираем внешние отступы */
+  padding: 0;       /* Убираем внутренние отступы */
+  border-radius: 0px;  /* Убираем скругленные углы (будет переопределено позже) */
 }
 
+/* Стиль для кнопки закрытия */
 .close-button {
-  background: #f7768e;
-  color: @cc-bg;
-  text-shadow: none;
-  padding: 0px;
-  border-radius: 0px;
-  margin-top: 5px;
-  margin-right: 5px;
+  background: #f7768e;        /* Красный фон */
+  color: @cc-bg;            /* Используем цвет фона центра управления для текста (для контраста) */
+  text-shadow: none;         /* Убираем тень текста */
+  padding: 0px;              /* Убираем внутренние отступы */
+  border-radius: 0px;        /* Убираем скругленные углы */
+  margin-top: 5px;           /* Добавляем верхний отступ */
+  margin-right: 5px;          /* Добавляем правый отступ */
 }
 
+/* Стиль для кнопки закрытия при наведении */
 .close-button:hover {
-  box-shadow: none;
-  background: #f7768e;
-  transition: all 0.15s ease-in-out;
-  border: none;
+  box-shadow: none;      /* Убираем тень */
+  background: #f7768e;    /* Сохраняем тот же красный фон */
+  transition: all 0.15s ease-in-out;  /* Плавный переход для эффекта наведения */
+  border: none;          /* Убираем границу */
 }
 
+/*Стили для действий*/
 .notification-action {
-  border: 2px solid #34548a;
-  border-top: none;
-  border-radius: 0px;
+  border: 2px solid #3f94c2; /* Добавить границу. */
+  border-top: none;          /* Убрать верхнюю границу. */
+  border-radius: 30px;       /* Скругленные углы. */
 }
 
+/* Стиль для кнопок действий уведомлений при наведении */
 .notification-default-action:hover,
 .notification-action:hover {
-  color: #7aa2f7;
-  background: @cc-bg;
+  color: #7aa2f7;        /* Меняем цвет текста */
+  background: @cc-bg;    /* Используем фон центра управления */
 }
 
+/* Стиль для кнопки действия по умолчанию */
 .notification-default-action {
-  border-radius: 5px;
-  margin: 0px;
+  border-radius: 30px;  /* Скругленные углы */
+  margin: 0px;        /* Убираем внешние отступы */
 }
 
+/* Стиль для кнопки действия по умолчанию, когда она *не* единственная дочерняя */
 .notification-default-action:not(:only-child) {
-  border-bottom-left-radius: 7px;
-  border-bottom-right-radius: 7px;
+  border-radius: 30px
 }
 
+/* Стиль для первой кнопки действия */
 .notification-action:first-child {
-  border-bottom-left-radius: 10px;
-  background: #1b1b2b;
+  border-bottom-left-radius: 30px;  /* Скругляем нижний левый угол */
+  background: #1b1b2b;             /* Более темный фон */
 }
 
+/* Стиль для последней кнопки действия */
 .notification-action:last-child {
-  border-bottom-right-radius: 10px;
-  background: #1b1b2b;
+  border-bottom-right-radius: 30px; /* Скругляем нижний правый угол */
+  background: #1b1b2b;            /*Темный фон*/
 }
 
+/*Встроенный ответ*/
 .inline-reply {
-  margin-top: 8px;
+  margin-top: 8px; /*Добавить верхний отступ*/
 }
 
+/*Поле ввода для встроенного ответа*/
 .inline-reply-entry {
-  background: @noti-bg-darker;
-  color: @text-color;
-  caret-color: @text-color;
-  border: 1px solid @noti-border-color;
-  border-radius: 5px;
+  background: @noti-bg-darker;  /*Тёмный фон*/
+  color: @text-color;  /*Цвет текста*/
+  caret-color: @text-color; /*Цвет курсора*/
+  border: 1px solid @noti-border-color; /*Цвет рамки*/
+  border-radius: 30px; /*Скругление*/
 }
 
+/*Кнопка для отправки встроенного ответа*/
 .inline-reply-button {
-  margin-left: 4px;
-  background: @noti-bg;
-  border: 1px solid @noti-border-color;
-  border-radius: 5px;
-  color: @text-color;
+  margin-left: 4px; /*Отступ слева*/
+  background: @noti-bg; /*Фон*/
+  border: 1px solid @noti-border-color; /*Рамка*/
+  border-radius: 30px; /*Скругление*/
+  color: @text-color; /*Цвет текста*/
 }
 
+/*Если кнопка отправки неактивна*/
 .inline-reply-button:disabled {
-  background: initial;
-  color: @text-color-disabled;
-  border: 1px solid transparent;
+  background: initial; /*Убрать фон*/
+  color: @text-color-disabled; /*Цвет для неактивной*/
+  border: 1px solid transparent; /*Прозрачная рамка*/
 }
-
+/*При наведении на кнопку отправки*/
 .inline-reply-button:hover {
-  background: @noti-bg-hover;
+  background: @noti-bg-hover; /*Фон при наведении*/
 }
 
+/*Стиль для изображений*/
 .image {
-  border-radius: 0px;
-  margin-right: 10px;
+  border-radius: 30px; /*Скругление*/
+  margin-right: 10px;  /*Отступ справа*/
 }
 
+/*Заголовок уведомления*/
 .summary {
-  font-size: 16px;
-  font-weight: 700;
-  background: transparent;
-  color: rgba(158, 206, 106, 1);
-  text-shadow: none;
+  font-size: 16px;        /*Размер*/
+  font-weight: 700;       /*Жирность*/
+  background: transparent;  /*Прозрачный фон*/
+  color: rgba(158, 206, 106, 1); /*Цвет*/
+  text-shadow: none;       /*Без тени*/
 }
 
+/*Время*/
 .time {
-  font-size: 16px;
-  font-weight: 700;
-  background: transparent;
-  color: @text-color;
-  text-shadow: none;
-  margin-right: 18px;
+  font-size: 16px;          /*Размер*/
+  font-weight: 700;         /*Жирность*/
+  background: transparent;    /*Прозрачный фон*/
+  color: @text-color;        /*Цвет текста*/
+  text-shadow: none;         /*Без тени*/
+  margin-right: 18px;        /*Отступ справа*/
 }
 
+/*Основной текст уведомления*/
 .body {
-  font-size: 15px;
-  font-weight: 400;
-  background: transparent;
-  color: @text-color;
-  text-shadow: none;
+  font-size: 15px;          /*Размер*/
+  font-weight: 400;         /*Жирность*/
+  background: transparent;    /*Прозрачный фон*/
+  color: @text-color;        /*Цвет текста*/
+  text-shadow: none;         /*Без тени*/
 }
 
+/*Центр управления - основной контейнер*/
 .control-center {
-  background: @cc-bg;
-  border: 2px solid #34548a;
-  border-radius: 0px;
+  background: @cc-bg;            /*Цвет фона*/
+  border: 2px solid #34548a; /*Рамка*/
+  border-radius: 30px;       /*Скругление*/
 }
 
 .control-center-list {
-  background: transparent;
+  background: transparent; /*Прозрачный фон*/
 }
 
+/*Заглушка, когда нет уведомлений*/
 .control-center-list-placeholder {
-  opacity: 0.5;
+  opacity: 0.5;  /*Полупрозрачность*/
 }
 
+/*Плавающие уведомления*/
 .floating-notifications {
-  background: transparent;
+  background: transparent;  /*Прозрачный фон*/
 }
 
+/*Пустое окно (затемнение фона)*/
 .blank-window {
-  background: alpha(black, 0.1);
+  background: alpha(black, 0.1);  /*Полупрозрачный черный*/
 }
 
+/*Заголовок виджета*/
 .widget-title {
-  color: #7aa2f7;
-  background: @noti-bg-darker;
-  padding: 5px 10px;
-  margin: 10px 10px 5px 10px;
-  font-size: 1.5rem;
-  border-radius: 5px;
+  color: #7aa2f7;       /*Цвет текста*/
+  background: @noti-bg-darker; /*Фон*/
+  padding: 5px 10px;      /*Внутренние отступы*/
+  margin: 10px 10px 5px 10px;  /*Внешние отступы*/
+  font-size: 1.5rem;    /*Размер*/
+  border-radius: 30px;   /*Скругление*/
 }
 
+/*Кнопка очистки в заголовке*/
 .widget-title > button {
-  font-size: 1rem;
-  color: @text-color;
-  text-shadow: none;
-  background: @noti-bg;
-  box-shadow: none;
-  border-radius: 5px;
+  font-size: 1rem;      /*Размер*/
+  color: @text-color;  /*Цвет*/
+  text-shadow: none;     /*Без тени*/
+  background: @noti-bg; /*Фон*/
+  box-shadow: none;     /*Без тени*/
+  border-radius: 30px;   /*Скругление*/
 }
 
+/*При наведении на кнопку очистки*/
 .widget-title > button:hover {
-  background: #f7768e;
-  color: @cc-bg;
+  background: #f7768e; /*Красный фон*/
+  color: @cc-bg;       /*Цвет текста*/
 }
 
+/*Виджет "Не беспокоить"*/
 .widget-dnd {
-  background: @noti-bg-darker;
-  padding: 5px 10px;
-  margin: 5px 10px;
-  border-radius: 5px;
-  font-size: large;
-  color: #7aa2f7;
+  background: @noti-bg-darker; /*Фон*/
+  padding: 5px 10px;          /*Внутренние отступы*/
+  margin: 20px 10px 0px 10px;    /*Внешние отступы*/
+  border-radius: 30px;       /*Скругление*/
+  font-size: large;         /*Размер шрифта*/
+  color: #7aa2f7;           /*Цвет текста*/
 }
-
+/*Переключатель*/
 .widget-dnd > switch {
-  border-radius: 5px;
-  background: #7aa2f7;
+  margin: 0px 2px 0px 0px;
+  border-radius: 30px;  /*Скругление*/
+  background: #7aa2f7;  /*Фон*/
 }
 
+/*Если переключатель активен*/
 .widget-dnd > switch:checked {
-  background: #f7768e;
-  border: 1px solid #f7768e;
+  background: #f7768e;  /*Красный фон*/
+  border: 1px solid #f7768e;  /*Красная рамка*/
 }
 
+/*Ползунок внутри переключателя*/
 .widget-dnd > switch slider,
 .widget-dnd > switch:checked slider {
-  background: @cc-bg;
-  border-radius: 5px;
+  background: @cc-bg;     /*Фон*/
+  border-radius: 30px;   /*Скругление*/
 }
 
+/*Виджет с простым текстом (лейблом)*/
 .widget-label {
-  margin: 10px 10px 5px 10px;
+    margin: 0px 0px 0px 10px; /*Внешние отступы*/
 }
 
 .widget-label > label {
-  font-size: 1rem;
-  color: @text-color;
+  font-size: 1rem;      /*Размер*/
+  color: @text-color;  /*Цвет*/
 }
 
+/*Виджет управления плеером (mpris)*/
 .widget-mpris {
-  color: @text-color;
-  background: @noti-bg-darker;
-  padding: 5px 10px;
-  margin: 5px 10px 5px 10px;
-  border-radius: 5px;
+  color: @text-color;       /*Цвет текста*/
+  background: @noti-bg-darker; /*Фон*/
+  padding: 5px 10px;        /*Внутренние отступы*/
+  margin: 5px 10px 5px 10px;   /*Внешние отступы*/
+  border-radius: 30px;       /*Скругление*/
 }
 
+/*Кнопки управления плеером*/
 .widget-mpris > box > button {
-  border-radius: 5px;
+  border-radius: 30px;  /*Скругление*/
 }
 
+/*Контейнер для информации о плеере*/
 .widget-mpris-player {
-  padding: 5px 10px;
-  margin: 10px;
+  padding: 5px 10px;    /*Внутренние отступы*/
+  border-radius: 30px; /*Скругление*/
+  margin: 10px;         /*Внешние отступы*/
 }
 
+/*Название трека*/
 .widget-mpris-title {
-  font-weight: 700;
-  font-size: 1.25rem;
+  font-weight: 700;       /*Жирный*/
+  border-radius: 30px;   /*Скругление*/
+  font-size: 1.25rem;  /*Размер*/
 }
 
+/*Исполнитель/альбом*/
 .widget-mpris-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.1rem;  /*Размер*/
 }
 
+/*Виджет с сеткой кнопок*/
 .widget-buttons-grid {
-  font-size: x-large;
-  padding: 5px;
-  margin: 10px 10px 5px 10px;
-  border-radius: 0px;
-  background: @noti-bg-darker;
+  font-size: x-large;       /*Очень крупный шрифт*/
+  padding: 0px 30px 0px 50px;    /*Внутренние отступы*/
+  margin: 10px 10px 5px 10px;   /*Внешние отступы*/
+  border-radius: 30px;     /*Скругление*/
+  background: @noti-bg-darker;   /*Фон*/
 }
 
+/*Стили для кнопок внутри сетки*/
 .widget-buttons-grid > flowbox > flowboxchild > button {
-  margin: 3px;
-  background: @cc-bg;
-  border-radius: 0px;
-  color: @text-color;
+  margin: 0.4rem 0.3rem;        /*Внешние отступы*/
+  background: @cc-bg;        /*Фон*/
+  border-radius: 30px;      /*Скругление*/
+  color: @text-color;       /*Цвет текста*/
 }
 
+/*При наведении на кнопку*/
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
-  background: rgba(122, 162, 247, 1);
-  color: @cc-bg;
+  background: rgba(122, 162, 247, 1);  /*Синий фон*/
+  border-radius: 30px;        /*Скругление*/
+  color: @cc-bg;            /*Цвет текста*/
 }
 
+/*Если кнопка нажата (активна)*/
 .widget-buttons-grid > flowbox > flowboxchild > button:checked {
-  background: rgb(158, 206, 106);
-  color: @cc-bg;
+  background: rgb(158, 206, 106); /*Зеленый фон*/
+  border-radius: 30px;           /*Скругление*/
+  color: @cc-bg;              /*Цвет текста*/
 }
 
+/*Виджет меню (menubar)*/
 .widget-menubar > box > .menu-button-bar > button {
-  border: none;
-  background: transparent;
+  border: none;              /*Без рамки*/
+  border-radius: 30px;      /*Скругление*/
+  background: transparent;   /*Прозрачный фон*/
 }
-
 .topbar-buttons > button {
   border: none;
+  border-radius: 30px;
   background: transparent;
 }
 
+/*Виджет громкости*/
 .widget-volume {
-  background: @noti-bg-darker;
-  padding: 5px;
-  margin: 5px 10px;
-  border-radius: 0px;
-  font-size: 2rem;
-  color: #7aa2f7;
+  background: @noti-bg-darker;   /*Фон*/
+  padding: 5px;                /*Внутренние отступы*/
+  margin: 5px 10px;           /*Внешние отступы*/
+  border-radius: 30px;        /*Скругление*/
+  font-size: 2rem;            /*Размер*/
+  color: #7aa2f7;            /*Цвет*/
 }
 
+/*Виджет яркости*/
 .widget-backlight {
-  background: @noti-bg-darker;
-  padding: 5px;
-  margin: 5px 10px;
-  border-radius: 0px;
-  font-size: 2rem;
-  color: #7aa2f7;
+  background: @noti-bg-darker;  /*Фон*/
+  padding: 5px;             /*Внутренние отступы*/
+  margin: 5px 10px;            /*Внешние отступы*/
+  border-radius: 30px;     /*Скругление*/
+  font-size: 2rem;           /*Размер*/
+  color: #7aa2f7;           /*Цвет*/
 }

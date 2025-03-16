@@ -11,7 +11,7 @@
   "control-center-margin-right": 0,
   "control-center-margin-left": 0,
   "notification-2fa-action": true,
-  "notification-inline-replies": false,
+  "notification-inline-replies": true,
   "notification-icon-size": 24,
   "notification-body-image-height": 100,
   "notification-body-image-width": 100,
@@ -20,12 +20,12 @@
   "timeout-low": 3,
   "timeout-critical": 0,
   "fit-to-screen": false,
-  "control-center-width": 350,
-  "control-center-height": 600,
+  "control-center-width": 500,
+  "control-center-height": 900,
   "keyboard-shortcuts": true,
   "image-visibility": "when available",
   "transition-time": 200,
-  "hide-on-clear": false,
+  "hide-on-clear": true,
   "hide-on-action": true,
   "script-fail-notify": true,
   "widgets": [
@@ -41,7 +41,7 @@
       "title": {
           "text": "Уведомления",
           "clear-all-button": true,
-          "button-text": "Clear"
+          "button-text": "Очистить"
       },
       "dnd": {
           "text": "Не беспокоить"
@@ -64,11 +64,11 @@
           "actions": [
               {
                   "label": "󰐥",
-                  "command": "bash -c $HOME/.config/hypr/scripts/Wlogout.sh"
+                  "command": "systemctl poweroff"
               },
               {
                   "label": "󰌾",
-                  "command": "bash -c $HOME/.config/hypr/scripts/LockScreen.sh"
+                  "command": "hyprlock"
               },
               {
                   "label": "󰍃",
@@ -86,3 +86,5 @@
       }
   }
 }
+
+
