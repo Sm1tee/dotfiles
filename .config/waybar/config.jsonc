@@ -4,6 +4,8 @@
  *                                                                                      *
  ****************************************************************************************/
 
+// Вики -  https://github.com/Alexays/Waybar/wiki/Examples 
+
 {
     // "layer": "top", // Панель будет поверх всех окон если расскомментировать
     "position": "top", // Позиция панели возможные варианты - (top|bottom|left|right)
@@ -66,6 +68,10 @@
 
   "icon-size": 22, // Размер иконок в трее
   // Расстояние между иконками в трее
+  // "icons": {   // задать свои темы иконок
+	//     "blueman": "bluetooth",
+	//     "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+	// },
   "spacing": 8
 },
 
@@ -83,7 +89,7 @@
      "locale": "ru_RU.utf8",
      "timezone": "Europe/Moscow", // Часовой пояс.  См.  https://en.wikipedia.org/wiki/List_of_tz_database_time_zones  для списка доступных значений.    // "timezones": [ "Etc/UTC", "America/New_York" ], // Список часовых поясов, переключаемых колесом мыши.  Исключает "timezone". 
      "on-click": "gnome-calendar", // Команда, выполняемая при клике левой кнопкой мыши.
-     "on-click-right": "walker" 
+     "on-click-right": "rofi -show drun" 
       },
 
 /****************************************************************************************
@@ -100,8 +106,8 @@
 
   // Необязательная конфигурация (закомментирована):
   "on-click": "hyprctl switchxkblayout logitech-usb-keyboard next", // Команда при клике левой кнопкой мыши (переключение раскладки).
-  // "on-click-middle": "", // Команда при клике средней кнопкой мыши.
-  // "on-click-right": "",  // Команда при клике правой кнопкой мыши.
+  "on-click-middle": "crow", // Команда при клике средней кнопкой мыши.
+  "on-click-right": "cliphist list | rofi -dmenu -no-sort | cliphist decode | wl-copy",  // Команда при клике правой кнопкой мыши.
   // "tooltip-format": "{}", // Формат всплывающей подсказки.  По умолчанию:  то же, что и "format".
   "tooltip": false      // Включить/выключить всплывающую подсказку.
 
@@ -143,7 +149,15 @@
       "class<Steam>": "", 
       "class<org.telegram.desktop>": "", // Иконка Telegram
       "class<Obsidian>": "",
+      "class<org.qbittorrent.qBittorrent>": "",
+      "class<org.kde.CrowTranslate>": " ",
+      "class<WinBox>": "󱫋 ",
+      "class<mousepad>": "󰯂",
+      "class<io.missioncenter.MissionCenter>": "󰶜 ",
+      "class<LM Studio>": "󱚠 ",
       "Code": "󰨞"
+
+      
 
     },
     "window-rewrite-default": " "
@@ -237,7 +251,7 @@
  ****************************************************************************************/
 
 "custom/swaync": {
-	"tooltip": true,
+	"tooltip": false,
 	"tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
 	"format": "{} {icon}",
 	"format-icons": {
@@ -269,7 +283,9 @@
 "custom/power": {
   "format": "", // Формат отображения иконки выключения
   "exec": "echo ; echo 󰟡 power // blur", // Команда для выполнения
+  "tooltip": false,
   "on-click": "wlogout" // Команда при клике левой кнопкой мыши
+  
 }
 
 }

@@ -24,29 +24,6 @@ success_symbol = "[➜](bold #00bfff) "
 error_symbol = "[✗](bold #ff007f) "    
 disabled = false  
 
-[battery]
-full_symbol = "[🔋 FULL](bold #40e0d0) "  
-charging_symbol = "[⚡️ CHRG](bold #4682b4) "
-discharging_symbol = "[🪫 DSCH](bold #5f9ea0) " 
-unknown_symbol = "[❓ UNKN](bold #add8e6) "
-empty_symbol = "[💀 EMPTY](bold #000080) "   
-format = "[$symbol$percentage]($style) "  
-disabled = false  
-
-[[battery.display]]  
-threshold = 10        
-style = "bold #4169e1"    
-
-[[battery.display]]  
-threshold = 30        
-style = "bold #1e90ff" 
-discharging_symbol = "[⚠️ LOW](bold #1e90ff) "  
-
-[[battery.display]]  
-threshold = 75        
-style = "bold #6495ed"  
-charging_symbol = "[✅ CHRG](bold #6495ed) "   
-
 [cmd_duration]
 min_time = 100  
 show_milliseconds = false  
@@ -73,7 +50,7 @@ disabled = false
 truncation_length = 8       
 truncate_to_repo = true      
 format = "[$path]($style)[$read_only]($read_only_style) "  
-style = "bold #20b2aa"         
+style = "bold #FF0000"         
 disabled = false            
 read_only = "🔒"           
 read_only_style = "bold #008b8b"  
@@ -110,7 +87,8 @@ Windows = " "
 Macos = " "
 Linux = "🙁"
 Arch = " "
-Unknown = " "
+CachyOS = " "
+Unknown = " "
 
 [time]
 format = "[$time](bold #87ceeb) "  
@@ -122,6 +100,6 @@ disabled = false
 [username]
 style_root = "bold #00ffff"  
 style_user = "bold #4682b4"  
-format = "[👤$user]($style) "  
+format = "[💀$user]($style) "  
 show_always = true  
 disabled = false  
