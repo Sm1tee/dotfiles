@@ -1,82 +1,168 @@
-## Репозиторий с полезными инструментами
 
-https://github.com/hyprland-community/awesome-hyprland#runners-menus-and-application-launchers
+---
 
-
-Установить yay 
+## 0. Стартовые пакеты для  Hyprland
 
 ```
-sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+sudo pacman -S --needed git hyprland kitty sddm fish
 ```
 
-## Необходимые пакеты
+[Репозиторий с полезными инструментами](https://github.com/hyprland-community/awesome-hyprland#runners-menus-and-application-launchers)
+
+---
+## 1. Сменить оболочку:
 
 ```
-yay -S --needed waybar hyprpaper xdg-desktop-portal-hyprland xdg-desktop-portal-gtk hyprpolkitagent hyprsysteminfo nwg-look kora-icon-theme dracula-gtk-theme swaync pipewire wireplumber hyprshot slurp grim hyprland-qtutils hyprgraphics Hyprlang hyprwayland-scanner aquamarine hyprutils hyprlock qt6-svg qt6-declarative qt5-quickcontrols2 wlogout nwg-drawer networkmanager gnome-calendar thunar leafpad pavucontrol sddm ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender libxcursor pixman wayland-protocols cairo pango libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang hyprcursor hyprwayland-scanner xcb-util-errors hyprutils glaze hyprgraphics aquamarine re2 hyprland-qtutils qt5ct qt6ct qt5-wayland qt6-wayland lib32-pipewire
+chsh -s $(which fish)
 ```
 
-
-
-
-## Софт
-
-1) файловый менеджер - caja
-2) Терминал - kitty
-3) Терминал стиль - starship
-4) текстовый редактор - gedit
-5) управление звуком - pavucontrol
-6) запуск приложений -  walker
-7) Плеер mpv
-8) Картинки - eog
-9) Офис - OnlyOffice
-10) Архиватор - file-roller 
-11) Pdf - pappers
-12) torrent - transmisson
-13) Диски - [gnome-disk-utility](https://github.com/GNOME/gnome-disk-utility)
-14) Системный монитор - [Mission Center](https://gitlab.com/mission-center-devs/mission-center)
-15) FTP клиент - [Filezilla](https://filezilla-project.org/)
-16) Браузер vivaldi
-
 ```
-yay -S --needed kitty starship caja gedit pavucontrol walker-bin mpv eog onlyoffice-bin file-roller papers transmission-gtk gnome-disk-utility mission-center mission-center filezilla vivaldi 
+set -U fish_greeting
 ```
 
+---
+## 2. Включить оптимизацию SSD:  
 
-## Waybar
+```
+sudo systemctl enable fstrim.timer
+```
 
-1) добавить пользователя в группу input
+---
+
+## 3. Включить multilib:
+
+```
+grep -q "^\[multilib\]" /etc/pacman.conf; or begin; sudo sed -i '/#\[multilib\]/s/^#//;s/#Include/Include/' /etc/pacman.conf; and sudo pacman -Sy; end
+```
+
+---
+
+## 4. Одновременная загрузка 10 пакетов pacman:
+
+```
+grep -q "^ParallelDownloads = 10" /etc/pacman.conf; or begin; sudo sed -i '/^#ParallelDownloads/s/^#//;s/^ParallelDownloads = [0-9]\+/ParallelDownloads = 10/' /etc/pacman.conf; end
+```
+
+---
+
+## 5. Обновить ключи Arch:
+
+```
+sudo pacman-key --init  
+```
+
+```
+sudo pacman-key --populate archlinux 
+```
+
+```
+sudo pacman-key --refresh-keys   
+```
+
+```
+sudo pacman -Sy
+```
+
+---
+
+## 6. Добавить пользователя в группу input для  Hyprland
+
 
 ```
 sudo usermod -a -G input "$(whoami)"
 ```
 
-## Визуальное изменение громкости 
+---
 
-[Syshud](https://github.com/System64fumo/syshud)
+## 7. Выстроить зеркала по скорости:
 
-starship
+```
+sudo reflector --country Russia --protocol https --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
+```
 
-## Менеджер буфера обмена
+> [!Дополнение]
+> либо вписать руками в  /etc/pacman.d/mirrorlist из [списка зеркал arch](https://archlinux.org/mirrorlist/)
 
-[nwg-clipman](https://github.com/nwg-piotr/nwg-clipman)
+---
 
+## 8. Установить yay 
 
-## SDDM
+```
+sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+```
 
-тема sddm -  https://github.com/catppuccin/sddm/releases  скачать из релизов тему mocha
+---
 
-темы в папке /usr/share/sddm/themes/catppuccin-mocha
+## 9. Установить шрифы
 
-настроить конфиг sddm через fish
+```
+yay -S --needed  ttf-dejavu ttf-liberation noto-fonts ttf-font-awesome ttf-material-design-icons ttf-roboto ttf-pt-sans ttf-fira-code ttf-jetbrains-mono ttf-ms-fonts noto-fonts-emoji ttf-jetbrains-mono ttf-fira-code ttf-source-code-pro ttf-hack ttf-dejavu ttf-liberation nerd-fonts ttf-fantasque-nerd otf-font-awesome awesome-terminal-fonts ttf-fira-sans 
+```
 
+---
+
+## 10. Настройка SDDM
+
+9.1 Тема [sddm](https://github.com/catppuccin/sddm/releases) -    скачать из релизов тему mocha
+
+9.2 Темы sddm в папке /usr/share/sddm/themes/
+
+9.3 Настроить конфиг sddm через fish
+   
 ```
 sudo sh -c 'tee -a /etc/sddm.conf <<EOF
 [Theme]
 Current=catppuccin-mocha
+CursorTheme=Vimix-white-cursors
+CursorSize=30
 
 [General]
 Numlock=on
 EOF'
 ```
 
+---
+
+## 11. Установить основные пакеты:
+
+```
+sudo pacman -S --needed base-devel nano reflector sudo curl net-tools wget git openssh networkmanager rsync unzip zip inxi fish 
+```
+
+---
+
+## 12.  Установить необходимые пакеты для Hyprland
+
+```
+yay -S --needed waybar hyprpaper xdg-desktop-portal-hyprland xdg-desktop-portal-gtk hyprpolkitagent hyprsysteminfo nwg-look kora-icon-theme dracula-gtk-theme swaync pipewire wireplumber hyprshot slurp grim hyprland-qtutils hyprgraphics  hyprwayland-scanner aquamarine hyprutils hyprlock qt6-svg qt6-declarative qt5-quickcontrols2 wlogout nwg-drawer networkmanager gnome-calendar thunar leafpad pavucontrol sddm ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender libxcursor pixman wayland-protocols cairo pango libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang hyprcursor hyprwayland-scanner xcb-util-errors hyprutils glaze hyprgraphics aquamarine re2 hyprland-qtutils qt5ct qt6ct qt5-wayland qt6-wayland lib32-pipewire vimix-cursors swappy wl-clipboard wl-clip-persist cliphist crow-translate tela-circle-icon-theme-all winbox
+```
+
+## 13. Установить "рабочий" софт для Hyprland
+
+ -  Файловый менеджер - thunar (gvfs + tumbler)
+ -  Терминал - kitty
+ -  Терминал стиль - starship
+ -  Текстовый редактор - mousepadq 
+ -  Запуск приложений -  rofi-wayland
+ -  Плеер - mpv
+ -  Картинки - eog
+ -  Офис - OnlyOffice
+ -  Архиватор - file-roller 
+ -  Pdf - pappers
+ -  Torrent - qbittorrent-qt5 ([тема](https://github.com/catppuccin/qbittorrent/releases))
+ -  Диски - [gnome-disk-utility](https://github.com/GNOME/gnome-disk-utility)
+ -  Системный монитор - [Mission Center](https://gitlab.com/mission-center-devs/mission-center)
+ -  FTP клиент - [Filezilla](https://filezilla-project.org/)
+ -  Браузер vivaldi
+ -  Редактор заметок - [Obsidian](https://github.com/obsidianmd/obsidian-releases)
+
+```
+yay -S --needed kitty starship gvfs tumbler mousepad rofi-wayland mpv eog onlyoffice-bin file-roller papers qbittorrent-qt5  gnome-disk-utility mission-center filezilla vivaldi  Obsidian
+```
+
+Визуальное изменение громкости 
+
+[Syshud](https://github.com/System64fumo/syshud)
+
+---
 
