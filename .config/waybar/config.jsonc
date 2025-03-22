@@ -36,7 +36,8 @@
     ],
     "modules-center": [           // модули по центру 
         "custom/power",
-        "clock"
+        "clock",
+        "power-profiles-daemon"
         
 
         
@@ -62,6 +63,22 @@
  *                                     ТРЕЙ                                             *
  *                                                                                      *
  ****************************************************************************************/
+
+
+
+"power-profiles-daemon": {
+  "format": "{icon}",
+  "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+  "tooltip": true,
+  "format-icons": {
+    "default": "",
+    "performance": "",
+    "balanced": "",
+    "power-saver": ""
+  }
+},
+
+
 
 
  "tray": {

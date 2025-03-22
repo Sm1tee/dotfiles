@@ -5,6 +5,8 @@ set fish_greeting
 
 starship init fish | source
 zoxide init fish | source
+mcfly init fish | source
+
 
 alias q='paru'
 alias l='lsd -ll'
