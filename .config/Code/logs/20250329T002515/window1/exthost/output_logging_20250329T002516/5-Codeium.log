@@ -1,0 +1,41 @@
+(VSCode) 2025-03-29 00:25:18.809 [INFO]: No proxy settings found
+(VSCode) 2025-03-29 00:25:20.014 [INFO]: Checking network connection...
+(VSCode) 2025-03-29 00:25:22.756 [INFO]: No Network Issue connecting to https://server.codeium.com/healthz
+(VSCode) 2025-03-29 00:25:22.904 [INFO]: Creating manager directory: /tmp/27ed9749-f174-40f4-99f3-f3192b5b8d7d/codeium/manager
+(VSCode) 2025-03-29 00:25:23.340 [INFO]: Using cached LS with valid crc32: /home/smitee/.vscode/extensions/codeium.codeium-1.42.3/dist/0c9faf39e693eeaf762c0320f624cde0b6c7bb7e/language_server_linux_x64
+(VSCode) 2025-03-29 00:25:23.347 [INFO]: Language server started
+2025/03/29 00:25:23 maxprocs: Leaving GOMAXPROCS=12: CPU quota undefined
+I0329 00:25:23.425327  3310 main.go:581] [Language Server Manager] Setting GOMAXPROCS to 4
+I0329 00:25:23.425424  3310 main.go:725] [Language Server Manager] Release 1.42.3 (0c9faf39e693eeaf762c0320f624cde0b6c7bb7e)
+I0329 00:25:23.425445  3310 main.go:804] [Language Server Manager] Starting language server manager with pid 3310
+I0329 00:25:23.425516  3310 main.go:124] [Language Server Manager] Manager acquired its lock file /tmp/27ed9749-f174-40f4-99f3-f3192b5b8d7d/codeium/manager/locks/manager.lock
+I0329 00:25:23.426014  3310 main.go:265] [Language Server Manager] Waiting for random port file in /tmp/27ed9749-f174-40f4-99f3-f3192b5b8d7d/codeium/manager/child_random_port_1743197123425709415_7619989299828401553 to be created
+2025/03/29 00:25:23 maxprocs: Leaving GOMAXPROCS=12: CPU quota undefined
+I0329 00:25:23.517988  3327 main.go:581] Setting GOMAXPROCS to 4
+I0329 00:25:23.518264  3327 main.go:798] Starting language server process with pid 3327
+I0329 00:25:23.518292  3327 server.go:256] Language server will attempt to listen on host 127.0.0.1
+I0329 00:25:23.518363  3327 server.go:263] Language server listening on random port at 39487
+I0329 00:25:25.116938  3327 server.go:342] Extension server port not specified; skipping extension server client creation
+I0329 00:25:25.126145  3327 web_server.go:258] Chat Web Server listening at ws://127.0.0.1:39771
+I0329 00:25:25.232940  3327 server.go:849] Local search is enabled, will index local files.
+I0329 00:25:25.232964  3327 server.go:853] Using 3 indexer workers
+I0329 00:25:25.238120  3327 server.go:995] Child process attempting to acquire lock file /tmp/27ed9749-f174-40f4-99f3-f3192b5b8d7d/codeium/manager/locks/child_lock_1743197123425728792_3060409024756735243
+I0329 00:25:25.238206  3327 server.go:1003] Child process acquired lock file /tmp/27ed9749-f174-40f4-99f3-f3192b5b8d7d/codeium/manager/locks/child_lock_1743197123425728792_3060409024756735243
+39875
+I0329 00:25:25.331425  3310 main.go:301] [Language Server Manager] Found random server port 39487
+I0329 00:25:25.331448  3310 main.go:302] [Language Server Manager] Found random lsp port 39875
+I0329 00:25:25.331460  3310 main.go:309] [Language Server Manager] Attempting to connect to language server at 127.0.0.1:39487
+I0329 00:25:25.342849  3310 main.go:178] [Language Server Manager] Fixing language server port at 39487
+I0329 00:25:25.342862  3310 main.go:361] [Language Server Manager] Successfully connected to new language server at 127.0.0.1:39487
+(VSCode) 2025-03-29 00:25:25.350 [INFO]: Found language server running on port 39487
+(VSCode) 2025-03-29 00:25:25.642 [INFO]: openAllTextDocuments took 23.562321999999767ms
+(VSCode) 2025-03-29 00:37:27.018 [INFO]: Completion request succeeded (1276.65ms)
+(VSCode) 2025-03-29 00:37:27.018 [INFO]: No completions were generated
+(VSCode) 2025-03-29 00:37:27.019 [INFO]: provideInlineCompletionItems request succeeded (1279.59ms)
+(VSCode) 2025-03-29 00:38:58.356 [ERROR]: Illegal value for `line`
+(VSCode) 2025-03-29 00:38:58.413 [INFO]: Completion request succeeded (3.03ms)
+(VSCode) 2025-03-29 00:38:58.413 [INFO]: Skipping completions because the prompt is too short
+(VSCode) 2025-03-29 00:38:58.413 [INFO]: provideInlineCompletionItems request succeeded (4.23ms)
+(VSCode) 2025-03-29 00:39:00.058 [INFO]: Completion request succeeded (1320.44ms)
+(VSCode) 2025-03-29 00:39:00.058 [INFO]: No completions were generated
+(VSCode) 2025-03-29 00:39:00.059 [INFO]: provideInlineCompletionItems request succeeded (1321.74ms)

@@ -1,0 +1,6 @@
+2025-03-27 17:56:16.443 [info] Started local extension host with pid 206733.
+2025-03-27 17:56:17.678 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-03-27 17:56:19.132 [info] [perf] Render performance baseline is 20ms
+2025-03-27 17:56:19.854 [warning] Authentication provider codeium_auth was not declared in the Extension Manifest.
+2025-03-27 17:56:43.207 [warning] [backup tracker] suspended, ignoring unregister event file:///home/smitee/.config/swaync/config.json 
+2025-03-27 17:56:43.208 [warning] [backup tracker] suspended, ignoring unregister event file:///home/smitee/.config/waybar/style.css 

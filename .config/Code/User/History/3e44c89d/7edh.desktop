@@ -1,0 +1,9 @@
+[SddmGreeterTheme]
+Name=sddm-sm1tee
+Type=sddm-theme
+ConfigFile=Themes/sm1tee.conf
+MainScript=Main.qml
+TranslationsDirectory=translations
+Theme-Id=sddm-sm1tee
+Theme-API=2.0
+QtVersion=6

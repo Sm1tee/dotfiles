@@ -1,0 +1,100 @@
+/**
+ * Rofi Theme File - Powermenu Style (Базовый + Улучшенное выделение - БЕЗ TRANSITION)
+ */
+
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+}
+
+/*****----- Global Properties -----*****/
+* {
+    /* Обновленные цвета */
+    background:           #3B4252; /* Чуть более светлый/синеватый фон для невыбранной кнопки */
+    foreground:           #E5E9F0; /* Светлый текст/иконки */
+    selected:             #88C0D0; /* Ярко-голубой для фона выделения */
+    selected-fg:          #2E3440; /* Темный текст/иконка на выделении */
+    border-color-value:   #4C566A; /* Цвет рамки */
+    selected-border-color:#A3BE8C; /* Зеленоватая рамка для выделения (для контраста) */
+
+    /* Шрифты */
+    font:                 "sans 10";
+    icon-font:            "feather bold 48"; /* Убедись, что шрифт установлен */
+}
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       1200px;
+    background-color:            transparent;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    spacing:                     25px;
+    background-color:            transparent;
+    children:                    [ "listview" ]; /* Только список */
+}
+
+/*****----- Listview -----*****/
+listview {
+    columns:                     4;
+    lines:                       1;
+    cycle:                       true;
+    fixed-height:                true;
+    fixed-columns:               true;
+    spacing:                     25px;
+    background-color:            transparent;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    padding:                     70px 10px;
+    border-width:                1px;
+    border-color:                @border-color-value; /* Используем переменную для цвета рамки */
+    border-radius:               50%;
+    background-color:            @background; /* Цвет фона невыбранной кнопки */
+    text-color:                  @foreground;
+    cursor:                      pointer;
+    /* ИСПРАВЛЕНО: Строка transition удалена */
+}
+
+element-text {
+    font:                        @icon-font;
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+element selected.normal {
+    background-color:            @selected;        /* Яркий фон */
+    text-color:                  @selected-fg;     /* Темная иконка */
+    border-color:                @selected-border-color; /* Контрастная рамка */
+}
+
+/* Секции для сообщения подтверждения */
+message {
+    padding:                     15px;
+    border-width:                1px;
+    border-color:                @border-color-value; /* Используем переменную */
+    border-radius:               8px;
+    background-color:            @background; /* Используем тот же фон */
+    text-color:                  @foreground;
+}
+textbox {
+    padding: 8px 15px;
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}

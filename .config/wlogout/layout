@@ -1,18 +1,24 @@
 {
-"label" : "lock",
-"action" : "hyprlock",
-"text" : "  БЛОКИРОВКА (1)",
-"keybind" : "1",
+  "label": "lock",
+  "text": "",
+  "action": "hyprlock",
+  "keybind": "F1"
 }
 {
-"label" : "shutdown",
-"action" : "systemctl poweroff",
-"text" : "ВЫКЛЮЧЕНИЕ (2)",
-"keybind" : "2"
+  "label": "logout",
+  "text": "",
+  "action": "hyprctl dispatch exit \"\"",
+  "keybind": "F2"
 }
 {
-"label" : "reboot",
-"action" : "systemctl reboot",
-"text" : " ПЕРЕЗАГРУЗКА (3) ",
-"keybind" : "3"
+  "label": "reboot",
+  "text": "",
+  "action": "systemctl reboot",
+  "keybind": "F3"
+}
+{
+  "label": "shutdown",
+  "text": "",
+  "action": "systemctl poweroff",
+  "keybind": "F4"
 }

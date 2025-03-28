@@ -1,0 +1,17 @@
+(VSCode) 2025-03-28 03:12:46.261 [INFO]: No proxy settings found
+(VSCode) 2025-03-28 03:12:47.250 [INFO]: Checking network connection...
+(VSCode) 2025-03-28 03:12:48.062 [INFO]: No Network Issue connecting to https://server.codeium.com/healthz
+(VSCode) 2025-03-28 03:12:48.186 [INFO]: Creating manager directory: /tmp/d7e57c31-0ee3-4034-a571-d7ac5ff50ef9/codeium/manager
+(VSCode) 2025-03-28 03:12:48.452 [INFO]: Using cached LS with valid crc32: /home/smitee/.vscode/extensions/codeium.codeium-1.42.3/dist/0c9faf39e693eeaf762c0320f624cde0b6c7bb7e/language_server_linux_x64
+(VSCode) 2025-03-28 03:12:48.457 [INFO]: Language server started
+2025/03/28 03:12:48 maxprocs: Leaving GOMAXPROCS=12: CPU quota undefined
+I0328 03:12:48.531575  7136 main.go:581] [Language Server Manager] Setting GOMAXPROCS to 4
+I0328 03:12:48.531630  7136 main.go:725] [Language Server Manager] Release 1.42.3 (0c9faf39e693eeaf762c0320f624cde0b6c7bb7e)
+I0328 03:12:48.531649  7136 main.go:804] [Language Server Manager] Starting language server manager with pid 7136
+I0328 03:12:48.531708  7136 main.go:124] [Language Server Manager] Manager acquired its lock file /tmp/d7e57c31-0ee3-4034-a571-d7ac5ff50ef9/codeium/manager/locks/manager.lock
+I0328 03:12:48.532080  7136 main.go:265] [Language Server Manager] Waiting for random port file in /tmp/d7e57c31-0ee3-4034-a571-d7ac5ff50ef9/codeium/manager/child_random_port_1743120768531792558_8278266318740465419 to be created
+2025/03/28 03:12:48 maxprocs: Leaving GOMAXPROCS=12: CPU quota undefined
+I0328 03:12:48.607920  7153 main.go:581] Setting GOMAXPROCS to 4
+I0328 03:12:48.608019  7153 main.go:798] Starting language server process with pid 7153
+I0328 03:12:48.608047  7153 server.go:256] Language server will attempt to listen on host 127.0.0.1
+I0328 03:12:48.608137  7153 server.go:263] Language server listening on random port at 39173

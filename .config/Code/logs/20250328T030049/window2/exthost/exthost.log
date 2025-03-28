@@ -1,0 +1,12 @@
+2025-03-28 03:12:45.225 [info] Extension host with pid 6822 started
+2025-03-28 03:12:45.295 [info] ExtensionService#_doActivateExtension vscode.github-authentication, startup: false, activationEvent: 'onAuthenticationRequest:github'
+2025-03-28 03:12:45.385 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*', root cause: vscode.git
+2025-03-28 03:12:45.614 [info] ExtensionService#_doActivateExtension vscode.git, startup: true, activationEvent: '*'
+2025-03-28 03:12:45.614 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2025-03-28 03:12:45.839 [info] Eager extensions activated
+2025-03-28 03:12:45.846 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2025-03-28 03:12:45.846 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2025-03-28 03:12:45.846 [info] ExtensionService#_doActivateExtension Codeium.codeium, startup: false, activationEvent: 'onStartupFinished'
+2025-03-28 03:12:46.235 [info] ExtensionService#_doActivateExtension PKief.material-icon-theme, startup: false, activationEvent: 'onStartupFinished'
+2025-03-28 03:12:49.035 [info] Extension host terminating: renderer closed the MessagePort
+2025-03-28 03:12:49.065 [info] Extension host with pid 6822 exiting with code 0
