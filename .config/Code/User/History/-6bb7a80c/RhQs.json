@@ -1,8 +1,0 @@
-{
-    "workbench.colorTheme": "monokai-charcoal (green)",
-    "workbench.iconTheme": "material-icon-theme",
-    "editor.fontFamily": "'JetBrainsMono Nerd Font'",
-    "editor.fontSize": 18,
-    "editor.cursorBlinking": "expand",
-    "bitoAI.appearance.fontSize (Match with IDE Font)": false
-}

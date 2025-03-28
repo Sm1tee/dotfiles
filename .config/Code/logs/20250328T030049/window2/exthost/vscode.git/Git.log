@@ -1,5 +1,0 @@
-2025-03-28 03:12:46.349 [info] [основное] Уровень ведения журнала: Info
-2025-03-28 03:12:46.349 [info] [основное] Проверка найденного Git в: "git"
-2025-03-28 03:12:46.349 [info] [основное] Используется Git "2.49.0" из "git"
-2025-03-28 03:12:46.349 [info] [Model][doInitialScan] Initial repository scan started
-2025-03-28 03:12:46.349 [info] [Model][doInitialScan] Initial repository scan completed - repositories (0), closed repositories (0), parent repositories (0), unsafe repositories (0)

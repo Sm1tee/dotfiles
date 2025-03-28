@@ -1,8 +1,0 @@
-2025-03-27 17:40:45.669 [info] Эксперимент «pythonRecommendTensorboardExt» активен
-2025-03-27 17:40:45.669 [info] Эксперимент «pythonTerminalEnvVarActivation» активен
-2025-03-27 17:40:45.669 [info] Эксперимент «pythonTestAdapter» активен
-2025-03-27 17:40:45.669 [warning] Dir "/home/smitee/.config/.pixi/envs" is not watchable (directory does not exist)
-2025-03-27 17:40:45.669 [info] Путь к интерпретатору Python: /bin/python
-2025-03-27 17:40:45.669 [info] > pyenv which python
-2025-03-27 17:40:45.669 [info] cwd: .
-2025-03-27 17:40:47.124 [info] Запуск языкового сервера Pylance.

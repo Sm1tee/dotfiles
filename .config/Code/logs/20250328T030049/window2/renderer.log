@@ -1,4 +1,0 @@
-2025-03-28 03:12:44.731 [info] Started local extension host with pid 6822.
-2025-03-28 03:12:45.402 [info] Settings Sync: Account status changed from uninitialized to unavailable
-2025-03-28 03:12:47.257 [warning] Authentication provider codeium_auth was not declared in the Extension Manifest.
-2025-03-28 03:12:47.394 [info] [perf] Render performance baseline is 20ms
