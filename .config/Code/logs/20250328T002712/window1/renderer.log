@@ -1,0 +1,24 @@
+2025-03-28 00:27:13.088 [info] Started local extension host with pid 44016.
+2025-03-28 00:27:14.305 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-03-28 00:27:16.005 [info] [perf] Render performance baseline is 19ms
+2025-03-28 00:27:16.508 [warning] Authentication provider codeium_auth was not declared in the Extension Manifest.
+2025-03-28 00:40:18.967 [error] Произошла неизвестная ошибка. Подробные сведения см. в журнале.
+2025-03-28 00:41:37.523 [error] Illegal value for lineNumber: Error: Illegal value for lineNumber
+    at Cf.getLineMaxColumn (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:253:112)
+    at vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:2001:13251
+    at HI._computeFn (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:24260)
+    at HI.q (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:25793)
+    at HI.get (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:25545)
+    at HI.reportChanges (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:15998)
+    at rse.endUpdate (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:22892)
+    at HI.endUpdate (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:26591)
+    at _5.finish (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:17858)
+    at Hi (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:17251)
+2025-03-28 00:41:38.525 [error] Произошла неизвестная ошибка. Подробные сведения см. в журнале.
+2025-03-28 01:26:20.805 [error] lock() request could not be registered.: InvalidStateError: lock() request could not be registered.
+2025-03-28 01:27:03.006 [warning] Settings pattern "issueReporter.*" doesn't match any settings
+2025-03-28 01:27:03.896 [warning] Settings pattern "GitHub.copilot.manageExtension" doesn't match any settings
+2025-03-28 01:27:18.902 [warning] Settings pattern "issueReporter.*" doesn't match any settings
+2025-03-28 01:27:18.979 [warning] Settings pattern "GitHub.copilot.manageExtension" doesn't match any settings
+2025-03-28 01:34:11.867 [error] Произошла неизвестная ошибка. Подробные сведения см. в журнале.
+2025-03-28 01:34:20.129 [error] Произошла неизвестная ошибка. Подробные сведения см. в журнале.

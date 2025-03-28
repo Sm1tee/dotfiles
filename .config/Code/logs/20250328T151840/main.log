@@ -1,0 +1,19 @@
+2025-03-28 15:18:41.062 [info] update#setState idle
+2025-03-28 15:19:11.065 [info] update#setState checking for updates
+2025-03-28 15:19:11.157 [info] update#setState idle
+2025-03-28 15:24:54.415 [info] Extension host with pid 2416 exited with code: 0, signal: unknown.
+2025-03-28 16:19:11.068 [info] update#setState checking for updates
+2025-03-28 16:19:11.407 [info] update#setState idle
+2025-03-28 16:22:52.186 [error] [UtilityProcess id: 1, type: fileWatcher, pid: 4018]: crashed with code 15 and reason 'killed'
+2025-03-28 16:22:52.198 [info] Extension host with pid 4028 exited with code: 0, signal: unknown.
+2025-03-28 17:19:11.072 [info] update#setState checking for updates
+2025-03-28 17:19:11.356 [info] update#setState idle
+2025-03-28 18:19:11.077 [info] update#setState checking for updates
+2025-03-28 18:19:11.443 [info] update#setState idle
+2025-03-28 19:19:11.079 [info] update#setState checking for updates
+2025-03-28 19:19:11.357 [info] update#setState idle
+2025-03-28 20:19:11.082 [info] update#setState checking for updates
+2025-03-28 20:19:11.417 [info] update#setState idle
+2025-03-28 20:45:18.022 [error] Blocked vscode-file request vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/editor/common/services/editorSimpleWorkerMain.js#TextEditorWorker
+2025-03-28 20:45:18.022 [info] Extension host with pid 10300 exited with code: 0, signal: unknown.
+2025-03-28 20:45:18.030 [error] [UtilityProcess id: 1, type: fileWatcher, pid: 10309]: crashed with code 15 and reason 'killed'

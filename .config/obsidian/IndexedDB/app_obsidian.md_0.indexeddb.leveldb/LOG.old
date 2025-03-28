@@ -1,0 +1,6 @@
+2025/03/28-01:25:40.271 f96a Reusing MANIFEST /home/smitee/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/MANIFEST-000001
+2025/03/28-01:25:40.271 f96a Recovering log #4
+2025/03/28-01:25:40.309 f96a Reusing old log /home/smitee/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/000004.log 
+2025/03/28-01:25:40.455 f96b Level-0 table #8: started
+2025/03/28-01:25:40.469 f96b Level-0 table #8: 768026 bytes OK
+2025/03/28-01:25:40.472 f96b Delete type=0 #4

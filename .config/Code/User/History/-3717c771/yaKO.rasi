@@ -1,0 +1,99 @@
+/**
+ * Rofi Theme File - Powermenu Style (СУПЕР БАЗОВЫЙ ВАРИАНТ - ИСПРАВЛЕНО)
+ */
+
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+}
+
+/*****----- Global Properties -----*****/
+* {
+    /* Базовые цвета */
+    background:           #2E3440; /* Темно-серый */
+    foreground:           #ECEFF4; /* Светлый текст/иконки */
+    selected:             #88C0D0; /* Голубой для выделения */
+    selected-fg:          #2E3440; /* Темный текст на выделении */
+    border-col-value:     #4C566A; /* Цвет рамки (переименовал, чтобы не путать) */
+
+    /* Шрифты */
+    font:                 "sans 10";
+    icon-font:            "feather bold 48"; /* Убедись, что шрифт установлен */
+}
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       1200px;
+    background-color:            transparent;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    spacing:                     25px;
+    background-color:            transparent;
+    children:                    [ "listview" ]; /* Только список */
+}
+
+/*****----- Listview -----*****/
+listview {
+    columns:                     4;
+    lines:                       1;
+    cycle:                       true;
+    fixed-height:                true;
+    fixed-columns:               true;
+    spacing:                     25px;
+    background-color:            transparent;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    padding:                     70px 10px;
+    /* ИСПРАВЛЕНО: Используем прямое значение цвета вместо @border-col */
+    border:                      1px solid #4C566A;
+    border-radius:               100%; /* Круглые */
+    background-color:            @background; /* Простой фон */
+    text-color:                  @foreground; /* Цвет иконки */
+    cursor:                      pointer;
+}
+
+element-text {
+    font:                        @icon-font;
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+element selected.normal {
+    background-color:            @selected; /* Фон при выборе */
+    text-color:                  @selected-fg; /* Текст/иконка при выборе */
+    /* ИСПРАВЛЕНО: Используем прямое значение цвета вместо @selected для border-color */
+    border-color:                #88C0D0;
+}
+
+/* Секции для сообщения подтверждения */
+message {
+    padding:                     15px;
+    /* ИСПРАВЛЕНО: Используем прямое значение цвета вместо @border-col */
+    border:                      1px solid #4C566A;
+    border-radius:               8px;
+    background-color:            @background;
+    text-color:                  @foreground;
+}
+textbox {
+    padding: 8px 15px;
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}

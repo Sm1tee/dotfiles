@@ -1,58 +1,78 @@
-@import "mocha.css"; /* Импортируем стили из файла mocha.css */
-
+/** ********** Fonts ********** **/
 * {
-    font-family: "BitstromWera Nerd Font"; /* Устанавливаем шрифт */
-    font-size: 12px; /* Устанавливаем размер шрифта */
-    font-weight: bold; /* Устанавливаем жирное начертание шрифта */
-    background-image: none; /* Убираем фоновое изображение */
-    box-shadow: none; /* Убираем тень */
+  font-family: "Widock TRIAL";
+  font-size: 20px;
+  font-weight: bold;
 }
 
+/** ********** Main Window ********** **/
 window {
-    background-color: rgba(30, 30, 46, 0.75); /* Устанавливаем цвет фона с прозрачностью */
+  background-color: transparent;
 }
 
+/** ********** Buttons ********** **/
 button {
-    border-radius: 32px; /* Устанавливаем радиус скругления углов */
-    border-color: @crust; /* Устанавливаем цвет границы */
-    text-decoration-color: @text; /* Устанавливаем цвет подчеркивания текста */
-    color: @text; /* Устанавливаем цвет текста */
-    background-color: @base; /* Устанавливаем цвет фона */
-    border-style: solid; /* Устанавливаем стиль границы */
-    border-width: 4px; /* Устанавливаем ширину границы */
-    background-repeat: no-repeat; /* Запрещаем повторение фонового изображения */
-    background-position: center; /* Устанавливаем положение фонового изображения по центру */
-    background-size: 20%; /* Устанавливаем размер фонового изображения */
-    margin: 0px; /* Устанавливаем отступы */
-    animation: gradient_f 20s ease-in infinite; /* Устанавливаем анимацию */
+  background-color: #161925;
+  color: #cdd6f4;
+  /* Задаем все границы */
+  border: 2px solid #282838;
+  /* Устанавливаем индивидуальные цвета (пока совпадают с общим)
+     Это нужно, чтобы transition для border-top-color сработал */
+  border-top-color: #282838;
+  border-right-color: #282838;
+  border-bottom-color: #282838;
+  border-left-color: #282838;
+
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25%;
+  /* Обновляем transition, чтобы включить отдельные цвета границ, если нужно
+     Или просто оставляем как было, общая 'border-color' может сработать */
+  transition: background-color 0.2s ease-in-out,
+              color 0.2s ease-in-out,
+              border-top-color 0.2s ease-in-out, /* <-- Анимируем цвет верхней границы */
+              background-size 0.2s ease-in-out;
+  outline-style: none;
 }
 
-button:focus {
-    background-color: @mantle; /* Устанавливаем цвет фона при фокусе */
-    background-size: 25%; /* Устанавливаем размер фонового изображения при фокусе */
-    transition: all 0.15s cubic-bezier(.55,0.0,0.28,1.682); /* Устанавливаем transition для плавного изменения */
-}
-
+/* Стиль для НАВЕДЕНИЯ МЫШЬЮ и НАЖАТИЯ */
+button:active,
 button:hover {
-    background-color: @mantle; /* Устанавливаем цвет фона при наведении */
-    background-size: 30%; /* Устанавливаем размер фонового изображения при наведении */
-    outline-style: none; /* Убираем обводку */
-    animation: gradient_f 20s ease-in infinite; /* Устанавливаем анимацию */
-    transition: all 0.3s cubic-bezier(.55,0.0,.28,1.682); /* Устанавливаем transition для плавного изменения */
+  color: #FFFFFF;
+  background-color: #b4befe;
+  background-size: 30%; /* Увеличенный размер иконки */
+  /* Опционально: можно убрать или изменить цвет всей границы при наведении */
+  /* border-color: #b4befe; */
 }
 
+/* Стиль для ВЫБОРА КЛАВИАТУРОЙ */
+button:focus {
+  /* НЕ меняем background-color и color */
+  /* Меняем цвет ТОЛЬКО ВЕРХНЕЙ границы */
+  border-top-color: #cdd6f4; /* <-- Цвет верхней границы при фокусе */
+
+  /* Остальные границы (правая, нижняя, левая) НЕ меняют цвет,
+     они остаются #282838, как задано в основном стиле 'button' */
+}
+
+/** ********** Icons ********** **/
 #lock {
-    background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png")); /* Устанавливаем фоновое изображение для кнопки блокировки */
+  background-image: image(url("icons/lock.png"), url("/usr/share/wlogout/icons/lock.png"));
 }
 
-#suspend {
-    background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png")); /* Устанавливаем фоновое изображение для кнопки сна */
+#logout {
+  background-image: image(url("icons/logout.png"), url("/usr/share/wlogout/icons/logout.png"));
 }
+
+/* #suspend - Удалено */
+
+/* #hibernate - Удалено */
 
 #shutdown {
-    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png")); /* Устанавливаем фоновое изображение для кнопки выключения */
+  background-image: image(url("icons/shutdown.png"), url("/usr/share/wlogout/icons/shutdown.png"));
 }
 
 #reboot {
-    background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png")); /* Устанавливаем фоновое изображение для кнопки перезагрузки */
+  background-image: image(url("icons/reboot.png"), url("/usr/share/wlogout/icons/reboot.png"));
 }

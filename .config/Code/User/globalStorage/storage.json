@@ -1,0 +1,77 @@
+{
+    "telemetry.sqmId": "",
+    "telemetry.machineId": "a4788c508185876c3b6ab08fc1cc32320f901b3cca0cf9445f00697d90325e3e",
+    "telemetry.devDeviceId": "31aaacd3-7a2c-4e77-9f28-a03a738f2888",
+    "backupWorkspaces": {
+        "workspaces": [],
+        "folders": [
+            {
+                "folderUri": "file:///home/smitee/.config"
+            }
+        ],
+        "emptyWindows": []
+    },
+    "windowControlHeight": 35,
+    "profileAssociations": {
+        "workspaces": {
+            "file:///home/smitee/.config": "__default__profile__",
+            "file:///usr/share/sddm/themes/sddm-astronaut-theme": "__default__profile__",
+            "file:///usr/share/sddm/themes/sm1tee": "__default__profile__",
+            "file:///home/smitee/.config/rofi/powermenu/type-2": "__default__profile__"
+        },
+        "emptyWindows": {}
+    },
+    "theme": "hc-black",
+    "themeBackground": "#000000",
+    "windowSplash": {
+        "zoomLevel": 0,
+        "baseTheme": "hc-black",
+        "colorInfo": {
+            "foreground": "#ffffff",
+            "background": "#000000",
+            "editorBackground": "#000000",
+            "titleBarBackground": "#000000",
+            "titleBarBorder": "#6fc3df",
+            "activityBarBackground": "#000000",
+            "activityBarBorder": "#000000",
+            "sideBarBackground": "#000000",
+            "sideBarBorder": "#000000",
+            "statusBarBackground": "#000000",
+            "statusBarBorder": "#000000",
+            "statusBarNoFolderBackground": "#000000",
+            "windowBorder": "#6fc3df"
+        },
+        "layoutInfo": {
+            "sideBarSide": "left",
+            "editorPartMinWidth": 220,
+            "titleBarHeight": 35,
+            "activityBarWidth": 48,
+            "sideBarWidth": 170,
+            "auxiliarySideBarWidth": 0,
+            "statusBarHeight": 22,
+            "windowBorder": false
+        }
+    },
+    "windowsState": {
+        "lastActiveWindow": {
+            "folder": "file:///home/smitee/.config",
+            "backupPath": "/home/smitee/.config/Code/Backups/8481f19d90794818adfdcfb291e961b2",
+            "uiState": {
+                "mode": 1,
+                "x": 7,
+                "y": 47,
+                "width": 2546,
+                "height": 1386
+            }
+        },
+        "openedWindows": []
+    },
+    "windowSplashWorkspaceOverride": {
+        "layoutInfo": {
+            "auxiliarySideBarWidth": [
+                400,
+                []
+            ]
+        }
+    }
+}

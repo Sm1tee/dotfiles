@@ -1,0 +1,18 @@
+2025-03-29 00:25:16.342 [info] Started local extension host with pid 2953.
+2025-03-29 00:25:18.604 [error] [File Watcher] Unexpected error: Нет такого файла или каталога (EUNKNOWN) (path: /home/smitee/.config)
+2025-03-29 00:25:18.604 [error] [File Watcher (universal)] Нет такого файла или каталога
+2025-03-29 00:25:20.017 [warning] Authentication provider codeium_auth was not declared in the Extension Manifest.
+2025-03-29 00:25:27.376 [info] Settings Sync: Account status changed from uninitialized to unavailable
+2025-03-29 00:25:30.372 [info] [perf] Render performance baseline is 31ms
+2025-03-29 00:38:58.355 [error] Illegal value for lineNumber: Error: Illegal value for lineNumber
+    at Cf.getLineMaxColumn (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:253:112)
+    at vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:2001:13251
+    at HI._computeFn (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:24260)
+    at HI.q (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:25793)
+    at HI.get (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:25545)
+    at HI.reportChanges (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:15998)
+    at rse.endUpdate (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:22892)
+    at HI.endUpdate (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:26591)
+    at _5.finish (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:17858)
+    at Hi (vscode-file://vscode-app/opt/visual-studio-code/resources/app/out/vs/workbench/workbench.desktop.main.js:31:17251)
+2025-03-29 00:38:59.357 [error] Произошла неизвестная ошибка. Подробные сведения см. в журнале.

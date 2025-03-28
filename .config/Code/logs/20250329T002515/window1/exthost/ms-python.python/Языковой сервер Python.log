@@ -1,0 +1,14 @@
+2025-03-29 00:25:19.783 [info] (Client) Pylance async client (2025.3.2) started with python extension (2025.2.0)
+2025-03-29 00:25:20.270 [info] [Info  - 00:25:20] (3263) Server root directory: file:///home/smitee/.vscode/extensions/ms-python.vscode-pylance-2025.3.2/dist
+2025-03-29 00:25:20.271 [info] [Info  - 00:25:20] (3263) Pylance language server 2025.3.2 (pyright version 1.1.396, commit 3e2236a7) starting
+2025-03-29 00:25:20.271 [info] [Info  - 00:25:20] (3263) Starting service instance ".config"
+2025-03-29 00:25:20.318 [info] [Info  - 00:25:20] (3263) Setting environmentName for service ".config": "3.13.2 (глобальная)"
+2025-03-29 00:25:20.319 [info] [Info  - 00:25:20] (3263) Setting pythonPath for service ".config": "/bin/python"
+2025-03-29 00:25:20.319 [info] [Info  - 00:25:20] (3263) No include entries specified; assuming /home/smitee/.config
+2025-03-29 00:25:20.320 [info] [Info  - 00:25:20] (3263) Auto-excluding **/node_modules
+2025-03-29 00:25:20.320 [info] [Info  - 00:25:20] (3263) Auto-excluding **/__pycache__
+2025-03-29 00:25:20.320 [info] [Info  - 00:25:20] (3263) Auto-excluding **/.*
+2025-03-29 00:25:20.349 [info] [Info  - 00:25:20] (3263) Assuming Python version 3.13.2.final.0
+2025-03-29 00:25:20.681 [info] [Info  - 00:25:20] (3263) No source files found.
+2025-03-29 00:25:20.887 [info] [Info  - 00:25:20] (3263) Priority queue background worker(2) root directory: file:///home/smitee/.vscode/extensions/ms-python.vscode-pylance-2025.3.2/dist
+2025-03-29 00:25:20.888 [info] [Info  - 00:25:20] (3263) Priority queue background worker(2) started

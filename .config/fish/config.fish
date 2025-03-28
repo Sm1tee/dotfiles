@@ -11,6 +11,13 @@ mcfly init fish | source
 alias q='paru'
 alias l='lsd -ll'
 alias cd='z'
+
+
+
+
+
+
+
 end
 
 # Added by LM Studio CLI (lms)

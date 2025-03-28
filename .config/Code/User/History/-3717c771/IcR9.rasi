@@ -1,0 +1,111 @@
+/**
+ * Rofi Theme File - Powermenu Style (Вариант 1: Градиент + Акцент)
+ */
+
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false; /* Иконки отображаются через текст элемента */
+}
+
+/*****----- Global Properties -----*****/
+* {
+    /* Цвета (лучше вынести в shared/colors.rasi) */
+    background:           #1E1E2E; /* Фоновый цвет (если где-то виден) */
+    foreground:           #CDD6F4; /* Основной цвет текста/иконок */
+    background-alt:       #313244; /* Базовый фон кнопки */
+    background-alt-2:     #45475A; /* Верхняя часть градиента */
+    selected:             #89B4FA; /* Цвет фона выделенной кнопки */
+    selected-fg:          #1E1E2E; /* Цвет текста/иконки на выделенной кнопке */
+    border-col:           #585B70; /* Цвет рамки */
+
+    /* Шрифты (убедись, что шрифт feather установлен или замени) */
+    font:                 "sans 10";
+    icon-font:            "feather bold 48"; /* Шрифт для иконок */
+}
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       1200px; /* Ширина как в оригинале */
+    background-color:            transparent; /* Окно прозрачное */
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    spacing:                     25px; /* Расстояние между кнопками */
+    background-color:            transparent;
+    children:                    [ "listview" ]; /* Отображаем ТОЛЬКО список кнопок */
+}
+
+/*****----- Inputbar (НЕ ИСПОЛЬЗУЕТСЯ) -----*****/
+/* Оставляем пустым или удаляем, т.к. убрали из mainbox */
+inputbar { enabled: false; }
+
+/*****----- Message (НЕ ИСПОЛЬЗУЕТСЯ для основного меню) -----*****/
+/* Стиль для окна подтверждения */
+message {
+    margin:                      0px; /* Убрал отступы для окна подтверждения */
+    padding:                     15px;
+    border:                      1px solid @border-col;
+    border-radius:               12px; /* Небольшое скругление для окна подтверждения */
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+}
+textbox {
+    padding: 8px 15px;
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+/*****----- Listview -----*****/
+listview {
+    columns:                     4; /* 4 кнопки в ряд */
+    lines:                       1;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical; /* Не влияет при 1 строке */
+    fixed-height:                true;
+    fixed-columns:               true;
+
+    spacing:                     25px; /* Расстояние между кнопками */
+    background-color:            transparent;
+    cursor:                      "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    spacing:                     0px;
+    margin:                      0px;
+    padding:                     70px 10px; /* Вертикальный отступ для высоты кнопки */
+    border:                      1px solid @border-col;
+    border-radius:               100%; /* Круглые кнопки */
+    background-color:            linear-gradient(to bottom, @background-alt-2, @background-alt); /* Градиент */
+    text-color:                  @foreground; /* Цвет иконки */
+    cursor:                      pointer;
+    transition:                  background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, text-color 0.15s ease-in-out;
+}
+
+element-text {
+    font:                        @icon-font; /* Используем шрифт для иконок */
+    background-color:            transparent;
+    text-color:                  inherit; /* Наследуем цвет от element */
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}
+
+element selected.normal {
+    background-color:            @selected; /* Яркий фон при выборе */
+    text-color:                  @selected-fg; /* Темная иконка на ярком фоне */
+    border-color:                @selected; /* Рамка в цвет фона */
+}

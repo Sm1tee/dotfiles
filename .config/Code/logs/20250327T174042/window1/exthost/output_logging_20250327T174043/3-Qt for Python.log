@@ -1,0 +1,6 @@
+[ERROR - 17:40:51] No qmlls can be found in the current Python environment. Make sure the latest PySide6 is installed. Update configuration to disable qmlls integration if you don't need it.
+
+
+Command failed: /bin/python /home/smitee/.vscode/extensions/seanwu.vscode-qt-for-python-7.6.0/python/scripts/qmlls.py --help
+No qmlls can be found in the current Python environment. Make sure the latest PySide6 is installed. Update configuration to disable qmlls integration if you don't need it.
+
