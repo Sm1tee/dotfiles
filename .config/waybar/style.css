@@ -43,7 +43,7 @@
     background-color: #26263f;  
     font-weight: bold; 
     box-shadow: none; 
-    color: #04ffab; 
+    color: #00ffcc; 
 }
   
 /****************************************************************************************
@@ -116,7 +116,6 @@ background-color: #b2284f;     /* Цвет фона */
  ****************************************************************************************/
 
 #wireplumber {
-  color: #35f006; 
 }
 
 /****************************************************************************************
@@ -138,9 +137,6 @@ background-color: #b2284f;     /* Цвет фона */
 
  #custom-power {
   color: #fc1212;
-  margin: 0rem 0rem;   
-  padding: 0.5rem 1.3rem 0rem 1.3rem; 
-  border-radius: 20px 0px 0px 20px;
   }
   
   
@@ -153,10 +149,6 @@ background-color: #b2284f;     /* Цвет фона */
  ****************************************************************************************/
 
  #clock {
-margin: 0rem 0rem;   
-font-size: 1.5rem;
-padding: 0.5rem 1rem 0rem 0rem; 
-border-radius: 0px 0px 0px 0px;
 }
 
  
@@ -168,10 +160,6 @@ border-radius: 0px 0px 0px 0px;
  ****************************************************************************************/
 
  #power-profiles-daemon {
-  color: #f1ba05;
-  margin: 0rem 0rem;   
-  padding: 0.4rem 1.4rem 0rem 0rem; 
-  border-radius: 0px 20px 20px 0px;
   }
   
 
@@ -192,8 +180,7 @@ border-radius: 0px 0px 0px 0px;
  ****************************************************************************************/
 
 #tray {
-	box-shadow: none;          /* Убираем тень */
-	margin-right: 1rem;	 	 
+	box-shadow: none;          /* Убираем тень */	 
 }
 
 /****************************************************************************************
@@ -203,7 +190,7 @@ border-radius: 0px 0px 0px 0px;
  ****************************************************************************************/
 
 #custom-swaync {
-	color: #499af7;  /* Цвет текста иконки SwayNC */
+	color: #00ffcc;  /* Цвет текста иконки SwayNC */
 }
 
 #custom-swaync.notification {

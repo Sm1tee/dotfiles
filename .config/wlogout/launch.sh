@@ -5,7 +5,6 @@ STYLE="$HOME/.config/wlogout/style.css"
 
 if [[ ! `pidof wlogout` ]]; then
     wlogout --no-span \
-        --protocol xdg \
         --layout ${LAYOUT} \
         --css ${STYLE} \
         --buttons-per-row 2 \

@@ -1,7 +1,3 @@
-2025/03/29-00:23:34.753 8e4 Reusing MANIFEST /home/smitee/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/MANIFEST-000001
-2025/03/29-00:23:34.753 8e4 Recovering log #7
-2025/03/29-00:23:34.755 8e4 Reusing old log /home/smitee/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/000007.log 
-2025/03/29-00:23:34.853 8e4 Compacting 1@1 + 1@2 files
-2025/03/29-00:23:34.867 8e4 Generated table #10@1: 1366 keys, 878275 bytes
-2025/03/29-00:23:34.868 8e4 Compacted 1@1 + 1@2 files => 878275 bytes
-2025/03/29-00:23:34.870 8e4 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/04/04-22:32:51.439 1522 Reusing MANIFEST /home/smitee/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/MANIFEST-000001
+2025/04/04-22:32:51.439 1522 Recovering log #24
+2025/04/04-22:32:51.446 1522 Reusing old log /home/smitee/.config/obsidian/IndexedDB/app_obsidian.md_0.indexeddb.leveldb/000024.log 
