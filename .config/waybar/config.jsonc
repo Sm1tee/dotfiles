@@ -31,6 +31,7 @@
 
     "modules-left": [                     // модули слева
         "hyprland/workspaces"
+        // "wlr/taskbar"
         
       
         
@@ -38,18 +39,27 @@
     "modules-center": [           // модули по центру 
       "clock"
       
-        
+    
 
         
     ],
-    "modules-right": [ // модули справа
-        "tray",         
+    "modules-right": [ // модули справа   .
+    
+    
+       
+
+
         "hyprland/language",
-        "custom/swaync",
         "wireplumber",
         "power-profiles-daemon",
+        "custom/swaync",
+
+
+        "tray", 
+
         "custom/power"
-            //   "wlr/taskbar",
+        
+        
     ],
 
 /****************************************************************************************
@@ -107,7 +117,7 @@
     
     "clock": {
      "interval": 60,    // Интервал обновления (в секундах).
-     "format": "{:L%A %H:%M}", // Формат отображения времени.  По умолчанию: день недели, часы и минуты.  См.  http://man7.org/linux/man-pages/man3/strftime.3.html  за подробностями о форматировании.
+     "format": "{:L%A - %H:%M}", // Формат отображения времени.  По умолчанию: день недели, часы и минуты.  См.  http://man7.org/linux/man-pages/man3/strftime.3.html  за подробностями о форматировании.
      "tooltip": false,       // Включить всплывающую подсказку.
      "locale": "ru_RU.utf8",
      "timezone": "Europe/Moscow", // Часовой пояс.  См.  https://en.wikipedia.org/wiki/List_of_tz_database_time_zones  для списка доступных значений.    // "timezones": [ "Etc/UTC", "America/New_York" ], // Список часовых поясов, переключаемых колесом мыши.  Исключает "timezone". 
@@ -214,7 +224,7 @@
 
 // "wlr/taskbar": { // Панель задач
 // 	"format": "{icon}", // Формат отображения иконки
-// 	"icon-size": 26, // Размер иконки
+// 	"icon-size": 24, // Размер иконки
 // 	"all-outputs": false, // Отображать на всех экранах
 // 	"tooltip-format": "{title}", // Формат всплывающей подсказки
 // 	"on-click": "activate", // Действие при клике левой кнопкой
@@ -232,7 +242,7 @@
  ****************************************************************************************/
 
 "wireplumber": {
-    "format": "{icon}    {volume}%", // Формат отображения громкости
+    "format": "{icon}  {volume}%", // Формат отображения громкости
     "format-muted": "🔇", // Иконка при выключенном звуке
     "on-click": "pavucontrol -t 3", // Команда при клике левой кнопкой
     "scroll-step": 10, // Шаг прокрутки громкости
@@ -251,7 +261,7 @@
 "custom/swaync": { // Настройка пользовательского модуля для SwayNC
 	"tooltip": false, // Отключить всплывающую подсказку
 	"tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb", // Формат всплывающей подсказки
-	"format": "{}  {icon}", // Формат отображения
+	"format": "{} {icon}", // Формат отображения
 	"format-icons": { // Иконки для различных состояний
 		"notification": "", // Иконка при наличии уведомлений
 		"none": "", // Иконка при отсутствии уведомлений

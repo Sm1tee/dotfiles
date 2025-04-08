@@ -1,0 +1,10 @@
+[SddmGreeterTheme]
+Name=smitee
+Type=sddm-theme
+Version=1.3
+ConfigFile=Themes/smitee.conf
+MainScript=Main.qml
+TranslationsDirectory=translations
+Theme-Id=smitee
+Theme-API=2.0
+QtVersion=6

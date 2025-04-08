@@ -85,27 +85,6 @@ sudo reflector --country Russia --protocol https --latest 20 --sort rate --save 
 
 ---
 
-## Монтирование дисков
-
-/dev/disk/by-uuid/e5c74bc1-76d6-4575-9e22-ed3263539bbb /mnt/ssd ext4 nosuid,nodev,nofail,noatime,nodiratime,discard,x-gvfs-show,x-gvfs-name=ssd 0 0
-
-
-## Настройка звука
-
-Откройте конфигурационный файл `PipeWire`:
-
-```
-sudo nano ~/.config/pipewire/pipewire.conf
-```
-
-Вставить следующее
-
-```
-default.clock.rate = 48000
-default.clock.allowed-rates = [ 48000 ]
-default.clock.quantum = 128
-```
-
 ## 8. Установить yay 
 
 ```
@@ -124,16 +103,12 @@ yay -S --needed  ttf-dejavu ttf-liberation noto-fonts ttf-font-awesome ttf-mater
 
 ## 10. Настройка SDDM
 
-9.1 Тема [sddm](https://github.com/catppuccin/sddm/releases) -    скачать из релизов тему mocha
-
-9.2 Темы sddm в папке /usr/share/sddm/themes/
-
-9.3 Настроить конфиг sddm через fish
+Настроить конфиг sddm через fish
    
 ```
 sudo sh -c 'tee -a /etc/sddm.conf <<EOF
 [Theme]
-Current=catppuccin-mocha
+Current=smitee
 CursorTheme=Vimix-white-cursors
 CursorSize=30
 
@@ -142,12 +117,34 @@ Numlock=on
 EOF'
 ```
 
+Скопировать шрифты
+
+```
+sudo cp -r ~/.local/share/fonts /usr/share/fonts/
+```
+
+Установить пакеты
+
+```
+yay -S --needed sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg
+```
+
+
+
+
 ---
+
+## Установить мультикодеки
+
+```
+yay -S --needed gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugins-ugly gst-plugin-pipewire gstreamer ffmpeg libde265 libdvdcss libdvdread libdvdnav a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libvpx opencore-amr openjpeg2 speex x264 x265 xvidcore wavpack chromium-widevine
+```
+
 
 ## 11. Установить основные пакеты:
 
 ```
-sudo pacman -S --needed base-devel nano reflector sudo curl net-tools wget git openssh networkmanager rsync unzip zip inxi fish 
+sudo pacman -S --needed base-devel nano reflector sudo curl net-tools wget git openssh networkmanager rsync unzip zip inxi fish fastfetch
 ```
 
 ---
@@ -155,30 +152,33 @@ sudo pacman -S --needed base-devel nano reflector sudo curl net-tools wget git o
 ## 12.  Установить необходимые пакеты для Hyprland
 
 ```
-yay -S --needed waybar hyprpaper xdg-desktop-portal-hyprland xdg-desktop-portal-gtk hyprpolkitagent hyprsysteminfo nwg-look kora-icon-theme dracula-gtk-theme swaync pipewire wireplumber hyprshot slurp grim hyprland-qtutils hyprgraphics  hyprwayland-scanner aquamarine hyprutils hyprlock qt6-svg qt6-declarative qt5-quickcontrols2 wlogout nwg-drawer networkmanager gnome-calendar thunar leafpad pavucontrol sddm ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender libxcursor pixman wayland-protocols cairo pango libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang hyprcursor hyprwayland-scanner xcb-util-errors hyprutils glaze hyprgraphics aquamarine re2 hyprland-qtutils qt5ct qt6ct qt5-wayland qt6-wayland lib32-pipewire vimix-cursors swappy wl-clipboard wl-clip-persist cliphist crow-translate tela-circle-icon-theme-all winbox
+yay -S --needed waybar hyprpaper xdg-desktop-portal-hyprland xdg-desktop-portal-wlr xdg-desktop-portal-gtk hyprpolkitagent hyprsysteminfo nwg-look kora-icon-theme dracula-gtk-theme swaync pipewire wireplumber hyprshot slurp grim hyprland-qtutils hyprgraphics  hyprwayland-scanner aquamarine hyprutils hyprlock qt6-svg qt6-declarative qt5-quickcontrols2 wlogout nwg-drawer networkmanager gnome-calendar thunar q pavucontrol sddm ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender libxcursor pixman wayland-protocols cairo pango libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang hyprcursor hyprwayland-scanner xcb-util-errors hyprutils glaze hyprgraphics aquamarine re2 hyprland-qtutils qt5ct qt6ct qt5-wayland qt6-wayland lib32-pipewire vimix-cursors swappy wl-clipboard wl-clip-persist cliphist tela-circle-icon-theme-all winbox
 ```
 
 ## 13. Установить "рабочий" софт для Hyprland
 
  -  Файловый менеджер - thunar (gvfs + tumbler)
- -  Терминал - kitty
+ -  Терминал - ghostty
  -  Терминал стиль - starship
  -  Текстовый редактор - mousepad
  -  Запуск приложений -  rofi-wayland
  -  Плеер - mpv
- -  Картинки - eog
+ -  Картинки - loupe
  -  Офис - OnlyOffice
- -  Архиватор - file-roller 
- -  Pdf - pappers
+ -  Архиватор - xarchiver
+ -  Pdf - papers
  -  Torrent - qbittorrent-qt5 ([тема](https://github.com/catppuccin/qbittorrent/releases))
  -  Диски - [gnome-disk-utility](https://github.com/GNOME/gnome-disk-utility)
  -  Системный монитор - [Mission Center](https://gitlab.com/mission-center-devs/mission-center)
  -  FTP клиент - [Filezilla](https://filezilla-project.org/)
  -  Браузер vivaldi
  -  Редактор заметок - [Obsidian](https://github.com/obsidianmd/obsidian-releases)
+ -  Редактор шрифтов  - gnome-font-viewer
+-  Калькулятор - gnome-calculator
+
 
 ```
-yay -S --needed kitty starship gvfs tumbler mousepad rofi-wayland mpv eog onlyoffice-bin file-roller papers qbittorrent-qt5  gnome-disk-utility mission-center filezilla vivaldi  Obsidian zoxide mcfly
+yay -S --needed kitty starship gvfs tumbler mousepad rofi-wayland mpv loupe onlyoffice-bin xarchiver papers qbittorrent-qt5  gnome-disk-utility mission-center filezilla vivaldi  Obsidian zoxide mcfly visual-studio-code-bin telegram-desktop gnome-font-viewer gnome-calculator
 ``` 
 
 Визуальное изменение громкости 
@@ -186,4 +186,5 @@ yay -S --needed kitty starship gvfs tumbler mousepad rofi-wayland mpv eog onlyof
 [Syshud](https://github.com/System64fumo/syshud)
 
 ---
+
 
