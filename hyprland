@@ -181,10 +181,6 @@ yay -S --needed waybar hyprpaper xdg-desktop-portal-hyprland xdg-desktop-portal-
 yay -S --needed kitty starship gvfs tumbler mousepad rofi-wayland mpv loupe onlyoffice-bin xarchiver papers qbittorrent-qt5  gnome-disk-utility mission-center filezilla vivaldi  Obsidian zoxide mcfly visual-studio-code-bin telegram-desktop gnome-font-viewer gnome-calculator
 ``` 
 
-Визуальное изменение громкости 
-
-[Syshud](https://github.com/System64fumo/syshud)
-
 ---
 
 
