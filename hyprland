@@ -152,7 +152,7 @@ sudo pacman -S --needed base-devel nano reflector sudo curl net-tools wget git o
 ## 12.  Установить необходимые пакеты для Hyprland
 
 ```
-yay -S --needed waybar hyprpaper xdg-desktop-portal-hyprland xdg-desktop-portal-wlr xdg-desktop-portal-gtk hyprpolkitagent hyprsysteminfo nwg-look kora-icon-theme dracula-gtk-theme swaync pipewire wireplumber hyprshot slurp grim hyprland-qtutils hyprgraphics  hyprwayland-scanner aquamarine hyprutils hyprlock qt6-svg qt6-declarative qt5-quickcontrols2 wlogout nwg-drawer networkmanager gnome-calendar thunar q pavucontrol sddm ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender libxcursor pixman wayland-protocols cairo pango libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang hyprcursor hyprwayland-scanner xcb-util-errors hyprutils glaze hyprgraphics aquamarine re2 hyprland-qtutils qt5ct qt6ct qt5-wayland qt6-wayland lib32-pipewire vimix-cursors swappy wl-clipboard wl-clip-persist cliphist tela-circle-icon-theme-all winbox
+yay -S --needed waybar hyprpaper xdg-desktop-portal-hyprland xdg-desktop-portal-wlr xdg-desktop-portal-gtk hyprpolkitagent hyprsysteminfo nwg-look kora-icon-theme dracula-gtk-theme swaync pipewire wireplumber hyprshot slurp grim hyprland-qtutils hyprgraphics  hyprwayland-scanner aquamarine hyprutils hyprlock qt6-svg qt6-declarative qt5-quickcontrols2 wlogout nwg-drawer networkmanager gnome-calendar thunar q pavucontrol sddm ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender libxcursor pixman wayland-protocols cairo pango libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang hyprcursor hyprwayland-scanner xcb-util-errors hyprutils glaze hyprgraphics aquamarine re2 hyprland-qtutils qt5ct qt6ct qt5-wayland qt6-wayland lib32-pipewire vimix-cursors swappy wl-clipboard wl-clip-persist cliphist tela-circle-icon-theme-all winbox nwg-displays
 ```
 
 ## 13. Установить "рабочий" софт для Hyprland
@@ -181,6 +181,125 @@ yay -S --needed waybar hyprpaper xdg-desktop-portal-hyprland xdg-desktop-portal-
 yay -S --needed kitty starship gvfs tumbler mousepad rofi-wayland mpv loupe onlyoffice-bin xarchiver papers qbittorrent-qt5  gnome-disk-utility mission-center filezilla vivaldi  Obsidian zoxide mcfly visual-studio-code-bin telegram-desktop gnome-font-viewer gnome-calculator
 ``` 
 
+Визуальное изменение громкости 
+
+[Syshud](https://github.com/System64fumo/syshud)
+
 ---
 
 
+
+---
+## Установить пакеты печати 
+
+```
+sudo pacman -S --needed  cups cups-filters cups-pdf  libcups libcupsfilters splix python-pycups lib32-libcups simple-scan hplip  hplip-plugin print-manager
+```
+ 
+
+
+---
+
+> [!Сайт для поиска новых программ] 
+> https://www.linuxlinks.com
+
+## Графические программы
+
+- Терминал - kitty | [Tilix](https://github.com/gnunn1/tilix) | [Warp](https://github.com/warpdotdev/Warp) | [Wave](https://github.com/wavetermdev/waveterm)
+- Браузер - [Vivaldi](https://vivaldi.com/ru/) 
+- Торрент - qbittorrent
+- Управление дисками - [gnome-disk-utility](https://github.com/GNOME/gnome-disk-utility)
+- SSH клиент - [Tabby](https://github.com/Eugeny/tabby)  |  [XPipe](https://xpipe.io/download) 
+- Paint - [krita](https://github.com/KDE/krita)
+- Загрузочная флешка - [Ventoi](https://github.com/ventoy/Ventoy)
+- Системный монитор - [Mission Center](https://gitlab.com/mission-center-devs/mission-center)
+- Редактор заметок - [Obsidian](https://github.com/obsidianmd/obsidian-releases)
+- Редактор кода - [Visual Studio Code](https://github.com/microsoft/vscode)
+- FTP клиент - [Filezilla](https://filezilla-project.org)
+
+> [!info] 
+> Установить все графические программы (без ssh и ventoi): 
+
+```
+yay -S --needed kitty vivaldi transmission-gtk gnome-disk-utility krita mission-center visual-studio-code-bin obsidian filezilla
+```
+---
+## Терминальные программы
+
+- [Mcfly](https://github.com/cantino/mcfly) - аналог поиска по истории команд (ctr+r)
+- [LSD](https://github.com/lsd-rs/lsd) - аналог ls
+- [Yt-dlp](https://github.com/yt-dlp/yt-dlp#usage-and-options) - загрузчик видео ютуб [GUI](https://github.com/oleksis/youtube-dl-gui)
+- [Tailspin](https://github.com/bensadeh/tailspin?tab=readme-ov-file#installing) - просмотр цветных логов (для запуска "tspin")
+- [Glances](https://github.com/nicolargo/glances?tab=readme-ov-file) - информация о системе
+- [Pandoc](https://github.com/jgm/pandoc) - конвертер файлов
+- [Fabric](https://github.com/danielmiessler/fabric) - терминальный ИИ [[Fabric| (Инструкция)]] 
+- [Zoxide](https://github.com/ajeetdsouza/zoxide) - Альтернатива cd, с функцией запоминания путей конечных папок
+
+> [!info] 
+> Установить все терминальные программы: 
+
+```
+yay -S --needed mcfly lsd yt-dlp tailspin glances
+``` 
+
+
+---
+## 1. Установить игровые пакеты:
+
+```
+yay -S --needed mesa lib32-mesa vkd3d lib32-vkd3d xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau vulkan-mesa-layers ttf-liberation goverlay mangohud gamemode glfw protontricks
+```
+## 2. Установить пакеты для wine:
+
+```
+yay -S --needed wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses ocl-icd lib32-ocl-icd libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader lib32-opencl-icd-loader wine-gecko wine-mono winetricks vulkan-tools zenity
+```
+## 3. Проверить значение vmmax :
+
+```
+echo "vm.max_map_count = 2147483642" | sudo tee /etc/sysctl.d/80-gamecompatibility.conf > /dev/null
+```
+
+```
+sysctl vm.max_map_count
+```
+
+должно быть 2147483642
+
+
+## 4. Проверить Rezisable bar:
+
+```
+sudo dmesg | grep BAR | grep "Detected VRAM"
+```
+
+
+
+
+
+## 5. Активировать freesync на x11 
+
+### 4.1. Создать файл - /etc/X11/xorg.conf.d/10-amdgpu.conf:
+ 
+ ```
+ sudo nano /etc/X11/xorg.conf.d/10-amdgpu.conf 
+```
+### 4.2. Вставить секцию:
+
+```
+Section "Device"
+   Identifier "AMD"
+   Driver "amdgpu"
+   Option "TearFree" "true"
+   Option "VariableRefresh" "true"
+EndSection
+```
+### 4.3. Проверить работу freesync:
+
+```
+yay -S --needed vrrtest 
+```
+
+```
+vrrtest
+```
