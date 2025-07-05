@@ -1,0 +1,600 @@
+{
+   "backupToFile": {
+      "message": "Dublēt failā"
+   },
+   "btnAlwaysTranslate": {
+      "message": "Vienmēr tulkot šo vietni"
+   },
+   "btnApply": {
+      "message": "Apstiprināt"
+   },
+   "btnChangePosition": {
+      "message": "Mainiet pozīciju"
+   },
+   "btnDonate": {
+      "message": "Ziedot"
+   },
+   "btnKeepOnScreen": {
+      "message": "Turiet ekrānā"
+   },
+   "btnListen": {
+      "message": "Klausīties"
+   },
+   "btnMobileOriginal": {
+      "message": "Oriģināls"
+   },
+   "btnMobileTranslated": {
+      "message": "Tulkojums"
+   },
+   "btnMoreOptions": {
+      "message": "Vairāk iespēju"
+   },
+   "btnNeverTranslate": {
+      "message": "Nekad netulkot šo vietni"
+   },
+   "btnNeverTranslateThisLanguage": {
+      "message": "Nekad netulkot šo valodu"
+   },
+   "btnOpenOnGoogleTranslate": {
+      "message": "Atvērt Google tulkotājā"
+   },
+   "btnOptions": {
+      "message": "Iespējas"
+   },
+   "btnReplace": {
+      "message": "Aizvietot"
+   },
+   "btnReset": {
+      "message": "Atiestatīt"
+   },
+   "btnRestore": {
+      "message": "Parādiet oriģinālu"
+   },
+   "btnShowPopup": {
+      "message": "Rādīt uznirstošo logu"
+   },
+   "btnStopListening": {
+      "message": "Beigt klausīties"
+   },
+   "btnTranslate": {
+      "message": "Tulkot"
+   },
+   "btnTranslateRestoreThisFrame": {
+      "message": "Tulkot/atjaunot šo rāmi"
+   },
+   "btnTryAgain": {
+      "message": "Mēģini vēlreiz"
+   },
+   "btnUndoTranslation": {
+      "message": "Atsaukt"
+   },
+   "btncopy": {
+      "message": "Kopēt"
+   },
+   "calculatestorage": {
+      "message": "Aprēķināt"
+   },
+   "deleteTranslationCache": {
+      "message": "Dzēst tulkojuma kešatmiņu"
+   },
+   "doYouWantOverwriteAllSettings": {
+      "message": "Vai pārrakstīt visus esošos iestatījumus, izmantojot dublējuma datus?"
+   },
+   "doYouWantRestoreSettings": {
+      "message": "Vai atjaunot paplašinājuma noklusējuma iestatījumus?"
+   },
+   "doYouWantToDeleteTranslationCache": {
+      "message": "Vai tiešām vēlaties dzēst tulkojuma kešatmiņu?"
+   },
+   "donatewithpaypal": {
+      "message": "Ziedot izmantojot PayPal"
+   },
+   "donationText": {
+      "message": "Esmu izstrādājis, atjauninājis un atbalstījis šo paplašinājumu vairāk nekā piecus gadus. Ir pārsteidzoši redzēt, ka mums ikdienā ir vairāk nekā 600 000 lietotāju.\n\nBūšu pateicīgs, ja jūs varētu man finansiāli palīdzēt, izmantojot Paypal vai kļūstot par mana Patreon dalībnieku. Jūsu ieguldījums palīdz man turpināt uzlabot šo paplašinājumu.\n\nPaldies visiem, kas jau ir devuši ieguldījumu šajā projektā."
+   },
+   "dontShowIfIsNotValidText": {
+      "message": "Nerādīt, ja atlasītais teksts nav derīgs"
+   },
+   "dontShowIfPageLangIsTargetLang": {
+      "message": "Nerādīt, ja lapas valoda ir mērķvaloda"
+   },
+   "dontShowIfPageLangIsUnknown": {
+      "message": "Nerādīt, ja lapas valoda nav zināma"
+   },
+   "dontShowIfSelectedTextIsTargetLang": {
+      "message": "Nerādīt, ja atlasītā teksta valoda ir mērķvaloda"
+   },
+   "dontShowIfSelectedTextIsUnknown": {
+      "message": "Nerādīt, ja atlasītā teksta valoda nav zināma"
+   },
+   "enterShortcut": {
+      "message": "Ievadiet īsinājumtaustiņa kombināciju"
+   },
+   "extensionDescription": {
+      "message": "Lapu tulkošana reāllaikā, izmantojot Google vai Yandex dzinējus."
+   },
+   "fileIsCorrupted": {
+      "message": "Fails ir bojāts"
+   },
+   "hotkeyError_ctrlOrAlt": {
+      "message": "Iekļaut Ctrl vai Alt"
+   },
+   "hotkeyError_invalid": {
+      "message": "Nederīga kombinācija"
+   },
+   "hotkeyError_letter": {
+      "message": "Ievadiet burtu"
+   },
+   "lblAdd": {
+      "message": "Pievienot"
+   },
+   "lblAlwaysTranslate": {
+      "message": "Vienmēr tulkot no $LANGUAGE_NAME$",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "English"
+         }
+      }
+   },
+   "lblAlwaysTranslateSites": {
+      "message": "Vienmēr tulkot šīs vietnes"
+   },
+   "lblAutoTranslateWhenClickingALink": {
+      "message": "Automātiski tulkot, noklikšķinot uz saiti, kas novirza uz to pašu domēnu, kurā atrodas pašreizējā vietne"
+   },
+   "lblButtonInTheAddressBar": {
+      "message": "Rādīt ikonu adreses joslā"
+   },
+   "lblDarkMode": {
+      "message": "Tumšais režīms"
+   },
+   "lblEnableDiskCache": {
+      "message": "Iespējot pastāvīgo tulkošanas kešatmiņu (diska kešatmiņu)"
+   },
+   "lblError": {
+      "message": "Šo lapu nevarēja iztulkot"
+   },
+   "lblExperimental": {
+      "message": "Eksperimentāls"
+   },
+   "lblFavoriteLanguage": {
+      "message": "Mīļākā valoda $FAVORITE_LANGUAGE_NUM$",
+      "placeholders": {
+         "FAVORITE_LANGUAGE_NUM": {
+            "content": "$1",
+            "example": "2"
+         }
+      }
+   },
+   "lblHotTranslatedSelectedText": {
+      "message": "Nekavējoties nomainiet atlasīto tekstu ar tulkoto tekstu"
+   },
+   "lblKeyboardShortcuts": {
+      "message": "Īsinājumtaustiņi"
+   },
+   "lblKeyboardShortcutsSpecial": {
+      "message": "Īpašie īsinājumtaustiņi"
+   },
+   "lblMakeDonation": {
+      "message": "Ziedot"
+   },
+   "lblNeverTranslateLangs": {
+      "message": "Nekad netulko šīs valodas"
+   },
+   "lblOthers": {
+      "message": "Citi"
+   },
+   "lblPageTranslateInto": {
+      "message": "Lapa tulkota $LANGUAGE_NAME$valodā",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "German"
+         }
+      }
+   },
+   "lblPageTranslationService": {
+      "message": "Lapu tulkošanas pakalpojums"
+   },
+   "lblPersonalSettings": {
+      "message": "Personiskie iestatījumi"
+   },
+   "lblPlsDonate": {
+      "message": "Atbalstīt izstrādātāju ar ziedojumu"
+   },
+   "lblReleaseNotes": {
+      "message": "Izmaiņu žurnāls"
+   },
+   "lblReport": {
+      "message": "Ziņot par problēmu"
+   },
+   "lblRestorePageToOriginal": {
+      "message": "Atjaunot sākotnējo lapas valodu"
+   },
+   "lblSelectPopupInterfaceStyle": {
+      "message": "Izvēlieties uznirstošo interfeisa stilu"
+   },
+   "lblSettings": {
+      "message": "Iestatījumi"
+   },
+   "lblShowContextMenu": {
+      "message": "Parādīt lapas tulkošanas opciju konteksta izvēlnē"
+   },
+   "lblShowOriginalTextWhenHovering": {
+      "message": "Rādīt oriģinālo tekstu, virzot peles kursoru"
+   },
+   "lblShowReleaseNotes": {
+      "message": "Parādīt izmaiņu žurnālu, kad atjaunina"
+   },
+   "lblShowTranslateSelectedButton": {
+      "message": "Rādīt pogu, lai tulkotu atlasīto tekstu"
+   },
+   "lblShowTranslateSelectedContextMenu": {
+      "message": "Parādīt atlasītā teksta tulkošanas iespējas konteksta izvēlnē"
+   },
+   "lblShowTranslatedHoveringLangs": {
+      "message": "Rādīt tulkoto tekstu, virzot peles kursoru vietnēm šajās valodās"
+   },
+   "lblShowTranslatedHoveringSites": {
+      "message": "Rādīt tulkoto tekstu, virzot peles kursoru šādām vietnēm"
+   },
+   "lblShowTranslatedWhenHovering": {
+      "message": "Rādīt tulkoto tekstu, virzot peles kursoru"
+   },
+   "lblShowTranslatedWhenHoveringThisLang": {
+      "message": "Rādīt tulkojumu, virzot peles kursoru vietnēm $LANGUAGE_NAME$ valodā",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "English"
+         }
+      }
+   },
+   "lblShowTranslatedWhenHoveringThisSite": {
+      "message": "Rādīt tulkojumu, virzot peles kursoru šai vietnei"
+   },
+   "lblStorageUsed": {
+      "message": "Krātuves lietojums:"
+   },
+   "lblSwitchTranslatedAndOriginal": {
+      "message": "Pārslēgties starp lapas tulkojumu un oriģinālu"
+   },
+   "lblTargetLanguage": {
+      "message": "Mērķvaloda $TARGET_LANGUAGE_NUM$",
+      "placeholders": {
+         "TARGET_LANGUAGE_NUM": {
+            "content": "$1",
+            "example": "2"
+         }
+      }
+   },
+   "lblTextToSpeechService": {
+      "message": "Teksta pārvēršanas runā pakalpojums"
+   },
+   "lblTextTranslationService": {
+      "message": "Teksta tulkošanas pakalpojums"
+   },
+   "lblTranslate": {
+      "message": "Tulkot šo lapu?"
+   },
+   "lblTranslateInterface": {
+      "message": "Palīdziet šī paplašinājuma tulkošanā"
+   },
+   "lblTranslatePageInto": {
+      "message": "Vai tulkot lapu $LANGUAGE_NAME$valodā?",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "German"
+         }
+      }
+   },
+   "lblTranslatePageToTargetLanguage": {
+      "message": "Tulkot lapu mērķvalodā"
+   },
+   "lblTranslateSelectedWhenPressTwice": {
+      "message": "Tulkot atlasīto tekstu, veicot divreizēju $SHORTCUT_KEY$ īsinājumtaustiņu nospiešanu",
+      "placeholders": {
+         "SHORTCUT_KEY": {
+            "content": "[Ctrl]"
+         }
+      }
+   },
+   "lblTranslateTag_pre": {
+      "message": "Iespējot tulkojumu tagam $HTML_TAG_NAME$",
+      "placeholders": {
+         "HTML_TAG_NAME": {
+            "content": "\u003CPRE>"
+         }
+      }
+   },
+   "lblTranslateTextOverMouseWhenPressTwice": {
+      "message": "Tulkot tekstu virs peles kursora, veicot divreizēju $SHORTCUT_KEY$ īsinājumtaustiņu nospiešanu",
+      "placeholders": {
+         "SHORTCUT_KEY": {
+            "content": "[Ctrl]"
+         }
+      }
+   },
+   "lblTranslating": {
+      "message": "Tulko ..."
+   },
+   "lblTranslationCache": {
+      "message": "Tulkojuma kešatmiņa"
+   },
+   "lblTtsSpeed": {
+      "message": "Teksta pārvēršana runā ātrums"
+   },
+   "lblTtsVolume": {
+      "message": "Teksta pārvēršanas runā audio skaļums"
+   },
+   "lbldontsortresults": {
+      "message": "Nekārtojiet tulkošanas rezultātus"
+   },
+   "lbltranslatedynamicallycreatedcontent": {
+      "message": "Tulkot dinamiski ģenerētu saturu"
+   },
+   "less": {
+      "message": "Mazāk"
+   },
+   "more": {
+      "message": "Vairāk"
+   },
+   "msgAll": {
+      "message": "Visi"
+   },
+   "msgAlwaysShow": {
+      "message": "Vienmēr rādīt"
+   },
+   "msgAutoDetect": {
+      "message": "Automātiska noteikšana"
+   },
+   "msgAutomatic": {
+      "message": "Automātiski"
+   },
+   "msgChooseAnotherLanguage": {
+      "message": "Izvēlieties citu valodu"
+   },
+   "msgDeepLTabReasoOpened": {
+      "message": "Šī cilne tika atvērta, jo jūs noklikšķinājāt, lai tulkotu atlasīto tekstu, izmantojot DeepL."
+   },
+   "msgDefaultLanguage": {
+      "message": "Noklusējuma valoda"
+   },
+   "msgDonationRecipient": {
+      "message": "Jūsu ziedojums tiek saņemts paplašinājuma $EXTENSION_NAME$ izstrādātājam.",
+      "placeholders": {
+         "EXTENSION_NAME": {
+            "content": "#EXTENSION_NAME#",
+            "example": "TWP - Translate Web Pages"
+         }
+      }
+   },
+   "msgDontShowAgain": {
+      "message": "Nerādīt vēlreiz"
+   },
+   "msgDownloadingDocument": {
+      "message": "Dokuments tiek lejupielādēts..."
+   },
+   "msgEnableIframePageTranslation": {
+      "message": "Iespējot lapas tulkošanu valodā $IFRAME_TAG$",
+      "placeholders": {
+         "IFRAME_TAG": {
+            "content": "\u003CIFRAME>"
+         }
+      }
+   },
+   "msgErrorDownloadingDocument": {
+      "message": "Kļūda, lejupielādējot dokumentu"
+   },
+   "msgExtUILanguage": {
+      "message": "Paplašinājuma lietotāja interfeisa valoda"
+   },
+   "msgFavoriteLanguages": {
+      "message": "Mīļākās valodas"
+   },
+   "msgFileLargerThan": {
+      "message": "Šis pakalpojums neatbalsta failus, kas ir lielāki par $FILE_SIZE$",
+      "placeholders": {
+         "FILE_SIZE": {
+            "content": "$1",
+            "example": "10 MB"
+         }
+      }
+   },
+   "msgHasBeenUpdated": {
+      "message": "$EXTENSION_NAME$ paplašinājums ir atjaunināts uz $EXTENSION_VERSION$versiju.",
+      "placeholders": {
+         "EXTENSION_NAME": {
+            "content": "#EXTENSION_NAME#",
+            "example": "TWP - Translate Web Pages"
+         },
+         "EXTENSION_VERSION": {
+            "content": "#EXTENSION_VERSION#",
+            "example": "9.7"
+         }
+      }
+   },
+   "msgHotkeys": {
+      "message": "Īsinājumtaustiņi"
+   },
+   "msgIWillBeGrateful": {
+      "message": "Būšu pateicīgs, ja ziedosiet."
+   },
+   "msgImproveTranslation": {
+      "message": "Uzlabot tulkojumu"
+   },
+   "msgInterfaceComplex": {
+      "message": "Komplekss"
+   },
+   "msgInterfaceSimple": {
+      "message": "Vienkārši"
+   },
+   "msgLanguages": {
+      "message": "Valodas"
+   },
+   "msgNo": {
+      "message": "Nē"
+   },
+   "msgNoTranslateSelectedText": {
+      "message": "Netulkot atlasīto tekstu"
+   },
+   "msgOnlyWhenItouch3Fingers": {
+      "message": "Tikai tad, kad pieskaros ekrānam trīs pirkstiem"
+   },
+   "msgOpenOnYandexTranslator": {
+      "message": "Atvērt Yandex tulkot"
+   },
+   "msgOpenTranslatedPDF": {
+      "message": "Atvērt tulkoto PDF"
+   },
+   "msgPDFtoHTML": {
+      "message": "PDF uz HTML"
+   },
+   "msgPageTranslated": {
+      "message": "Lapa tulkota"
+   },
+   "msgPleaseWait": {
+      "message": "Lūdzu, uzgaidiet..."
+   },
+   "msgPrivacy": {
+      "message": "Privātums"
+   },
+   "msgRecents": {
+      "message": "Nesenie"
+   },
+   "msgSelectServiceConversion": {
+      "message": "Izvēlieties konvertēšanas pakalpojumu"
+   },
+   "msgSelectTargetLanguage": {
+      "message": "Tulkojiet vietnes šajā mērķa valodā"
+   },
+   "msgSelectTargetLanguageForText": {
+      "message": "Tulkot atlasīto tekstu šajā mērķa valodā"
+   },
+   "msgSendDocument": {
+      "message": "Nosūtīt dokumentu"
+   },
+   "msgSetDeepLAlert": {
+      "message": "Vai tiešām vēlaties iestatīt tulkošanas pakalpojumu DeepL?\nTiks atvērta jauna cilne, kurā notiks tulkojums."
+   },
+   "msgSites": {
+      "message": "Vietnes"
+   },
+   "msgStorage": {
+      "message": "Krātuve"
+   },
+   "msgStyle": {
+      "message": "Stils"
+   },
+   "msgThanksForUseExtension": {
+      "message": "Paldies, ka izmantojāt šo paplašinājumu."
+   },
+   "msgToTranslateThisDocument": {
+      "message": "Lai tulkotu $DOC_TYPE$ dokumentu, tas ir jāpārvērš HTML formātā",
+      "placeholders": {
+         "DOC_TYPE": {
+            "content": "$1",
+            "example": "(.pdf)"
+         }
+      }
+   },
+   "msgTranslateFor": {
+      "message": "Tulkot uz $LANGUAGE_NAME$",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "English"
+         }
+      }
+   },
+   "msgTranslateFromTo": {
+      "message": "$FROM_LANGUAGE$ līdz $TO_LANGUAGE$",
+      "placeholders": {
+         "FROM_LANGUAGE": {
+            "content": "$1",
+            "example": "German"
+         },
+         "TO_LANGUAGE": {
+            "content": "$2",
+            "example": "English"
+         }
+      }
+   },
+   "msgTranslatePDF": {
+      "message": "Tulkot PDF"
+   },
+   "msgTranslatePage": {
+      "message": "Vai tulkot lapu?"
+   },
+   "msgTranslateSelectedText": {
+      "message": "Tulkot atlasīto tekstu"
+   },
+   "msgTranslations": {
+      "message": "Tulkojumi"
+   },
+   "msgUnknownLanguage": {
+      "message": "Nezināma"
+   },
+   "msgWhenNecessary": {
+      "message": "Kad nepieciešams"
+   },
+   "msgWhenShowMobilePopup": {
+      "message": "Kad rādīt mobilo sakaru uznirstošo logu"
+   },
+   "msgYes": {
+      "message": "Jā"
+   },
+   "openNativeShortcutManager": {
+      "message": "Atvērt iebūvēto īsinājumtaustiņu pārvaldnieku"
+   },
+   "optionPopupConfig": {
+      "message": "Rādīt mobilo uznirstošo logu"
+   },
+   "optionPopupThreeFingers": {
+      "message": "Kad es pieskaros ekrānam ar trim pirkstiem"
+   },
+   "optionsAddToCustomDictionary": {
+      "message": "Pievienot pielāgotajai vārdnīcai (tas ļauj izlaist noteiktus vārdus tīmekļa lapas tulkošanas laikā)"
+   },
+   "optionsAlwaysTranslate": {
+      "message": "Vienmēr tulkot šīs valodas"
+   },
+   "optionsNeverTranslate": {
+      "message": "Nekad netulkot šīs vietnes"
+   },
+   "pageActionTitle": {
+      "message": "Tulkot šo lapu"
+   },
+   "popupBlueWhenSiteIsTranslated": {
+      "message": "Kad vietne ir iztulkota, iekrāsojiet uznirstošā loga ikonu zilā krāsā"
+   },
+   "resetToDefault": {
+      "message": "Atjaunot noklusējuma iestatījumus"
+   },
+   "restoreFromFile": {
+      "message": "Atjaunot no faila"
+   },
+   "selectOriginalLanguage": {
+      "message": "Atlasiet oriģinālo vietnes valodu"
+   },
+   "selectTargetLanguage": {
+      "message": "Izvēlieties mērķa valodu"
+   },
+   "selectToEnableTranslationService": {
+      "message": "Atlasiet tulkošanas pakalpojumus, kurus vēlaties izmantot"
+   },
+   "swapPopup": {
+      "message": "Pārslēdzieties starp vienkāršu un sarežģītu saskarni"
+   },
+   "swapTranslationService": {
+      "message": "Pārslēgties starp tulkošanas pakalpojumiem"
+   },
+   "translateClickingOnce": {
+      "message": "Tulkot lapu, vienreiz nospiežot pogu adreses joslā. (Lai redzētu uznirstošo logu, noklikšķiniet ar peles labo pogu)"
+   },
+   "useAlternativeService": {
+      "message": "Klusi izmantojiet alternatīvu tulkošanas pakalpojumu, ja atlasītais tulkošanas pakalpojums neatbalsta pašreizējo mērķvalodu"
+   }
+}

@@ -1,0 +1,250 @@
+/*
+##
+##  Enhancer for YouTube™
+##  =====================
+##
+##  Author: Maxime RF <https://www.mrfdev.com>
+##
+##  This file is protected by copyright laws and international copyright
+##  treaties, as well as other intellectual property laws and treaties.
+##
+##  All rights not expressly granted to you are retained by the author.
+##  Read the license.txt file for more details.
+##
+##  © MRFDEV.com - All Rights Reserved
+##
+*/
+:root {
+  --primary-color: #d40000;
+  --article-header-height: 7rem;
+  color-scheme: light;
+  --text-color: #000;
+  --primary-background-color: #fff;
+  --secondary-background-color: #eeeff1;
+  --horizontal-line-color: #ccc;
+  --button-background-color: #fff;
+  --button-hover-background-color: #f2f2f2;
+  --button-border-color: #7b7b7b;
+  --button-hover-border-color: #4d4d4d;
+  --button-outline-color: #000;
+  --button-shadow-color: rgba(176, 176, 176, 0.2);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --text-color: #e8eaed;
+    --primary-background-color: #202124;
+    --secondary-background-color: #3c4043;
+    --horizontal-line-color: rgba(255, 255, 255, .25);
+    --button-background-color: #3b3b3b;
+    --button-hover-background-color: #3b3b3b;
+    --button-border-color: #767676;
+    --button-hover-border-color: #fff;
+    --button-outline-color: #fff;
+    --button-shadow-color: rgba(0, 0, 0, 0.5);
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  font-size: 100%;
+}
+body {
+  font-family: "Segoe UI", "San Francisco", Ubuntu, "Open Sans", Roboto, Arial, sans-serif;
+  font-size: 1rem;
+  background-color: var(--primary-background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+.headline {
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.headline span {
+  display: block;
+}
+.headline .extension-name {
+  font-size: 3.75rem;
+}
+.hero p {
+  font-size: 1.25rem;
+  text-align: center;
+}
+.primary-color {
+  color: var(--primary-color);
+}
+.extension-icon {
+  margin: 1rem 0;
+}
+.extension-icon img {
+  width: 4rem;
+  height: auto;
+}
+.extension-icon::before,
+.extension-icon::after {
+  content: "";
+  height: .077rem;
+  position: absolute;
+  transform: translateY(2rem);
+  background-color: var(--horizontal-line-color);
+  width: calc(50vw - 4rem);
+}
+.extension-icon::before {
+  left: 0;
+}
+.extension-icon::after {
+  right: 0;
+}
+.version {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 1.5rem;
+}
+.note {
+  font-size: 1.25rem;
+  text-align: center;
+  padding: 0 1.5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.note code {
+  display: block;
+  font-style: italic;
+  font-size: 1rem;
+  padding: 1rem;
+}
+.articles {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 1.5rem;
+  max-width: 78rem;
+  margin: 0 auto 2rem;
+  padding: 0 1rem 1rem;
+}
+@media (min-width: 1024px) {
+  .articles {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+article {
+  background-color: var(--secondary-background-color);
+  border-radius: .5rem;
+  padding: 1rem;
+}
+article header {
+  display: flex;
+  align-items: center;
+  height: var(--article-header-height);
+}
+article header svg {
+  width: 100%;
+  max-width: var(--article-header-height);
+}
+article header svg#or {
+  height: 2rem;
+  max-width: 2rem;
+}
+svg path.text-color {
+  fill: var(--text-color);
+}
+article h2 {
+  font-size: 2rem;
+  margin: 0 .5rem 0 0;
+}
+article .content {
+  font-size: 1.25rem;
+}
+article li:not(:last-of-type) {
+  padding-bottom: .5rem;
+}
+a {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+a:link,
+a:visited {
+  text-decoration: none;
+}
+a:hover,
+a:active {
+  text-decoration: underline;
+}
+.thanks {
+  background-color: var(--secondary-background-color);
+  font-size: 1.25rem;
+  padding: 3.5rem 1rem;
+}
+.thanks-grid {
+  display: grid;
+  grid-template-columns: 14rem 1fr 1fr;
+  grid-auto-rows: min-content;
+  gap: 1rem;
+  align-items: center;
+  margin: auto;
+  max-width: 70rem;
+}
+.thanks-content {
+  grid-column: 2 / -1;
+}
+.thanks-content h2 {
+  font-size: 3rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.thanks-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  grid-column: 1 / -1;
+}
+.thanks-buttons button {
+  margin: .8rem .5rem;
+}
+.thanks-buttons.USD button::before {
+  content: "$";
+}
+.thanks-buttons.EUR button::after {
+  content: " €";
+}
+.thanks button {
+  font-size: 1rem;
+}
+.author {
+  display: flex;
+  align-items: center;
+}
+button {
+  background-color: var(--button-background-color);
+  border: .0625rem solid var(--button-border-color);
+  border-radius: 1rem;
+  box-shadow: var(--button-shadow-color) 0 .125rem .3125rem 0;
+  line-height: 2rem;
+  padding: 0 .625rem 0 .6875rem;
+}
+button:hover {
+  background-color: var(--button-hover-background-color);
+  border-color: var(--button-hover-border-color);
+}
+button:focus,
+button:focus-visible {
+  border-color: var(--button-outline-color);
+  outline: .0625rem solid var(--button-outline-color);
+}
+button.close-modal {
+  line-height: 0;
+}

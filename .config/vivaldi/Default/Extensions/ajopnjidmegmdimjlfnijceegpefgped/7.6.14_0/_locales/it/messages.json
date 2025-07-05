@@ -1,0 +1,41 @@
+{
+   "EXTENSION_DESCRIPTION": {
+      "message": "BetterTTV potenzia Twitch e YouTube con nuove funzionalità, emoticon e molto altro ancora."
+   },
+   "EXTENSION_NAME": {
+      "message": "BetterTTV"
+   },
+   "EXTENSION_PERMISSIONS_UPGRADE_BODY_1": {
+      "message": "BetterTTV supporta sia Twitch che YouTube"
+   },
+   "EXTENSION_PERMISSIONS_UPGRADE_BODY_2": {
+      "message": "Per abilitare entrambi, abbiamo bisogno di ulteriori permessi. Clicca sul pulsante qui sotto per continuare."
+   },
+   "EXTENSION_PERMISSIONS_UPGRADE_BUTTON": {
+      "message": "Abilita per Twitch e YouTube"
+   },
+   "EXTENSION_PERMISSIONS_UPGRADE_PAGE_TITLE": {
+      "message": "BetterTTV: Permessi aggiuntivi"
+   },
+   "EXTENSION_PERMISSIONS_UPGRADE_TITLE": {
+      "message": "Grazie per aver scelto BetterTTV!"
+   },
+   "EXTENSION_POPUP_TEXT": {
+      "message": "Le impostazioni di BetterTTV si trovano sul sito web di Twitch nelle impostazioni della chat. Puoi cliccare con il tasto destro su quest'icona e nasconderla visto che non è necessaria."
+   },
+   "MARKETING_DESCRIPTION": {
+      "message": "Conosciuto anche come \"BTTV\" o \"Better Twitch TV\" dalla comunità, BetterTTV mira ad aggiungere nuove funzionalità a Twitch e YouTube (beta).\n\nEcco alcune delle nostre funzionalità:\n\n• più emoticon in chat - globali di BetterTTV e personalizzate per ogni canale;\n• menu emoticon migliorato;\n• chiavi di ricerca mirate per frasi, parole, utenti e stemmi della chat;\n• sfondo della chat alternato per facilitare la lettura;\n• visualizza messaggi e link cancellati;\n• Chat Anonima - entra in un canale senza apparire nella lista utenti;\n• riscatta automaticamente punti bonus del canale, drop e momenti;\n• nascondi elementi distraenti e superflui come canali raccomandati, bit, repliche, notifiche, e messaggi in primo piano della comunità.\n\nCome utilizzarlo:\n\n• basta installarlo e poi visitare Twitch/YouTube;\n• per abilitarlo su YouTube, è necessario accettare la richiesta di permessi aggiuntivi al momento dell'installazione. Se non l'avete fatto, potete abilitarlo in qualsiasi momento tramite le impostazioni di BetterTTV;\n• le impostazioni possono essere configurate nelle impostazioni della chat o cliccando su Impostazioni BetterTTV dal menu a discesa;\n• Nota Bene: al momento non tutte le impostazioni sono disponibili su YouTube."
+   },
+   "MARKETING_IMAGE_1": {
+      "message": "Ottieni Più Emoticon\nStai una spanna sopra in chat con le emoticon di BetterTTV."
+   },
+   "MARKETING_IMAGE_2": {
+      "message": "Navigazione Fantastica\nSfoglia le tue emoticon con facilità, e trova quella perfetta per ogni occasione."
+   },
+   "MARKETING_IMAGE_3": {
+      "message": "Personalizzazione Totale"
+   },
+   "MARKETING_SUMMARY": {
+      "message": "Potenzia Twitch e YouTube con nuove funzionalità, emoticon e molto altro ancora."
+   }
+}

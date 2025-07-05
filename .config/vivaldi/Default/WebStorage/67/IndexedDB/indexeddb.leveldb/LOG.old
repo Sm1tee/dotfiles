@@ -1,0 +1,6 @@
+2025/04/13-23:56:58.802 4de Creating DB /home/smitee/.config/vivaldi/Default/WebStorage/67/IndexedDB/indexeddb.leveldb since it was missing.
+2025/04/13-23:56:58.808 4de Reusing MANIFEST /home/smitee/.config/vivaldi/Default/WebStorage/67/IndexedDB/indexeddb.leveldb/MANIFEST-000001
+2025/04/14-00:41:12.717 4d1 Level-0 table #5: started
+2025/04/14-00:41:12.720 4d1 Level-0 table #5: 19472 bytes OK
+2025/04/14-00:41:12.722 4d1 Delete type=0 #3
+2025/04/14-00:41:12.722 4d1 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

@@ -1,0 +1,22 @@
+2025/06/14-00:06:27.923 4c25 Reusing MANIFEST /home/smitee/.config/vivaldi/Default/Local Extension Settings/cjpalhdlnbpafiamejdnhcphjbkeiagm/MANIFEST-000001
+2025/06/14-00:06:27.925 4c25 Recovering log #6254
+2025/06/14-00:06:27.925 4c25 Reusing old log /home/smitee/.config/vivaldi/Default/Local Extension Settings/cjpalhdlnbpafiamejdnhcphjbkeiagm/006254.log 
+2025/06/14-00:07:29.599 4c24 Level-0 table #6258: started
+2025/06/14-00:07:29.656 4c24 Level-0 table #6258: 10589967 bytes OK
+2025/06/14-00:07:29.659 4c24 Delete type=0 #6254
+2025/06/14-00:07:29.660 4c24 Compacting 4@0 + 3@1 files
+2025/06/14-00:07:29.672 4c24 Generated table #6259@0: 5 keys, 2181479 bytes
+2025/06/14-00:07:29.684 4c24 Generated table #6260@0: 5 keys, 2416325 bytes
+2025/06/14-00:07:29.699 4c24 Generated table #6261@0: 2 keys, 3693392 bytes
+2025/06/14-00:07:29.783 4c24 Generated table #6262@0: 2 keys, 7722152 bytes
+2025/06/14-00:07:29.789 4c24 Generated table #6263@0: 7 keys, 1083908 bytes
+2025/06/14-00:07:29.789 4c24 Compacted 4@0 + 3@1 files => 17097256 bytes
+2025/06/14-00:07:29.791 4c24 compacted to: files[ 0 5 9 0 0 0 0 ]
+2025/06/14-00:07:29.792 4c24 Delete type=2 #6247
+2025/06/14-00:07:29.792 4c24 Delete type=2 #6245
+2025/06/14-00:07:29.792 4c24 Delete type=2 #6249
+2025/06/14-00:07:29.792 4c24 Delete type=2 #6246
+2025/06/14-00:07:29.792 4c24 Delete type=2 #6252
+2025/06/14-00:07:29.792 4c24 Delete type=2 #6258
+2025/06/14-00:07:29.792 4c24 Delete type=2 #6255
+2025/06/14-00:07:29.799 4c24 Moved #6262 to level-2 7722152 bytes OK: files[ 0 4 10 0 0 0 0 ]

@@ -1,0 +1,600 @@
+{
+  "extensionDescription": {
+    "message": "Google yamasa Yandex járdeminde real waqıtta betlerdi awdarmalaw."
+  },
+  "pageActionTitle": {
+    "message": "Bul betti awdarıw"
+  },
+  "lblTranslate": {
+    "message": "Bul bet awdarılsın ba?"
+  },
+  "lblTranslating": {
+    "message": "Awdarılmaqta..."
+  },
+  "lblError": {
+    "message": "Bul betti awdarıw múmkin emes"
+  },
+  "lblAlwaysTranslate": {
+    "message": "$LANGUAGE_NAME$ tilinen hámiyshe awdarmalaw",
+    "placeholders": {
+      "LANGUAGE_NAME": {
+        "content": "$1",
+        "example": "English"
+      }
+    }
+  },
+  "lblTargetLanguage": {
+    "message": "Awdarma tili $TARGET_LANGUAGE_NUM$",
+    "placeholders": {
+      "TARGET_LANGUAGE_NUM": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "btnReset": {
+    "message": "Qayta ornatıw"
+  },
+  "btnTranslate": {
+    "message": "Awdarıw"
+  },
+  "btnOptions": {
+    "message": "Sazlawlar"
+  },
+  "btnRestore": {
+    "message": "Túp nusqasın kórsetiw"
+  },
+  "btnTryAgain": {
+    "message": "Qayta urınıp kóriń"
+  },
+  "btnOpenOnGoogleTranslate": {
+    "message": "Google awdarmashıda ashıw"
+  },
+  "btnDonate": {
+    "message": "Qollap-quwatlaw"
+  },
+  "btnNeverTranslate": {
+    "message": "Heshqashan bul sayttı awdarmaw"
+  },
+  "btnMobileOriginal": {
+    "message": "Negizgisi"
+  },
+  "btnMobileTranslated": {
+    "message": "Awdarma"
+  },
+  "optionsNeverTranslate": {
+    "message": "Heshqashan bul saytlardı awdarmaw"
+  },
+  "optionsAlwaysTranslate": {
+    "message": "Hámiyshe bul tillerdi awdarıw"
+  },
+  "optionPopupConfig": {
+    "message": "Mobil telefon ushın qalqıb shıǵıwshı aynanı kórsetiw"
+  },
+  "optionPopupThreeFingers": {
+    "message": "Men ekranǵa ush barmaqtı basqanimda"
+  },
+  "msgOpenOnYandexTranslator": {
+    "message": "Yandex awdarmashıda ashıw"
+  },
+  "lblOthers": {
+    "message": "Basqa"
+  },
+  "btnMoreOptions": {
+    "message": "Qosımsha sazlawlar"
+  },
+  "lblPlsDonate": {
+    "message": "Baǵdarlamashını qollap-quwatlaw"
+  },
+  "msgTranslateFor": {
+    "message": "$LANGUAGE_NAME$ tiline awdarıw",
+    "placeholders": {
+      "LANGUAGE_NAME": {
+        "content": "$1",
+        "example": "English"
+      }
+    }
+  },
+  "lblShowContextMenu": {
+    "message": "Kontekst menyusında bet awdarmasın kórsetiw"
+  },
+  "msgYes": {
+    "message": "Awa"
+  },
+  "msgNo": {
+    "message": "Yaq"
+  },
+  "btnAlwaysTranslate": {
+    "message": "Hámiyshe bul sayttı awdarıw"
+  },
+  "lblAlwaysTranslateSites": {
+    "message": "Hámiyshe bul saytlardı awdarıw"
+  },
+  "lblDarkMode": {
+    "message": "Qarańǵı rejim"
+  },
+  "lblShowReleaseNotes": {
+    "message": "Jańalaw waqtında reliz jazıwların ashıw"
+  },
+  "lblShowTranslateSelectedButton": {
+    "message": "Saylanǵan tekst ushın awdarma túymeshesin kórsetiw"
+  },
+  "msgAutomatic": {
+    "message": "Avtomatikalıq"
+  },
+  "msgTranslateSelectedText": {
+    "message": "Tańlanǵan tekstti awdarıw"
+  },
+  "lblShowTranslateSelectedContextMenu": {
+    "message": "Kontekst menyusında saylanǵan tekst ushın awdarma variantın kórsetiw"
+  },
+  "lblNeverTranslateLangs": {
+    "message": "Bul tillerdi heshqashan awdarmaw"
+  },
+  "btnNeverTranslateThisLanguage": {
+    "message": "Bul tildi heshqashan awdarmaw"
+  },
+  "lblShowOriginalTextWhenHovering": {
+    "message": "Túp tekstti tıshqansha barǵanda kórsetiń"
+  },
+  "msgLanguages": {
+    "message": "Tiller"
+  },
+  "msgSites": {
+    "message": "Saytlar"
+  },
+  "msgTranslations": {
+    "message": "Awdarmalar"
+  },
+  "msgStyle": {
+    "message": "Style"
+  },
+  "msgHotkeys": {
+    "message": "Íssı tuymeler"
+  },
+  "lblMakeDonation": {
+    "message": "Qollap-quwatlaw"
+  },
+  "lblReleaseNotes": {
+    "message": "Shıǵarıw esletpeleri"
+  },
+  "lblReport": {
+    "message": "Mashqala haqqında xabar beriw"
+  },
+  "lblSettings": {
+    "message": "Sazlawlar"
+  },
+  "lblAdd": {
+    "message": "Qosıw"
+  },
+  "lblShowTranslatedWhenHovering": {
+    "message": "Tıshqanshanı alıp otip atırǵanda awdarma etilgen tekstti kórsetiw"
+  },
+  "lblKeyboardShortcuts": {
+    "message": "Íssı tuymeler"
+  },
+  "msgThanksForUseExtension": {
+    "message": "Bul keńeytpeden paydalanǵanińiz ushın minnetdarlıq."
+  },
+  "msgIWillBeGrateful": {
+    "message": "Eger qayır-saqawat ete alsańız, minnetdar bolar edim."
+  },
+  "lblShowTranslatedHoveringSites": {
+    "message": "Bul saytlarda kursordı alıp barǵanıńızda awdarma etilgen tekstti kórsetiw"
+  },
+  "popupBlueWhenSiteIsTranslated": {
+    "message": "Sayt awdarma etilgende qalqıb shıǵıwshı belgini kók reńge aylantırıń"
+  },
+  "more": {
+    "message": "Kóbirek"
+  },
+  "less": {
+    "message": "Azıraq"
+  },
+  "dontShowIfIsNotValidText": {
+    "message": "Do not show if the selected text is not valid"
+  },
+  "dontShowIfPageLangIsTargetLang": {
+    "message": "Bet tili maqsetli til ekenligin kórsetpeń"
+  },
+  "dontShowIfPageLangIsUnknown": {
+    "message": "Kórsetpew, eger bettiń tili belgisiz bolsa"
+  },
+  "dontShowIfSelectedTextIsTargetLang": {
+    "message": "Saylanǵan tekst tili awdarma til ekenligin kórsetpeń"
+  },
+  "dontShowIfSelectedTextIsUnknown": {
+    "message": "Saylanǵan tekst tili belgisiz bolsa, kórsetilmesin"
+  },
+  "lblShowTranslatedWhenHoveringThisSite": {
+    "message": "Bul saytda tıshqanshanı alıp kelgende awdarmanı kórsetiw"
+  },
+  "lblShowTranslatedWhenHoveringThisLang": {
+    "message": "Eger saytlar qosılǵan bolsa, tıshqanshanı kóterip awdarmanı kórsetiw $LANGUAGE_NAME$",
+    "placeholders": {
+      "LANGUAGE_NAME": {
+        "content": "$1",
+        "example": "English"
+      }
+    }
+  },
+  "lblShowTranslatedHoveringLangs": {
+    "message": "Bul tillerdegi saytlarda tıshqansha ústine ornatılǵan awdarma etilgen tekstti kórsetiw"
+  },
+  "msgNoTranslateSelectedText": {
+    "message": "Saylanǵan tekstti awdarma etpeń"
+  },
+  "btnListen": {
+    "message": "Tıńlaw"
+  },
+  "btnStopListening": {
+    "message": "Tıńlawdı toqtatıw"
+  },
+  "btnApply": {
+    "message": "Qollanıw"
+  },
+  "swapTranslationService": {
+    "message": "Awdarma xızmetlerin almastırıw"
+  },
+  "swapPopup": {
+    "message": "Ápiwayılastırılǵan hám rawajlanǵan ayna ortasında almaslaw"
+  },
+  "lblTranslateInterface": {
+    "message": "Awdarmaǵa menen járdem beriń"
+  },
+  "lblButtonInTheAddressBar": {
+    "message": "Mánzil qatarında belgin kórsetiw"
+  },
+  "lblPageTranslationService": {
+    "message": "Betti awdarmalaw xızmeti"
+  },
+  "lblTextTranslationService": {
+    "message": "Tekstti awdarmalaw xızmeti"
+  },
+  "msgStorage": {
+    "message": "Saqlaw ornı"
+  },
+  "lblTranslationCache": {
+    "message": "Awdarma keshi"
+  },
+  "lblStorageUsed": {
+    "message": "Bánt:"
+  },
+  "deleteTranslationCache": {
+    "message": "Awdarma keshin óshiriw"
+  },
+  "lblPersonalSettings": {
+    "message": "Jeke sazlawlar"
+  },
+  "backupToFile": {
+    "message": "Faylǵa rezervlew"
+  },
+  "restoreFromFile": {
+    "message": "Fayldan qayta tiklew"
+  },
+  "resetToDefault": {
+    "message": "Aldınnan ornatılǵan sazlawlardı qayta tiklew"
+  },
+  "doYouWantToDeleteTranslationCache": {
+    "message": "Awdarma keshin óshiriwdi qáleysiz be?"
+  },
+  "doYouWantOverwriteAllSettings": {
+    "message": "Rezerv maǵlıwmatlarınan paydalanıp, barlıq ámeldegi sazlawlardı qayta jazbaqshısızba?"
+  },
+  "fileIsCorrupted": {
+    "message": "Fayl ziyanlanǵan"
+  },
+  "doYouWantRestoreSettings": {
+    "message": "Keńeytpeni standart sazlawlarına qaytarmaqshısızba?"
+  },
+  "lblTtsSpeed": {
+    "message": "Tekstti sóylew tezligi"
+  },
+  "lblTtsVolume": {
+    "message": "Text-to-speech audio volume"
+  },
+  "enterShortcut": {
+    "message": "Kombinatsiya kiritiń"
+  },
+  "hotkeyError_ctrlOrAlt": {
+    "message": "Ctrl yamasa Altti qosıń"
+  },
+  "hotkeyError_letter": {
+    "message": "Hárip jazıń"
+  },
+  "hotkeyError_invalid": {
+    "message": "Jaramsız kombinatsiya"
+  },
+  "lblSwitchTranslatedAndOriginal": {
+    "message": "Awdarma etilgen hám túp betler ortasında almaslaw"
+  },
+  "lblRestorePageToOriginal": {
+    "message": "Bettiń túp tilin tikleń"
+  },
+  "lblTranslatePageToTargetLanguage": {
+    "message": "Betti standart tilge awdarma etiń"
+  },
+  "lblTranslateTag_pre": {
+    "message": "Teg ushın awdarmanı qosıw $HTML_TAG_NAME$",
+    "placeholders": {
+      "HTML_TAG_NAME": {
+        "content": "<PRE>"
+      }
+    }
+  },
+  "lbldontsortresults": {
+    "message": "Awdarma nátiyjeleri tártiplenbegen"
+  },
+  "lbltranslatedynamicallycreatedcontent": {
+    "message": "Dinamikalıq túrde jaratılǵan kontentti awdarma etiń"
+  },
+  "calculatestorage": {
+    "message": "Esaplaw"
+  },
+  "donatewithpaypal": {
+    "message": "PayPal arqalı qollap-quwatlaw"
+  },
+  "lblAutoTranslateWhenClickingALink": {
+    "message": "Ámeldegi sayt penen birdey domenge belgi etiwshi siltemeni basqanıńızda avtomatikalıq awdarma etiń"
+  },
+  "openNativeShortcutManager": {
+    "message": "Ornatılǵan operativ tuymeler menejerin ashıń"
+  },
+  "lblKeyboardShortcutsSpecial": {
+    "message": "Arnawlı túymetaxta jarlıqları"
+  },
+  "lblTranslateSelectedWhenPressTwice": {
+    "message": "$SHORTCUT_KEY$ eki ret basqanıńızda saylanǵan tekstti awdarma etiń",
+    "placeholders": {
+      "SHORTCUT_KEY": {
+        "content": "[Ctrl]"
+      }
+    }
+  },
+  "lblTranslateTextOverMouseWhenPressTwice": {
+    "message": "$SHORTCUT_KEY$ di eki ret basqanıńızda kursor ústindegi tekstti awdarma etiń",
+    "placeholders": {
+      "SHORTCUT_KEY": {
+        "content": "[Ctrl]"
+      }
+    }
+  },
+  "translateClickingOnce": {
+    "message": "Mánzil qatarındaǵı túymeni bir ret basıw arqalı betti awdarma etiń. Qalqıp shıǵıwshı aynanı kóriw ushın oń túymesin basıń"
+  },
+  "btnShowPopup": {
+    "message": "Qalqıp shıǵıwshı aynalardı kórsetiw"
+  },
+  "msgToTranslateThisDocument": {
+    "message": "$DOC_TYPE$ hújjetin awdarmalaw ushın onı HTML ǵa aylandırıwıńız kerek",
+    "placeholders": {
+      "DOC_TYPE": {
+        "content": "$1",
+        "example": "(.pdf)"
+      }
+    }
+  },
+  "msgSelectServiceConversion": {
+    "message": "Konvertatsiya xızmetin saylań"
+  },
+  "msgDownloadingDocument": {
+    "message": "Fayl júklenip atır..."
+  },
+  "msgSendDocument": {
+    "message": "Hújjet jiberiw"
+  },
+  "msgErrorDownloadingDocument": {
+    "message": "Hújjetti júklep alıwdaǵı qátelik"
+  },
+  "msgFileLargerThan": {
+    "message": "Bul xızmet $FILE_SIZE$dan úlken fayllardı qollap-quwatlamaydı",
+    "placeholders": {
+      "FILE_SIZE": {
+        "content": "$1",
+        "example": "10 MB"
+      }
+    }
+  },
+  "msgPDFtoHTML": {
+    "message": "PDF ushın HTML"
+  },
+  "msgTranslatePDF": {
+    "message": "Awdarma PDF"
+  },
+  "msgOpenTranslatedPDF": {
+    "message": "Open translated PDF"
+  },
+  "btncopy": {
+    "message": "Kóshirip alıw"
+  },
+  "msgRecents": {
+    "message": "Jaqındaǵı"
+  },
+  "msgAll": {
+    "message": "Hámmesi"
+  },
+  "msgPleaseWait": {
+    "message": "Ótinish kutiń..."
+  },
+  "msgUnknownLanguage": {
+    "message": "Belgisiz"
+  },
+  "btnReplace": {
+    "message": "Almastırıw"
+  },
+  "lblHotTranslatedSelectedText": {
+    "message": "Saylanǵan tekstti tezlik penen awdarma menen almastırıń"
+  },
+  "optionsAddToCustomDictionary": {
+    "message": "Arnawlı sózlikke qosıw (betlerdi awdarmalawda belgilengen sózlerdi ótkerip jiberiw)"
+  },
+  "msgSelectTargetLanguage": {
+    "message": "Veb-saytlardı tańlanǵan tilge awdarıw"
+  },
+  "msgSelectTargetLanguageForText": {
+    "message": "Saylanǵan tekstti awdarma tilge awdarma etiń"
+  },
+  "msgFavoriteLanguages": {
+    "message": "Saylandı tiller"
+  },
+  "lblFavoriteLanguage": {
+    "message": "Ardaqlı til $FAVORITE_LANGUAGE_NUM$",
+    "placeholders": {
+      "FAVORITE_LANGUAGE_NUM": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "lblSelectPopupInterfaceStyle": {
+    "message": "Qalqıp shıǵıwshı interfeys usılın saylań"
+  },
+  "msgInterfaceSimple": {
+    "message": "Ápiwayılastırılǵan"
+  },
+  "msgInterfaceComplex": {
+    "message": "Quramalı"
+  },
+  "lblTranslatePageInto": {
+    "message": "Bet $LANGUAGE_NAME$ tiline awdarılsın ba?",
+    "placeholders": {
+      "LANGUAGE_NAME": {
+        "content": "$1",
+        "example": "German"
+      }
+    }
+  },
+  "lblPageTranslateInto": {
+    "message": "Bet $LANGUAGE_NAME$ tiline awdarıldı",
+    "placeholders": {
+      "LANGUAGE_NAME": {
+        "content": "$1",
+        "example": "German"
+      }
+    }
+  },
+  "msgChooseAnotherLanguage": {
+    "message": "Basqa tildi tańlań"
+  },
+  "msgHasBeenUpdated": {
+    "message": "$EXTENSION_NAME$ keńeytpesi $EXTENSION_VERSION$ versiyasına jańalandi.",
+    "placeholders": {
+      "EXTENSION_NAME": {
+        "content": "#EXTENSION_NAME#",
+        "example": "TWP - Translate Web Pages"
+      },
+      "EXTENSION_VERSION": {
+        "content": "#EXTENSION_VERSION#",
+        "example": "9.7"
+      }
+    }
+  },
+  "msgDonationRecipient": {
+    "message": "Qayırqomlıǵıńız keńeytpeni islep shıǵıwshıǵa ótedi $EXTENSION_NAME$",
+    "placeholders": {
+      "EXTENSION_NAME": {
+        "content": "#EXTENSION_NAME#",
+        "example": "TWP - Translate Web Pages"
+      }
+    }
+  },
+  "donationText": {
+    "message": "I have been developing, updating and supporting this extension for over five years. It is amazing to see that we have over 600,000 daily users.\n\nI would be grateful if you could help me financially via Paypal or by becoming a member of my Patreon, your contribution helps me to continue bringing improvements to this extension.\n\nThank you to everyone who has already contributed to this project."
+  },
+  "lblEnableDiskCache": {
+    "message": "Turaqlı awdarma keshin qosıw (disk keshi)"
+  },
+  "selectOriginalLanguage": {
+    "message": "Sayttıń túp tilin saylań"
+  },
+  "selectTargetLanguage": {
+    "message": "Ulıwmalıq tildi saylań"
+  },
+  "msgImproveTranslation": {
+    "message": "Awdarmanı jaqsılaw"
+  },
+  "lblExperimental": {
+    "message": "Eksperimental"
+  },
+  "msgPrivacy": {
+    "message": "Qupıyalıq"
+  },
+  "selectToEnableTranslationService": {
+    "message": "Paydalanıwdı qáleytuǵın awdaema xızmetlerin tańlań"
+  },
+  "useAlternativeService": {
+    "message": "Eger ámeldegi awdarma til saylanǵan awdarma xızmeti tárepinen qollap - quwatlanbasa, avtomatikalıq awdarma xızmetinen paydalanıń"
+  },
+  "msgDefaultLanguage": {
+    "message": "Standart til"
+  },
+  "msgExtUILanguage": {
+    "message": "Keńeytpe paydalanıwshı interfeys tili"
+  },
+  "msgSetDeepLAlert": {
+    "message": "Haqıyqattan da awdarma xızmetin DeepL ǵa ornatpaqshısızba?\n Jańa jarlıq ashıladı hám awdarma sol orında ámelge asıriladı."
+  },
+  "lblTextToSpeechService": {
+    "message": "Tekstti sózlewge aylandırıw xızmeti"
+  },
+  "msgDeepLTabReasoOpened": {
+    "message": "This tab opened because you clicked to translate selected text using DeepL."
+  },
+  "msgDontShowAgain": {
+    "message": "Don't show again"
+  },
+  "msgTranslatePage": {
+    "message": "Translate page?"
+  },
+  "msgPageTranslated": {
+    "message": "Page translated"
+  },
+  "msgTranslateFromTo": {
+    "message": "$FROM_LANGUAGE$ to $TO_LANGUAGE$",
+    "placeholders": {
+      "FROM_LANGUAGE": {
+        "content": "$1",
+        "example": "German"
+      },
+      "TO_LANGUAGE": {
+        "content": "$2",
+        "example": "English"
+      }
+    }
+  },
+  "btnUndoTranslation": {
+    "message": "Undo"
+  },
+  "msgAutoDetect": {
+    "message": "Auto-detect"
+  },
+  "msgEnableIframePageTranslation": {
+    "message": "Enable page translation in $IFRAME_TAG$",
+    "placeholders": {
+      "IFRAME_TAG": {
+        "content": "<IFRAME>"
+      }
+    }
+  },
+  "btnTranslateRestoreThisFrame": {
+    "message": "Translate/Restore this frame"
+  },
+  "msgWhenShowMobilePopup": {
+    "message": "When to show the mobile popup"
+  },
+  "msgWhenNecessary": {
+    "message": "When necessary"
+  },
+  "msgOnlyWhenItouch3Fingers": {
+    "message": "Only when I touch three fingers on the screen"
+  },
+  "msgAlwaysShow": {
+    "message": "Always show"
+  },
+  "btnKeepOnScreen": {
+    "message": "Keep on screen"
+  },
+  "btnChangePosition": {
+    "message": "Change position"
+  }
+}

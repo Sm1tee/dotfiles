@@ -1,0 +1,4 @@
+/*!
+ * Copyright (c) SquareX
+ */
+import{p as e,b as r}from"./p-95896136.js";export{s as setNonce}from"./p-95896136.js";import{g as o}from"./p-3c57e9bf.js";(()=>{const r=import.meta.url,o={};return""!==r&&(o.resourcesUrl=new URL(".",r).href),e(o)})().then((async e=>(await o(),r([["p-20cbe673",[[1,"sqrx-email-notifier",{variant:[513],heading:[1],open:[1540],loading:[32],error:[32],emails:[32],email:[32]},[[8,"openEmailNotifier","onOpen"],[8,"emailData","onEmailDataReceived"],[8,"inboxDisposed","onInboxDisposed"],[8,"informParentToOpenLink","onInformParentToOpenLink"]]],[1,"sqrx-email-embedded-viewer",{srcdoc:[1],loading:[32],error:[32],htmlDocument:[32]},null,{srcdoc:["watchSrcdocHandler"],error:["errorHandler"]}]]]],e))));

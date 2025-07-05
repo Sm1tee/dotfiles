@@ -1,0 +1,134 @@
+{
+   "colorTheme": {
+      "message": "Motyw kolorystyczny:"
+   },
+   "colorizeRatio": {
+      "message": "Koloruj pasek ocen"
+   },
+   "colorizeRatioHover": {
+      "message": "Użyj własnych kolorów paska."
+   },
+   "colorizeThumbs": {
+      "message": "Koloruj łapki"
+   },
+   "colorizeThumbsHover": {
+      "message": "Użyj własnych kolorów łapek."
+   },
+   "considerDonating": {
+      "message": "Jedyne co napędza ten projekt to wasze dotacje, prosimy o rozważenie wsparcia tego projektu."
+   },
+   "customColors": {
+      "message": "Własne kolory paska łapek i guzików"
+   },
+   "customNumberFormats": {
+      "message": "Własne formaty liczbowe"
+   },
+   "extensionDesc": {
+      "message": "Przywraca licznik łapek w dół"
+   },
+   "extensionName": {
+      "message": "Return YouTube Dislike"
+   },
+   "extensionNameBeta": {
+      "message": "Return YouTube Dislike Beta"
+   },
+   "legendSettings": {
+      "message": "Ustawienia"
+   },
+   "linkChangelog": {
+      "message": "Zmiany"
+   },
+   "linkDonate": {
+      "message": "Wesprzyj"
+   },
+   "linkFAQ": {
+      "message": "FAQ"
+   },
+   "linkHelp": {
+      "message": "Pomoc"
+   },
+   "linkWebsite": {
+      "message": "Strona"
+   },
+   "numberFormat": {
+      "message": "Format liczbowy:"
+   },
+   "reformatLikes": {
+      "message": "Zmień formatowanie liczby łapek."
+   },
+   "reformatLikesHover": {
+      "message": "Ujednolica format liczbowy łapek."
+   },
+   "roundNumbers": {
+      "message": "Pokaż zaokrąglone w dół liczby"
+   },
+   "roundNumbersHover": {
+      "message": "Zaokrąglaj w dół liczby (domyślne zachowanie YouTube)."
+   },
+   "shortsSupport": {
+      "message": "Wsparcie dla YouTube Shorts"
+   },
+   "textColorTheme": {
+      "message": "Motyw kolorystyczny:"
+   },
+   "textColorTheme1": {
+      "message": "Klasyczny"
+   },
+   "textColorTheme2": {
+      "message": "Dostępny"
+   },
+   "textColorTheme3": {
+      "message": "Neonowy"
+   },
+   "textColorizeRatioBar": {
+      "message": "Koloruj pasek ocen"
+   },
+   "textColorizeRatioBarHover": {
+      "message": "Użyj własnych kolorów paska."
+   },
+   "textColorizeThumbs": {
+      "message": "Koloruj łapki"
+   },
+   "textColorizeThumbsHover": {
+      "message": "Użyj własnych kolorów łapek."
+   },
+   "textConsistentFormat": {
+      "message": "Ujednolica format liczbowy łapek."
+   },
+   "textConsistentFormatHover": {
+      "message": "Zmień formatowanie liczby łapek."
+   },
+   "textDeveloper": {
+      "message": "przez Dmitry Selivanov & Społeczność"
+   },
+   "textLikesDisabled": {
+      "message": "Wyłączone przez twórcę"
+   },
+   "textNumberFormat": {
+      "message": "Format liczbowy:"
+   },
+   "textRoundingNumbers": {
+      "message": "Zaokrąglaj łapki w górę/dół (domyślne zachowanie YouTube)"
+   },
+   "textRoundingNumbersHover": {
+      "message": "Pokaż zaokrąglone w dół statystyki."
+   },
+   "textSettings": {
+      "message": "Wyłącz przesyłanie łapek"
+   },
+   "textSettingsHover": {
+      "message": "Przestaje liczyć Twoje łapki."
+   },
+   "textTempUnavailable": {
+      "message": "Tymczasowo niedostępny"
+   },
+   "textUpdate": {
+      "message": "Zaktualizuj do"
+   },
+   "version30installed": {
+      "message": "Zainstalowana wersja 3.0.0.18"
+   },
+   "whatsnew": {
+      "message": "Co nowego"
+   }
+}

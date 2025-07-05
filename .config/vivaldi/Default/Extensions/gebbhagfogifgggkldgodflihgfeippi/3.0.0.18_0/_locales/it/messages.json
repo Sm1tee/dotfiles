@@ -1,0 +1,86 @@
+{
+   "colorTheme": {
+      "message": "Schema colori:"
+   },
+   "colorizeRatio": {
+      "message": "Colora la barra dei dislike"
+   },
+   "colorizeRatioHover": {
+      "message": "Colora la barra dei dislike con colori personalizzati."
+   },
+   "colorizeThumbs": {
+      "message": "Colora i pulsanti"
+   },
+   "colorizeThumbsHover": {
+      "message": "Colora i pulsanti dei like e dei dislike con colori personalizzati."
+   },
+   "considerDonating": {
+      "message": "Le uniche cosa che tengono in piedi il progetto sono le vostre donazioni. Per favore, considera di effettuare una donazione per supportarci. Grazie."
+   },
+   "customColors": {
+      "message": "Colori personalizzati per la barra dei dislike e i bottoni"
+   },
+   "customNumberFormats": {
+      "message": "Formati numerici personalizzati"
+   },
+   "extensionDesc": {
+      "message": "Ripristina la possibilità di vedere i dislikes"
+   },
+   "extensionName": {
+      "message": "Return YouTube Dislike"
+   },
+   "extensionNameBeta": {
+      "message": "Return YouTube Dislike Beta"
+   },
+   "legendSettings": {
+      "message": "Impostazioni"
+   },
+   "linkDonate": {
+      "message": "Fai una donazione"
+   },
+   "linkFAQ": {
+      "message": "Domande frequenti"
+   },
+   "linkHelp": {
+      "message": "Aiuto"
+   },
+   "linkWebsite": {
+      "message": "Sito web"
+   },
+   "numberFormat": {
+      "message": "Formato numerico"
+   },
+   "reformatLikes": {
+      "message": "Formatta il numero di like"
+   },
+   "reformatLikesHover": {
+      "message": "Rende il valore delle statistiche più consistente."
+   },
+   "roundNumbers": {
+      "message": "Mostra i numeri arrotondati"
+   },
+   "roundNumbersHover": {
+      "message": "Arrotonda il valore del conteggio (questa è l'opzione predefinita di YouTube)."
+   },
+   "shortsSupport": {
+      "message": "Supporto per YouTube Shorts"
+   },
+   "textDeveloper": {
+      "message": "grazie a Dmitry Selivanov e alla Comunità"
+   },
+   "textSettings": {
+      "message": "Disabilita l'invio dei like e dei dislike"
+   },
+   "textSettingsHover": {
+      "message": "Interrompe il conteggio dei tuoi likes e dislikes da parte dell'estensione."
+   },
+   "textUpdate": {
+      "message": "aggiorna a"
+   },
+   "version30installed": {
+      "message": "Versione 3.0.0.18 installata"
+   },
+   "whatsnew": {
+      "message": "Quali sono le novità"
+   }
+}

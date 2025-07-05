@@ -1,0 +1,78 @@
+/** ********** Fonts ********** **/
+* {
+  font-family: "Widock TRIAL";
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/** ********** Main Window ********** **/
+window {
+  background-color: transparent;
+}
+
+/** ********** Buttons ********** **/
+button {
+  background-color: #161925;
+  color: #cdd6f4;
+  /* Задаем все границы */
+  border: 2px solid #282838;
+  /* Устанавливаем индивидуальные цвета (пока совпадают с общим)
+     Это нужно, чтобы transition для border-top-color сработал */
+  border-top-color: #282838;
+  border-right-color: #282838;
+  border-bottom-color: #282838;
+  border-left-color: #282838;
+
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 25%;
+  /* Обновляем transition, чтобы включить отдельные цвета границ, если нужно
+     Или просто оставляем как было, общая 'border-color' может сработать */
+  transition: background-color 0.2s ease-in-out,
+              color 0.2s ease-in-out,
+              border-top-color 0.2s ease-in-out, /* <-- Анимируем цвет верхней границы */
+              background-size 0.2s ease-in-out;
+  outline-style: none;
+}
+
+/* Стиль для НАВЕДЕНИЯ МЫШЬЮ и НАЖАТИЯ */
+button:active,
+button:hover {
+  color: #FFFFFF;
+  background-color: #b4befe;
+  background-size: 30%; /* Увеличенный размер иконки */
+  /* Опционально: можно убрать или изменить цвет всей границы при наведении */
+  /* border-color: #b4befe; */
+}
+
+/* Стиль для ВЫБОРА КЛАВИАТУРОЙ */
+button:focus {
+  /* НЕ меняем background-color и color */
+  /* Меняем цвет ТОЛЬКО ВЕРХНЕЙ границы */
+  border-top-color: #cdd6f4; /* <-- Цвет верхней границы при фокусе */
+
+  /* Остальные границы (правая, нижняя, левая) НЕ меняют цвет,
+     они остаются #282838, как задано в основном стиле 'button' */
+}
+
+/** ********** Icons ********** **/
+#lock {
+  background-image: image(url("icons/lock.png"), url("/usr/share/wlogout/icons/lock.png"));
+}
+
+#logout {
+  background-image: image(url("icons/logout.png"), url("/usr/share/wlogout/icons/logout.png"));
+}
+
+/* #suspend - Удалено */
+
+/* #hibernate - Удалено */
+
+#shutdown {
+  background-image: image(url("icons/shutdown.png"), url("/usr/share/wlogout/icons/shutdown.png"));
+}
+
+#reboot {
+  background-image: image(url("icons/reboot.png"), url("/usr/share/wlogout/icons/reboot.png"));
+}

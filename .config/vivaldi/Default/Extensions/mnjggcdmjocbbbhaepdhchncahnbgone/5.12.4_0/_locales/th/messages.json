@@ -1,0 +1,970 @@
+{
+   "0": {
+      "message": "หมดเวลาสำหรับการเชื่อมต่อ ตรวจสอบการเชื่อมต่ออินเทอร์เน็ต ถ้าอินเทอร์เน็ตของคุณใช้งานได้ เซิร์ฟเวอร์อาจจะกำลังโอเวอร์โหลดหรือล่ม"
+   },
+   "400": {
+      "message": "เซิร์ฟเวอร์รายงานว่าคำขอนี้ไม่ถูกต้อง"
+   },
+   "409": {
+      "message": "ส่วนนี้ได้ถูกส่งมาก่อนหน้านี้แล้ว"
+   },
+   "502": {
+      "message": "ดูเหมือนว่าเซิร์ฟเวอร์กำลังโอเวอร์โหลด ลองอีกครั้งในอีกไม่กี่วินาที"
+   },
+   "ActivateDeArrow": {
+      "message": "เปิดใช้งาน DeArrow"
+   },
+   "Chapters": {
+      "message": "ส่วนเนื้อหา"
+   },
+   "Close": {
+      "message": "ปิด"
+   },
+   "CopiedExclamation": {
+      "description": "Used after something has been copied to the clipboard. Example: 'Copied!'",
+      "message": "คัดลอกแล้ว"
+   },
+   "Credits": {
+      "message": "เครดิต"
+   },
+   "CurrentTime": {
+      "message": "เวลาปัจจุบัน"
+   },
+   "DeArrowIsDisabled": {
+      "description": "Appears as a button on the video page when DeArrow is disabled",
+      "message": "DeArrow ปิดการใช้งานอยู่ - คลิกเพื่อเปิดการใช้งาน"
+   },
+   "Description": {
+      "description": "Description of the extension.",
+      "message": "ข้ามสปอนเซอร์, การก่อการติดตาม, ฯลฯ ในวีดีโอ YouTube. รายงานสปอนเซอร์ในวีดีโอเพื่อประหยัดเวลาคนอื่น"
+   },
+   "Dismiss": {
+      "message": "ปฏิเสธ"
+   },
+   "Donate": {
+      "message": "บริจาค"
+   },
+   "Editing": {
+      "message": "การดัดแปลง"
+   },
+   "FullDetails": {
+      "message": "รายละเอียดเต็ม"
+   },
+   "GotIt": {
+      "description": "Used as the button to dismiss a tooltip",
+      "message": "เข้าใจแล้ว"
+   },
+   "Hide": {
+      "message": "ไม่แสดงเสมอ"
+   },
+   "Import": {
+      "description": "Button to initiate importing segments. Appears under the textbox where they paste in the data",
+      "message": "นำเข้า"
+   },
+   "LearnMore": {
+      "message": "เรียนรู้เพิ่มเติม"
+   },
+   "Loading": {
+      "message": "กำลังโหลด..."
+   },
+   "Middle": {
+      "message": "ตอนกลาง"
+   },
+   "NoticeTimeAfterSkip": {
+      "description": "This is used on the popup to show how much time left. It will look like \"5s\". The word {seconds} will be replaced, so keep it here. Translations should only change the \"s\"",
+      "message": "{seconds} วินาที"
+   },
+   "OpenSubmissionMenu": {
+      "message": "เปิดเมนูการส่ง"
+   },
+   "Options": {
+      "message": "การตั้งค่า"
+   },
+   "Original": {
+      "message": "ต้นฉบับ"
+   },
+   "OriginalTitle": {
+      "message": "ชื่อต้นฉบับ"
+   },
+   "Segment": {
+      "message": "ส่วน"
+   },
+   "Segments": {
+      "message": "ส่วน"
+   },
+   "SegmentsCap": {
+      "message": "ส่วน"
+   },
+   "Submissions": {
+      "message": "การส่ง"
+   },
+   "Submitting": {
+      "message": "กำลังบันทึก"
+   },
+   "Thumbnails": {
+      "description": "Referring to thumbnails of YouTube videos",
+      "message": "ภาพปก"
+   },
+   "Unknown": {
+      "message": "มีปัญหาในการส่งช่วงเวลาสปอนเซอร์ของคุณ กรุณาลองใหม่อีกครั้งในภายหลัง"
+   },
+   "Username": {
+      "message": "ชื่อผู้ใช้"
+   },
+   "abThumbnailsWarning": {
+      "message": "คำเตือน: ขณะนี้วิดีโอนี้มีการทดสอบภาพนิ่งจากเนื้อหา สำหรับภาพขนาดย่ออยู่ ซึ่งหมายความว่าภาพขนาดย่ออาจมีการเปลี่ยนแปลงบ่อยครั้ง เนื่องจากอาจมีความเสี่ยงกับภาพขนาดย่อต้นฉบับนี้ คุณอาจจะยังไม่ควรมั่นใจ"
+   },
+   "adblockerIssueWhitelist": {
+      "message": "ถ้าคุณไม่สามารถแก้ไขปัญหานี้ได้ ให้ปิด 'บังคับให้ตรวจช่องก่อนข้าม' เพราะ SponsorBlock ไม่สามารถเรียกข้อมูลช่องสำหรับวิดีโอนี้ได้"
+   },
+   "add": {
+      "message": "เพิ่ม"
+   },
+   "addInvidiousInstanceDescription": {
+      "message": "เพิ่มอินสแตนซ์ที่กำหนดเอง โดยต้องจัดรูปแบบโดยใช้โดเมนเท่านั้น ตัวอย่าง: invidious.ajay.app"
+   },
+   "addInvidiousInstanceError": {
+      "message": "โดเมนนี้ไม่ถูกต้อง ควรใส่แค่ส่วนโดเมนเท่านั้น ตัวอย่าง: invidious.ajay.app"
+   },
+   "areYouSureReset": {
+      "message": "คุณแน่ใจหรือไม่ว่าต้องการรีเซ็ตสิ่งนี้"
+   },
+   "askAQuestion": {
+      "message": "ถามคำถาม"
+   },
+   "audioNotification": {
+      "message": "เล่นเสียงเมี่อข้ามตอน"
+   },
+   "audioNotificationDescription": {
+      "message": "เสียงแจ้งเตือนจะดังขั้นเมื่อมีส่วนถูกข้าม เสียงนี้จะไม่ดังขึ้นถ้าตัวเลือกนี้ถูกปิดหรือการข้ามส่วนอัตโนมัติถูกปิด"
+   },
+   "autoHideInfoButton": {
+      "message": "ซ่อนปุ่มข้อมูลโดยอัตโนมัติ"
+   },
+   "autoSkip": {
+      "message": "ข้ามอัตโนมัติ"
+   },
+   "autoSkip_POI": {
+      "message": "ข้ามไปที่จุดเริ่มต้นโดยอัตโนมัติ"
+   },
+   "bracketEnd": {
+      "message": "(จบ)"
+   },
+   "bracketNow": {
+      "message": "(ตอนนี้)"
+   },
+   "bracketStart": {
+      "message": "(เริ่ม)"
+   },
+   "cancel": {
+      "message": "ยกเลิก"
+   },
+   "category": {
+      "message": "หมวดหมู่"
+   },
+   "categoryUpdate2": {
+      "message": "เปิดการตั้งค่าเพื่อข้ามอินโทร เอาต์โทร สินค้า ฯลฯ"
+   },
+   "category_chapter": {
+      "message": "ส่วนเนื้อหา"
+   },
+   "category_chapter_guideline3": {
+      "message": "สามารถใส่ส่วนเนื้อหาที่เล็กกว่าในส่วนเนื้อหาที่ใหญ่กว่าได้"
+   },
+   "category_exclusive_access": {
+      "message": "เข้าถึงโดยเฉพาะ"
+   },
+   "category_exclusive_access_pill": {
+      "description": "Short description for this category",
+      "message": "วิดีโอนี้นำเสนอผลิตภัณฑ์ บริการ หรือสถานที่ที่ได้รับสิทธิ์เข้าถึงได้แบบฟรีหรือแบบได้รับเงินอุดสนุน"
+   },
+   "category_interaction_guideline1": {
+      "message": "ประโยคชักชวนสั้น ๆ ให้กดไลค์ แสดงความคิดเห็น หรือกดติดตาม"
+   },
+   "category_interaction_guideline2": {
+      "message": "รวมถึงคำเปรยให้แสดงความคิดเห็นทางอ้อมด้วย"
+   },
+   "category_intro": {
+      "message": "ช่วงพัก/อนิเมชั่นอินโทร"
+   },
+   "category_intro_guideline1": {
+      "message": "ช่วงที่ไม่มีเนื้อหาสำคัญ"
+   },
+   "category_intro_short": {
+      "message": "ช่วงพัก"
+   },
+   "category_music_offtopic": {
+      "message": "เพลง: ส่วนที่ไม่ใช่เสียงเพลง"
+   },
+   "category_outro": {
+      "message": "การ์ดจบ/เครดิต"
+   },
+   "category_outro_description": {
+      "message": "เครดิตหรือเมื่อการ์ดจบของ YouTube ปรากฏ ไม่ใช่สำหรับข้อสรุปที่มีข้อมูล"
+   },
+   "category_outro_guideline1": {
+      "message": "อย่ารวมเนื้อหา แม้การ์ดจบของ YouTube จะปรากฏอยู่บนหน้าจอก็ตาม"
+   },
+   "category_poi_highlight": {
+      "message": "ไฮไลต์"
+   },
+   "category_poi_highlight_description": {
+      "message": "ส่วนของวีดีโอที่คนส่วนใหญ่กำลังตามหา คล้ายกับความคิดเห็น \"วิดีโอเริ่มต้นที่ x\""
+   },
+   "category_poi_highlight_guideline1": {
+      "message": "ช่วงเวลาที่คนส่วนใหญ่กำลังมองหา"
+   },
+   "category_poi_highlight_guideline2": {
+      "message": "สามารถข้ามผ่านบริบทได้"
+   },
+   "category_poi_highlight_guideline3": {
+      "message": "สามารถข้ามไปยังชื่อหรือภาพปกได้"
+   },
+   "category_preview": {
+      "description": "https://en.wikipedia.org/wiki/Narrative_hook",
+      "message": "ตัวอย่าง/สรุปสั้น/ล่อใจ"
+   },
+   "category_preview_guideline1": {
+      "message": "คลิปที่ปรากฎภายหลัง หรือในวิดีโอถัดไป"
+   },
+   "category_preview_guideline2": {
+      "message": "ความเดิมจากวิดีโอก่อนหน้า"
+   },
+   "category_selfpromo": {
+      "message": "ไม่ได้ค่าจ้าง/การโปรโมทตัวเอง"
+   },
+   "category_selfpromo_description": {
+      "message": "คล้ายกับ \"สปอนเซอร์\" แต่ยกเว้นสำหรับการโปรโมทตัวเอง ซึ่งรวมถึงสินค้า, การบริจาค, หรือข้อมูลเกี่ยวกับผู้ที่ร่วมมือด้วย"
+   },
+   "category_selfpromo_guideline1": {
+      "message": "การบริจาค การสมัครสมาชิก และสินค้าของครีเอเตอร์"
+   },
+   "category_selfpromo_guideline3": {
+      "message": "ไม่ใช่สำหรับผลิตภัณฑ์และสินค้าที่ออกแบบโดยองค์กร"
+   },
+   "category_sponsor": {
+      "message": "สปอนเซอร์"
+   },
+   "category_sponsor_guideline1": {
+      "message": "โปรโมชั่นที่ได้รับเงิน"
+   },
+   "category_sponsor_guideline2": {
+      "message": "ไม่ควรใช้สำหรับการบริจาคหรือสินค้า"
+   },
+   "changeUserID": {
+      "message": "นำเข้า/ส่งออกรหัส UserID ส่วนตัวของคุณ"
+   },
+   "channelWhitelisted": {
+      "message": "ช่องนี้ถูกนำเข้ารายการอนุญาตพิเศษแล้ว"
+   },
+   "chapterNameTooltipWarning": {
+      "message": "หนึ่งในชื่อของส่วนเนื้อหาของคุณคล้ายกับหมวดหมู่ใดหมวดหมู่หนึ่ง คุณควรใช้หมวดหมู่แทนเมื่อเป็นไปได้"
+   },
+   "chooseACategory": {
+      "message": "เลือกหมวดหมู่"
+   },
+   "clearThis": {
+      "message": "คุณมั่นใจว่าจะลบส่วนนี้หรือไม่?\n\n"
+   },
+   "clearTimes": {
+      "message": "ล้างส่วน"
+   },
+   "clearTimesButton": {
+      "message": "ล้างเวลา"
+   },
+   "closeIcon": {
+      "message": "ปิดไอคอน"
+   },
+   "closePopup": {
+      "message": "ปิดป๊อปอัพ"
+   },
+   "confirmMSG": {
+      "message": "เพื่อแก้ไขหรือลบค่าใดค่าหนึ่ง คลิกปุ่มข้อมูลหรือเปิดป๊อปอัพส่วนขยายโดยคลิกไอคอนส่วนขยายในมุมบนขวา"
+   },
+   "confirmNoticeTitle": {
+      "message": "ส่งส่วน"
+   },
+   "connectionError": {
+      "message": "เกิดข้อผิดพลาดในการเชื่อมต่อ รหัสข้อผิดพลาด: "
+   },
+   "copyDebugInformation": {
+      "message": "คัดลอกข้อมูลการดีบั๊กไปยังคลิปบอร์ด"
+   },
+   "copyDebugInformationComplete": {
+      "message": "ข้อมูลดีบั๊กได้ถูกคัดลอกไปยังคลิปบอร์ดเรียบร้อยแล้ว คุณสามารถลบข้อมูลที่ไม่ต้องการแบ่งปันได้ ให้บันทึกในไฟล์ข้อความหรือวางในการรายงานบั๊ก"
+   },
+   "copyDebugInformationFailed": {
+      "message": "คัดลอกไปยังคลิปบอร์ดไม่สำเร็จ"
+   },
+   "copyDebugLogs": {
+      "message": "คัดลอกบันทึกการดีบัก"
+   },
+   "copyPublicID": {
+      "message": "คัดลอกไอดีผู้ใช้สาธารณะ"
+   },
+   "copySegmentID": {
+      "message": "คัดลอก ID ส่วน"
+   },
+   "createdBy": {
+      "message": "สร้างขึ้นโดย"
+   },
+   "currentInstances": {
+      "message": "อินสแตนซ์ปัจจุบัน:"
+   },
+   "customAddressError": {
+      "message": "ที่อยู่ไม่ถูกต้อง ตรวจสอบให้แน่ใจว่ามี http:// หรือ https:// นำหน้าและไม่มีเครื่องหมาย / ตามท้าย"
+   },
+   "customServerAddress": {
+      "message": "ที่อยู่เซิร์ฟเวอร์ SponsorBlock"
+   },
+   "customServerAddressDescription": {
+      "message": "ที่อยู่ที่ SponsorBlock ใช้ในการติดต่อกับเซิร์ฟเวอร์\nคุณไม่ควรเปลี่ยนที่อยู่นี้ ยกเว้นว่าคุณมีเซิร์ฟเวอร์เป็นของตัวเอง"
+   },
+   "darkModeOptionsPage": {
+      "message": "โหมดมืดในหน้าการตั้งค่า"
+   },
+   "dayAbbreviation": {
+      "description": "100d",
+      "message": "ว."
+   },
+   "deArrowMessageRecieved": {
+      "message": "คุณได้รับข้อแนะนำจากผู้ดูแล"
+   },
+   "delete": {
+      "message": "ลบ"
+   },
+   "disable": {
+      "message": "ปิดใช้งาน"
+   },
+   "disableAutoSkip": {
+      "message": "ปิดการข้ามอัตโนมัติ"
+   },
+   "disableSkipping": {
+      "message": "การข้ามเปิดอยู่"
+   },
+   "downvoteDescription": {
+      "message": "กำหนดเวลาไม่ถูกต้อง/ผิด"
+   },
+   "edit": {
+      "message": "แก้ไข"
+   },
+   "enableAutoSkip": {
+      "message": "เปิดการข้ามอัตโนมัติ"
+   },
+   "enableDeArrowKey": {
+      "description": "Keybind label in DeArrow",
+      "message": "เปิด/ปิดการใช้งาน DeArrow"
+   },
+   "enableManualSkipOnFullVideo": {
+      "message": "ใช้การข้ามด้วยตนเองเมื่อมีป้ายทั้งวิดีโอ"
+   },
+   "enableQueryByHashPrefix": {
+      "message": "คิวรีตามคำนำหน้าแฮช"
+   },
+   "enableShowCategoryWithoutPermission": {
+      "message": "แสดงหมวดหมู่ในเมนูการส่งแม้ว่าจะไม่ได้รับอนุญาตให้ส่ง"
+   },
+   "enableSkipping": {
+      "message": "การข้ามปิดอยู่"
+   },
+   "enableTrackDownvotes": {
+      "message": "บันทึกส่วนที่ไม่เห็นด้วย"
+   },
+   "enableTrackDownvotesInPrivate": {
+      "message": "บันทึกส่วนที่ไม่เห็นด้วยในแท็บส่วนตัว/ไม่ระบุตัวตน"
+   },
+   "enableViewTracking": {
+      "message": "เปิดการติดตามการนับจำนวนการข้าม"
+   },
+   "enableViewTrackingInPrivate": {
+      "message": "เปิดการนับการข้ามในแท็บส่วนตัว/ไม่ระบุตัวตน"
+   },
+   "errorCode": {
+      "message": "รหัสข้อผิดพลาด: "
+   },
+   "exportOptions": {
+      "message": "นำเข้า/ส่งออกการตั้งค่าทั้งหมด"
+   },
+   "exportOptionsCopy": {
+      "message": "แก้ไข/คัดลอก"
+   },
+   "exportOptionsDownload": {
+      "message": "บันทึกเป็นไฟล์"
+   },
+   "exportOptionsUpload": {
+      "message": "โหลดจากไฟล์"
+   },
+   "exportOptionsWarning": {
+      "message": "คำเตือน: การเปลี่ยนแปลงค่านี้มีผลถาวร และสามารถทำให้เกิดความเสียหายต่อการติดตั้งได้ คุณแน่ใจหรือไม่ที่จะบันทึก โปรดสำรองข้อมูลเก่าเผื่อไว้"
+   },
+   "exportOtherData": {
+      "message": "นำเข้า/ส่งออกข้อมูลอื่น ๆ ทั้งหมด"
+   },
+   "exportSegments": {
+      "message": "ส่งออกส่วน"
+   },
+   "forceChannelCheck": {
+      "message": "บังคับให้ตรวจช่องก่อนข้าม"
+   },
+   "full": {
+      "description": "Used for the name of the option to label an entire video as sponsor or self promotion.",
+      "message": "ทั้งวิดีโอ"
+   },
+   "fullName": {
+      "description": "Name of the extension.",
+      "message": "SponsorBlock สำหรับ YouTube - ข้ามสปอนเซอร์"
+   },
+   "fullVideoTooltipWarning": {
+      "message": "ส่วนนี้ใหญ่ ถ้าทั้งวิดีโอเกี่ยวข้องกับเรื่องเดียว ให้เปลี่ยนจาก \"ข้าม\" เป็น \"ทั้งวิดีโอ\" ดูแนวปฏิบัติสำหรับข้อมูลเพิ่มเติม"
+   },
+   "generic_guideline2": {
+      "message": "เล่นให้ดูเหมือนว่าไม่มีอะไรถูกข้าม"
+   },
+   "guidelines": {
+      "message": "แนวปฏิบัติ"
+   },
+   "harmfulVote": {
+      "description": "Used for chapter segments when the text is harmful/offensive to remove it faster",
+      "message": "เป็นภัย"
+   },
+   "help": {
+      "message": "ช่วยเหลือ"
+   },
+   "helpPageCopyOfDatabase1": {
+      "message": "ฐานข้อมูลเป็นสาธารณะและสามารถดูได้ที่"
+   },
+   "helpPageFeatureDisclaimer": {
+      "message": "ฟีเจอร์หลายอย่างถูกปิดใช้งานโดยค่าเริ่มต้น ถ้าคุณต้องการข้ามอินโทร เอาต์โทร ใช้ Invidious ฯลฯ ให้เปิดใช้งานมันข้างล่าง คุณสามารถซ่อน/แสดงองค์ประกอบของ UI ได้เช่นกัน"
+   },
+   "helpPageThanksForInstalling": {
+      "message": "ขอบคุณที่ติดตั้ง SponsorBlock"
+   },
+   "hiddenDueToDownvote": {
+      "message": "ถูกซ่อน: ไม่เห็นด้วย"
+   },
+   "hiddenDueToDuration": {
+      "message": "ถูกซ่อน: สั้นเกินไป"
+   },
+   "hideButtonsDescription": {
+      "message": "นี่ซ่อนปุ่มที่ปรากฏในโปรแกรมเล่น YouTube ที่ใช้ในการส่งส่วนข้าม"
+   },
+   "hideDonationLink": {
+      "message": "ซ่อนลิงค์การบริจาค"
+   },
+   "hideForever": {
+      "message": "ซ่อนตลอด"
+   },
+   "hideSegment": {
+      "message": "ซ่อนส่วน"
+   },
+   "hideThis": {
+      "message": "ซ่อนสิ่งนี้"
+   },
+   "hitGoBack": {
+      "message": "กด \"ยกเลิกการข้าม\" เพื่อกลับไปที่เดิม"
+   },
+   "hourAbbreviation": {
+      "description": "100h",
+      "message": "ชม."
+   },
+   "hourLower": {
+      "message": "ชั่วโมง"
+   },
+   "hoursLower": {
+      "message": "ชั่วโมง"
+   },
+   "ignoreAbThumbnails": {
+      "message": "ไม่ใช้ภาพขนาดย่อที่สุ่มจากช่วงหนึ่งของเนื้อหา"
+   },
+   "ignoreAbThumbnailsDescription": {
+      "message": "ช่อง สามารถตั้งค่าการทดสอบวิดีโอของตนโดยที่ YouTube จะแสดงภาพขนาดย่อที่แตกต่างกันสำหรับแต่ละคน ตัวเลือกนี้จะใช้ภาพขนาดย่อแรกเสมอเพื่อรักษาความสอดคล้องกัน"
+   },
+   "importSegments": {
+      "message": "นำเข้าส่วน"
+   },
+   "incorrectCategory": {
+      "message": "เปลี่ยนหมวดหมู่"
+   },
+   "incorrectVote": {
+      "message": "ไม่ถูกต้อง"
+   },
+   "incorrectlyFormattedOptions": {
+      "message": "ไฟล์ JSON นี้อยู่ในรูปแบบที่ไม่ถูกต้อง ตัวเลือกของคุณจะไม่เปลี่ยนแปลง"
+   },
+   "inspect": {
+      "message": "ดู"
+   },
+   "keyAlreadyUsed": {
+      "message": "คีย์ลัดนี้ถูกใช้ในคำสั่งอื่นแล้ว โปรดเลือกคีย์ลัดอื่น"
+   },
+   "keybindDescription": {
+      "message": "เลือกปุ่มโดยการพิมพ์ปุ่มนั้นและเลือกปุ่มแก้ไขที่คุณต้องการใช้"
+   },
+   "liveOrPremiere": {
+      "message": "ไม่สามารถบันทึกส่วนในไลฟ์สดหรือการแสดงครั้งแรกได้ โปรดรอจนกว่าไลฟ์สดหรือการแสดงครั้งแรกจบลงแล้วรีเฟรชหน้าวิดีโอและตรวจสอบให้แน่ใจว่าส่วนที่สร้างไว้ยังคงถูกต้อง"
+   },
+   "longDescription": {
+      "description": "Full description of the extension on the store pages.",
+      "message": "SponsorBlock ให้คุณข้ามสปอนเซอร์ อินโทร เอาต์โทร การแจ้งเตือนการสมัครสมาชิก และส่วนน่ารำคาญอื่น ๆ ของวิดีโอ YouTube\nSponsorBlock เป็นส่วนขยายเบราว์เซอร์ที่ให้ใครก็ได้ส่งเวลาเริ่มและจบของส่วนสปอนเซอร์และส่วนอื่น ๆ ของวิดีโอ YouTube เมื่อมีคนใดคนหนึ่งส่งข้อมูลนี้ ทุกคนที่ใช้ส่วนขยายนี้ก็จะข้ามส่วนสปอนเซอร์นั้น คุณสามารถข้ามส่วนที่ไม่ใช่เพลงในวิดีโอเพลงได้เช่นกัน"
+   },
+   "manualPaused": {
+      "message": "หยุดการจับเวลาแล้ว"
+   },
+   "manualSkip": {
+      "message": "ข้ามด้วยตนเอง"
+   },
+   "manualSkip_POI": {
+      "message": "ถามเมื่อวิดีโอโหลด"
+   },
+   "minDuration": {
+      "message": "ระยะเวลาขั้นต่ำ (วินาที):"
+   },
+   "minDurationDescription": {
+      "message": "ส่วนที่สั้นกว่าค่าที่ตั้งไว้จะไม่ถูกข้ามหรือแสดงในโปรแกรมเล่น"
+   },
+   "minLower": {
+      "message": "นาที"
+   },
+   "minsLower": {
+      "message": "นาที"
+   },
+   "mobileUpdateInfo": {
+      "message": "รองรับ m.youtube.com แล้ว"
+   },
+   "moreCategories": {
+      "message": "หมวดหมู่เพิ่มเติม"
+   },
+   "multipleSegments": {
+      "message": "ส่วนหลายส่วน"
+   },
+   "mute": {
+      "message": "ปิดเสียง"
+   },
+   "mute_category": {
+      "message": "ปิดเสียง {0} หรือไม่"
+   },
+   "muted": {
+      "description": "Example: Sponsor Muted",
+      "message": "ปิดเสียง {0} แล้ว"
+   },
+   "nextChapterKeybind": {
+      "description": "Keybind label",
+      "message": "ส่วนเนื้อหาต่อไป"
+   },
+   "noVideoID": {
+      "message": "ไม่พบวิดีโอ YouTube\nถ้านี่ไม่ถูกต้อง รีเฟรชแท็บนี้"
+   },
+   "notSet": {
+      "message": "ไม่ได้ตั้ง"
+   },
+   "noticeUpdate": {
+      "description": "The first line of the message displayed after the notice was upgraded.",
+      "message": "การแจ้งเตือนได้ถูกอัปเกรดแล้ว!"
+   },
+   "noticeUpdate2": {
+      "description": "The second line of the message displayed after the notice was upgraded.",
+      "message": "ถ้าคุณยังไม่ชอบ ให้กดปุ่มไม่แสดงเสมอ"
+   },
+   "noticeVisibilityMode0": {
+      "message": "การแจ้งเตือนการข้ามขนาดเต็ม"
+   },
+   "noticeVisibilityMode1": {
+      "message": "การแจ้งเตือนการข้ามขนาดเล็กสำหรับการข้ามโดยอัตโนมัติ"
+   },
+   "noticeVisibilityMode2": {
+      "message": "การแจ้งเตือนการข้ามขนาดเล็กทั้งหมด"
+   },
+   "noticeVisibilityMode3": {
+      "message": "การแจ้งเตือนการข้ามแบบจางสำหรับการข้ามโดยอัตโนมัติ"
+   },
+   "noticeVisibilityMode4": {
+      "message": "การแจ้งเตือนการข้ามแบบจางทั้งหมด"
+   },
+   "openDeArrowMenu": {
+      "description": "Keybind label in DeArrow",
+      "message": "เปิดเมนูการส่ง"
+   },
+   "openOptionsPage": {
+      "message": "เปิดการตั้งค่า"
+   },
+   "openPopup": {
+      "message": "เปิดป๊อปอัพ SponsorBlock"
+   },
+   "optionsInfo": {
+      "message": "เปิดการรองรับ Invidious ปิดการข้ามอัตโนมัติ ซ่อนปุ่ม ฯลฯ"
+   },
+   "optionsTabBackup": {
+      "description": "Appears in Options as a tab header for options related to saving/restoring your settings. To fit inside the button, it should not be longer than ~20-25 characters (depending on their width).",
+      "message": "สำรอง/กู้คืน"
+   },
+   "optionsTabBehavior": {
+      "description": "Appears in Options as a tab header for options related to categories and skipping behavior. To fit inside the button, it should not be longer than ~20-25 characters (depending on their width).",
+      "message": "พฤติกรรม"
+   },
+   "paused": {
+      "message": "กำลังหยุดชั่วคราว"
+   },
+   "popupHint": {
+      "message": "คำแนะนำ: คุณสามารถกำหนดปุ่มสำหรับการส่งได้ในการตั้งค่า"
+   },
+   "preview": {
+      "message": "ดูตัวอย่าง"
+   },
+   "previousChapterKeybind": {
+      "description": "Keybind label",
+      "message": "ส่วนเนื้อหาก่อนหน้า"
+   },
+   "privacyPolicy": {
+      "message": "นโยบายความเป็นส่วนตัว"
+   },
+   "questionButton": {
+      "message": "ฉันมีคำถาม"
+   },
+   "readTheGuidelines": {
+      "description": "Show the first time they submit or if they are \"high risk\"",
+      "message": "อ่านแนวปฏิบัติ!!"
+   },
+   "recordTimesDescription": {
+      "message": "ส่ง"
+   },
+   "refreshSegments": {
+      "message": "รีเฟรชส่วน"
+   },
+   "removeFromWhitelist": {
+      "message": "นำช่องออกจากรายการอนุญาติพิเศษ"
+   },
+   "renderAsChapters": {
+      "description": "Refers to drawing segments on the YouTube seek bar as split up chapters, similar to the existing chapter system",
+      "message": "แสดงส่วนเป็นส่วนเนื้อหา"
+   },
+   "replaceThumbnails": {
+      "message": "แทนที่ภาพปก"
+   },
+   "replaceTitles": {
+      "message": "แทนที่ชื่อ"
+   },
+   "reportButtonInfo": {
+      "message": "รายงานส่วนนี้ว่าไม่ถูกต้อง"
+   },
+   "reportButtonTitle": {
+      "message": "รายงาน"
+   },
+   "requiresUblock": {
+      "message": "ต้องมี uBlock Origin"
+   },
+   "reset": {
+      "message": "คืนค่าเดิม"
+   },
+   "resetInvidiousInstance": {
+      "message": "รีเซ็ตรายการอินสแตนซ์ของ Invidious"
+   },
+   "resetInvidiousInstanceAlert": {
+      "message": "คุณกำลังจะรีเซ็ตรายการอินสแตนซ์ของ Invidious"
+   },
+   "reskip": {
+      "message": "ข้ามใหม่"
+   },
+   "save": {
+      "message": "บันทึก"
+   },
+   "savedPeopleFrom": {
+      "message": "คุณได้ช่วยผู้คนจากส่วน "
+   },
+   "seekBarColor": {
+      "message": "สีแถบกรอ"
+   },
+   "segmentsStillLoading": {
+      "message": "กำลังโหลดช่วง..."
+   },
+   "serverDown": {
+      "message": "ดูเหมือนว่าเซิร์ฟเวอร์จะล่ม โปรดติดต่อผู้พัฒนาทันที"
+   },
+   "setCloseSkipNoticeKeybind": {
+      "description": "Keybind label",
+      "message": "ปิดการแจ้งเตือนการข้าม"
+   },
+   "setOpenSubmissionMenuKeybind": {
+      "description": "Keybind label",
+      "message": "เปิดเมนูการส่ง"
+   },
+   "setOptions": {
+      "message": "จัดการตั้งค่า"
+   },
+   "setPreviewKeybind": {
+      "description": "Keybind label",
+      "message": "พรีวิวส่วน"
+   },
+   "setSkipShortcut": {
+      "description": "Keybind label",
+      "message": "ข้ามส่วน"
+   },
+   "setStartSponsorShortcut": {
+      "description": "Keybind label",
+      "message": "เริ่ม/หยุดส่วน"
+   },
+   "setSubmitKeybind": {
+      "description": "Keybind label",
+      "message": "ส่งส่วน"
+   },
+   "setUserID": {
+      "message": "ตั้งไอดีผู้ใช้ส่วนตัว"
+   },
+   "setUsername": {
+      "message": "ตั้งชื่อผู้ใช้"
+   },
+   "shortCheck": {
+      "message": "การส่งส่วนนี้สั้นกว่าการตั้งค่าระยะเวลาขั้นต่ำของคุณ นี่อาจหมายความว่าส่วนนี้ได้ถูกส่งไปแล้ว และแค่ถูกละเลยเนื่องจากการตั้งค่านี้ คุณแน่ใจหรือไม่ว่าต้องการจะส่งส่วนนี้"
+   },
+   "showAutogeneratedChapters": {
+      "message": "แสดงส่วนเนื้อหาสร้างขึ้นอัตโนมัติโดย YouTube"
+   },
+   "showButtons": {
+      "message": "แสดงปุ่มในโปรแกรมเล่น YouTube"
+   },
+   "showCategoryGuidelines": {
+      "message": "แสดงความช่วยเหลือหมวดหมู่"
+   },
+   "showDeleteButton": {
+      "message": "แสดงปุ่มลบในโปรแกรมเล่น YouTube"
+   },
+   "showInfoButton": {
+      "message": "แสดงปุ่มข้อมูลในโปรแกรมเล่น YouTube"
+   },
+   "showNotice": {
+      "message": "แสดงการแจ้งเตือนอีกครั้ง"
+   },
+   "showOverlay": {
+      "message": "แสดงในแถบกรอ"
+   },
+   "showOverlay_POI": {
+      "message": "แสดงในแถบกรอ"
+   },
+   "showOverlay_chapter": {
+      "message": "แสดงส่วนเนื้อหา"
+   },
+   "showSegmentNameInChapterBar": {
+      "message": "แสดงส่วนปัจจุบันข้างเวลาของวิดีโอ"
+   },
+   "showSkipButton": {
+      "message": "แสดงปุ่มข้ามไปที่ไฮไลต์ตลอดเวลา"
+   },
+   "showSkipNotice": {
+      "message": "แสดงการแจ้งเตือนหลังข้ามส่วน"
+   },
+   "showTimeWithSkips": {
+      "message": "แสดงเวลาถ้าข้ามทุกๆ ส่วนที่มี"
+   },
+   "showTimeWithSkipsDescription": {
+      "message": "เวลานี้ปรากฏในวงเล็บถัดจากเวลาปัจจุบันที่แถบกรอ ซึ่งแสดงระยะเวลาวิดีโอถ้าข้ามทุกส่วน ซึ่งรวมถึงส่วนที่ปรับตัวเลือกการข้ามเป็น \"แสดงในแถบกรอ\" ด้วย"
+   },
+   "showUpcomingNotice": {
+      "message": "แสดงการแจ้งเตือนก่อนเข้าส่วน"
+   },
+   "showUploadButton": {
+      "message": "แสดงปุ่มอัปโหลด"
+   },
+   "skip": {
+      "message": "ข้าม"
+   },
+   "skipNoticeDuration": {
+      "message": "ระยะเวลาการแจ้งเตือนการข้าม (วินาที):"
+   },
+   "skipNoticeDurationDescription": {
+      "message": "การแจ้งเตือนการข้ามจะอยู่บนหน้าจอเป็นเวลาอย่างน้อยเท่านี้ อาจจะอยู่ได้นานกว่าสำหรับการข้ามด้วยตนเอง"
+   },
+   "skipOption": {
+      "description": "Used on the options page to describe the ways to skip the segment (auto skip, manual, etc.)",
+      "message": "ตัวเลือกการข้าม"
+   },
+   "skipSegment": {
+      "message": "ข้ามส่วน"
+   },
+   "skip_category": {
+      "message": "ข้าม {0} หรือไม่"
+   },
+   "skip_to_category": {
+      "description": "Used for skipping to things (Skip to Highlight)",
+      "message": "ข้ามไป {0} หรือไม่"
+   },
+   "skipped": {
+      "description": "Example: Sponsor Skipped",
+      "message": "ข้าม {0} แล้ว"
+   },
+   "skipped_to_category": {
+      "description": "Used for skipping to things (Skipped to Highlight)",
+      "message": "ข้ามไป {0} แล้ว"
+   },
+   "sortSegments": {
+      "message": "จัดช่วง"
+   },
+   "sourceCode": {
+      "description": "Used on Firefox Store Page",
+      "message": "ซอร์สโค้ด"
+   },
+   "sponsor404": {
+      "message": "ไม่พบส่วนในวีดีโอนี้"
+   },
+   "sponsorCancel": {
+      "message": "ยกเลิกการสร้างส่วน"
+   },
+   "sponsorEnd": {
+      "message": "จบส่วนตอนนี้"
+   },
+   "sponsorFound": {
+      "message": "วิดีโอนี้มีส่วนในฐานข้อมูล!"
+   },
+   "sponsorStart": {
+      "message": "เริ่มส่วนตอนนี้"
+   },
+   "statusReminder": {
+      "message": "ตรวจสอบสถานะของเซิร์ฟเวอร์ได้ที่ status.sponsor.ajay.app"
+   },
+   "submissionEditHint": {
+      "description": "Appears in the popup to inform them that editing has been moved to the video player.",
+      "message": "การแก้ไขส่วนจะปรากฏหลังคุณคลิกส่ง"
+   },
+   "submit": {
+      "message": "ส่ง"
+   },
+   "submitCheck": {
+      "message": "คุณแน่ใจหรือไม่ว่าต้องการส่งสิ่งนี้"
+   },
+   "success": {
+      "message": "สำเร็จ!"
+   },
+   "supportOtherSites": {
+      "message": "รองรับเว็บไซต์ YouTube บุคคลที่สาม"
+   },
+   "supportOtherSitesDescription": {
+      "description": "This replaces the 'supports Invidious' option because it now works on other YouTube sites such as Cloudtube",
+      "message": "สนับสนุนลูกค้า YouTube บุคคลที่สาม.\nในการเปิดใช้งานการสนับสนุน คุณต้องยอมรับการอนุญาตพิเศษ!"
+   },
+   "supportedSites": {
+      "message": "เว็บไซต์ที่รองรับ: "
+   },
+   "termsOfUse": {
+      "message": "เงื่อนไขการใช้งาน"
+   },
+   "thumbnailCacheServerAddress": {
+      "message": "ที่อยู่เซิร์ฟเวอร์แคชภาพปก"
+   },
+   "titleMaxLines": {
+      "message": "จำนวนบรรทัดข้อความสำหรับ ชื่อ ถึงขีดจำกัด"
+   },
+   "to": {
+      "description": "Used between segments. Example: 1:20 to 1:30",
+      "message": "ถึง"
+   },
+   "trackDownvotesWarning": {
+      "message": "คำเตือน: การปิดการใช้งานสิ่งนี้จะลบการไม่เห็นด้วยที่ได้บันทึกไว้ก่อนหน้านี้ทั้งหมด"
+   },
+   "unmute": {
+      "message": "เปิดเสียง"
+   },
+   "unskip": {
+      "message": "ยกเลิกการข้าม"
+   },
+   "unsubmitted": {
+      "message": "ยังไม่ได้ส่ง"
+   },
+   "unsubmittedSegmentCounts": {
+      "description": "Example: You currently have 12 unsubmitted segments on 5 videos",
+      "message": "ขณะนี้คุณมี {0} ใน {1}"
+   },
+   "unsubmittedSegmentCountsZero": {
+      "description": "Replaces 'unsubmittedSegmentCounts' string when there are no unsubmitted segments",
+      "message": "ขณะนี้คุณยังไม่มีส่วนที่ยังไม่ได้ส่ง"
+   },
+   "unsubmittedSegmentsPlural": {
+      "description": "Example: You currently have 12 *unsubmitted segments* on 5 videos",
+      "message": "ส่วนที่ยังไม่ได้ส่ง"
+   },
+   "unsubmittedSegmentsSingular": {
+      "description": "Example: You currently have 1 *unsubmitted segment* on 1 video",
+      "message": "ส่วนที่ยังไม่ได้ส่ง"
+   },
+   "upcoming": {
+      "description": "Example: Upcoming Sponsor",
+      "message": "{0} ที่กำลังมา"
+   },
+   "upvote": {
+      "message": "เห็นด้วย"
+   },
+   "upvoteButtonInfo": {
+      "message": "เห็นด้วยกับรายงานนี้"
+   },
+   "userIDChangeWarning": {
+      "message": "คำเตือน: การเปลี่ยน UserID ส่วนตัว เป็นการเปลี่ยนแบบถาวร คุณแน่ใจที่จะทำแบบนี้ไหม? โปรดอย่าลืมสำรองข้อมูลเก่าของคุณก่อนเปลี่ยนไว้"
+   },
+   "videoID": {
+      "description": "Header of the unsubmitted segments list",
+      "message": "ID วิดิโอ"
+   },
+   "videosPlural": {
+      "description": "Example: You currently have 12 unsubmitted segments on 5 *videos*",
+      "message": "วิดีโอ"
+   },
+   "videosSingular": {
+      "description": "Example: You currently have 3 unsubmitted segments on 1 *video*",
+      "message": "วิดีโอ"
+   },
+   "viewLeaderboard": {
+      "message": "กระดานผู้นำ"
+   },
+   "voteOnTime": {
+      "message": "โหวตส่วน"
+   },
+   "voted": {
+      "message": "โหวตเรียบร้อยแล้ว"
+   },
+   "warningConfirmButton": {
+      "message": "ฉันเข้าใจสาเหตุแล้ว"
+   },
+   "website": {
+      "description": "Used on Firefox Store Page",
+      "message": "เว็บไซต์"
+   },
+   "whatChangeUserID": {
+      "message": "ควรเก็บสิ่งนี้ไว้ส่วนตัว สิ่งนี้เหมือนรหัสผ่านและไม่ควรจะแบ่งปันกับคนอื่น ถ้าใครบางคนมีสิ่งนี้ เขาจะสามารถปลอมตัวเป็นคุณได้ ถ้าคุณกำลังมองหาไอดีผู้ใช้สาธารณะ ให้คลิกไอคอนคลิปบอร์ดในป๊อปอัพ"
+   },
+   "whatExportOptions": {
+      "message": "นี่คือการตั้งค่าทั้งหมดของคุณในไฟล์ JSON ซึ่งรวมถึงไอดีผู้ใช้ส่วนตัวของคุณ ดังนั้นควรแชร์อย่างระมัดระวัง"
+   },
+   "whatManualSkipOnFullVideo": {
+      "message": "สำหรับผู้ที่ต้องการดูวิดีโอที่เป็นสปอนเซอร์หรือการโปรโมทตัวเองทั้งวิดีโอโดยไม่ถูกขัดจังหวะ"
+   },
+   "whatShowCategoryWithoutPermission": {
+      "message": "จำเป็นต้องได้รับอนุญาตในการส่งหมวดหมู่บางหมวดเนื่องจากข้อกำหนดชื่อเสียงขั้นต่ำ"
+   },
+   "whatTrackDownvotes": {
+      "message": "ส่วนที่คุณไม่เห็นด้วยจะยังคงถูกซ่อนแม้ว่าจะรีเฟรชแล้ว"
+   },
+   "whatViewTracking": {
+      "message": "ฟีเจอร์นี้ติดตามส่วนที่คุณได้ข้ามเพื่อให้ผู้ใช้ได้ทราบว่าการส่งส่วนของพวกเขาช่วยผู้อื่นได้เท่าไรและใช้เป็นมาตรวัดพร้อมกับการแสดงความเห็นด้วยเพื่อให้มั่นใจว่าการสแปมไม่เข้าไปในฐานข้อมูล ส่วนขยายจะส่งข้อความไปยังเซิร์ฟเวอร์ในแต่ละครั้งที่คุณข้ามส่วนใดส่วนหนึ่ง หวังว่าคนส่วนใหญ่ไม่เปลี่ยนการตั้งค่านี้เพื่อให้เลขการดูแม่นยำ :)"
+   },
+   "whitelistChannel": {
+      "message": "เพิ่มช่องในรายการอนุญาตพิเศษ"
+   },
+   "yearAbbreviation": {
+      "description": "100y",
+      "message": "ปี"
+   },
+   "youHaveSavedTime": {
+      "description": "You've saved people from 887,362 segments (236d 15h 5.3 minutes of their lives).",
+      "message": "คุณได้ช่วยผู้คน"
+   },
+   "youHaveSavedTimeEnd": {
+      "description": "You've saved people from 887,362 segments (236d 15h 5.3 minutes of their lives).",
+      "message": " ของชีวิตพวกเขา"
+   },
+   "youHaveSkipped": {
+      "message": "คุณได้ข้ามส่วน "
+   },
+   "youMustSelectACategory": {
+      "message": "คุณต้องเลือกหมวดหมู่ของส่วนทุกส่วนที่คุณจะส่ง!"
+   },
+   "yourWork": {
+      "description": "Used to describe the section that will show you the statistics from your submissions.",
+      "message": "ผลงานของคุณ"
+   }
+}

@@ -1,0 +1,600 @@
+{
+   "backupToFile": {
+      "message": "Säkerhetskopiera till fil"
+   },
+   "btnAlwaysTranslate": {
+      "message": "Översätt alltid denna webbplats"
+   },
+   "btnApply": {
+      "message": "Tillämpa"
+   },
+   "btnChangePosition": {
+      "message": "Ändra ställning"
+   },
+   "btnDonate": {
+      "message": "Donera"
+   },
+   "btnKeepOnScreen": {
+      "message": "Håll dig på skärmen"
+   },
+   "btnListen": {
+      "message": "Lyssna"
+   },
+   "btnMobileOriginal": {
+      "message": "Original"
+   },
+   "btnMobileTranslated": {
+      "message": "Översatt"
+   },
+   "btnMoreOptions": {
+      "message": "Fler alternativ"
+   },
+   "btnNeverTranslate": {
+      "message": "Översätt aldrig denna webbplats"
+   },
+   "btnNeverTranslateThisLanguage": {
+      "message": "Översätt aldrig detta språk"
+   },
+   "btnOpenOnGoogleTranslate": {
+      "message": "Öppna i Google Translate"
+   },
+   "btnOptions": {
+      "message": "Alternativ"
+   },
+   "btnReplace": {
+      "message": "Byta ut"
+   },
+   "btnReset": {
+      "message": "Återställ"
+   },
+   "btnRestore": {
+      "message": "Visa original"
+   },
+   "btnShowPopup": {
+      "message": "Visa popup-fönster"
+   },
+   "btnStopListening": {
+      "message": "Sluta lyssna"
+   },
+   "btnTranslate": {
+      "message": "Översätt"
+   },
+   "btnTranslateRestoreThisFrame": {
+      "message": "Översätt/återställ denna ram"
+   },
+   "btnTryAgain": {
+      "message": "Försök igen"
+   },
+   "btnUndoTranslation": {
+      "message": "Ångra"
+   },
+   "btncopy": {
+      "message": "Kopiera"
+   },
+   "calculatestorage": {
+      "message": "Beräkna"
+   },
+   "deleteTranslationCache": {
+      "message": "Rensa översättningscache"
+   },
+   "doYouWantOverwriteAllSettings": {
+      "message": "Vill du skriva över alla befintliga inställningar med datan från säkerhetskopian?"
+   },
+   "doYouWantRestoreSettings": {
+      "message": "Vill du återställa tillägget till standardinställningarna?"
+   },
+   "doYouWantToDeleteTranslationCache": {
+      "message": "Vill du ta bort översättningscachen?"
+   },
+   "donatewithpaypal": {
+      "message": "Donera via PayPal"
+   },
+   "donationText": {
+      "message": "Jag har utvecklat, uppdaterat och stöttat denna förlängning i över fem år. Det är fantastiskt att se att vi har över 600 000 dagliga användare.\n\nJag skulle vara tacksam om du kunde hjälpa mig ekonomiskt via Paypal eller genom att bli medlem i min Patreon, ditt bidrag hjälper mig att fortsätta att förbättra denna förlängning.\n\nTack till alla som redan har bidragit till detta projekt."
+   },
+   "dontShowIfIsNotValidText": {
+      "message": "Visa inte om den markerade texten inte är giltig"
+   },
+   "dontShowIfPageLangIsTargetLang": {
+      "message": "Visa inte om sidans språk är målspråket"
+   },
+   "dontShowIfPageLangIsUnknown": {
+      "message": "Visa inte om sidans språk är okänt"
+   },
+   "dontShowIfSelectedTextIsTargetLang": {
+      "message": "Visa inte om det valda textspråket är målspråket"
+   },
+   "dontShowIfSelectedTextIsUnknown": {
+      "message": "Visa inte om det valda textspråket är okänt"
+   },
+   "enterShortcut": {
+      "message": "Skriv en genväg"
+   },
+   "extensionDescription": {
+      "message": "Översätt webbplatser i realtid med hjälp av Google eller Yandex."
+   },
+   "fileIsCorrupted": {
+      "message": "Filen verkar vara skadad"
+   },
+   "hotkeyError_ctrlOrAlt": {
+      "message": "Inkludera Ctrl eller Alt"
+   },
+   "hotkeyError_invalid": {
+      "message": "Ogiltig kombination"
+   },
+   "hotkeyError_letter": {
+      "message": "Skriv en bokstav"
+   },
+   "lblAdd": {
+      "message": "Lägg till"
+   },
+   "lblAlwaysTranslate": {
+      "message": "Översätt alltid från $LANGUAGE_NAME$",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "English"
+         }
+      }
+   },
+   "lblAlwaysTranslateSites": {
+      "message": "Översätt alltid dessa webbplatser"
+   },
+   "lblAutoTranslateWhenClickingALink": {
+      "message": "Översätt automatiskt när du klickar på en länk som tar dig till samma domän som den aktuella webbplatsen"
+   },
+   "lblButtonInTheAddressBar": {
+      "message": "Visa knappen i adressfältet"
+   },
+   "lblDarkMode": {
+      "message": "Mörkt läge"
+   },
+   "lblEnableDiskCache": {
+      "message": "Aktivera beständig översättningscache (cache på disk)"
+   },
+   "lblError": {
+      "message": "Denna sida kunde inte översättas"
+   },
+   "lblExperimental": {
+      "message": "Experimentellt"
+   },
+   "lblFavoriteLanguage": {
+      "message": "Favoritspråk $FAVORITE_LANGUAGE_NUM$",
+      "placeholders": {
+         "FAVORITE_LANGUAGE_NUM": {
+            "content": "$1",
+            "example": "2"
+         }
+      }
+   },
+   "lblHotTranslatedSelectedText": {
+      "message": "Ersätt vald text med översatt text direkt"
+   },
+   "lblKeyboardShortcuts": {
+      "message": "Tangentbordsgenvägar"
+   },
+   "lblKeyboardShortcutsSpecial": {
+      "message": "Speciella tangentbordsgenvägar"
+   },
+   "lblMakeDonation": {
+      "message": "Donera"
+   },
+   "lblNeverTranslateLangs": {
+      "message": "Översätt aldrig dessa språk"
+   },
+   "lblOthers": {
+      "message": "Övriga"
+   },
+   "lblPageTranslateInto": {
+      "message": "Sidan översatt till $LANGUAGE_NAME$",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "German"
+         }
+      }
+   },
+   "lblPageTranslationService": {
+      "message": "Översättningstjänst för webbplatser"
+   },
+   "lblPersonalSettings": {
+      "message": "Personliga inställningar"
+   },
+   "lblPlsDonate": {
+      "message": "Hjälp utvecklaren med en donation"
+   },
+   "lblReleaseNotes": {
+      "message": "Utgivningsanmärkningar"
+   },
+   "lblReport": {
+      "message": "Rapportera ett problem"
+   },
+   "lblRestorePageToOriginal": {
+      "message": "Återställ sidan till originalet"
+   },
+   "lblSelectPopupInterfaceStyle": {
+      "message": "Välj popup-gränssnittsstil"
+   },
+   "lblSettings": {
+      "message": "inställningar"
+   },
+   "lblShowContextMenu": {
+      "message": "Visa alternativet att översätta sidan i snabbmenyn"
+   },
+   "lblShowOriginalTextWhenHovering": {
+      "message": "Visa originalspråket när du håller muspekaren över texten"
+   },
+   "lblShowReleaseNotes": {
+      "message": "Visa versionsfakta vid uppdatering"
+   },
+   "lblShowTranslateSelectedButton": {
+      "message": "Visa knappen för att översätta markerad text"
+   },
+   "lblShowTranslateSelectedContextMenu": {
+      "message": "Visa alternativet för att översätta markerad text i snabbmenyn"
+   },
+   "lblShowTranslatedHoveringLangs": {
+      "message": "Visa översatt text när du svävar över webbplatser med dessa språk"
+   },
+   "lblShowTranslatedHoveringSites": {
+      "message": "Visa översatt text när du svävar på dessa webbplatser"
+   },
+   "lblShowTranslatedWhenHovering": {
+      "message": "Visa översatt text när du svävar"
+   },
+   "lblShowTranslatedWhenHoveringThisLang": {
+      "message": "Visa översättning när du svävar över webbplatser på $LANGUAGE_NAME$",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "English"
+         }
+      }
+   },
+   "lblShowTranslatedWhenHoveringThisSite": {
+      "message": "Visa översättning när du svävar över den här webbplatsen"
+   },
+   "lblStorageUsed": {
+      "message": "Använt lagringsutrymme:"
+   },
+   "lblSwitchTranslatedAndOriginal": {
+      "message": "Växla mellan översättningen och originalsidan"
+   },
+   "lblTargetLanguage": {
+      "message": "Målspråk $TARGET_LANGUAGE_NUM$",
+      "placeholders": {
+         "TARGET_LANGUAGE_NUM": {
+            "content": "$1",
+            "example": "2"
+         }
+      }
+   },
+   "lblTextToSpeechService": {
+      "message": "Text-till-tal-tjänst"
+   },
+   "lblTextTranslationService": {
+      "message": "Översättningstjänst för text"
+   },
+   "lblTranslate": {
+      "message": "Översätt denna sida?"
+   },
+   "lblTranslateInterface": {
+      "message": "Översätt gränssnittet"
+   },
+   "lblTranslatePageInto": {
+      "message": "Översätt sidan till $LANGUAGE_NAME$?",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "German"
+         }
+      }
+   },
+   "lblTranslatePageToTargetLanguage": {
+      "message": "Översätt sidan till målspråket"
+   },
+   "lblTranslateSelectedWhenPressTwice": {
+      "message": "Översätt markerad text när du trycker $SHORTCUT_KEY$ två gånger",
+      "placeholders": {
+         "SHORTCUT_KEY": {
+            "content": "[Ctrl]"
+         }
+      }
+   },
+   "lblTranslateTag_pre": {
+      "message": "Aktivera översättning för taggen $HTML_TAG_NAME$",
+      "placeholders": {
+         "HTML_TAG_NAME": {
+            "content": "\u003CPRE>"
+         }
+      }
+   },
+   "lblTranslateTextOverMouseWhenPressTwice": {
+      "message": "Översätt texten över muspekaren när du trycker $SHORTCUT_KEY$ två gånger",
+      "placeholders": {
+         "SHORTCUT_KEY": {
+            "content": "[Ctrl]"
+         }
+      }
+   },
+   "lblTranslating": {
+      "message": "Översätter ..."
+   },
+   "lblTranslationCache": {
+      "message": "Översättningscache"
+   },
+   "lblTtsSpeed": {
+      "message": "Ljudhastighet för text-till-tal"
+   },
+   "lblTtsVolume": {
+      "message": "Text-till-tal ljudvolym"
+   },
+   "lbldontsortresults": {
+      "message": "Sortera inte översättningsresultat"
+   },
+   "lbltranslatedynamicallycreatedcontent": {
+      "message": "Översätt dynamiskt skapat innehåll"
+   },
+   "less": {
+      "message": "Mindre"
+   },
+   "more": {
+      "message": "Mer"
+   },
+   "msgAll": {
+      "message": "Alla"
+   },
+   "msgAlwaysShow": {
+      "message": "Visa alltid"
+   },
+   "msgAutoDetect": {
+      "message": "Automatisk upptäckt"
+   },
+   "msgAutomatic": {
+      "message": "Automatisk"
+   },
+   "msgChooseAnotherLanguage": {
+      "message": "Välj ett annat språk"
+   },
+   "msgDeepLTabReasoOpened": {
+      "message": "Den här fliken öppnades eftersom du klickade för att översätta vald text med DeepL."
+   },
+   "msgDefaultLanguage": {
+      "message": "Standardspråk"
+   },
+   "msgDonationRecipient": {
+      "message": "Din donation går till utvecklaren av $EXTENSION_NAME$ -tillägget.",
+      "placeholders": {
+         "EXTENSION_NAME": {
+            "content": "#EXTENSION_NAME#",
+            "example": "TWP - Translate Web Pages"
+         }
+      }
+   },
+   "msgDontShowAgain": {
+      "message": "Visa inte igen"
+   },
+   "msgDownloadingDocument": {
+      "message": "Hämtar dokumentet..."
+   },
+   "msgEnableIframePageTranslation": {
+      "message": "Aktivera sidöversättning i $IFRAME_TAG$",
+      "placeholders": {
+         "IFRAME_TAG": {
+            "content": "\u003CIFRAME>"
+         }
+      }
+   },
+   "msgErrorDownloadingDocument": {
+      "message": "Fel vid hämtning av dokumentet"
+   },
+   "msgExtUILanguage": {
+      "message": "Språk för tilläggets användargränssnitt"
+   },
+   "msgFavoriteLanguages": {
+      "message": "Favoritspråk"
+   },
+   "msgFileLargerThan": {
+      "message": "Denna tjänst stöder inte filer större än $FILE_SIZE$",
+      "placeholders": {
+         "FILE_SIZE": {
+            "content": "$1",
+            "example": "10 MB"
+         }
+      }
+   },
+   "msgHasBeenUpdated": {
+      "message": "Tillägget $EXTENSION_NAME$ har uppdaterats till version $EXTENSION_VERSION$.",
+      "placeholders": {
+         "EXTENSION_NAME": {
+            "content": "#EXTENSION_NAME#",
+            "example": "TWP - Translate Web Pages"
+         },
+         "EXTENSION_VERSION": {
+            "content": "#EXTENSION_VERSION#",
+            "example": "9.7"
+         }
+      }
+   },
+   "msgHotkeys": {
+      "message": "Snabbtangenter"
+   },
+   "msgIWillBeGrateful": {
+      "message": "Jag är tacksam om du kan göra en donation."
+   },
+   "msgImproveTranslation": {
+      "message": "Förbättra översättning"
+   },
+   "msgInterfaceComplex": {
+      "message": "Komplex"
+   },
+   "msgInterfaceSimple": {
+      "message": "Enkel"
+   },
+   "msgLanguages": {
+      "message": "Språk"
+   },
+   "msgNo": {
+      "message": "Nej"
+   },
+   "msgNoTranslateSelectedText": {
+      "message": "Översätt inte markerad text"
+   },
+   "msgOnlyWhenItouch3Fingers": {
+      "message": "Bara när jag trycker tre fingrar på skärmen"
+   },
+   "msgOpenOnYandexTranslator": {
+      "message": "Öppna i Yandex Translate"
+   },
+   "msgOpenTranslatedPDF": {
+      "message": "Öppna översatt PDF"
+   },
+   "msgPDFtoHTML": {
+      "message": "PDF till HTML"
+   },
+   "msgPageTranslated": {
+      "message": "Sidan översatt"
+   },
+   "msgPleaseWait": {
+      "message": "Var god vänta..."
+   },
+   "msgPrivacy": {
+      "message": "Sekretess"
+   },
+   "msgRecents": {
+      "message": "Senaste"
+   },
+   "msgSelectServiceConversion": {
+      "message": "Välj en tjänst att göra denna konvertering med"
+   },
+   "msgSelectTargetLanguage": {
+      "message": "Översätt webbplatser till detta målspråk"
+   },
+   "msgSelectTargetLanguageForText": {
+      "message": "Översätt vald text till detta målspråk"
+   },
+   "msgSendDocument": {
+      "message": "Skicka dokument"
+   },
+   "msgSetDeepLAlert": {
+      "message": "Är du säker på att du vill ställa in översättningstjänsten till DeepL?\nEn ny flik öppnas och översättningen kommer att ske där."
+   },
+   "msgSites": {
+      "message": "Webbplatser"
+   },
+   "msgStorage": {
+      "message": "Lagring"
+   },
+   "msgStyle": {
+      "message": "Stil"
+   },
+   "msgThanksForUseExtension": {
+      "message": "Tack för att du använder det här tillägget."
+   },
+   "msgToTranslateThisDocument": {
+      "message": "För att översätta detta dokument $DOC_TYPE$ måste det konverteras till HTML",
+      "placeholders": {
+         "DOC_TYPE": {
+            "content": "$1",
+            "example": "(.pdf)"
+         }
+      }
+   },
+   "msgTranslateFor": {
+      "message": "Översätt till $LANGUAGE_NAME$",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "English"
+         }
+      }
+   },
+   "msgTranslateFromTo": {
+      "message": "$FROM_LANGUAGE$ till $TO_LANGUAGE$",
+      "placeholders": {
+         "FROM_LANGUAGE": {
+            "content": "$1",
+            "example": "German"
+         },
+         "TO_LANGUAGE": {
+            "content": "$2",
+            "example": "English"
+         }
+      }
+   },
+   "msgTranslatePDF": {
+      "message": "Översätt PDF"
+   },
+   "msgTranslatePage": {
+      "message": "Översätta sidan?"
+   },
+   "msgTranslateSelectedText": {
+      "message": "Översätt markerad text"
+   },
+   "msgTranslations": {
+      "message": "Översättningar"
+   },
+   "msgUnknownLanguage": {
+      "message": "Okänt"
+   },
+   "msgWhenNecessary": {
+      "message": "När det är nödvändigt"
+   },
+   "msgWhenShowMobilePopup": {
+      "message": "När ska popupen för mobilen visas"
+   },
+   "msgYes": {
+      "message": "Ja"
+   },
+   "openNativeShortcutManager": {
+      "message": "Öppna inbyggd hanterare för tangentbordsgenvägar"
+   },
+   "optionPopupConfig": {
+      "message": "Visa den mobila popup-skärmen"
+   },
+   "optionPopupThreeFingers": {
+      "message": "När jag trycker på skärmen med tre fingrar"
+   },
+   "optionsAddToCustomDictionary": {
+      "message": "Lägg till i anpassad ordbok (Detta låter dig hoppa över vissa ord under översättning av webbsidor)"
+   },
+   "optionsAlwaysTranslate": {
+      "message": "Översätt alltid dessa språk"
+   },
+   "optionsNeverTranslate": {
+      "message": "Översätt aldrig dessa webbplatser"
+   },
+   "pageActionTitle": {
+      "message": "Översätt denna sida"
+   },
+   "popupBlueWhenSiteIsTranslated": {
+      "message": "Gör popup-ikonen blå när webbplatsen översätts"
+   },
+   "resetToDefault": {
+      "message": "Återställ standardinställningar"
+   },
+   "restoreFromFile": {
+      "message": "Återställ från fil"
+   },
+   "selectOriginalLanguage": {
+      "message": "Välj det ursprungliga webbplatsspråket"
+   },
+   "selectTargetLanguage": {
+      "message": "Välj målspråk"
+   },
+   "selectToEnableTranslationService": {
+      "message": "Välj vilka översättningstjänster du vill använda"
+   },
+   "swapPopup": {
+      "message": "Växla mellan enkelt och komplext gränssnitt"
+   },
+   "swapTranslationService": {
+      "message": "Växla mellan översättningstjänster"
+   },
+   "translateClickingOnce": {
+      "message": "Översätt sidan genom att klicka en gång på knappen i adressfältet. (Högerklicka för att se popup-fönster)"
+   },
+   "useAlternativeService": {
+      "message": "Använd tyst en alternativ översättningstjänst om det aktuella målspråket inte stöds av den valda översättningstjänsten"
+   }
+}

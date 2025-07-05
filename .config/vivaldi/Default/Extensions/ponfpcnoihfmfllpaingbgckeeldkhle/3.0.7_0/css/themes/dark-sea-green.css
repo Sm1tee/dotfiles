@@ -1,0 +1,39 @@
+/*
+##
+##  Enhancer for YouTube™
+##  =====================
+##
+##  Author: Maxime RF <https://www.mrfdev.com>
+##
+##  This file is protected by copyright laws and international copyright
+##  treaties, as well as other intellectual property laws and treaties.
+##
+##  All rights not expressly granted to you are retained by the author.
+##  Read the license.txt file for more details.
+##
+##  © MRFDEV.com - All Rights Reserved
+##
+*/
+:root {
+  --efyt-accent-color: #2e8b57;
+  --efyt-accent-color-alpha-10: rgba(46, 139, 87, .10);
+  --efyt-accent-color-alpha-20: rgba(46, 139, 87, .20);
+  --efyt-accent-color-alpha-30: rgba(46, 139, 87, .30);
+  --efyt-accent-color-alpha-40: rgba(46, 139, 87, .40);
+  --efyt-accent-color-alpha-50: rgba(46, 139, 87, .50);
+  --efyt-accent-color-alpha-60: rgba(46, 139, 87, .60);
+  --efyt-accent-color-alpha-70: rgba(46, 139, 87, .70);
+  --efyt-accent-color-alpha-80: rgba(46, 139, 87, .80);
+  --efyt-accent-color-alpha-90: rgba(46, 139, 87, .90);
+  --efyt-accent-color-dark-10: #297d4e;
+  --efyt-accent-color-dark-20: #256f46;
+  --efyt-accent-color-dark-30: #20613d;
+  --efyt-accent-color-dark-40: #1c5334;
+  --efyt-accent-color-dark-50: #17462c;
+  --efyt-accent-color-dark-60: #123823;
+  --efyt-accent-color-dark-70: #0e2a1a;
+  --efyt-accent-color-dark-80: #091c11;
+  --efyt-accent-color-dark-90: #050e09;
+  --efyt-text-primary: #fff;
+  --efyt-text-primary-inverse: #000;
+}

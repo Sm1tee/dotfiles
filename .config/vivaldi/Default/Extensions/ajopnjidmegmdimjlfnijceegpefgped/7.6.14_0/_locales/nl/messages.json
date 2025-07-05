@@ -1,0 +1,41 @@
+{
+   "EXTENSION_DESCRIPTION": {
+      "message": "BetterTTV verbetert Twitch en YouTube met nieuwe functies, emotes en meer."
+   },
+   "EXTENSION_NAME": {
+      "message": "BetterTTV"
+   },
+   "EXTENSION_PERMISSIONS_UPGRADE_BODY_1": {
+      "message": "BetterTTV ondersteunt zowel Twitch als YouTube"
+   },
+   "EXTENSION_PERMISSIONS_UPGRADE_BODY_2": {
+      "message": "Om beide in te schakelen, moeten we je om aanvullende machtigingen vragen. Klik op de knop hieronder om door te gaan."
+   },
+   "EXTENSION_PERMISSIONS_UPGRADE_BUTTON": {
+      "message": "Toestaan voor Twitch en YouTube"
+   },
+   "EXTENSION_PERMISSIONS_UPGRADE_PAGE_TITLE": {
+      "message": "BeterTTV: Aanvullende machtigingen"
+   },
+   "EXTENSION_PERMISSIONS_UPGRADE_TITLE": {
+      "message": "Bedankt voor het gebruik van BetterTTV!"
+   },
+   "EXTENSION_POPUP_TEXT": {
+      "message": "BetterTTV instellingen bevinden zich in de Twitch chatinstellingen op de Twitch website. U kunt met de rechtermuisknop op dit pictogram klikken en het verbergen omdat het niet nodig is."
+   },
+   "MARKETING_DESCRIPTION": {
+      "message": "BetterTTV, ook wel bekend als \"BTTV\" of \"Better Twitch TV\" door de community, heeft tot doel nieuwe functies toe te voegen aan Twitch en YouTube (in bèta).\n\nHier zijn enkele van de functies die we toevoegen:\n\n• Extra emotes in chat - BetterTTV wereldwijde en per kanaal aangepaste emotes\n• Verbeterd emote-menu\n• Aangepaste trefwoorden gericht op woordgroepen, woorden, gebruikers en chatbadges\n• Splits chatlijnen om ze gemakkelijk te kunnen lezen\n• Zie verwijderde links en berichten\n• Anon Chat - word lid van een kanaal zonder in de gebruikerslijst te verschijnen\n• Claim automatisch kanaalpunten, bonussen, drops en momenten\n• Verberg visuele ruis en rommel zoals aanbevolen kanalen, bits, antwoorden, mededelingen en community-hoogtepunten\n\nHoe te gebruiken:\n\n• Installeer en bezoek Twitch/YouTube om de add-on te gaan gebruiken.\n• Om voor YouTube in te schakelen, moet je tijdens de installatie akkoord gaan met de aanvullende toestemming. Als je dat niet hebt gedaan, kun je het nog steeds op elk moment inschakelen via de BetterTTV-instellingen.\n• Instellingen kunnen worden geconfigureerd in de chatinstellingen of door op de BetterTTV-instellingen te klikken in het vervolgkeuzemenu van de gebruiker.\n• Opmerking: op dit moment zijn niet alle instellingen compatibel met YouTube."
+   },
+   "MARKETING_IMAGE_1": {
+      "message": "Ontgrendel meer emotes\nVerbeter je emote-game in de chat met BetterTTV-emotes."
+   },
+   "MARKETING_IMAGE_2": {
+      "message": "Briljante navigatie\nNavigeer gemakkelijk door je emotes en vind de perfecte emote voor elke gelegenheid."
+   },
+   "MARKETING_IMAGE_3": {
+      "message": "Volledig aan te passen"
+   },
+   "MARKETING_SUMMARY": {
+      "message": "Verbetert Twitch en YouTube met nieuwe functies, emotes en meer."
+   }
+}

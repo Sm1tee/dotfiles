@@ -1,0 +1,560 @@
+{
+   "0": {
+      "message": "Connection Timeout. Suriin ang iyong koneksyon sa internet. Kung gumagana ang iyong internet, ang server ay nasa mataas na trapiko o down ang server."
+   },
+   "400": {
+      "message": "Mali ang request mo sa server"
+   },
+   "409": {
+      "message": "Naisumite na ito noon"
+   },
+   "Chapters": {
+      "message": "Mga chapters"
+   },
+   "Close": {
+      "message": "I-close"
+   },
+   "CopiedExclamation": {
+      "description": "Used after something has been copied to the clipboard. Example: 'Copied!'",
+      "message": "Nakopya!"
+   },
+   "Credits": {
+      "message": "Mga credits"
+   },
+   "DeArrowEndWithPeriodWarning": {
+      "description": "A DeArrow automatic warning",
+      "message": "Mga titles ay hindi dapat magtapos sa isang tuldok ('.')"
+   },
+   "DeArrowIsActivated": {
+      "message": "Na deactivate na yung DeArrow"
+   },
+   "DeArrowPromotionMessage3": {
+      "description": "DeArrow is the name of the extension",
+      "message": "Tingnan din ang DeArrow"
+   },
+   "Description": {
+      "description": "Description of the extension.",
+      "message": "I-skip ang mga sponsorships, subscription begging at marami pa sa mga YouTube videos. I-report ang mga sponsor sa videos na napapanood mo upang makatipid sa oras ng iba."
+   },
+   "Dismiss": {
+      "message": "I-dismiss"
+   },
+   "Donate": {
+      "message": "Mag-donate"
+   },
+   "GotIt": {
+      "description": "Used as the button to dismiss a tooltip",
+      "message": "Okay"
+   },
+   "Hide": {
+      "message": "Hindi ipakita"
+   },
+   "Loading": {
+      "message": "Naglo-load..."
+   },
+   "NewConfiguration": {
+      "message": "Bagong configurasyon"
+   },
+   "NoticeTimeAfterSkip": {
+      "description": "This is used on the popup to show how much time left. It will look like \"5s\". The word {seconds} will be replaced, so keep it here. Translations should only change the \"s\"",
+      "message": "{seconds}s"
+   },
+   "OpenSubmissionMenu": {
+      "message": "Buksan ang Submission Menu"
+   },
+   "Options": {
+      "message": "Mga options"
+   },
+   "Segment": {
+      "message": "segment"
+   },
+   "Segments": {
+      "message": "segments"
+   },
+   "SegmentsCap": {
+      "message": "Mga segments"
+   },
+   "Submissions": {
+      "message": "Mga submissions"
+   },
+   "Unknown": {
+      "message": "May error na nagkaroon sa pagsusumite sa iyong sponsor times, subukang muli mamaya."
+   },
+   "Username": {
+      "message": "Username"
+   },
+   "actAsVip": {
+      "description": "Toggle switch for VIP (SponsorBlock moderators) to be able to make vote actions without using their powers.",
+      "message": "Kumilos bilang VIP"
+   },
+   "add": {
+      "message": "I-add"
+   },
+   "areYouSureReset": {
+      "message": "Sigurado ka pag i-reset mo to?"
+   },
+   "autoSkip": {
+      "message": "I-auto skip"
+   },
+   "betaServerWarning": {
+      "message": "Na-ienable yung BETA server!"
+   },
+   "bracketNow": {
+      "message": "(Ngayon)"
+   },
+   "cancel": {
+      "message": "Cancel"
+   },
+   "category": {
+      "message": "Kategorya"
+   },
+   "category_chapter": {
+      "message": "Mga chapters"
+   },
+   "category_exclusive_access": {
+      "message": "Exclusive Access"
+   },
+   "category_exclusive_access_description": {
+      "message": "Para lang sa pag-label ng buong video. Ginagamit kapag ang isang video ay nagpapakita ng isang produkto, serbisyo, o lokasyon na natanggap nila nang libre o may suportang pinansyal."
+   },
+   "category_exclusive_access_pill": {
+      "description": "Short description for this category",
+      "message": "Itong video na ito ay yung produkto, serbisyo o lokasyon kung saan sila nakatanggap ng libre o may subsidized na access"
+   },
+   "category_interaction": {
+      "message": "Paalala sa interaksyon (Subscribe)"
+   },
+   "category_interaction_description": {
+      "message": "Kapag may paalala na mag-like, mag-subscribe o sundan sila sa gitna ng content. Kung ito ay mahaba o tungkol sa isang partikular na bagay, dapat itong lagyan ng label sa ilalim ng \"sariling promosyon\" sa halip."
+   },
+   "category_intro_short": {
+      "message": "Intermisyon"
+   },
+   "category_outro": {
+      "message": "Endcard/Kredito"
+   },
+   "category_poi_highlight": {
+      "message": "Highlight"
+   },
+   "category_selfpromo": {
+      "message": "'Di bayad/Pang-sariling promosyon"
+   },
+   "category_selfpromo_description": {
+      "message": "Katulad ng \"sponsor\" kategorya, maliban sa hindi bayad o napag-promote sa sarili. May kasamang mga seksyon tungkol sa merchandise, mga donasyon, o tungkol sa kung kanino sila nag-collab."
+   },
+   "category_selfpromo_guideline1": {
+      "message": "Mga donasyon, membership, at custom merch"
+   },
+   "category_sponsor": {
+      "message": "Sponsor"
+   },
+   "channelWhitelisted": {
+      "message": "Whitelisted na ang channel na ito!"
+   },
+   "chooseACategory": {
+      "message": "Pumili ng kategorya"
+   },
+   "clearThis": {
+      "message": "Sigurado ka bang gusto mong tanggalin ito?  \n\n"
+   },
+   "clearTimes": {
+      "message": "I-clear ang mga segments"
+   },
+   "clearUnsubmittedSegments": {
+      "description": "Label for a button in settings",
+      "message": "I-clear lahat ng segments"
+   },
+   "clearUnsubmittedSegmentsConfirm": {
+      "description": "Confirmation message for the Clear unsubmitted segments button",
+      "message": "Sigurado ka na i-clear lahat ng mga segments na hindi mo pa na i-submit?"
+   },
+   "closePopup": {
+      "message": "Isara ang Popup"
+   },
+   "confirmMSG": {
+      "message": "Para sa pag-edit o tanggalin ng mga individual values, pindutin ang info button o ang extension icon sa kanang sulok sa itaas."
+   },
+   "confirmNoticeTitle": {
+      "message": "I-submit ang mga segment"
+   },
+   "connectionError": {
+      "message": "Nagkaroon ng error sa koneksyon. Error code: "
+   },
+   "copyPublicID": {
+      "message": "I-kopiya ng publikong UserID"
+   },
+   "copySegmentID": {
+      "message": "I-kopiya ng Segment ID"
+   },
+   "customServerAddress": {
+      "message": "SponsorBlock Server Address"
+   },
+   "dearrowStatsMessage2": {
+      "description": "{titleAndThumbnailMessage} will become '{titles} titles and {thumbnails} thumbnails' from the other messages. It can be moved to a different part of the message if needed. Appears on the DeArrow popup to show how many titles and thumbnails have been replaced since install",
+      "message": "Ang {titleAndThumbnailMessage} ay napalitan mula noong na-install mo ang extension na ito"
+   },
+   "delete": {
+      "message": "I-delete"
+   },
+   "disable": {
+      "message": "I-disable"
+   },
+   "disableSkipping": {
+      "message": "Naka-on ng mga I-skip"
+   },
+   "edit": {
+      "message": "I-edIt"
+   },
+   "enableSkipping": {
+      "message": "Naka-off ng mga I-skip"
+   },
+   "enableTestingServer": {
+      "message": "I-enable yung beta testing server"
+   },
+   "enableTrackDownvotesInPrivate": {
+      "message": "I-store sa mga na-downvote ng segments sa private/incognito tabs"
+   },
+   "exportOptionsCopy": {
+      "message": "I-edit/kopiya"
+   },
+   "exportOptionsDownload": {
+      "message": "I-save sa file"
+   },
+   "exportOptionsUpload": {
+      "message": "I-load sa file"
+   },
+   "freeAccessComplete": {
+      "message": "Congrats! Mayroon kang free access sa DeArrow"
+   },
+   "freeTrialStarted": {
+      "message": "Nagsimula na yung free trial mo. Subukan mo sa YouTube"
+   },
+   "full": {
+      "description": "Used for the name of the option to label an entire video as sponsor or self promotion.",
+      "message": "Full Video"
+   },
+   "fullName": {
+      "description": "Name of the extension.",
+      "message": "SponsorBlock para sa YouTube - I-skip ang mga Sponsorships"
+   },
+   "fullVideoTooltipWarning": {
+      "message": "Ang laki yung segment ito. Kung ang buong video ay tungkol sa isang paksa, pagkatapos ay baguhin mula sa \"I-skip\" patungo sa \"Buong Video\". Tingnan ang mga guidelines para sa higit pang impormasyon."
+   },
+   "guidelines": {
+      "message": "Mga Guidelines"
+   },
+   "help": {
+      "message": "Tulong"
+   },
+   "helpPageThanksForInstalling": {
+      "message": "Salamat sa pag-iinstall ng SponsorBlock."
+   },
+   "helpPageTooSlow": {
+      "message": "Ito ay masyadong mabagal"
+   },
+   "hideSegment": {
+      "message": "Itago itong segment"
+   },
+   "hideThis": {
+      "message": "Itago ito"
+   },
+   "hideUnsubmittedSegments": {
+      "description": "Show/hide button for the unsubmitted segments list",
+      "message": "Itago ng mga segments"
+   },
+   "hitGoBack": {
+      "message": "Pindutin ang \"unskip\" para bumalik ka sa iyong dating posisyon sa video."
+   },
+   "hourLower": {
+      "message": "oras"
+   },
+   "hoursLower": {
+      "message": "oras"
+   },
+   "incorrectVote": {
+      "message": "Mali"
+   },
+   "incorrectlyFormattedOptions": {
+      "message": "Ang JSON ay hindi na-format nang maayos. Hindi nagbago ang iyong options."
+   },
+   "inspect": {
+      "message": "I-inspect"
+   },
+   "longDescription": {
+      "description": "Full description of the extension on the store pages.",
+      "message": "Hinahayaan ka ng SponsorBlock na laktawan ang mga sponsor, intro, outros, mga paalala sa subscription, at iba pang walang kwentang bahagi ng mga YouTube videos. Ang SponsorBlock ay isang crowdsourced browser extension na maaaring isumite ng sinuman ang ilang partikular na naka-sponsor na segment at iba pang mga segment ng mga video sa YouTube. Kapag ang isang tao ay nagsumite ng isang segment, lahat ng iba pang may ganitong extension ay lalaktawan sa ibabaw mismo ng naka-sponsor na segment. Maaari mo ring laktawan ang mga seksyong hindi musika ng mga music video."
+   },
+   "manualPaused": {
+      "message": "Tigilan ang timer"
+   },
+   "minLower": {
+      "message": "minuto"
+   },
+   "minsLower": {
+      "message": "minuto"
+   },
+   "mobileUpdateInfo": {
+      "message": "May support sa m.youtube.com"
+   },
+   "mute": {
+      "message": "I-mute"
+   },
+   "mute_category": {
+      "message": "I-mute {0}?"
+   },
+   "muted": {
+      "description": "Example: Sponsor Muted",
+      "message": "Na I-mute ng {0}"
+   },
+   "nextChapterKeybind": {
+      "description": "Keybind label",
+      "message": "Susunood na chapter"
+   },
+   "noVideoID": {
+      "message": "Walang YouTube video na nakita.\nKung mali ito, i-refresh ang tab mo."
+   },
+   "noticeUpdate": {
+      "description": "The first line of the message displayed after the notice was upgraded.",
+      "message": "Na-upgrade na ang notice!"
+   },
+   "noticeUpdate2": {
+      "description": "The second line of the message displayed after the notice was upgraded.",
+      "message": "Kung ayaw mo pa rin, pindutin ang never show button."
+   },
+   "noticeVisibilityMode2": {
+      "message": "Lahat ang mga maliit na skip notices"
+   },
+   "noticeVisibilityMode4": {
+      "message": "Lahat ang mga na-liit ng skip notices"
+   },
+   "openPopup": {
+      "message": "I-buksan ang SponsorBlock popup"
+   },
+   "openSourceLicenses": {
+      "message": "Mga Open Source licensya"
+   },
+   "paused": {
+      "message": "Naka-pause na"
+   },
+   "playChapter": {
+      "message": "I-play na chapter"
+   },
+   "popupHint": {
+      "message": "Hinto: Maaari kang mag-set up ng mga keybinds para i-pagsusumite sa options"
+   },
+   "preview": {
+      "message": "I-preview"
+   },
+   "questionButton": {
+      "message": "May tanong ako"
+   },
+   "readTheGuidelines": {
+      "description": "Show the first time they submit or if they are \"high risk\"",
+      "message": "Basain mo yung Guidelines muna!!"
+   },
+   "recordTimesDescription": {
+      "message": "I-submit"
+   },
+   "redeem": {
+      "message": "I-redeem"
+   },
+   "refreshSegments": {
+      "message": "I-refresh ang mga segments"
+   },
+   "removeFromWhitelist": {
+      "message": "Tanggalin yung channel sa whitelist"
+   },
+   "replaceThumbnails": {
+      "message": "Palitan ng mga Thumbnails"
+   },
+   "replaceTitles": {
+      "message": "Palitan ng mga Titles"
+   },
+   "reportButtonInfo": {
+      "message": "I-report ang submission na ito bilang mali."
+   },
+   "reportButtonTitle": {
+      "message": "I-report"
+   },
+   "requiresUblock": {
+      "message": "I-require ng uBlock Origin"
+   },
+   "reset": {
+      "message": "I-reset"
+   },
+   "reskip": {
+      "message": "I-reskip"
+   },
+   "save": {
+      "message": "I-save"
+   },
+   "savedPeopleFrom": {
+      "message": "Na i-save mo ang mga tao mula sa "
+   },
+   "segmentFetchFailureWarning": {
+      "message": "Babala: Ang server ay hindi pa tumutugon sa anumang segment. Maaaring mayroon talagang mga segment sa video na ito na naisumite na ngunit hindi mo pa lang natatanggap ang mga ito dahil sa mga isyu sa server."
+   },
+   "segmentsStillLoading": {
+      "message": "Naglo-load pa ang segment..."
+   },
+   "setCloseSkipNoticeKeybind": {
+      "description": "Keybind label",
+      "message": "I-close yung skip notice"
+   },
+   "setSkipShortcut": {
+      "description": "Keybind label",
+      "message": "I-skip yung segment"
+   },
+   "setStartSponsorShortcut": {
+      "description": "Keybind label",
+      "message": "I-simula o I-tigil yung segment"
+   },
+   "setSubmitKeybind": {
+      "description": "Keybind label",
+      "message": "I-submit ang mga segments"
+   },
+   "setUsername": {
+      "message": "I-palit yung username"
+   },
+   "shouldCleanEmojis": {
+      "message": "I-tangal ng mga emojis"
+   },
+   "showButtons": {
+      "message": "Ipakita ang Delete Button sa YouTube Player"
+   },
+   "showCategoryGuidelines": {
+      "message": "Ipakita ang mga kategorya"
+   },
+   "showDeleteButton": {
+      "message": "Ipakita ang Delete Button sa YouTube Player"
+   },
+   "showInfoButton": {
+      "message": "Ipakita ang Info Button sa YouTube Player"
+   },
+   "showNotice": {
+      "message": "Ipakita yung notice ulit"
+   },
+   "showOverlay_full": {
+      "message": "I-show ang mga label"
+   },
+   "showSkipButton": {
+      "message": "Ipakita lagi ang Skip To Highlight Button Sa Player"
+   },
+   "showUpcomingNotice": {
+      "message": "Ipakita muna yung notice bago magsimula ang mga Segment"
+   },
+   "skip": {
+      "message": "I-skip"
+   },
+   "skipSegment": {
+      "message": "I-skip itong segment"
+   },
+   "skip_category": {
+      "message": "I-skip yung {0}?"
+   },
+   "skip_to_category": {
+      "description": "Used for skipping to things (Skip to Highlight)",
+      "message": "I-skip sa {0}?"
+   },
+   "skipped": {
+      "description": "Example: Sponsor Skipped",
+      "message": "Na I-skip ng {0}"
+   },
+   "skipped_to_category": {
+      "description": "Used for skipping to things (Skipped to Highlight)",
+      "message": "Na I-skip sa {0}"
+   },
+   "sortSegments": {
+      "message": "I-sort yung segments"
+   },
+   "sourceCode": {
+      "description": "Used on Firefox Store Page",
+      "message": "Ang Source Code"
+   },
+   "sponsor404": {
+      "message": "Walang nakitang segment"
+   },
+   "sponsorCancel": {
+      "message": "Kanselahin ang Paggawa ng Segment"
+   },
+   "sponsorEnd": {
+      "message": "Nagtatapos ang Segment Ngayon"
+   },
+   "sponsorFound": {
+      "message": "May mga segments sa database para sa video na ito!"
+   },
+   "sponsorStart": {
+      "message": "Simula ang Segment Ngayon"
+   },
+   "submit": {
+      "message": "I-submit"
+   },
+   "submitCheck": {
+      "message": "Sigurado ka bang gusto mong isumite ito?"
+   },
+   "success": {
+      "message": "Tagumpay na!"
+   },
+   "supportedSites": {
+      "message": "Mga katugmang site: "
+   },
+   "syncDisabledWarningDeArrow": {
+      "message": "Hindi gagana ang DeArrow kapang walang storage."
+   },
+   "to": {
+      "description": "Used between segments. Example: 1:20 to 1:30",
+      "message": "sa"
+   },
+   "unmute": {
+      "message": "I-unmute"
+   },
+   "unskip": {
+      "message": "I-unskip"
+   },
+   "unsubmittedSegmentCounts": {
+      "description": "Example: You currently have 12 unsubmitted segments on 5 videos",
+      "message": "Kasalukuyan kang mayroong {0} sa {1}"
+   },
+   "upcoming": {
+      "description": "Example: Upcoming Sponsor",
+      "message": "Paparating na {0}"
+   },
+   "upvoteButtonInfo": {
+      "message": "I-upvote ang submission na ito"
+   },
+   "videoID": {
+      "description": "Header of the unsubmitted segments list",
+      "message": "Video ID"
+   },
+   "videosPlural": {
+      "description": "Example: You currently have 12 unsubmitted segments on 5 *videos*",
+      "message": "ng mga videos"
+   },
+   "videosSingular": {
+      "description": "Example: You currently have 3 unsubmitted segments on 1 *video*",
+      "message": "video"
+   },
+   "viewLeaderboard": {
+      "message": "Mga leaderboard"
+   },
+   "voteOnTime": {
+      "message": "I-boto ang mga Segment"
+   },
+   "voted": {
+      "message": "Bumoto na!"
+   },
+   "voted_on": {
+      "description": "Example: Voted on Sponsor",
+      "message": "Na-vote ng {0}"
+   },
+   "website": {
+      "description": "Used on Firefox Store Page",
+      "message": "Website"
+   },
+   "whitelistChannel": {
+      "message": "I-whitelist itong channel"
+   },
+   "youtubeKeybindWarning": {
+      "message": "Ito ay isang built-in na YouTube shortcut. Sigurado ka bang gusto mong gamitin ang keybind na ito?"
+   }
+}

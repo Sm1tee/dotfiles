@@ -1,0 +1,193 @@
+
+---
+
+## 0. Стартовые пакеты для  Hyprland
+
+```
+sudo pacman -S --needed git hyprland kitty sddm fish
+```
+
+[Репозиторий с полезными инструментами](https://github.com/hyprland-community/awesome-hyprland#runners-menus-and-application-launchers)
+
+---
+## 1. Сменить оболочку:
+
+```
+chsh -s $(which fish)
+```
+
+```
+set -U fish_greeting
+```
+
+---
+## 2. Включить оптимизацию SSD:  
+
+```
+sudo systemctl enable fstrim.timer
+```
+
+---
+
+## 3. Включить multilib:
+
+```
+grep -q "^\[multilib\]" /etc/pacman.conf; or begin; sudo sed -i '/#\[multilib\]/s/^#//;s/#Include/Include/' /etc/pacman.conf; and sudo pacman -Sy; end
+```
+
+---
+
+## 4. Одновременная загрузка 10 пакетов pacman:
+
+```
+grep -q "^ParallelDownloads = 10" /etc/pacman.conf; or begin; sudo sed -i '/^#ParallelDownloads/s/^#//;s/^ParallelDownloads = [0-9]\+/ParallelDownloads = 10/' /etc/pacman.conf; end
+```
+
+---
+
+## 5. Обновить ключи Arch:
+
+```
+sudo pacman-key --init  
+```
+
+```
+sudo pacman-key --populate archlinux 
+```
+
+```
+sudo pacman-key --refresh-keys   
+```
+
+```
+sudo pacman -Sy
+```
+
+---
+
+## 6. Добавить пользователя в группу input для  Hyprland
+
+
+```
+sudo usermod -a -G input "$(whoami)"
+```
+
+---
+
+## 7. Выстроить зеркала по скорости:
+
+```
+sudo reflector --country Russia --protocol https --latest 20 --sort rate --save /etc/pacman.d/mirrorlist
+```
+
+> [!Дополнение]
+> либо вписать руками в  /etc/pacman.d/mirrorlist из [списка зеркал arch](https://archlinux.org/mirrorlist/)
+
+---
+
+## 8. Установить yay 
+
+```
+sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+```
+
+---
+
+## 9. Установить шрифы
+
+```
+yay -S --needed  ttf-dejavu ttf-liberation noto-fonts ttf-font-awesome ttf-material-design-icons ttf-roboto ttf-pt-sans ttf-fira-code ttf-jetbrains-mono ttf-ms-fonts noto-fonts-emoji ttf-jetbrains-mono ttf-fira-code ttf-hack ttf-dejavu ttf-liberation nerd-fonts ttf-fantasque-nerd otf-font-awesome awesome-terminal-fonts ttf-fira-sans 
+```
+
+---
+
+## 10. Настройка SDDM
+
+Настроить конфиг sddm через fish
+   
+```
+sudo sh -c 'tee -a /etc/sddm.conf <<EOF
+[Theme]
+Current=smitee
+CursorTheme=Vimix-white-cursors
+CursorSize=30
+
+[General]
+
+DisplayServer=wayland
+GreeterEnvironment=wayland
+Numlock=on
+EOF'
+```
+
+Скопировать шрифты
+
+```
+sudo cp -r ~/.local/share/fonts /usr/share/fonts/
+```
+
+Установить пакеты
+
+```
+yay -S --needed sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg
+```
+
+
+
+
+---
+
+## Установить мультикодеки
+
+```
+yay -S --needed gst-libav gst-plugins-base gst-plugins-good lib32-gst-plugins-good gst-plugins-bad lib32-gst-plugins-bad gst-plugins-ugly lib32-gst-plugins-ugly gst-plugin-pipewire gstreamer ffmpeg libde265 libdvdcss libdvdread libdvdnav a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libvpx opencore-amr openjpeg2 speex x264 x265 xvidcore wavpack chromium-widevine
+```
+
+
+## 11. Установить основные пакеты:
+
+```
+sudo pacman -S --needed base-devel nano reflector sudo curl net-tools wget git openssh networkmanager rsync unzip zip inxi fish fastfetch amd-ucode linux-firmware
+```
+
+---
+
+## 12.  Установить необходимые пакеты для Hyprland
+
+```
+yay -S --needed waybar hyprpaper xdg-desktop-portal-hyprland hyprpolkitagent hyprsysteminfo nwg-look kora-icon-theme dracula-gtk-theme swaync pipewire pipewire-pulse pipewire-alsa lib32-pipewire wireplumber hyprshot slurp grim hyprland-qtutils hyprgraphics  hyprwayland-scanner aquamarine hyprutils hyprlock qt6-svg qt6-declarative qt5-quickcontrols2 wlogout nwg-drawer networkmanager gnome-calendar thunar q pavucontrol sddm ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender libxcursor pixman wayland-protocols cairo pango libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang hyprcursor hyprwayland-scanner xcb-util-errors hyprutils glaze hyprgraphics aquamarine re2 hyprland-qtutils qt5ct qt6ct qt5-wayland qt6-wayland lib32-pipewire vimix-cursors swappy wl-clipboard wl-clip-persist cliphist tela-circle-icon-theme-all winbox nwg-displays gtk4-layer-shell polkit-gnome xdg-user-dirs gvfs-mtp gvfs-afc gvfs-smb udisks2 udiskie gtk2
+```
+
+## 13. Установить "рабочий" софт для Hyprland
+
+ -  Файловый менеджер - thunar (gvfs + tumbler)
+ -  Терминал - ghostty
+ -  Терминал стиль - starship
+ -  Текстовый редактор - mousepad
+ -  Запуск приложений -  walker
+ -  Плеер - mpv
+ -  Картинки - loupe
+ -  Офис - OnlyOffice
+ -  Архиватор - xarchiver
+ -  Pdf - papers
+ -  Torrent - qbittorrent-qt5 ([тема](https://github.com/catppuccin/qbittorrent/releases))
+ -  Диски - [gnome-disk-utility](https://github.com/GNOME/gnome-disk-utility)
+ -  Системный монитор - [Mission Center](https://gitlab.com/mission-center-devs/mission-center)
+ -  FTP клиент - [Filezilla](https://filezilla-project.org/)
+ -  Браузер vivaldi
+ -  Редактор заметок - [Obsidian](https://github.com/obsidianmd/obsidian-releases)
+ -  Редактор шрифтов  - gnome-font-viewer
+-  Калькулятор - gnome-calculator
+
+
+```
+yay -S --needed ghostty starship gvfs tumbler mousepad walker-bin mpv loupe onlyoffice-bin xarchiver papers qbittorrent-qt5  gnome-disk-utility mission-center filezilla vivaldi obsidian zoxide mcfly visual-studio-code-bin telegram-desktop gnome-font-viewer gnome-calculator thunar-archive-plugin thunar-media-tags-plugin
+```  
+
+Визуальное изменение громкости 
+
+[Syshud](https://github.com/System64fumo/syshud)
+
+---
+
+

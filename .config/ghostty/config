@@ -1,0 +1,10 @@
+font-family = ComicShannsMono Nerd Font
+font-size = 20
+theme = AdventureTime
+background = #000000
+keybind = ctrl+l=clear_screen
+keybind = ctrl+n=new_tab
+keybind = ctrl+/=open_config
+shell-integration = fish
+confirm-close-surface = false
+copy-on-select = true

@@ -1,0 +1,1277 @@
+{
+   "0": {
+      "message": "Ühenduse ajalõpp. Kontrolli oma võrguühendust. Kui internet töötab, on ilmselt server ülekoormatud või maas."
+   },
+   "400": {
+      "message": "Server ütles, et see taotlus oli sobimatu"
+   },
+   "409": {
+      "message": "See on juba varasemalt saadetud"
+   },
+   "502": {
+      "message": "Server paistab olevat ülekoormatud. Proovi uuesti mõne sekundi pärast."
+   },
+   "CanvasMissing": {
+      "description": "Canvas is the name of an HTML element used to draw thumbnails onto",
+      "message": "Canvas puudub"
+   },
+   "CapitalizeWords": {
+      "message": "Suurtähesta Sõnu"
+   },
+   "ChangeCategoryTooltip": {
+      "message": "See rakendub sinu segmentidele koheselt"
+   },
+   "Chapters": {
+      "message": "Peatükid"
+   },
+   "Close": {
+      "message": "Sulge"
+   },
+   "ContinueVoting": {
+      "message": "Jätka hääletamist"
+   },
+   "CopiedExclamation": {
+      "description": "Used after something has been copied to the clipboard. Example: 'Copied!'",
+      "message": "Kopeeritud!"
+   },
+   "CopyAndDownvote": {
+      "message": "Kopeeri ja anna vastuhääl"
+   },
+   "CopyDownvoteButtonInfo": {
+      "message": "Annab vastuhääle ja loob kohaliku koopia, mida saad uuesti saata"
+   },
+   "Credits": {
+      "message": "Tiitrid"
+   },
+   "CurrentTime": {
+      "message": "Praegune aeg"
+   },
+   "Description": {
+      "description": "Description of the extension.",
+      "message": "Jäta sponsorid, tellimise palumine ja muud YouTube'i videote tüütused vahele. Teata vaadatavate videote sponsoritest, et säästa teiste aega."
+   },
+   "Disabled": {
+      "message": "Keelatud"
+   },
+   "Dismiss": {
+      "message": "Sulge"
+   },
+   "Donate": {
+      "message": "Anneta"
+   },
+   "Editing": {
+      "message": "Redigeerimine"
+   },
+   "Enable": {
+      "message": "Luba"
+   },
+   "End": {
+      "description": "Button that skips to the end of a segment",
+      "message": "Lõpp"
+   },
+   "Error": {
+      "message": "Viga"
+   },
+   "ExceptionWhileRendering": {
+      "description": "Displayed if there is a general error when trying to render the thumbnail",
+      "message": "Renderdamisel esines viga"
+   },
+   "FailedToLoad": {
+      "description": "Thumbnail failed to load",
+      "message": "Laadimine ebaõnnestus"
+   },
+   "FailedToRender": {
+      "description": "Thumbnail preview failed to render",
+      "message": "Renderdamine ebaõnnestus"
+   },
+   "FullDetails": {
+      "message": "Täielikud üksikasjad"
+   },
+   "GotIt": {
+      "description": "Used as the button to dismiss a tooltip",
+      "message": "Sain aru"
+   },
+   "Hide": {
+      "message": "Ära kunagi näita"
+   },
+   "Import": {
+      "description": "Button to initiate importing segments. Appears under the textbox where they paste in the data",
+      "message": "Impordi"
+   },
+   "LearnMore": {
+      "message": "Lisateave"
+   },
+   "Loading": {
+      "message": "Laadimine..."
+   },
+   "Never": {
+      "message": "Mitte kunagi"
+   },
+   "NoticeTimeAfterSkip": {
+      "description": "This is used on the popup to show how much time left. It will look like \"5s\". The word {seconds} will be replaced, so keep it here. Translations should only change the \"s\"",
+      "message": "{seconds}s"
+   },
+   "OpenCategoryWikiPage": {
+      "message": "Ava selle kategooria vikileht."
+   },
+   "OpenSubmissionMenu": {
+      "message": "Ava saatmise menüü"
+   },
+   "Options": {
+      "message": "Valikud"
+   },
+   "Original": {
+      "message": "Algne"
+   },
+   "OriginalTitle": {
+      "message": "Algne pealkiri"
+   },
+   "Segment": {
+      "message": "segmendi"
+   },
+   "Segments": {
+      "message": "segmenti"
+   },
+   "SegmentsCap": {
+      "message": "Segmendid"
+   },
+   "SentenceCase": {
+      "message": "Suurtähesta laused"
+   },
+   "SponsorTimeEditScrollNewFeature": {
+      "message": "Kiireks aja reguleerimiseks keri hiirega muutmiskasti kohal. Täpsemaks reguleerimiseks hoia kerimise ajal all Ctrl või Shift klahvi."
+   },
+   "Submissions": {
+      "message": "Saadetud segmendid"
+   },
+   "Submitting": {
+      "message": "Saatmine"
+   },
+   "Thumbnails": {
+      "description": "Referring to thumbnails of YouTube videos",
+      "message": "Pisipildid"
+   },
+   "TitleCase": {
+      "message": "Suurtähesta Sõnad"
+   },
+   "Titles": {
+      "description": "Referring to titles of YouTube videos",
+      "message": "Pealkirjad"
+   },
+   "TypeYourOwnTitleHere": {
+      "message": "Sisesta oma pealkiri siia"
+   },
+   "Unknown": {
+      "message": "Sinu sponsoriaegade saatmisel esines tõrge, palun proovi hiljem uuesti."
+   },
+   "Username": {
+      "message": "Kasutajanimi"
+   },
+   "VideoNotReady": {
+      "message": "Video ei ole valmis"
+   },
+   "acceptPermission": {
+      "message": "Nõustu loaga"
+   },
+   "actions": {
+      "description": "Header of the unsubmitted segments list",
+      "message": "Tegevused"
+   },
+   "adblockerIssueWhitelist": {
+      "message": "Kui sa ei suuda seda lahendada, keela valik \"sunnitud kanalikontroll enne vahelejätmist\", kuna SponsorBlock ei leia selle video kanaliteavet"
+   },
+   "add": {
+      "message": "Lisa"
+   },
+   "addInvidiousInstance": {
+      "message": "Lisa 3. osapoole kliendi eksemplar"
+   },
+   "addInvidiousInstanceDescription": {
+      "message": "Lisa kohandatud eksemplar. See tuleb vormistada AINULT domeeniga. Näide: invidious.ajay.app"
+   },
+   "addInvidiousInstanceError": {
+      "message": "See on sobimatu domeen. Siia tuleks kirjutada AINULT domeeniosa, nt invidious.ajay.app"
+   },
+   "allowScrollingToEdit": {
+      "message": "Luba aegade muutmiseks kerimine"
+   },
+   "areYouSureReset": {
+      "message": "Kas soovid kindlasti selle lähtestada?"
+   },
+   "askAQuestion": {
+      "message": "Esita küsimus"
+   },
+   "audioNotification": {
+      "message": "Heliteavitus vahelejätmisel"
+   },
+   "audioNotificationDescription": {
+      "message": "Heliteavitus vahelejätmisel esitab igal korral heli, kui segment vahele jäetakse. Keelamisel (või autom. vahelejätmise keelamisel) heli ei esitata."
+   },
+   "autoHideInfoButton": {
+      "message": "Peida infonupp automaatselt"
+   },
+   "autoSkip": {
+      "message": "Autom. vahelejätmine"
+   },
+   "autoSkipOnMusicVideos": {
+      "message": "Jäta automaatselt kõik segmendid vahele, kui eksisteerib mitte-muusika segment"
+   },
+   "autoSkip_POI": {
+      "message": "Jäta automaatselt alguseni vahele"
+   },
+   "betaServerWarning": {
+      "message": "BEETAserver on lubatud!"
+   },
+   "bracketEnd": {
+      "message": "(lõpp)"
+   },
+   "bracketNow": {
+      "message": "(nüüd)"
+   },
+   "cancel": {
+      "message": "Katkesta"
+   },
+   "category": {
+      "message": "Kategooria"
+   },
+   "categoryPillNewFeature": {
+      "message": "Uus! Näe, kui video on täielikult sponsoreeritud või enesepromo"
+   },
+   "categoryPillTitleText": {
+      "message": "See terve video on selle kategooriaga sildistatud ning on liiga tihedalt integreeritud, et eraldada saaks"
+   },
+   "categoryUpdate1": {
+      "message": "Kategooriad on siin!"
+   },
+   "categoryUpdate2": {
+      "message": "Ava valikud, et jätta vahele vaheaegu, müüdavat kaupa jms."
+   },
+   "category_chapter": {
+      "message": "Peatükk"
+   },
+   "category_chapter_description": {
+      "message": "Isikupärastatava pealkirjaga peatükid, mis kirjeldavad tähtsamaid video osi."
+   },
+   "category_chapter_guideline1": {
+      "message": "Ära maini sponsorite brändinimesid"
+   },
+   "category_chapter_guideline2": {
+      "message": "Kasuta suuri peatükke peamiste jaotiste jaoks"
+   },
+   "category_chapter_guideline3": {
+      "message": "Väiksemad peatükid saab asetada suuremate sisse"
+   },
+   "category_exclusive_access": {
+      "message": "Eksklusiivne ligipääs"
+   },
+   "category_exclusive_access_description": {
+      "message": "Ainult tervete videote märkimiseks. Kasutatakse, kui video esitleb toodet, teenust või asukohta, millele isik on tasuta või toetusega ligipääsu saanud."
+   },
+   "category_exclusive_access_guideline1": {
+      "message": "Kogu video esitleb midagi, millele autor on saanud tasuta või toetusega ligipääsu"
+   },
+   "category_exclusive_access_pill": {
+      "description": "Short description for this category",
+      "message": "See video esitleb toodet, teenust või asukohta, millele isik on tasuta või toetusega ligipääsu saanud"
+   },
+   "category_filler_guideline2": {
+      "message": "Tähelepanu hajutajad, saatevead, kordused"
+   },
+   "category_filler_guideline3": {
+      "message": "Mitte stseenid, mida on teema mõistmiseks vaja vaadata"
+   },
+   "category_interaction": {
+      "message": "Tegutsemise meeldetuletus (kanali tellimine)"
+   },
+   "category_interaction_description": {
+      "message": "Lühike sisukeskne meeldetuletus anda videole meeldib, tellida kanalit või jälgida autorit. Kui see on pikk või millegi kindlaga seotud, peaks see olema enesepromo all."
+   },
+   "category_interaction_guideline1": {
+      "message": "Lühikesed meeldetuletused vajutada \"meeldib\", \"telli\" või \"jälgi\""
+   },
+   "category_interaction_guideline2": {
+      "message": "Sisaldab mitteotseseid meeldetuletusi kommenteerimiseks"
+   },
+   "category_interaction_guideline3": {
+      "message": "Mitte üldise promo jaoks, vaid üleskutsed tegevustele"
+   },
+   "category_interaction_short": {
+      "message": "Tegutsemise meeldetuletus"
+   },
+   "category_intro": {
+      "message": "Vaheaeg/sissejuhatav animatsioon"
+   },
+   "category_intro_description": {
+      "message": "Tegeliku sisuta intervall. Võib olla paus, seisev pilt, korduv animatsioon. Seda ei peaks kasutama üleminekutel, milles on teabega sisu."
+   },
+   "category_intro_guideline1": {
+      "message": "Intervall ilma tegeliku sisuta"
+   },
+   "category_intro_guideline2": {
+      "message": "Mitte informatsiooniga üleminekute jaoks"
+   },
+   "category_intro_short": {
+      "message": "Vaheaeg"
+   },
+   "category_livestream_messages": {
+      "message": "Otseülekanne: annetuste ja sõnumite lugemine"
+   },
+   "category_livestream_messages_short": {
+      "message": "Sõnumite lugemine"
+   },
+   "category_music_offtopic": {
+      "message": "Muusika: mitte-muusika jaotis"
+   },
+   "category_music_offtopic_description": {
+      "message": "Ainult muusikavideotes kasutamiseks. Seda peaks kasutama vaid muusikavideote jaotiste puhul, mis ei läheks mõne teise kategooria alla."
+   },
+   "category_music_offtopic_guideline1": {
+      "message": "Jaotised, mida avalikes väljalasetes pole"
+   },
+   "category_music_offtopic_guideline2": {
+      "message": "Mitte-muusika kontserdil"
+   },
+   "category_music_offtopic_short": {
+      "message": "Mitte-muusika"
+   },
+   "category_outro": {
+      "message": "Lõpukaardid/-tiitrid"
+   },
+   "category_outro_description": {
+      "message": "Tiitrid või YouTube'i lõpukaardid. Pole mõeldud informatsiooniga järelduste jaoks."
+   },
+   "category_outro_guideline1": {
+      "message": "Ära kaasa sisu, isegi kui lõputiitrid on ekraanil"
+   },
+   "category_poi_highlight": {
+      "message": "Esiletõst"
+   },
+   "category_poi_highlight_description": {
+      "message": "Video osa, mida enamus inimesed otsivad. Sarnaneb kommentaaridele stiilis \"video algab ajal x\"."
+   },
+   "category_poi_highlight_guideline1": {
+      "message": "Jaotis, mida inimesed enim otsivad"
+   },
+   "category_poi_highlight_guideline2": {
+      "message": "Aitab konteksti vahele jätta"
+   },
+   "category_poi_highlight_guideline3": {
+      "message": "Aitab pealkirja või pisipildi sisuni viia"
+   },
+   "category_preview_description": {
+      "message": "Klippide kogum, mis näitab selles või teistes videotes tulevat sisu seerias, kus kogu info kuvatakse uuesti video sees."
+   },
+   "category_preview_guideline1": {
+      "message": "Klipid, mida kuvatakse hiljem või tulevases videos"
+   },
+   "category_preview_guideline2": {
+      "message": "Eelmise video kokkuvõte"
+   },
+   "category_preview_guideline3": {
+      "message": "Mitte jaotistele, mis lisavad täiendavat sisu"
+   },
+   "category_selfpromo": {
+      "message": "Tasumata/enesepromo"
+   },
+   "category_selfpromo_description": {
+      "message": "Sarnaneb \"sponsorile\", ent on mõeldud tasumata või enesepromo jaoks. Selle alla kuuluvad jaotised oma müüdava kauba, annetuste ja koostööpartnerite kohta."
+   },
+   "category_selfpromo_guideline1": {
+      "message": "Annetused, liikmesused ja omaloodud kaup"
+   },
+   "category_selfpromo_guideline2": {
+      "message": "Tasuta mainimised, mis ei anna videole lisaväärtust"
+   },
+   "category_selfpromo_guideline3": {
+      "message": "Mitte ettevõtete-disainitud toodete ja kauba jaoks"
+   },
+   "category_sponsor": {
+      "message": "Sponsor"
+   },
+   "category_sponsor_description": {
+      "message": "Tasulised promod, tasulised viited ja otsesed reklaamid. Pole mõeldud enesepromo või tasuta petitsioonide/autorite/veebilehtede/toodete mainimiste puhul."
+   },
+   "category_sponsor_guideline1": {
+      "message": "Tasulised kampaaniad"
+   },
+   "category_sponsor_guideline2": {
+      "message": "Mitte annetuste ja omaloodud kauba jaoks"
+   },
+   "change": {
+      "message": "Muuda"
+   },
+   "changeUserID": {
+      "message": "Impordi/ekspordi oma privaatne UserID"
+   },
+   "channelDataNotFound": {
+      "description": "This error appears in an alert when they try to whitelist a channel and the extension is unable to determine what channel they are looking at.",
+      "message": "Kanali ID pole veel laaditud. Kui vaatad manustatud videot, proovi seda vaadata YouTube'i kodulehelt. See võib olla põhjustatud ka YouTube'i paigutuse muudatustest - kui arvad et see nii on, kommenteeri siin:"
+   },
+   "channelWhitelisted": {
+      "message": "Kanal ignoreerimisnimekirjas!"
+   },
+   "chapterNameTooltipWarning": {
+      "message": "Üks teie peatükkidest sarnaneb kategooriaga. Kui võimalik, kasutage kategooriaid."
+   },
+   "chooseACategory": {
+      "message": "Vali kategooria"
+   },
+   "chooseDescriptive": {
+      "message": "Vali kõige kirjeldavam"
+   },
+   "clearThis": {
+      "message": "Kas soovid tõesti selle tühjendada?\n\n"
+   },
+   "clearTimes": {
+      "message": "Tühjenda segmendid"
+   },
+   "clearTimesButton": {
+      "message": "Tühjenda ajad"
+   },
+   "clearUnsubmittedSegments": {
+      "description": "Label for a button in settings",
+      "message": "Tühjenda kõik segmendid"
+   },
+   "clearUnsubmittedSegmentsConfirm": {
+      "description": "Confirmation message for the Clear unsubmitted segments button",
+      "message": "Kas soovid kindlasti tühjendada kõik oma saatmata segmendid?"
+   },
+   "closeIcon": {
+      "message": "Sulgemisikoon"
+   },
+   "closePopup": {
+      "message": "Sulge hüpik"
+   },
+   "confirmMSG": {
+      "message": "Üksikute väärtuste muutmiseks või kustutamiseks vajuta infonuppu või ava laienduse hüpik, vajutades selle ikoonile üleval paremal nurgas."
+   },
+   "confirmNoticeTitle": {
+      "message": "Saada segment"
+   },
+   "confirmResetToDefault": {
+      "message": "Kas soovid kindlasti kõik sätted vaikeväärtustele lähtestada? Seda ei saa tagasi võtta."
+   },
+   "connectionError": {
+      "message": "Ühendusega esines tõrge. Veakood: "
+   },
+   "considerDonating": {
+      "message": "Aita arendust toetada"
+   },
+   "copyDebugInformation": {
+      "message": "Kopeeri silumisteave lõikelauale"
+   },
+   "copyDebugInformationComplete": {
+      "message": "Silumisinfo on lõikelauale kopeeritud. Võid sellelt vabalt eemaldada mistahes info, mida ei soovi jagada. Salvesta see tekstifaili või kleebi vearaportisse."
+   },
+   "copyDebugInformationFailed": {
+      "message": "Lõikelauale kirjutamine ebaõnnestus"
+   },
+   "copyDebugInformationOptions": {
+      "message": "Kopeerib lõikelauale info, mida saad arendajale anda veast teatamisel või siis, kui arendaja seda sinult taotleb. Tundlik info, sealhulgas sinu kasutaja ID, ignoreerimisnimekirjas kanalid ning kohandatud serveri aadress on eemaldatud. Siiski see sisaldab teatud infot, nagu sinu kasutajaagent, brauser, opsüsteem ning laienduse versiooninumber."
+   },
+   "copyPublicID": {
+      "message": "Kopeeri avalik UserID"
+   },
+   "copySegmentID": {
+      "message": "Kopeeri segmendi ID"
+   },
+   "createdBy": {
+      "message": "Autor"
+   },
+   "currentInstances": {
+      "message": "Praegused eksemplarid:"
+   },
+   "customAddressError": {
+      "message": "Aadress ei ole õiges vormingus. Veendu, et sul on alguses http:// või https:// ning lõpus ei ole kaldkriipsu."
+   },
+   "customServerAddress": {
+      "message": "SponsorBlocki serveri aadress"
+   },
+   "customServerAddressDescription": {
+      "message": "Aadress, mida SponsorBlock kasutab serveriga info vahetamiseks.\nKui sul just oma serverit pole, ei peaks sa seda valikut muutma."
+   },
+   "darkModeOptionsPage": {
+      "message": "Tume režiim valikute lehel"
+   },
+   "dayAbbreviation": {
+      "description": "100d",
+      "message": "p"
+   },
+   "deArrowDescription": {
+      "description": "Description of the Clickbait extension.",
+      "message": "Rahva valitud pealkirjad ja pisipildid, mis on kirjeldavad, mitte pilkupüüdvad"
+   },
+   "deArrowFullName": {
+      "description": "Name of the Clickbait extension. The name refers to removing arrows from thumbnails",
+      "message": "DeArrow - paremad pealkirjad ja pisipildid YouTube'is"
+   },
+   "deArrowMessageRecieved": {
+      "message": "Said moderaatorilt vihje"
+   },
+   "delete": {
+      "message": "Kustuta"
+   },
+   "disable": {
+      "message": "Keela"
+   },
+   "disableAutoSkip": {
+      "message": "Keela automaatne vahelejätmine"
+   },
+   "disableSkipping": {
+      "message": "Vahelejätmine on lubatud"
+   },
+   "downvote": {
+      "message": "Vastuhääl"
+   },
+   "downvoteDescription": {
+      "message": "Sobimatu/vale ajastus"
+   },
+   "edit": {
+      "message": "Muuda"
+   },
+   "enableAutoSkip": {
+      "message": "Luba automaatne vahelejätmine"
+   },
+   "enableManualSkipOnFullVideo": {
+      "message": "Jäta käsitsi vahele, kui eksisteerib terve video silt"
+   },
+   "enableQueryByHashPrefix": {
+      "message": "Küsi räsi eesliite järgi"
+   },
+   "enableShowCategoryWithoutPermission": {
+      "message": "Näita segmentide menüüs ka ilma saatmise loata kategooriaid"
+   },
+   "enableSkipping": {
+      "message": "Vahelejätmine on keelatud"
+   },
+   "enableTestingServer": {
+      "message": "Luba beetatestimise server"
+   },
+   "enableThisCategoryFirst": {
+      "description": "Used when submitting segments to only let them select a certain category if they have it enabled in the options.",
+      "message": "Kategooriaga \"{0}\" segmentide saatmiseks pead selle enne valikutes lubama. Sind suunatakse nüüd valikutesse."
+   },
+   "enableTrackDownvotes": {
+      "message": "Säilita segmentide vastuhääled"
+   },
+   "enableViewTracking": {
+      "message": "Luba vahelejätmiste arvu jälgimine"
+   },
+   "enableViewTrackingInPrivate": {
+      "message": "Luba vahelejätmiste arvu jälgimine privaatsetel/inkognito kaartidel"
+   },
+   "enterLicenseKey": {
+      "message": "Sisesta litsentsivõti"
+   },
+   "errorCode": {
+      "message": "Veakood: "
+   },
+   "experiementOptOut": {
+      "description": "This is used in a popup about a new experiment to get a list of unlisted videos to back up since all unlisted videos uploaded before 2017 will be set to private.",
+      "message": "Keeldu kõigist tulevikus tehtavatatest eksperimentidest"
+   },
+   "exportOptions": {
+      "message": "Impordi/ekspordi kõik valikud"
+   },
+   "exportOptionsCopy": {
+      "message": "Muuda/kopeeri"
+   },
+   "exportOptionsDownload": {
+      "message": "Salvesta faili"
+   },
+   "exportOptionsUpload": {
+      "message": "Laadi failist"
+   },
+   "exportOptionsWarning": {
+      "message": "Hoiatus: valikute muutmine on püsiv ning võib su paigalduse lõhkuda. Kas soovid kindlasti seda teha? Varunda kindlasti igaks juhuks varasemad valikud."
+   },
+   "exportSegments": {
+      "message": "Ekspordi segmendid"
+   },
+   "exportSegmentsAsURL": {
+      "message": "Jaga URLina"
+   },
+   "forceChannelCheck": {
+      "message": "Sunnitud kanalikontroll enne vahelejätmist"
+   },
+   "forceChannelCheckPopup": {
+      "message": "Kaalu valiku \"Sunnitud kanalikontroll enne vahelejätmist\" lubamist"
+   },
+   "full": {
+      "description": "Used for the name of the option to label an entire video as sponsor or self promotion.",
+      "message": "Terve video"
+   },
+   "fullName": {
+      "description": "Name of the extension.",
+      "message": "SponsorBlock YouTube'ile - jäta sponsorid vahele"
+   },
+   "fullVideoLabelsOnThumbnails": {
+      "description": "Referring to the category pill that is shown on videos that are entirely sponsor or entirely selfpromo on recommended videos, in searches or on the homepage.",
+      "message": "Kuva silte ka videote pisipiltidel"
+   },
+   "fullVideoSegments": {
+      "description": "Referring to the category pill that is now shown on videos that are entirely sponsor or entirely selfpromo",
+      "message": "Kuva ikoon, kui terve video on reklaam"
+   },
+   "fullVideoTooltipWarning": {
+      "message": "See segment on üsna suur. Kui kogu video vältel käsitletakse üht teemat, muutke seade \"jäta vahele\" seadeks \"Täis video\". Vaadake juhiseid rohkema info jaoks."
+   },
+   "generic_guideline1": {
+      "message": "Kasuta sujuvaid üleminekuid"
+   },
+   "generic_guideline2": {
+      "message": "Mängib nii, nagu midagi poleks vahele jäetud"
+   },
+   "guidelines": {
+      "message": "Juhised"
+   },
+   "harmfulVote": {
+      "description": "Used for chapter segments when the text is harmful/offensive to remove it faster",
+      "message": "Kahjulik"
+   },
+   "help": {
+      "message": "Abi"
+   },
+   "helpPageCopyOfDatabase": {
+      "message": "Kas ma saaksin andmebaasist koopia? Mis juhtub, kui sa kaod?"
+   },
+   "helpPageCopyOfDatabase1": {
+      "message": "Andmebaas on avalik ning saadaval aadressil"
+   },
+   "helpPageCopyOfDatabase2": {
+      "message": "Lähtekood on vabalt saadaval. Seega, isegi kui minuga midagi juhtub, ei ole sinu saadetud segmendid kadunud."
+   },
+   "helpPageEditing1": {
+      "message": "Juhul, kui tegite vea, saate muuta või kustutada oma segmente vajutades üles näitavat noolt."
+   },
+   "helpPageFeatureDisclaimer": {
+      "message": "Paljud funktsioonid on vaikimisi välja lülitatud. Kui te soovite jätta vahele sissejutatused, kokkuvõtted, kasutada Invidioust jms, lülitage need allpool sisse. Te saate ka peita/kuvada kasutajaliidese elemente."
+   },
+   "helpPageHowSkippingWorks": {
+      "message": "Kuidas vahelejätmine töötab"
+   },
+   "helpPageHowSkippingWorks1": {
+      "message": "Video segmendid jäetakse automaatselt vahele, kui nendele vastavad segmendid leitakse andmebaasist. Saate avada hüpikakna vajutades SponsorBlock-i logo peale - nii saate näha eelvaadet nendest segmentidest."
+   },
+   "helpPageHowSkippingWorks2": {
+      "message": "Iga kord, kui jätate segmendi vahele, saadetakse teie teavitus. Kui segmendi ajastus tundub vale või ebatäpsena - hääletage see valeks vajutades vastuhäälele. Hääletamine on võimalik ka hüpikakna abil."
+   },
+   "helpPageNews": {
+      "message": "Uudised ja kuidas see on valmistatud"
+   },
+   "helpPageReviewOptions": {
+      "message": "Palun vaata allolevad valikud üle"
+   },
+   "helpPageSourceCode": {
+      "message": "Kust ma saan selle lähtekoodi?"
+   },
+   "helpPageSubmitting1": {
+      "message": "Segmentide esitamine on võimalik kas käsitsi hüpikakna abil, vajutades \"Segment algab siit\" või läbi videopleieri kasutades pleieriribas olevaid kahte nuppu."
+   },
+   "helpPageSubmitting2": {
+      "message": "Vajutades play-nuppu märgite segmendi alguse ning stop-nuppu vajutades märgite segmendi lõpu. Võite märkida mitu sponsorit enne \"saada\" vajutamist. Vajutades üleslaadimisnupule laetakse teie loodud segmendid andmebaasi. Vajutades prügikastile kustutatakse teie märgitud segmendid."
+   },
+   "helpPageThanksForInstalling": {
+      "message": "Täname SponsorBlocki paigaldamise eest."
+   },
+   "helpPageTooSlow": {
+      "message": "See on liiga aeglane"
+   },
+   "helpPageTooSlow1": {
+      "message": "Kiirklahvid on saadaval, kui soovite neid kasutada. Vajutage semikooloniga klahvi, et märkida segmendi algus või lõpp ning vajutage ülakomaga klahvi, et oma segmendid esitada. Need kiirklahvid on muudetavad seadetest. Kui te ei kasuta QWERTY-klaviatuuri, tuleb teil tõenäoliselt muuta klahviseoseid."
+   },
+   "hiddenDueToDownvote": {
+      "message": "peidetud: vastuhääl"
+   },
+   "hiddenDueToDuration": {
+      "message": "peidetud: liiga lühike"
+   },
+   "hideButtonsDescription": {
+      "message": "See peidab nupud, mis kuvatakse YouTube'i mängijal vahelejätmiste segmentide saatmiseks."
+   },
+   "hideDonationLink": {
+      "message": "Peida annetuste link"
+   },
+   "hideForever": {
+      "message": "Peida igaveseks"
+   },
+   "hideSegment": {
+      "message": "Peida segment"
+   },
+   "hideThis": {
+      "message": "Peida see"
+   },
+   "hideUnsubmittedSegments": {
+      "description": "Show/hide button for the unsubmitted segments list",
+      "message": "Peida segmendid"
+   },
+   "hideUpsells": {
+      "message": "Peida valikud, mis on saadaval vaid lisatasu eest"
+   },
+   "hitGoBack": {
+      "message": "Vajuta \"kuva uuesti\", et jõuda sinna, kust tulid."
+   },
+   "hourAbbreviation": {
+      "description": "100h",
+      "message": "t"
+   },
+   "hourLower": {
+      "message": "tund"
+   },
+   "hoursLower": {
+      "message": "tundi"
+   },
+   "importSegments": {
+      "message": "Impordi segmendid"
+   },
+   "incorrectCategory": {
+      "message": "Muuda kategooriat"
+   },
+   "incorrectVote": {
+      "message": "Ebakorrektne"
+   },
+   "incorrectlyFormattedOptions": {
+      "message": "See JSON ei ole korralikult vormistatud. Sinu valikuid ei muudetud."
+   },
+   "inspect": {
+      "message": "Inspekteeri"
+   },
+   "invidiousPermissionRefresh": {
+      "message": "Teie veebilehitseja on eemaldanud loa, mis on vajalik korrektseks tööks Invidious platformil ja muudel kolmandate osapoolte lehtedel. Vajutage allolevat nuppu, et taaskäivitada see luba."
+   },
+   "keepUnsubmitted": {
+      "message": "Säilita saadetud hääled"
+   },
+   "keyAlreadyUsed": {
+      "message": "See kiirkombinatsioon on juba kasutuses teise toimingu poolt. Palun valige teine kiirkombinatsioon."
+   },
+   "keybindDescription": {
+      "message": "Valige klahv vajutades sellele, seejärel valige need teisendklahvid, mida soovite kasutada."
+   },
+   "liveOrPremiere": {
+      "message": "Käimasolevale otseülekandele segmentide esitamine pole lubatud. Palun oodake kuni otseülekanne lõpeb, värskendage lehte ja kontrollige siis, kas segmendid on jätkuvalt kehtivad."
+   },
+   "longDescription": {
+      "description": "Full description of the extension on the store pages.",
+      "message": "SponsorBlock lubab sul vahele jätta sponsorid, vaheajad, kanali tellimise meeldetuletused ja muud YouTube'i videote tüütud kohad. SponsorBlock on rahva ühistööna toimiv brauserilaiendus, mis lubab igaühel saata sponsoreeritud segmendi algus- ja lõpuaegu ning teiste video segmentide aegu. Kui üks inimene saadab sponsoreeritud segmendi, jätavad teised laienduse kasutajad kohe selle vahele. Laiendus võimaldab ka muusikavideotel mitte-muusika jaotised vahele jätta."
+   },
+   "manualPaused": {
+      "message": "Taimer peatatud"
+   },
+   "manualSkip": {
+      "message": "Käsitsi vahelejätmine"
+   },
+   "manualSkip_POI": {
+      "message": "Küsi video laadimisel"
+   },
+   "manuallyHidden": {
+      "message": "käsitsi peidetud"
+   },
+   "minDuration": {
+      "message": "Minimaalne kestus (sekundit):"
+   },
+   "minDurationDescription": {
+      "message": "Segmendid, mis on lühemad kui määratud väärtus ei jäeta vahele või ei kuvata mängijal."
+   },
+   "minLower": {
+      "message": "minut"
+   },
+   "minsLower": {
+      "message": "minutit"
+   },
+   "mobileUpdateInfo": {
+      "message": "m.youtube.com on nüüd toetatud"
+   },
+   "moreCategories": {
+      "message": "Rohkem kategooriaid"
+   },
+   "multipleSegments": {
+      "message": "Mitu segmenti"
+   },
+   "mute": {
+      "message": "Vaigista"
+   },
+   "muteSegments": {
+      "message": "Luba segmente, mis vahelejätmise asemel vaigistavad heli"
+   },
+   "mute_category": {
+      "message": "Vaigistad {0}?"
+   },
+   "muted": {
+      "description": "Example: Sponsor Muted",
+      "message": "{0} vaigistatud"
+   },
+   "nextChapterKeybind": {
+      "description": "Keybind label",
+      "message": "Järgmine peatükk"
+   },
+   "noVideoID": {
+      "message": "YouTube'i videot ei leitud.\nKui see ei vasta tõele, laadi kaart uuesti."
+   },
+   "nonMusicCategoryOnMusic": {
+      "message": "See video on muusikana kategoriseeritud. Kas oled kindel, et sellel on sponsor? Kui see on tegelikult \"mitte-muusika segment\", ava laienduse valikud ning luba see kategooria. Seejärel saad selle segmendi saata \"mitte-muusika\" kategoorias. Segaduse korral palun loe üle juhised."
+   },
+   "notSet": {
+      "message": "Määramata"
+   },
+   "noticeUpdate": {
+      "description": "The first line of the message displayed after the notice was upgraded.",
+      "message": "Teavitus on uuendatud!"
+   },
+   "noticeUpdate2": {
+      "description": "The second line of the message displayed after the notice was upgraded.",
+      "message": "Kui sulle see ikka ei meeldi, vajuta \"ära kunagi näita\" nuppu."
+   },
+   "noticeVisibilityLabel": {
+      "description": "Option label",
+      "message": "Vahelejätmise teavituse välimus"
+   },
+   "noticeVisibilityMode0": {
+      "message": "Täissuuruses vahelejätmise teavitused"
+   },
+   "noticeVisibilityMode1": {
+      "message": "Väikesed vahelejätmise teavitused autom. vahelejätmistele"
+   },
+   "noticeVisibilityMode2": {
+      "message": "Kõik vahelejätmise teavitused on väikesed"
+   },
+   "noticeVisibilityMode3": {
+      "message": "Hääbuvad vahelejätmise teavitused autom. vahelejätmistele"
+   },
+   "noticeVisibilityMode4": {
+      "message": "Kõik vahelejätmise teavitused hääbuvad"
+   },
+   "openOptionsPage": {
+      "message": "Ava valikute leht"
+   },
+   "openPopup": {
+      "message": "Ava SponsorBlocki hüpik"
+   },
+   "optionsInfo": {
+      "message": "Luba Invidiouse tugi, keela automaatne vahelejätmine, peida nupud ja muud valikud."
+   },
+   "optionsTabAdvanced": {
+      "description": "Appears in Options as a tab header for advanced/niche options. To fit inside the button, it should not be longer than ~20-25 characters (depending on their width).",
+      "message": "Varia"
+   },
+   "optionsTabBackup": {
+      "description": "Appears in Options as a tab header for options related to saving/restoring your settings. To fit inside the button, it should not be longer than ~20-25 characters (depending on their width).",
+      "message": "Varunda/taasta"
+   },
+   "optionsTabBehavior": {
+      "description": "Appears in Options as a tab header for options related to categories and skipping behavior. To fit inside the button, it should not be longer than ~20-25 characters (depending on their width).",
+      "message": "Käitumine"
+   },
+   "optionsTabInterface": {
+      "description": "Appears in Options as a tab header for options related to GUI and sounds. To fit inside the button, it should not be longer than ~20-25 characters (depending on their width).",
+      "message": "Liides"
+   },
+   "optionsTabKeyBinds": {
+      "description": "Appears in Options as a tab header for keybinds. To fit inside the button, it should not be longer than ~20-25 characters (depending on their width).",
+      "message": "Klaviatuuriotseteed"
+   },
+   "paused": {
+      "message": "Pausil"
+   },
+   "permissionRequestFailed": {
+      "message": "Loataotlus ebaõnnestus, kas sa keeldusid?"
+   },
+   "permissionRequestSuccess": {
+      "message": "Loataotlus õnnestus!"
+   },
+   "playChapter": {
+      "message": "Esita peatükk"
+   },
+   "poiOnlyOneSegment": {
+      "message": "Hoiatus: Seda tüüpi segmenti saab korraga aktiivne olla vaid üks. Mitme saatmine põhjustab suvalise segmendi kuvamise."
+   },
+   "popupHint": {
+      "message": "Vihje: sa võid saatmiseks määrata valikutes klaviatuuriotseteid"
+   },
+   "preview": {
+      "message": "Eelvaade"
+   },
+   "previewColor": {
+      "description": "Referring to submissions that have not been sent to the server yet.",
+      "message": "Saatmata värv"
+   },
+   "previousChapterKeybind": {
+      "description": "Keybind label",
+      "message": "Eelmine peatükk"
+   },
+   "privacyPolicy": {
+      "message": "Privaatsuspoliitika"
+   },
+   "questionButton": {
+      "message": "Mul on küsimus"
+   },
+   "readTheGuidelines": {
+      "description": "Show the first time they submit or if they are \"high risk\"",
+      "message": "Loe juhiseid!!"
+   },
+   "recordTimesDescription": {
+      "message": "Saada"
+   },
+   "redeem": {
+      "message": "Lunasta"
+   },
+   "redeemFailed": {
+      "message": "Litsentsivõti on sobimatu"
+   },
+   "redeemSuccess": {
+      "message": "Lunastamine õnnestus!"
+   },
+   "refreshSegments": {
+      "message": "Värskenda segmendid"
+   },
+   "removeFromWhitelist": {
+      "message": "Eemalda kanal ignoreerimisnimekirjast"
+   },
+   "renderAsChapters": {
+      "description": "Refers to drawing segments on the YouTube seek bar as split up chapters, similar to the existing chapter system",
+      "message": "Kuva segmendid peatükkidena"
+   },
+   "reportButtonInfo": {
+      "message": "Teavita sellest segmendist kui sobimatust."
+   },
+   "reportButtonTitle": {
+      "message": "Teavita"
+   },
+   "requiresUblock": {
+      "message": "Nõuab uBlock Originit"
+   },
+   "reset": {
+      "message": "Lähtesta"
+   },
+   "resetCustomTitle": {
+      "message": "Lähtesta pealkiri esialgsele tekstile"
+   },
+   "resetIcon": {
+      "message": "Lähtesta ikoon"
+   },
+   "resetInvidiousInstance": {
+      "message": "Lähtesta Invidiouse eksemplaride nimekiri"
+   },
+   "resetInvidiousInstanceAlert": {
+      "message": "Lähtestad Invidiouse eksemplaride nimekirja"
+   },
+   "resetToDefault": {
+      "message": "Lähtesta sätted vaikeväärtustele"
+   },
+   "reskip": {
+      "message": "Jäta uuesti vahele"
+   },
+   "save": {
+      "message": "Salvesta"
+   },
+   "savedPeopleFrom": {
+      "message": "Oled inimeste aega säästnud "
+   },
+   "seekBarColor": {
+      "message": "Ajariba värv"
+   },
+   "segmentCount": {
+      "description": "Header of the unsubmitted segments list",
+      "message": "Segmentide arv"
+   },
+   "segmentFetchFailureWarning": {
+      "message": "Tähelepanu: Server ei ole veel segmente edastanud. Sellel videol võivad olla esitatud segmendid, aga sa pole neid serveri tõrke tõttu kätte saanud."
+   },
+   "segmentsStillLoading": {
+      "message": "Segmente veel laetakse..."
+   },
+   "serverDown": {
+      "message": "Tundub, et server on maas. Anna sellest koheselt arendajale teada."
+   },
+   "setOptions": {
+      "message": "Määra valikud"
+   },
+   "setSkipShortcut": {
+      "description": "Keybind label",
+      "message": "Jäta segment vahele"
+   },
+   "setStartSponsorShortcut": {
+      "description": "Keybind label",
+      "message": "Alusta/lõpeta segmenti"
+   },
+   "setSubmitKeybind": {
+      "description": "Keybind label",
+      "message": "Esita segmendid"
+   },
+   "setUserID": {
+      "message": "Määra privaatne UserID"
+   },
+   "setUsername": {
+      "message": "Määra kasutajanimi"
+   },
+   "shortCheck": {
+      "message": "See saadetav segment on lühem, kui sinu lühima pikkuse valik. See võib tähendada, et see on juba saadetud ning on selle valiku tõttu lihtsalt ignoreeritud. Kas soovid kindlasti seda saata?"
+   },
+   "shouldCleanEmojis": {
+      "message": "Eemalda emojid"
+   },
+   "showButtons": {
+      "message": "Kuva YouTube'i mängijal nupud"
+   },
+   "showCategoryGuidelines": {
+      "message": "Kuva kategooria abi"
+   },
+   "showDeleteButton": {
+      "message": "Kuva YouTube'i mängijal kustutusnupp"
+   },
+   "showInfoButton": {
+      "message": "Kuva YouTube'i mängijal infonupp"
+   },
+   "showNotice": {
+      "message": "Kuva märkus uuesti"
+   },
+   "showOverlay": {
+      "message": "Kuva mängija ajaribal"
+   },
+   "showOverlay_POI": {
+      "message": "Kuva mängija ajaribal"
+   },
+   "showOverlay_chapter": {
+      "message": "Kuva peatükid"
+   },
+   "showOverlay_full": {
+      "message": "Kuva silt"
+   },
+   "showSegmentNameInChapterBar": {
+      "message": "Kuva praegune segment video aja kõrval"
+   },
+   "showSkipButton": {
+      "message": "Hoia esiletõstuni vahelejätmise nuppu mängijal"
+   },
+   "showSkipNotice": {
+      "message": "Kuva segmendi vahelejätmisel teatis"
+   },
+   "showTimeWithSkips": {
+      "message": "Kuva vahelejäetud segmentidega aeg"
+   },
+   "showTimeWithSkipsDescription": {
+      "message": "See aeg kuvatakse sulgudes praeguse aja kõrval, ajariba all. See näitab video, millest on segmendid eemaldatud, kogukestvust. Sealhulgas arvestatakse ka segmente, mis on märgitud valikuga \"kuva mängija ajaribal\"."
+   },
+   "showUnsubmittedSegments": {
+      "description": "Show/hide button for the unsubmitted segments list",
+      "message": "Kuva segmendid"
+   },
+   "showUploadButton": {
+      "message": "Kuva üleslaadimisnupp"
+   },
+   "skip": {
+      "message": "Jäta vahele"
+   },
+   "skipNoticeDuration": {
+      "message": "Vahelejätmise teavituse kestus (sekundites):"
+   },
+   "skipNoticeDurationDescription": {
+      "message": "Vahelejätmise teavitus püsib ekraanil vähemalt nii kaua. Käsitsi vahelejätmise puhul võib see kauem püsida."
+   },
+   "skipOption": {
+      "description": "Used on the options page to describe the ways to skip the segment (auto skip, manual, etc.)",
+      "message": "Vahelejätmise valik"
+   },
+   "skipSegment": {
+      "message": "Jäta segment vahele"
+   },
+   "skip_category": {
+      "message": "Jätad {0} vahele?"
+   },
+   "skip_to_category": {
+      "description": "Used for skipping to things (Skip to Highlight)",
+      "message": "Jäta {0}-ni vahele?"
+   },
+   "skipped": {
+      "description": "Example: Sponsor Skipped",
+      "message": "{0} vahelejäetud"
+   },
+   "skipped_to_category": {
+      "description": "Used for skipping to things (Skipped to Highlight)",
+      "message": "{0}-ni vahelejäetud"
+   },
+   "sortSegments": {
+      "message": "Sorteeri segmendid"
+   },
+   "sourceCode": {
+      "description": "Used on Firefox Store Page",
+      "message": "Lähtekood"
+   },
+   "sponsor404": {
+      "message": "Segmente ei leitud"
+   },
+   "sponsorCancel": {
+      "message": "Tühista segmendi loomine"
+   },
+   "sponsorEnd": {
+      "message": "Segment lõpeb nüüd"
+   },
+   "sponsorFound": {
+      "message": "Sellel videol on andmebaasis segmente!"
+   },
+   "sponsorStart": {
+      "message": "Segment algab nüüd"
+   },
+   "statusReminder": {
+      "message": "Serveri oleku saamiseks vaata status.sponsor.ajay.app"
+   },
+   "submissionEditHint": {
+      "description": "Appears in the popup to inform them that editing has been moved to the video player.",
+      "message": "Segmendi töötlemine avaneb pärast saatmist"
+   },
+   "submit": {
+      "message": "Saada"
+   },
+   "submitCheck": {
+      "message": "Kas soovid kindlasti selle saata?"
+   },
+   "success": {
+      "message": "Õnnestus!"
+   },
+   "supportOtherSites": {
+      "message": "Toeta 3. osapoole YouTube-saite"
+   },
+   "supportOtherSitesDescription": {
+      "description": "This replaces the 'supports Invidious' option because it now works on other YouTube sites such as Cloudtube",
+      "message": "Kolmanda osapoole YouTube'i klientide tugi. Selle toe lubamiseks pead nõustuma lisalubadega."
+   },
+   "supportedSites": {
+      "message": "Toetatud saidid: "
+   },
+   "testingServerWarning": {
+      "message": "Kõik segmendid ja hääled EI LÄHE põhiserveri alla, kuni oled ühendatud testserveriga. Veendu, et keelad selle valiku, kui soovid tegelikult segmente saata."
+   },
+   "titleFormatting": {
+      "message": "Pealkirjavorming"
+   },
+   "to": {
+      "description": "Used between segments. Example: 1:20 to 1:30",
+      "message": "kuni"
+   },
+   "trackDownvotesWarning": {
+      "message": "Hoiatus: selle keelamine kustutab kõik varasemalt säilitatud vastuhääled"
+   },
+   "unbind": {
+      "description": "Unbind keyboard shortcut",
+      "message": "Tühista määrang"
+   },
+   "unmute": {
+      "message": "Tühista vaigistus"
+   },
+   "unskip": {
+      "message": "Kuva uuesti"
+   },
+   "unsubmitted": {
+      "message": "Saatmata"
+   },
+   "unsubmittedSegmentCounts": {
+      "description": "Example: You currently have 12 unsubmitted segments on 5 videos",
+      "message": "Sul on hetkel {0} {1}"
+   },
+   "unsubmittedSegmentCountsZero": {
+      "description": "Replaces 'unsubmittedSegmentCounts' string when there are no unsubmitted segments",
+      "message": "Sul pole hetkel saatmata segmente"
+   },
+   "unsubmittedSegmentsPlural": {
+      "description": "Example: You currently have 12 *unsubmitted segments* on 5 videos",
+      "message": "esitamata segmenti"
+   },
+   "unsubmittedSegmentsSingular": {
+      "description": "Example: You currently have 1 *unsubmitted segment* on 1 video",
+      "message": "esitamata segment"
+   },
+   "upvote": {
+      "message": "Poolthääl"
+   },
+   "upvoteButtonInfo": {
+      "message": "Anna segmendile poolthääl"
+   },
+   "userIDChangeWarning": {
+      "message": "Tähelepanu: privaatse UserID muutmine on lõplik. Kas soovid kindlasti seda teha? Igaks juhuks soovitame eelmise UserID varundada."
+   },
+   "videoID": {
+      "description": "Header of the unsubmitted segments list",
+      "message": "Video ID"
+   },
+   "videosPlural": {
+      "description": "Example: You currently have 12 unsubmitted segments on 5 *videos*",
+      "message": "videol"
+   },
+   "videosSingular": {
+      "description": "Example: You currently have 3 unsubmitted segments on 1 *video*",
+      "message": "videol"
+   },
+   "viewLeaderboard": {
+      "message": "Edetabel"
+   },
+   "voteOnTime": {
+      "message": "Hääleta segmendi sobivust"
+   },
+   "voted": {
+      "message": "Hääletatud!"
+   },
+   "warningChatInfo": {
+      "message": "Märkasime, et olete teinud paar üsna tavalist viga. Oleme teie töö eest väga tänulikud, aga me püüdleme täiuslikkuse poole, seega iga väike viga loeb :)"
+   },
+   "warningConfirmButton": {
+      "message": "Ma mõistan põhjust"
+   },
+   "warningError": {
+      "message": "Hoiatuse mõistmise kinnitamisel esines viga:"
+   },
+   "website": {
+      "description": "Used on Firefox Store Page",
+      "message": "Veebileht"
+   },
+   "whatChangeUserID": {
+      "message": "Seda tuleks privaatsena hoida. See on nagu parool ning seda ei tohiks kellegagi jagada. Kui kellelgi see on, saavad nad sinuna esineda.\nKui otsid avalikku UserID'd, klõpsa hüpikus olevat lõikelaua ikooni."
+   },
+   "whatEnableTestingServer": {
+      "message": "Sinu saadetud segmendid ja hääled EI LÄHE põhiserveri alla. Kasuta seda vaid katsetamiseks."
+   },
+   "whatExportOptions": {
+      "message": "See on sinu terve seadistus JSON-formaadis. See sisaldab sinu privaatset UserID-d, seega ole tähelepanelik, kellega seda jagad."
+   },
+   "whatForceChannelCheck": {
+      "message": "Vaikimisi jätab see segmendid vahele juba siis, kui veel kanalitki ei tea. Vaikimisi võidakse mõned video alguses olevad segmendid ignoreerimisnimekirjas olevatel kanalitel vahele jätta. Selle valiku lubamine väldib seda, kuid võib lisada vahelejätmistele väikese viivituse, sest kanali ID hankimine võib aega võtta. Viivitus võib kiire interneti puhul olla märkamatu."
+   },
+   "whatManualSkipOnFullVideo": {
+      "message": "Inimestele, kes soovivad vaadata (enese-)reklaami sisaldavat videot segamatult."
+   },
+   "whatQueryByHashPrefix": {
+      "message": "VideoID järgi segmentide küsimise asemel saadetakse videoID räsi 4 esimest märki ning server saadab tagasi kõigi sarnaste räsidega videote andmed."
+   },
+   "whatShowCategoryWithoutPermission": {
+      "message": "Osade kategooriate esitamiseks on minimaalse reputatsiooni nõuete tõttu vajalik luba"
+   },
+   "whatTrackDownvotes": {
+      "message": "Segmendid, millele annad vastuhääle, peidetakse ka pärast lehe uuesti laadimist"
+   },
+   "whatViewTracking": {
+      "message": "See funktsioon jälgib, milliseid segmente sa oled vahele jätnud, et kasutajad teaksid, kui palju nende sisestus on teisi aidanud ning et koos poolthäältega veenduda rämpsu mittesattumises andmebaasi. Laiendus saadab iga segmendi vahelejätmisel serverisse sõnumi. Loodetavasti enamus inimesi ei muuda seda seadistust, et vaatamisarvud oleksid täpsed. :)"
+   },
+   "whitelistChannel": {
+      "message": "Lisa kanal ignoreerimisnimekirja"
+   },
+   "youHaveSavedTime": {
+      "description": "You've saved people from 887,362 segments (236d 15h 5.3 minutes of their lives).",
+      "message": "Oled inimestel säästnud"
+   },
+   "youHaveSavedTimeEnd": {
+      "description": "You've saved people from 887,362 segments (236d 15h 5.3 minutes of their lives).",
+      "message": " nende eludest"
+   },
+   "youHaveSkipped": {
+      "message": "Oled vahele jätnud "
+   },
+   "youMustSelectACategory": {
+      "message": "Sa pead enne saatmist igale segmendile kategooria valima!"
+   },
+   "yourWork": {
+      "description": "Used to describe the section that will show you the statistics from your submissions.",
+      "message": "Sinu töö"
+   },
+   "youtubeKeybindWarning": {
+      "message": "See on YouTube'i sisseehitatud otsetee. Kas soovid kindlasti seda kasutada?"
+   }
+}

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Открыть в терминале</name>
+	<submenu></submenu>
+	<unique-id>1742730083275159-1</unique-id>
+	<command>ghostty</command>
+	<description>Example for a custom action</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>accessories-image-viewer</icon>
+	<name>Установить как обои</name>
+	<submenu></submenu>
+	<unique-id>1750194578309609-1</unique-id>
+	<command>sh -c &apos;MONITOR=$(hyprctl monitors | grep &quot;Monitor&quot; | head -1 | awk &quot;{print \$2}&quot;); echo &quot;preload = %f&quot; &gt; ~/.config/hypr/hyprpaper.conf &amp;&amp; echo &quot;wallpaper = $MONITOR,%f&quot; &gt;&gt; ~/.config/hypr/hyprpaper.conf &amp;&amp; hyprctl hyprpaper preload &quot;%f&quot; &amp;&amp; hyprctl hyprpaper wallpaper &quot;$MONITOR,%f&quot;&apos;</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>Скопировать путь к файлу</name>
+	<submenu></submenu>
+	<unique-id>1750197148777926-1</unique-id>
+	<command>sh -c &apos;echo -n %f | wl-copy&apos;</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>Информация о медиафайле</name>
+	<submenu></submenu>
+	<unique-id>1750545632587456-1</unique-id>
+	<command>~/.config/Thunar/scripts/thunar-media-info.sh -f %f -t %n</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<audio-files/>
+	<video-files/>
+</action>
+</actions>

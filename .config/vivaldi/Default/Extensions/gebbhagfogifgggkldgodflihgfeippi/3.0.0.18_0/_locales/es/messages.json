@@ -1,0 +1,134 @@
+{
+   "colorTheme": {
+      "message": "Combinación de colores:"
+   },
+   "colorizeRatio": {
+      "message": "Colorear barra de relación"
+   },
+   "colorizeRatioHover": {
+      "message": "Usar colores personalizados para la barra de proporción."
+   },
+   "colorizeThumbs": {
+      "message": "Colorear los botones likes y dislike"
+   },
+   "colorizeThumbsHover": {
+      "message": "Usar colores personalizados para los íconos de los botones."
+   },
+   "considerDonating": {
+      "message": "Lo único que mantiene la extensión en funcionamiento son sus donaciones, considere apoyar el proyecto."
+   },
+   "customColors": {
+      "message": "Colores personalizados para la barra y los botones que no me gustan"
+   },
+   "customNumberFormats": {
+      "message": "Formatos de números personalizados"
+   },
+   "extensionDesc": {
+      "message": "Recupera la característica de los «dislikes» («No me gusta»)"
+   },
+   "extensionName": {
+      "message": "Return YouTube Dislike"
+   },
+   "extensionNameBeta": {
+      "message": "Return YouTube Dislike Beta"
+   },
+   "legendSettings": {
+      "message": "Ajustes"
+   },
+   "linkChangelog": {
+      "message": "Historial de cambios"
+   },
+   "linkDonate": {
+      "message": "Donar"
+   },
+   "linkFAQ": {
+      "message": "P+F"
+   },
+   "linkHelp": {
+      "message": "Ayuda"
+   },
+   "linkWebsite": {
+      "message": "Página web"
+   },
+   "numberFormat": {
+      "message": "Formato de número:"
+   },
+   "reformatLikes": {
+      "message": "Reformatear como números"
+   },
+   "reformatLikesHover": {
+      "message": "Haz que el formato de like y dislike sea consistente."
+   },
+   "roundNumbers": {
+      "message": "Mostrar números redondeados hacia abajo"
+   },
+   "roundNumbersHover": {
+      "message": "Redondear números hacia abajo (comportamiento predeterminado de YouTube)."
+   },
+   "shortsSupport": {
+      "message": "Soporte de YouTube Shorts"
+   },
+   "textColorTheme": {
+      "message": "Esquema de colores:"
+   },
+   "textColorTheme1": {
+      "message": "Clásico"
+   },
+   "textColorTheme2": {
+      "message": "Accesible"
+   },
+   "textColorTheme3": {
+      "message": "Neón"
+   },
+   "textColorizeRatioBar": {
+      "message": "Cambiar color de barra de votos"
+   },
+   "textColorizeRatioBarHover": {
+      "message": "Utiliza colores personalizados para la barra de votos."
+   },
+   "textColorizeThumbs": {
+      "message": "Cambiar color de iconos de pulgares"
+   },
+   "textColorizeThumbsHover": {
+      "message": "Utiliza colores personalizados para los iconos de los pulgares."
+   },
+   "textConsistentFormat": {
+      "message": "Unificar formato de votos"
+   },
+   "textConsistentFormatHover": {
+      "message": "Cambia el formato de las cifras de «Me gusta» y «No me gusta»."
+   },
+   "textDeveloper": {
+      "message": "por Dmitry Selivanov y la comunidad"
+   },
+   "textLikesDisabled": {
+      "message": "desactivado por el propietario"
+   },
+   "textNumberFormat": {
+      "message": "Formato de cifras:"
+   },
+   "textRoundingNumbers": {
+      "message": "Redondear cifras (comportamiento original de YouTube)"
+   },
+   "textRoundingNumbersHover": {
+      "message": "Muestra las estadísticas redondeadas."
+   },
+   "textSettings": {
+      "message": "Desactivar envío de votos"
+   },
+   "textSettingsHover": {
+      "message": "Deja de contar tus «Me gusta» y «No me gusta»."
+   },
+   "textTempUnavailable": {
+      "message": "no disponible temporalmente"
+   },
+   "textUpdate": {
+      "message": "actualizar a"
+   },
+   "version30installed": {
+      "message": "Versión 3.0.0.18 instalada"
+   },
+   "whatsnew": {
+      "message": "Novedades"
+   }
+}

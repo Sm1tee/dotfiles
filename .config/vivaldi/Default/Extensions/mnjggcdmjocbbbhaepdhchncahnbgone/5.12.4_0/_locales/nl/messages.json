@@ -1,0 +1,1301 @@
+{
+   "0": {
+      "message": "Time-out van de verbinding. Controleer uw internetverbinding. Als uw internet werkt, is de server waarschijnlijk overbelast of offline."
+   },
+   "400": {
+      "message": "Server zegt dat het verzoek ongeldig is"
+   },
+   "409": {
+      "message": "Dit is al eerder ingediend"
+   },
+   "502": {
+      "message": "De server lijkt overbelast te zijn. Probeer het over een paar seconden opnieuw."
+   },
+   "ActivateDeArrow": {
+      "message": "Activeer DeArrow"
+   },
+   "CanvasMissing": {
+      "description": "Canvas is the name of an HTML element used to draw thumbnails onto",
+      "message": "Canvas ontbreekt"
+   },
+   "ChangeCategoryTooltip": {
+      "message": "Dit is direct van toepassing op uw segmenten"
+   },
+   "Chapters": {
+      "message": "Hoofdstukken"
+   },
+   "Close": {
+      "message": "Sluiten"
+   },
+   "ConfigurationName": {
+      "message": "Configuratienaam"
+   },
+   "ContinueVoting": {
+      "message": "Doorgaan met stemmen"
+   },
+   "CopiedExclamation": {
+      "description": "Used after something has been copied to the clipboard. Example: 'Copied!'",
+      "message": "Gekopieerd!"
+   },
+   "CopyAndDownvote": {
+      "message": "Kopiëren en tegenstemmen"
+   },
+   "CopyDownvoteButtonInfo": {
+      "message": "Doet een tegenstem en maakt een lokale kopie aan die u opnieuw kunt indienen"
+   },
+   "Credits": {
+      "message": "Dank aan"
+   },
+   "DeArrowIsActivated": {
+      "message": "DeArrow is met succes geactiveerd"
+   },
+   "DeArrowNotActivated": {
+      "message": "DeArrow is niet geactiveerd"
+   },
+   "DeleteConfiguration": {
+      "message": "Configuratie verwijderen"
+   },
+   "Description": {
+      "description": "Description of the extension.",
+      "message": "Overslaan van sponsors, vragen om te abonneren en meer in YouTube-video's. Rapporteer sponsors in video's die u bekijkt om anderen tijd te besparen."
+   },
+   "Disabled": {
+      "message": "Uitgeschakeld"
+   },
+   "Dismiss": {
+      "message": "Verwerpen"
+   },
+   "Donate": {
+      "message": "Doneren"
+   },
+   "Editing": {
+      "message": "Bewerken"
+   },
+   "Enable": {
+      "message": "Inschakelen"
+   },
+   "End": {
+      "description": "Button that skips to the end of a segment",
+      "message": "Einde"
+   },
+   "FailedToLoad": {
+      "description": "Thumbnail failed to load",
+      "message": "Laden mislukt"
+   },
+   "FullDetails": {
+      "message": "Volledige details"
+   },
+   "GotIt": {
+      "description": "Used as the button to dismiss a tooltip",
+      "message": "Begrepen"
+   },
+   "Hide": {
+      "message": "Nooit weergeven"
+   },
+   "Import": {
+      "description": "Button to initiate importing segments. Appears under the textbox where they paste in the data",
+      "message": "Importeren"
+   },
+   "LearnMore": {
+      "message": "Meer informatie"
+   },
+   "Loading": {
+      "message": "Laden..."
+   },
+   "NewConfiguration": {
+      "message": "Nieuwe configuratie"
+   },
+   "OpenCategoryWikiPage": {
+      "message": "Wikipagina van deze categorie openen."
+   },
+   "OpenSubmissionMenu": {
+      "message": "Inzending-menu openen"
+   },
+   "Options": {
+      "message": "Opties"
+   },
+   "Segment": {
+      "message": "segment"
+   },
+   "Segments": {
+      "message": "segmenten"
+   },
+   "SegmentsCap": {
+      "message": "Segmenten"
+   },
+   "ShowModified": {
+      "message": "Gewijzigde details weergeven"
+   },
+   "ShowOriginal": {
+      "message": "Originele details weergeven"
+   },
+   "SponsorTimeEditScrollNewFeature": {
+      "message": "Gebruik het muiswiel terwijl u over het invoerveld beweegt om de tijd snel aan te passen. Combinaties van de ctrl- of shift-toets kunnen worden gebruikt om de wijzigingen te verfijnen."
+   },
+   "Submissions": {
+      "message": "Inzendingen"
+   },
+   "Submitting": {
+      "message": "Indienen"
+   },
+   "Titles": {
+      "description": "Referring to titles of YouTube videos",
+      "message": "Titels"
+   },
+   "Unknown": {
+      "message": "Er was een fout bij het indienen van uw sponsortijdstippen. Probeer het later nog eens."
+   },
+   "Username": {
+      "message": "Gebruikersnaam"
+   },
+   "ViewLicenseKey": {
+      "message": "Licentiesleutel weergeven"
+   },
+   "acceptPermission": {
+      "message": "Machtiging accepteren"
+   },
+   "actions": {
+      "description": "Header of the unsubmitted segments list",
+      "message": "Acties"
+   },
+   "adblockerIssueWhitelist": {
+      "message": "Als u dit niet kunt oplossen, schakel dan de instelling 'kanaalcontrole forceren vóór overslaan' uit omdat SponsorBlock niet in staat is de kanaalinformatie voor deze video op te halen"
+   },
+   "add": {
+      "message": "Toevoegen"
+   },
+   "addInvidiousInstance": {
+      "message": "Client-instantie van derden toevoegen"
+   },
+   "addInvidiousInstanceDescription": {
+      "message": "Een aangepaste instantie toevoegen. Dit moet worden opgemaakt met ALLEEN het domein. Bijvoorbeeld: invidious.ajay.app"
+   },
+   "addInvidiousInstanceError": {
+      "message": "Dit is een ongeldig domein. Dit moet ALLEEN het domeindeel bevatten. Voorbeeld: invidious.ajay.app"
+   },
+   "allowScrollingToEdit": {
+      "message": "Scrollen toestaan om tijdstippen te bewerken"
+   },
+   "areYouSureDeleteConfig": {
+      "description": "Appears when deleting a configuration for channel-based settings",
+      "message": "Weet u zeker dat u deze configuratie wilt verwijderen?"
+   },
+   "areYouSureReset": {
+      "message": "Weet u zeker dat u dit wilt herstellen?"
+   },
+   "audioNotification": {
+      "message": "Geluidsmelding bij overslaan"
+   },
+   "audioNotificationDescription": {
+      "message": "Geluidsmelding bij overslaan zal een geluid afspelen wanneer een segment wordt overgeslagen. Indien uitgeschakeld (of als automatisch overslaan uitgeschakeld is), wordt er geen geluid afgespeeld."
+   },
+   "autoHideInfoButton": {
+      "message": "Infoknop automatisch verbergen"
+   },
+   "autoSkip": {
+      "message": "Automatisch overslaan"
+   },
+   "autoSkipOnMusicVideos": {
+      "message": "Automatisch alle segmenten overslaan wanneer er een niet-muziek-segment is"
+   },
+   "autoSkip_POI": {
+      "message": "Automatisch overslaan naar het begin"
+   },
+   "betaServerWarning": {
+      "message": "BETAserver is ingeschakeld!"
+   },
+   "bracketEnd": {
+      "message": "(einde)"
+   },
+   "bracketNow": {
+      "message": "(nu)"
+   },
+   "cancel": {
+      "message": "Annuleren"
+   },
+   "category": {
+      "message": "Categorie"
+   },
+   "categoryPillNewFeature": {
+      "message": "Nieuw! Zie wanneer een video volledig gesponsord of zelfpromotie is"
+   },
+   "categoryPillTitleText": {
+      "message": "De hele video is gelabeld als deze categorie en is te strak geïntegreerd om te kunnen scheiden"
+   },
+   "categoryUpdate1": {
+      "message": "Categorieën zijn er!"
+   },
+   "categoryUpdate2": {
+      "message": "Open de opties om intro's, outro's, koopwaar,... over te slaan."
+   },
+   "category_chapter": {
+      "message": "Hoofdstuk"
+   },
+   "category_chapter_description": {
+      "message": "Hoofdstukken met een aangepaste naam die de belangrijkste delen van een video beschrijven."
+   },
+   "category_chapter_guideline1": {
+      "message": "Merknamen van sponsors niet vermelden"
+   },
+   "category_chapter_guideline2": {
+      "message": "Grotere hoofdstukken gebruiken voor algemene secties"
+   },
+   "category_chapter_guideline3": {
+      "message": "Kleinere hoofdstukken kunnen in grotere worden geplaatst"
+   },
+   "category_exclusive_access": {
+      "message": "Exclusieve toegang"
+   },
+   "category_exclusive_access_description": {
+      "message": "Alleen voor het labelen van volledige video's. Wordt gebruikt wanneer een video een product, dienst of locatie laat zien waartoe men gratis of gesubsidieerd toegang heeft gekregen."
+   },
+   "category_exclusive_access_guideline1": {
+      "message": "Volledige video laat iets zien met gratis of gesubsidieerde toegang"
+   },
+   "category_exclusive_access_pill": {
+      "description": "Short description for this category",
+      "message": "Deze video toont een product, dienst of locatie waartoe men gratis of gesubsidieerd toegang heeft gekregen"
+   },
+   "category_filler_guideline2": {
+      "message": "Afleidingen, bloopers, herhalingen"
+   },
+   "category_filler_guideline3": {
+      "message": "Niet voor scènes vereist om het onderwerp te begrijpen"
+   },
+   "category_interaction": {
+      "message": "Interactieherinnering (abonneren)"
+   },
+   "category_interaction_description": {
+      "message": "Als er een korte herinnering is om ze leuk te vinden, u te abonneren of ze te volgen in het midden van de inhoud. Als het lang is of over iets specifieks gaat, moet het in plaats daarvan onder zelfpromotie vallen."
+   },
+   "category_interaction_guideline1": {
+      "message": "Korte herinneringen om leuk te vinden, te abonneren of te volgen"
+   },
+   "category_interaction_guideline2": {
+      "message": "Bevat indirecte herinneringen voor commentaar"
+   },
+   "category_interaction_guideline3": {
+      "message": "Niet voor algemene promotie, roept alleen op tot actie"
+   },
+   "category_interaction_short": {
+      "message": "Interactieherinnering"
+   },
+   "category_intro": {
+      "message": "Onderbreking/intro-animatie"
+   },
+   "category_intro_description": {
+      "message": "Een interval zonder werkelijke inhoud. Kan een pauze zijn, een statisch beeld, een herhalende animatie. Dit moet niet worden gebruikt voor overgangen die informatie bevatten."
+   },
+   "category_intro_guideline1": {
+      "message": "Interval zonder werkelijke inhoud"
+   },
+   "category_intro_guideline2": {
+      "message": "Niet voor overgangen met informatie"
+   },
+   "category_intro_short": {
+      "message": "Onderbreking"
+   },
+   "category_livestream_messages": {
+      "message": "Livestream: donaties/lezen van berichten"
+   },
+   "category_livestream_messages_short": {
+      "message": "Lezen van berichten"
+   },
+   "category_music_offtopic": {
+      "message": "Muziek: sectie niet-muziek"
+   },
+   "category_music_offtopic_description": {
+      "message": "Alleen voor gebruik in muziekvideo's. Dit mag alleen worden gebruikt voor secties van muziekvideo's die nog niet door een andere categorie worden bedekt."
+   },
+   "category_music_offtopic_guideline1": {
+      "message": "Secties niet in officiële releases"
+   },
+   "category_music_offtopic_guideline2": {
+      "message": "Niet-muziek in een live optreden"
+   },
+   "category_music_offtopic_short": {
+      "message": "Niet-muziek"
+   },
+   "category_outro": {
+      "message": "Eindkaarten/aftiteling"
+   },
+   "category_outro_description": {
+      "message": "Aftiteling of wanneer de YouTube-eindkaarten verschijnen. Niet voor conclusies met informatie."
+   },
+   "category_outro_guideline1": {
+      "message": "Inhoud niet toevoegen, zelfs niet als eindkaarten op het scherm staan"
+   },
+   "category_poi_highlight": {
+      "message": "Hoogtepunt"
+   },
+   "category_poi_highlight_description": {
+      "message": "Het deel van de video waar de meeste mensen naar op zoek zijn. Gelijkaardig aan \"video begint bij x\"-opmerkingen."
+   },
+   "category_poi_highlight_guideline1": {
+      "message": "Sectie die de meeste mensen zoeken"
+   },
+   "category_poi_highlight_guideline2": {
+      "message": "Kan context overslaan"
+   },
+   "category_poi_highlight_guideline3": {
+      "message": "Kan naar titel of pictogram overslaan"
+   },
+   "category_preview_description": {
+      "message": "Collectie van clips die laten zien wat er in deze video of andere video's komt in een serie waar alle informatie later in de video wordt herhaald."
+   },
+   "category_preview_guideline1": {
+      "message": "Clips die later of in een toekomstige video verschijnen"
+   },
+   "category_preview_guideline2": {
+      "message": "Samenvatting van een vorige video"
+   },
+   "category_preview_guideline3": {
+      "message": "Niet voor secties die extra inhoud toevoegen"
+   },
+   "category_selfpromo": {
+      "message": "Onbetaalde promotie of zelfpromotie"
+   },
+   "category_selfpromo_description": {
+      "message": "Vergelijkbaar met \"sponsor\", behalve voor onbetaalde of zelfpromotie. Dit is inclusief secties over koopwaar, donaties of informatie over met wie ze hebben samengewerkt."
+   },
+   "category_selfpromo_guideline1": {
+      "message": "Donaties, lidmaatschappen en aangepaste koopwaar"
+   },
+   "category_selfpromo_guideline2": {
+      "message": "Gratis uitroepen die niets aan de video toevoegen"
+   },
+   "category_selfpromo_guideline3": {
+      "message": "Niet voor bedrijfsontworpen producten en koopwaar"
+   },
+   "category_sponsor": {
+      "message": "Sponsor"
+   },
+   "category_sponsor_description": {
+      "message": "Betaalde promotie, betaalde aanbevelingen en directe reclame. Niet voor zelfpromotie of gratis uitroepen naar zaken/makers/websites/producten waar ze van houden."
+   },
+   "category_sponsor_guideline1": {
+      "message": "Betaalde promoties"
+   },
+   "category_sponsor_guideline2": {
+      "message": "Niet voor donaties of aangepaste koopwaar"
+   },
+   "change": {
+      "message": "Wijzigen"
+   },
+   "changeUserID": {
+      "message": "Uw privé-gebruikers-ID importeren/exporteren"
+   },
+   "channelDataNotFound": {
+      "description": "This error appears in an alert when they try to whitelist a channel and the extension is unable to determine what channel they are looking at.",
+      "message": "Kanaal-ID is nog niet geladen. Als u een ingesloten video gebruikt, probeer dan in plaats daarvan de YouTube-homepagina. Dit kan ook worden veroorzaakt door wijzigingen in de YouTube-lay-out. Als u denkt dat dit het geval is, maak dan hier een opmerking:"
+   },
+   "channelWhitelisted": {
+      "message": "Kanaal gewhitelist!"
+   },
+   "chapterNameTooltipWarning": {
+      "message": "Een van uw hoofdstuknamen lijkt op een categorie. Gebruik in plaats daarvan waar mogelijk categorieën."
+   },
+   "chooseACategory": {
+      "message": "Een categorie kiezen"
+   },
+   "clearThis": {
+      "message": "Weet u zeker dat u dit wilt wissen?\n\n"
+   },
+   "clearTimes": {
+      "message": "Segmenten verwijderen"
+   },
+   "clearTimesButton": {
+      "message": "Tijdstippen wissen"
+   },
+   "clearUnsubmittedSegments": {
+      "description": "Label for a button in settings",
+      "message": "Alle segmenten wissen"
+   },
+   "clearUnsubmittedSegmentsConfirm": {
+      "description": "Confirmation message for the Clear unsubmitted segments button",
+      "message": "Weet u zeker dat u al uw niet-ingediende segmenten wilt wissen?"
+   },
+   "closeIcon": {
+      "message": "Pictogram voor sluiten"
+   },
+   "closePopup": {
+      "message": "Pop-up sluiten"
+   },
+   "confirmMSG": {
+      "message": "Om individuele waarden te bewerken of te verwijderen, klikt u op de info-knop of opent u de extensie-pop-up door op het extensie-pictogram in de rechterbovenhoek te klikken."
+   },
+   "confirmNoticeTitle": {
+      "message": "Segment indienen"
+   },
+   "confirmResetToDefault": {
+      "message": "Weet u zeker dat u alle instellingen wilt terugzetten naar hun standaardwaarden? Dit kan niet ongedaan gemaakt worden."
+   },
+   "connectionError": {
+      "message": "Er is een verbindingsfout opgetreden. Foutcode: "
+   },
+   "considerDonating": {
+      "message": "Ontwikkeling steunen"
+   },
+   "copyDebugInformation": {
+      "message": "Foutopsporingsinformatie kopiëren naar klembord"
+   },
+   "copyDebugInformationComplete": {
+      "message": "De foutopsporingsinformatie is gekopieerd naar het klembord. Voel u vrij om alle informatie die u liever niet wilt delen, te verwijderen. Sla dit op in een tekstbestand of plak het in het foutenrapport."
+   },
+   "copyDebugInformationFailed": {
+      "message": "Kon niet schrijven naar klembord"
+   },
+   "copyDebugInformationOptions": {
+      "message": "Kopieert informatie naar het klembord die aan een ontwikkelaar moet worden doorgegeven bij het melden van een bug of wanneer een ontwikkelaar dit vraagt. Gevoelige informatie zoals uw gebruikers-ID, gewhiteliste kanalen en aangepast serveradres zijn verwijderd. Het bevat echter wel informatie zoals uw useragent, browser, besturingssysteem en extensie-versienummer. "
+   },
+   "copyPublicID": {
+      "message": "Publieke gebruikers-ID kopiëren"
+   },
+   "copySegmentID": {
+      "message": "Segment-ID kopiëren"
+   },
+   "createdBy": {
+      "message": "Gemaakt door"
+   },
+   "currentInstances": {
+      "message": "Huidige instanties:"
+   },
+   "customAddressError": {
+      "message": "Dit adres is niet in de juiste vorm. Zorg ervoor dat u http:// of https:// aan het begin heeft staan en geen schuine streep op het einde."
+   },
+   "customServerAddress": {
+      "message": "SponsorBlock-serveradres"
+   },
+   "customServerAddressDescription": {
+      "message": "Het adres dat SponsorBlock gebruikt om oproepen te doen naar de server.\nTenzij u uw eigen serverinstantie heeft, moet dit niet worden gewijzigd."
+   },
+   "darkModeOptionsPage": {
+      "message": "Donkere modus op opties-pagina"
+   },
+   "dayAbbreviation": {
+      "description": "100d",
+      "message": " d"
+   },
+   "deArrowMessageRecieved": {
+      "message": "Je hebt een tip van een moderator ontvangen"
+   },
+   "dearrowStatsMessageTitlePart": {
+      "description": "Title singular part of message. Appears on the DeArrow popup to show how many titles and thumbnails have been replaced since install",
+      "message": "{titles} titel "
+   },
+   "dearrowStatsMessageTitlesPart": {
+      "description": "Title plural part of message. Appears on the DeArrow popup to show how many titles and thumbnails have been replaced since install",
+      "message": "{titles} titels "
+   },
+   "delete": {
+      "message": "Verwijderen"
+   },
+   "disable": {
+      "message": "Uitschakelen"
+   },
+   "disableAutoSkip": {
+      "message": "Automatisch overslaan uitschakelen"
+   },
+   "disableSkipping": {
+      "message": "Overslaan is ingeschakeld"
+   },
+   "downvote": {
+      "message": "Tegenstemmen"
+   },
+   "downvoteDescription": {
+      "message": "Verkeerde timing"
+   },
+   "edit": {
+      "message": "Bewerken"
+   },
+   "enableAutoSkip": {
+      "message": "Automatisch overslaan inschakelen"
+   },
+   "enableManualSkipOnFullVideo": {
+      "message": "Handmatig overslaan gebruiken wanneer een label voor volledige video bestaat"
+   },
+   "enableQueryByHashPrefix": {
+      "message": "Opvragen via hash-voorvoegsel"
+   },
+   "enableShowCategoryWithoutPermission": {
+      "message": "Categorieën in indieningsmenu weergeven, zelfs zonder toestemming voor indienen"
+   },
+   "enableSkipping": {
+      "message": "Overslaan is uitgeschakeld"
+   },
+   "enableTestingServer": {
+      "message": "Bèta-testserver inschakelen"
+   },
+   "enableThisCategoryFirst": {
+      "description": "Used when submitting segments to only let them select a certain category if they have it enabled in the options.",
+      "message": "Om segmenten met de categorie \"{0}\" in te dienen, moet u deze in de opties inschakelen. U wordt nu doorgestuurd naar de opties."
+   },
+   "enableTrackDownvotes": {
+      "message": "Segment-tegenstemmen opslaan"
+   },
+   "enableTrackDownvotesInPrivate": {
+      "message": "Segmet downvotes in privé/incognito tabs opslaan"
+   },
+   "enableViewTracking": {
+      "message": "Bijhouden van het aantal keren overslaan inschakelen"
+   },
+   "enableViewTrackingInPrivate": {
+      "message": "Bijhouden van het aantal keren overslaan inschakelen in privé-/incognito-tabbladen"
+   },
+   "enterLicenseKey": {
+      "message": "Licentiesleutel invoeren"
+   },
+   "errorCode": {
+      "message": "Foutcode: "
+   },
+   "experiementOptOut": {
+      "description": "This is used in a popup about a new experiment to get a list of unlisted videos to back up since all unlisted videos uploaded before 2017 will be set to private.",
+      "message": "Uitschrijven van alle toekomstige experimenten"
+   },
+   "exportOptions": {
+      "message": "Alle opties importeren/exporteren"
+   },
+   "exportOptionsCopy": {
+      "message": "Bewerken/kopiëren"
+   },
+   "exportOptionsDownload": {
+      "message": "Opslaan naar bestand"
+   },
+   "exportOptionsUpload": {
+      "message": "Laden uit bestand"
+   },
+   "exportOptionsWarning": {
+      "message": "Waarschuwing: het wijzigen van de opties is permanent en kan uw installatie breken. Weet u zeker dat u dit wilt doen? Zorg ervoor dat u een back-up maakt van uw oude installatie, voor het geval dat."
+   },
+   "exportSegments": {
+      "message": "Segmenten exporteren"
+   },
+   "exportSegmentsAsURL": {
+      "message": "Delen als URL"
+   },
+   "forceChannelCheck": {
+      "message": "Kanaalcontrole forceren vóór overslaan"
+   },
+   "forceChannelCheckPopup": {
+      "message": "Overweeg om \"kanaalcontrole forceren vóór overslaan\" in te schakelen"
+   },
+   "freeAccessComplete": {
+      "message": "Gefeliciteerd! U heeft nu gratis toegang tot DeArrow"
+   },
+   "freeAccessRequested": {
+      "message": "U bent met succes geregistreerd voor gratis toegang. U krijgt een melding wanneer gratis toegang is verleend."
+   },
+   "freeTrialEnded": {
+      "message": "Uw gratis proefperiode is voorbij"
+   },
+   "freeTrialPrompt": {
+      "message": "Als u het een uurtje wilt uitproberen, dan kunt u via de onderstaande knop een gratis proefperiode starten."
+   },
+   "freeTrialStarted": {
+      "message": "Uw gratis proefperiode is met succes gestart. Bezoek YouTube om het te testen"
+   },
+   "full": {
+      "description": "Used for the name of the option to label an entire video as sponsor or self promotion.",
+      "message": "Volledige video"
+   },
+   "fullName": {
+      "description": "Name of the extension.",
+      "message": "SponsorBlock voor YouTube - Sponsorberichten overslaan"
+   },
+   "fullVideoSegments": {
+      "description": "Referring to the category pill that is now shown on videos that are entirely sponsor or entirely selfpromo",
+      "message": "Een pictogram weergeven wanneer de volledige video een advertentie is"
+   },
+   "fullVideoTooltipWarning": {
+      "message": "Dit segment is groot. Als de hele video over één onderwerp gaat, verander dan van \"overslaan\" naar \"volledige video\". Zie de richtlijnen voor meer informatie."
+   },
+   "generic_guideline1": {
+      "message": "Inclusief vlotte overgangen"
+   },
+   "generic_guideline2": {
+      "message": "Speelt af alsof niets overgeslagen werd"
+   },
+   "guidelines": {
+      "message": "Richtlijnen"
+   },
+   "harmfulVote": {
+      "description": "Used for chapter segments when the text is harmful/offensive to remove it faster",
+      "message": "Schadelijk"
+   },
+   "help": {
+      "message": "Help"
+   },
+   "helpPageCopyOfDatabase": {
+      "message": "Kan ik een kopie van de database krijgen? Wat gebeurt er als u verdwijnt?"
+   },
+   "helpPageCopyOfDatabase1": {
+      "message": "De database is openbaar en beschikbaar op"
+   },
+   "helpPageCopyOfDatabase2": {
+      "message": "De broncode is vrij beschikbaar. Dus, zelfs als mij iets overkomt, zijn uw inzendingen niet verloren."
+   },
+   "helpPageEditing1": {
+      "message": "Als u een fout hebt gemaakt, kunt u uw segmenten bewerken of verwijderen nadat u op de knop met de pijl omhoog hebt geklikt."
+   },
+   "helpPageFeatureDisclaimer": {
+      "message": "Veel functies zijn standaard uitgeschakeld. Als u intro's of outro's wilt overslaan, Invidious wilt gebruiken, enz., schakelt u ze hieronder in. U kunt ook UI-elementen verbergen/weergeven."
+   },
+   "helpPageHowSkippingWorks": {
+      "message": "Hoe overslaan werkt"
+   },
+   "helpPageHowSkippingWorks1": {
+      "message": "Videosegmenten zullen automatisch worden overgeslagen als ze in de database worden gevonden. U kunt de pop-up openen door op het pictogram van de extensie te klikken om een voorbeeld te krijgen van wat ze zijn."
+   },
+   "helpPageHowSkippingWorks2": {
+      "message": "Als u een segment overslaat, krijgt u een bericht. Als de timing verkeerd lijkt, stem dan door op tegenstemmen te klikken! U kunt ook stemmen in de pop-up."
+   },
+   "helpPageNews": {
+      "message": "Nieuws en hoe het gemaakt is"
+   },
+   "helpPageReviewOptions": {
+      "message": "Bekijk de onderstaande opties"
+   },
+   "helpPageSourceCode": {
+      "message": "Waar kan ik de broncode krijgen?"
+   },
+   "helpPageSubmitting1": {
+      "message": "Indienen kan ofwel in de pop-up door op de knop \"segment begint nu\" te drukken of in de videospeler met de knoppen op de speler."
+   },
+   "helpPageSubmitting2": {
+      "message": "Klikken op de afspelen-knop geeft het begin van een segment aan en klikken op het stop-pictogram geeft het einde aan. U kunt meerdere sponsors voorbereiden voordat u op indienen klikt. Klikken op de uploadknop zal indienen. Klikken op de vuilnisbak zal verwijderen."
+   },
+   "helpPageThanksForInstalling": {
+      "message": "Bedankt voor het installeren van SponsorBlock."
+   },
+   "helpPageTooSlow": {
+      "message": "Dit is te traag"
+   },
+   "helpPageTooSlow1": {
+      "message": "Er zijn sneltoetsen als u die wilt gebruiken. Druk op de puntkomma-toets om het begin/einde van een sponsorsegment aan te geven en klik op de apostrof om in te dienen. Deze kunnen worden veranderd in de opties. Als u geen QWERTY gebruikt, moet u waarschijnlijk de toetsencombinatie veranderen."
+   },
+   "hiddenDueToDownvote": {
+      "message": "verborgen: tegenstem"
+   },
+   "hiddenDueToDuration": {
+      "message": "verborgen: te kort"
+   },
+   "hideButtonsDescription": {
+      "message": "Dit verbergt de knoppen die verschijnen op de YouTube-speler om segmenten over te slaan."
+   },
+   "hideDonationLink": {
+      "message": "Donatiekoppeling verbergen"
+   },
+   "hideForever": {
+      "message": "Voor altijd verbergen"
+   },
+   "hideSegment": {
+      "message": "Segment verbergen"
+   },
+   "hideThis": {
+      "message": "Dit verbergen"
+   },
+   "hideUnsubmittedSegments": {
+      "description": "Show/hide button for the unsubmitted segments list",
+      "message": "Segmenten verbergen"
+   },
+   "hideUpsells": {
+      "message": "Opties verbergen die niet beschikbaar zijn zonder extra betaling"
+   },
+   "hitGoBack": {
+      "message": "Druk op \"overslaan ongedaan maken\" om terug te gaan naar waar u vandaan komt."
+   },
+   "hourAbbreviation": {
+      "description": "100h",
+      "message": " h"
+   },
+   "hourLower": {
+      "message": "uur"
+   },
+   "hoursLower": {
+      "message": "uren"
+   },
+   "howItWorks": {
+      "message": "Hoe het werkt"
+   },
+   "importSegments": {
+      "message": "Segmenten importeren"
+   },
+   "incorrectCategory": {
+      "message": "Categorie wijzigen"
+   },
+   "incorrectVote": {
+      "message": "Onjuist"
+   },
+   "incorrectlyFormattedOptions": {
+      "message": "Deze JSON is niet correct opgemaakt. Uw opties zijn niet gewijzigd."
+   },
+   "inspect": {
+      "message": "Inspecteren"
+   },
+   "invidiousPermissionRefresh": {
+      "message": "De browser heeft de toestemming ingetrokken die nodig is om te functioneren op Invidious en andere sites van derden. Klik op de knop hieronder om deze toestemming opnieuw te activeren."
+   },
+   "keyAlreadyUsed": {
+      "message": "Deze snelkoppeling is gebonden aan een andere actie. Kies een andere."
+   },
+   "keybindDescription": {
+      "message": "Selecteer een toets door hem in te typen en kies de modificatietoetsen die u wilt gebruiken."
+   },
+   "liveOrPremiere": {
+      "message": "Indienen op een actieve livesteam of première is niet toegestaan. Wacht tot hij geëindigd is, vernieuw dan de pagina en controleer of de segmenten nog geldig zijn."
+   },
+   "longDescription": {
+      "description": "Full description of the extension on the store pages.",
+      "message": "SponsorBlock laat u sponsoring, intro's, outro's, herinneringen om te abonneren en andere vervelende onderdelen van YouTube-video's overslaan. SponsorBlock is een gecrowdsourcete browser-extensie waarmee iedereen de begin- en eindtijd van gesponsorde segmenten en andere segmenten van YouTube-video's kan indienen. Zodra één persoon deze informatie indient, zal iedereen met deze extensie het gesponsorde segment overslaan. U kunt ook secties zonder muziek in muziekvideo's overslaan."
+   },
+   "manualPaused": {
+      "message": "Timer gestopt"
+   },
+   "manualSkip": {
+      "message": "Handmatig overslaan"
+   },
+   "manualSkip_POI": {
+      "message": "Vragen wanneer de video wordt geladen"
+   },
+   "manuallyHidden": {
+      "message": "handmatig verborgen"
+   },
+   "minDuration": {
+      "message": "Minimale tijdsduur (seconden):"
+   },
+   "minDurationDescription": {
+      "message": "Segmenten korter dan de ingestelde waarde worden niet overgeslagen of weergegeven in de speler."
+   },
+   "minLower": {
+      "message": "minuut"
+   },
+   "minsLower": {
+      "message": "minuten"
+   },
+   "mobileUpdateInfo": {
+      "message": "m.youtube.com wordt nu ondersteund"
+   },
+   "moreCategories": {
+      "message": "Meer categorieën"
+   },
+   "multipleSegments": {
+      "message": "Meerdere segmenten"
+   },
+   "mute": {
+      "message": "Dempen"
+   },
+   "muteSegments": {
+      "message": "Segmenten toestaan die audio dempen in plaats van overslaan"
+   },
+   "mute_category": {
+      "message": "{0} dempen?"
+   },
+   "muted": {
+      "description": "Example: Sponsor Muted",
+      "message": "{0} gedempt"
+   },
+   "nextChapterKeybind": {
+      "description": "Keybind label",
+      "message": "Volgend hoofdstuk"
+   },
+   "noVideoID": {
+      "message": "Geen YouTube-video gevonden.\nVernieuw het tabblad als dit onjuist is."
+   },
+   "nonMusicCategoryOnMusic": {
+      "message": "Deze video is gecategoriseerd als muziek. Weet u zeker dat dit een sponsor heeft? Als dit eigenlijk een \"niet-muzieksegment\" is, open dan de extensie-opties en schakel deze categorie in. Vervolgens kunt u dit segment indienen als \"niet-muziek\" in plaats van als sponsor. Lees de richtlijnen als u in de war bent."
+   },
+   "notSet": {
+      "message": "Niet ingesteld"
+   },
+   "noticeUpdate": {
+      "description": "The first line of the message displayed after the notice was upgraded.",
+      "message": "De melding is bijgewerkt!"
+   },
+   "noticeUpdate2": {
+      "description": "The second line of the message displayed after the notice was upgraded.",
+      "message": "Als het u nog steeds niet bevalt, druk dan op de knop \"nooit weergeven\"."
+   },
+   "noticeVisibilityLabel": {
+      "description": "Option label",
+      "message": "Uiterlijk van overslaan-meldingen"
+   },
+   "noticeVisibilityMode0": {
+      "message": "Volledige grootte overslaan-meldingen"
+   },
+   "noticeVisibilityMode1": {
+      "message": "Kleine overslaan-meldingen voor automatisch overslaan"
+   },
+   "noticeVisibilityMode2": {
+      "message": "Allemaal kleine overslaan-meldingen"
+   },
+   "noticeVisibilityMode3": {
+      "message": "Vervaagde overslaan-meldingen"
+   },
+   "noticeVisibilityMode4": {
+      "message": "Allemaal vervaagde overslaan-meldingen"
+   },
+   "onAllPages": {
+      "description": "Setting for when the server-side thumbnail generator should be used for the thumbnail replacement feature.",
+      "message": "Op alle pagina's"
+   },
+   "onAllPagesExceptVideo": {
+      "description": "Setting for when the server-side thumbnail generator should be used for the thumbnail replacement feature.",
+      "message": "Op alle pagina's behalve videopagina's"
+   },
+   "openOptionsPage": {
+      "message": "Pagina met opties openen"
+   },
+   "openPopup": {
+      "message": "SponsorBlock-pop-up openen"
+   },
+   "optionsInfo": {
+      "message": "Ondersteuning voor Invidious inschakelen, automatisch overslaan uitschakelen, knoppen verbergen en meer."
+   },
+   "optionsTabAdvanced": {
+      "description": "Appears in Options as a tab header for advanced/niche options. To fit inside the button, it should not be longer than ~20-25 characters (depending on their width).",
+      "message": "Overige"
+   },
+   "optionsTabBackup": {
+      "description": "Appears in Options as a tab header for options related to saving/restoring your settings. To fit inside the button, it should not be longer than ~20-25 characters (depending on their width).",
+      "message": "Back-up maken/herstellen"
+   },
+   "optionsTabBehavior": {
+      "description": "Appears in Options as a tab header for options related to categories and skipping behavior. To fit inside the button, it should not be longer than ~20-25 characters (depending on their width).",
+      "message": "Gedrag"
+   },
+   "optionsTabInterface": {
+      "description": "Appears in Options as a tab header for options related to GUI and sounds. To fit inside the button, it should not be longer than ~20-25 characters (depending on their width).",
+      "message": "Interface"
+   },
+   "optionsTabKeyBinds": {
+      "description": "Appears in Options as a tab header for keybinds. To fit inside the button, it should not be longer than ~20-25 characters (depending on their width).",
+      "message": "Sneltoetsen"
+   },
+   "paused": {
+      "message": "Gepauzeerd"
+   },
+   "permissionRequestFailed": {
+      "message": "Verzoek om machtiging mislukt. Heeft u op geweigerd geklikt?"
+   },
+   "permissionRequestSuccess": {
+      "message": "Verzoek om machtiging gelukt!"
+   },
+   "playChapter": {
+      "message": "Hoofdstuk afspelen"
+   },
+   "poiOnlyOneSegment": {
+      "message": "Waarschuwing: dit type segment kan maximaal één keer tegelijk actief zijn. Meerdere segmenten indienen zal weergave van een willekeurig segment veroorzaken."
+   },
+   "popupHint": {
+      "message": "Tip: u kunt sneltoetsen voor het indienen instellen in de opties"
+   },
+   "preview": {
+      "message": "Voorbeeld"
+   },
+   "previewColor": {
+      "description": "Referring to submissions that have not been sent to the server yet.",
+      "message": "Niet ingediend kleur"
+   },
+   "previousChapterKeybind": {
+      "description": "Keybind label",
+      "message": "Vorig hoofdstuk"
+   },
+   "privacyPolicy": {
+      "message": "Privacybeleid"
+   },
+   "questionButton": {
+      "message": "Ik heb een vraag"
+   },
+   "readTheGuidelines": {
+      "description": "Show the first time they submit or if they are \"high risk\"",
+      "message": "Lees de richtlijnen!!"
+   },
+   "recordTimesDescription": {
+      "message": "Indienen"
+   },
+   "redeem": {
+      "message": "Inwisselen"
+   },
+   "redeemFailed": {
+      "message": "Licentiesleutel is ongeldig"
+   },
+   "redeemSuccess": {
+      "message": "Inwisselen geslaagd!"
+   },
+   "refreshSegments": {
+      "message": "Segmenten vernieuwen"
+   },
+   "removeFromWhitelist": {
+      "message": "Kanaal verwijderen van whitelist"
+   },
+   "renderAsChapters": {
+      "description": "Refers to drawing segments on the YouTube seek bar as split up chapters, similar to the existing chapter system",
+      "message": "Segmenten weergeven als hoofdstukken"
+   },
+   "reportButtonInfo": {
+      "message": "Deze inzending als onjuist rapporteren."
+   },
+   "reportButtonTitle": {
+      "message": "Rapporteren"
+   },
+   "requiresUblock": {
+      "message": "uBlock Origin vereist"
+   },
+   "reset": {
+      "message": "Herstellen"
+   },
+   "resetInvidiousInstance": {
+      "message": "Lijst met Invidious-instanties herstellen"
+   },
+   "resetInvidiousInstanceAlert": {
+      "message": "U staat op het punt om de lijst met Invidious-instanties te herstellen"
+   },
+   "resetToDefault": {
+      "message": "Instellingen terugzetten op standaard"
+   },
+   "reskip": {
+      "message": "Opnieuw overslaan"
+   },
+   "save": {
+      "message": "Opslaan"
+   },
+   "savedPeopleFrom": {
+      "message": "U heeft mensen gered van "
+   },
+   "seekBarColor": {
+      "message": "Kleur van tijdbalk"
+   },
+   "segmentCount": {
+      "description": "Header of the unsubmitted segments list",
+      "message": "Aantal segmenten"
+   },
+   "segmentsStillLoading": {
+      "message": "Segmenten worden nog steeds geladen..."
+   },
+   "serverDown": {
+      "message": "Het lijkt erop dat de server offline is. Neem onmiddellijk contact op met de ontwikkelaar."
+   },
+   "setCloseSkipNoticeKeybind": {
+      "description": "Keybind label",
+      "message": "Overslaanbericht sluiten"
+   },
+   "setOpenSubmissionMenuKeybind": {
+      "description": "Keybind label",
+      "message": "Inzending-menu openen"
+   },
+   "setOptions": {
+      "message": "Opties instellen"
+   },
+   "setPreviewKeybind": {
+      "description": "Keybind label",
+      "message": "Bekijk segment"
+   },
+   "setSkipShortcut": {
+      "description": "Keybind label",
+      "message": "Segment overslaan"
+   },
+   "setStartSponsorShortcut": {
+      "description": "Keybind label",
+      "message": "Segment starten/stoppen"
+   },
+   "setSubmitKeybind": {
+      "description": "Keybind label",
+      "message": "Segmenten indienen"
+   },
+   "setUserID": {
+      "message": "Privé-gebruikers-ID instellen"
+   },
+   "setUsername": {
+      "message": "Gebruikersnaam instellen"
+   },
+   "shortCheck": {
+      "message": "De volgende inzending is korter dan uw \"minimale tijdsduur\"-instelling. Dit kan betekenen dat dit al is ingediend en genegeerd wordt door deze optie. Weet u zeker dat u dit wilt indienen?"
+   },
+   "showAutogeneratedChapters": {
+      "message": "Toon hoofdstukken die automatisch gegenereerd zijn door YouTube"
+   },
+   "showButtons": {
+      "message": "Knoppen op YouTube-speler weergeven"
+   },
+   "showCategoryGuidelines": {
+      "message": "Categorie-hulp weergeven"
+   },
+   "showDeleteButton": {
+      "message": "Verwijderen-knop op YouTube-speler weergeven"
+   },
+   "showGuidelineHelp": {
+      "description": "Setting to show a summary of the guidelines on the submission page",
+      "message": "Richtlijn hulp weergeven"
+   },
+   "showInfoButton": {
+      "message": "Info-knop op YouTube-speler weergeven"
+   },
+   "showNotice": {
+      "message": "Melding opnieuw weergeven"
+   },
+   "showOverlay": {
+      "message": "Weergeven in tijdbalk"
+   },
+   "showOverlay_POI": {
+      "message": "Weergeven in tijdbalk"
+   },
+   "showOverlay_chapter": {
+      "message": "Hoofdstukken weergeven"
+   },
+   "showOverlay_full": {
+      "message": "Label weergeven"
+   },
+   "showSegmentNameInChapterBar": {
+      "message": "Huidig segment weergeven naast videotijd"
+   },
+   "showSkipButton": {
+      "message": "Knop voor \"overslaan naar hoogtepunt\" op speler houden"
+   },
+   "showSkipNotice": {
+      "message": "Melding weergeven nadat een segment is overgeslagen"
+   },
+   "showTimeWithSkips": {
+      "message": "Tijd weergeven met overslaan verwijderd"
+   },
+   "showTimeWithSkipsDescription": {
+      "message": "Deze tijd verschijnt tussen haakjes naast de huidige tijd onder de tijdbalk. Dit geeft de totale videoduur min alle segmenten weer. Dit is inclusief segmenten die gemarkeerd zijn als alleen \"weergeven in tijdbalk\"."
+   },
+   "showUnsubmittedSegments": {
+      "description": "Show/hide button for the unsubmitted segments list",
+      "message": "Segmenten weergeven"
+   },
+   "showUpcomingNotice": {
+      "message": "Toon een melding voor een segment start"
+   },
+   "showUploadButton": {
+      "message": "Uploaden-knop weergeven"
+   },
+   "skip": {
+      "message": "Overslaan"
+   },
+   "skipNoticeDuration": {
+      "message": "Duur van overslaan-melding (seconden):"
+   },
+   "skipNoticeDurationDescription": {
+      "message": "De overslaan-melding blijft ten minste zo lang op het scherm staan. Voor handmatig overslaan kan dit misschien zelfs langer zichtbaar zijn."
+   },
+   "skipOption": {
+      "description": "Used on the options page to describe the ways to skip the segment (auto skip, manual, etc.)",
+      "message": "Manier van overslaan"
+   },
+   "skipSegment": {
+      "message": "Segment overslaan"
+   },
+   "skip_category": {
+      "message": "{0} overslaan?"
+   },
+   "skip_to_category": {
+      "description": "Used for skipping to things (Skip to Highlight)",
+      "message": "Overslaan naar {0}?"
+   },
+   "skipped": {
+      "description": "Example: Sponsor Skipped",
+      "message": "{0} overgeslagen"
+   },
+   "skipped_to_category": {
+      "description": "Used for skipping to things (Skipped to Highlight)",
+      "message": "Overgeslagen naar {0}"
+   },
+   "sortSegments": {
+      "message": "Segmenten sorteren"
+   },
+   "sourceCode": {
+      "description": "Used on Firefox Store Page",
+      "message": "Broncode"
+   },
+   "sponsor404": {
+      "message": "Geen segmenten gevonden"
+   },
+   "sponsorCancel": {
+      "message": "Segment aanmaken annuleren"
+   },
+   "sponsorEnd": {
+      "message": "Segment eindigt nu"
+   },
+   "sponsorFound": {
+      "message": "Deze video heeft segmenten in de database!"
+   },
+   "sponsorStart": {
+      "message": "Segment begint nu"
+   },
+   "startFreeTrial": {
+      "message": "Start gratis proefperiode"
+   },
+   "statusReminder": {
+      "message": "Controleer status.sponsor.ajay.app voor de serverstatus."
+   },
+   "submissionEditHint": {
+      "description": "Appears in the popup to inform them that editing has been moved to the video player.",
+      "message": "Sectiebewerking verschijnt nadat u op indienen hebt geklikt"
+   },
+   "submit": {
+      "message": "Indienen"
+   },
+   "submitCheck": {
+      "message": "Weet u zeker dat u dit wilt indienen?"
+   },
+   "success": {
+      "message": "Gelukt!"
+   },
+   "supportOtherSites": {
+      "message": "Ondersteuning voor YouTube-sites van derden"
+   },
+   "supportOtherSitesDescription": {
+      "description": "This replaces the 'supports Invidious' option because it now works on other YouTube sites such as Cloudtube",
+      "message": "YouTube-clients van derden ondersteunen. Om ondersteuning in te schakelen, moet u de extra machtigingen accepteren."
+   },
+   "supportedSites": {
+      "message": "Ondersteunde sites: "
+   },
+   "termsOfUse": {
+      "message": "Gebruiksvoorwaarden"
+   },
+   "testingServerWarning": {
+      "message": "Alle inzendingen en stemmen ZULLEN NIET GEREGISTREERD WORDEN op de hoofdserver wanneer u met de testserver verbonden bent. Zorg ervoor dat u dit uitschakelt wanneer u echte inzendingen wilt maken."
+   },
+   "tip1": {
+      "description": "Referring to the thumbnail of a video",
+      "message": "Vermijd overdreven gezichtsuitdrukkingen"
+   },
+   "titleFormatting": {
+      "message": "Titel formaat"
+   },
+   "to": {
+      "description": "Used between segments. Example: 1:20 to 1:30",
+      "message": "tot"
+   },
+   "trackDownvotesWarning": {
+      "message": "Waarschuwing: als u dit uitschakelt, worden alle eerder opgeslagen tegenstemmen verwijderd"
+   },
+   "unbind": {
+      "description": "Unbind keyboard shortcut",
+      "message": "Ontkoppelen"
+   },
+   "unmute": {
+      "message": "Niet meer dempen"
+   },
+   "unskip": {
+      "message": "Overslaan ongedaan maken"
+   },
+   "unsubmitted": {
+      "message": "Niet ingediend"
+   },
+   "unsubmittedSegmentCounts": {
+      "description": "Example: You currently have 12 unsubmitted segments on 5 videos",
+      "message": "U hebt momenteel {0} in {1}"
+   },
+   "unsubmittedSegmentCountsZero": {
+      "description": "Replaces 'unsubmittedSegmentCounts' string when there are no unsubmitted segments",
+      "message": "U hebt momenteel geen niet-ingediende segmenten"
+   },
+   "unsubmittedSegmentsPlural": {
+      "description": "Example: You currently have 12 *unsubmitted segments* on 5 videos",
+      "message": "niet-ingediende segmenten"
+   },
+   "unsubmittedSegmentsSingular": {
+      "description": "Example: You currently have 1 *unsubmitted segment* on 1 video",
+      "message": "niet-ingediend segment"
+   },
+   "upvote": {
+      "message": "Stemmen"
+   },
+   "upvoteButtonInfo": {
+      "message": "Stemmen op deze inzending"
+   },
+   "userIDChangeWarning": {
+      "message": "Waarschuwing: wijzigen van de privé-gebruikers-ID is permanent. Weet u zeker dat u dit wilt doen? Zorg ervoor dat u een back-up maakt van uw oude ID, voor het geval dat."
+   },
+   "videoID": {
+      "description": "Header of the unsubmitted segments list",
+      "message": "Video-ID"
+   },
+   "videosPlural": {
+      "description": "Example: You currently have 12 unsubmitted segments on 5 *videos*",
+      "message": "video's"
+   },
+   "videosSingular": {
+      "description": "Example: You currently have 3 unsubmitted segments on 1 *video*",
+      "message": "video"
+   },
+   "viewLeaderboard": {
+      "message": "Ranglijst"
+   },
+   "voteOnTime": {
+      "message": "Stemmen op een segment"
+   },
+   "voted": {
+      "message": "Gestemd!"
+   },
+   "warningChatInfo": {
+      "message": "Het viel ons op dat u enkele veel voorkomende fouten maakte. We waarderen uw werk tot nu toe zeer, maar we streven hier naar perfectie, dus zelfs heel kleine foutjes zijn belangrijk :)"
+   },
+   "warningConfirmButton": {
+      "message": "Ik begrijp de reden"
+   },
+   "warningError": {
+      "message": "Fout bij het bevestigen van de waarschuwing:"
+   },
+   "website": {
+      "description": "Used on Firefox Store Page",
+      "message": "Website"
+   },
+   "whatChangeUserID": {
+      "message": "Dit moet privé gehouden worden. Dit is als een wachtwoord en mag met niemand gedeeld worden. Als iemand dit heeft, kan hij zich voordoen als u. Klik op het klembordpictogram in de pop-up als u op zoek bent naar uw publieke gebruikers-ID."
+   },
+   "whatEnableTestingServer": {
+      "message": "Uw inzendingen en stemmen ZULLEN NIET GEREGISTREERD WORDEN op de hoofdserver. Gebruik dit alleen om te testen."
+   },
+   "whatExportOptions": {
+      "message": "Dit is uw volledige configuratie in JSON. Dit is inclusief uw privé-gebruikers-ID, dus zorg ervoor dat u dit verstandig deelt."
+   },
+   "whatForceChannelCheck": {
+      "message": "Standaard worden segmenten direct overgeslagen voordat het kanaal bekend is. Sommige segmenten aan het begin van de video kunnen worden overgeslagen op gewhiteliste kanalen. Het inschakelen van deze optie voorkomt dit, maar zorgt ervoor dat het overslaan een kleine vertraging heeft omdat het verkrijgen van de kanaal-ID enige tijd kan duren. Deze vertraging kan onopgemerkt blijven als u snel internet heeft."
+   },
+   "whatManualSkipOnFullVideo": {
+      "message": "Voor mensen die de video ononderbroken willen bekijken als deze volledig gesponsord of zelfpromotie is."
+   },
+   "whatQueryByHashPrefix": {
+      "message": "In plaats van segmenten op te vragen bij de server met behulp van de video-ID, worden de eerste 4 tekens van de hash van de video-ID verzonden. Deze server zal gegevens terugsturen voor alle video's met een vergelijkbare hash."
+   },
+   "whatShowCategoryWithoutPermission": {
+      "message": "Voor sommige categorieën is toestemming nodig om in te dienen vanwege minimale reputatie-eisen"
+   },
+   "whatTrackDownvotes": {
+      "message": "Segmenten waarop u een tegenstem doet, blijven verborgen, zelfs na vernieuwen"
+   },
+   "whatViewTracking": {
+      "message": "Deze functie houdt bij welke segmenten u heeft overgeslagen om gebruikers te laten weten hoezeer hun inzending anderen heeft geholpen en wordt samen met upvotes als meetwaarde gebruikt om ervoor te zorgen dat spam niet in de database terechtkomt. De extensie stuurt telkens wanneer u een segment overslaat een bericht naar de server. Hopelijk veranderen de meeste mensen deze instelling niet zodat de weergavenummers accuraat zijn. :)"
+   },
+   "whitelistChannel": {
+      "message": "Kanaal whitelisten"
+   },
+   "youHaveSavedTime": {
+      "description": "You've saved people from 887,362 segments (236d 15h 5.3 minutes of their lives).",
+      "message": "U heeft mensen bespaard:"
+   },
+   "youHaveSavedTimeEnd": {
+      "description": "You've saved people from 887,362 segments (236d 15h 5.3 minutes of their lives).",
+      "message": " van hun leven"
+   },
+   "youHaveSkipped": {
+      "message": "U heeft overgeslagen: "
+   },
+   "youMustSelectACategory": {
+      "message": "U moet een categorie selecteren voor alle segmenten die u indient!"
+   },
+   "yourWork": {
+      "description": "Used to describe the section that will show you the statistics from your submissions.",
+      "message": "Uw werk"
+   },
+   "youtubeKeybindWarning": {
+      "message": "Dit is een ingebouwde YouTube-snelkoppeling. Weet u zeker dat u deze wilt gebruiken?"
+   },
+   "zoomToFillUnsupported": {
+      "message": "SponsorBlock is niet compatibel met de extensie \"Zoom to Fill\". Er zijn veel alternatieven die u in plaats daarvan kunt gebruiken die naar behoren zullen werken."
+   }
+}

@@ -1,0 +1,92 @@
+{
+   "colorTheme": {
+      "message": "配色："
+   },
+   "colorizeRatio": {
+      "message": "嫌いなバーに色を付ける"
+   },
+   "colorizeRatioHover": {
+      "message": "嫌いなバーをカスタムカラーで色付けします。"
+   },
+   "colorizeThumbs": {
+      "message": "ボタンに色を付ける"
+   },
+   "colorizeThumbsHover": {
+      "message": "カスタムカラーのボタンの色が好きで嫌いです。"
+   },
+   "considerDonating": {
+      "message": "この拡張機能を存続させることができるのは,皆様からの寄付だけです。"
+   },
+   "customColors": {
+      "message": "低評価ボタンとバーの色のカスタマイズ"
+   },
+   "customNumberFormats": {
+      "message": "評価数の表示形式のカスタマイズ"
+   },
+   "extensionDesc": {
+      "message": "低評価を表示する機能を復元"
+   },
+   "extensionName": {
+      "message": "Return YouTube Dislike"
+   },
+   "extensionNameBeta": {
+      "message": "Return YouTube Dislike Beta"
+   },
+   "legendSettings": {
+      "message": "設定"
+   },
+   "linkDonate": {
+      "message": "寄付"
+   },
+   "linkFAQ": {
+      "message": "FAQ"
+   },
+   "linkHelp": {
+      "message": "ヘルプ"
+   },
+   "linkWebsite": {
+      "message": "Webサイト"
+   },
+   "numberFormat": {
+      "message": "数値形式"
+   },
+   "reformatLikes": {
+      "message": "いいねの数をフォーマットする"
+   },
+   "reformatLikesHover": {
+      "message": "統計値の一貫性を高めます。"
+   },
+   "roundNumbers": {
+      "message": "四捨五入された数値を表示"
+   },
+   "roundNumbersHover": {
+      "message": "カウント値を四捨五入します（これはYouTubeのデフォルトオプションです）。"
+   },
+   "shortsSupport": {
+      "message": "YouTubeショートのサポート"
+   },
+   "textDeveloper": {
+      "message": "by Dmitry Selivanov & コミュニティ"
+   },
+   "textLikesDisabled": {
+      "message": "投稿者により無効化"
+   },
+   "textSettings": {
+      "message": "高評価/低評価を表示しない"
+   },
+   "textSettingsHover": {
+      "message": "評価数のカウントを停止します。"
+   },
+   "textTempUnavailable": {
+      "message": "一時的に利用不可"
+   },
+   "textUpdate": {
+      "message": "アップデート："
+   },
+   "version30installed": {
+      "message": "バージョン 3.0.0.18 がインストールされました。"
+   },
+   "whatsnew": {
+      "message": "新機能"
+   }
+}

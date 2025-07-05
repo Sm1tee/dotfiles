@@ -1,0 +1,31 @@
+{
+   "author": "Daniil Zhdanovich",
+   "background": {
+      "persistent": false,
+      "scripts": [ "background.js" ]
+   },
+   "browser_action": {
+      "default_icon": "images/inactive-icon.png",
+      "default_popup": "view/popup.html"
+   },
+   "content_scripts": [ {
+      "css": [ "styles/content.css" ],
+      "js": [ "content.js" ],
+      "matches": [ "*://music.yandex.uz/*", "*://music.yandex.by/*", "*://music.yandex.ru/*", "*://music.yandex.ua/*", "*://music.yandex.kz/*", "*://music.yandex.com/*" ]
+   } ],
+   "description": "Загружай любимые треки без ограничений, с новым расширением для Yandex Music!",
+   "icons": {
+      "128": "images/logo/logo128.png",
+      "16": "images/logo/logo16.png",
+      "24": "images/logo/logo24.png",
+      "32": "images/logo/logo32.png",
+      "48": "images/logo/logo48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA2VtyeP2F4o1/qSDcMaMVqH+uPvUWuDF3xPnXPI3G5EyswAGVT5DfYvAMWbKQfA0iE0I7OxnA9QM/wOOv7iIWeL5qGw2ZzxL69TB1IKc4ZbFSvWjSNHZyzIyVZNJiLRbQv/3xk2ERN/xe83EkcKNi1iwg3eqXGI55+1FyR1nmBCk7sl1iL1DrNQ4iRszcI4MStfQH8IK37hfRCpAm9zHw6nj4PMyFwEL8UShV8HI0UZ+1CMuhD1nIsqZjGhC3sd/QgBHT+BQJRiWUbe/y8fJnAp+YzV9UZaTCc5WfAduEpgWexj4qNiQAjHIS7c92LDpvKznD5zVxZKfk51yYMH4VSQIDAQAB",
+   "manifest_version": 2,
+   "name": "Yandex Music Downloader",
+   "permissions": [ "*://music.yandex.by/*", "*://music.yandex.ru/*", "*://music.yandex.ua/*", "*://music.yandex.kz/*", "*://music.yandex.uz/*", "*://music.yandex.com/*", "*://storage.mds.yandex.net/*", "*://*.storage.yandex.net/*", "*://avatars.yandex.net/*", "downloads", "storage" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "0.2.1",
+   "web_accessible_resources": [ "images/icon-dark.svg", "images/icon-light.svg" ]
+}

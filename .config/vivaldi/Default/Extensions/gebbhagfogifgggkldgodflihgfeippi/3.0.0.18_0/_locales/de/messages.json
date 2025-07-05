@@ -1,0 +1,134 @@
+{
+   "colorTheme": {
+      "message": "Farbschema:"
+   },
+   "colorizeRatio": {
+      "message": "Verhältnisbalken einfärben"
+   },
+   "colorizeRatioHover": {
+      "message": "Benutzerdefinierte Farben für die Verhältnisleiste verwenden."
+   },
+   "colorizeThumbs": {
+      "message": "Buttons einfärben"
+   },
+   "colorizeThumbsHover": {
+      "message": "Benutzerdefinierte Farben für die Schaltflächensymbole verwenden."
+   },
+   "considerDonating": {
+      "message": "Das Einzige, was die Erweiterung am Laufen hält, sind Ihre Spenden, bitte erwägen Sie, das Projekt zu unterstützen."
+   },
+   "customColors": {
+      "message": "Benutzerdefinierte Farben für Dislike-Leiste und Buttons"
+   },
+   "customNumberFormats": {
+      "message": "Benutzerdefinierte Zahlenformate"
+   },
+   "extensionDesc": {
+      "message": "Macht Dislikes wieder sichtbar"
+   },
+   "extensionName": {
+      "message": "Return YouTube Dislike"
+   },
+   "extensionNameBeta": {
+      "message": "Return YouTube Dislike Beta"
+   },
+   "legendSettings": {
+      "message": "Einstellungen"
+   },
+   "linkChangelog": {
+      "message": "Änderungshistorie"
+   },
+   "linkDonate": {
+      "message": "Spenden"
+   },
+   "linkFAQ": {
+      "message": "FAQ"
+   },
+   "linkHelp": {
+      "message": "Hilfe"
+   },
+   "linkWebsite": {
+      "message": "Website"
+   },
+   "numberFormat": {
+      "message": "Zahlenformat:"
+   },
+   "reformatLikes": {
+      "message": "Wie Zahlen neu formatieren"
+   },
+   "reformatLikesHover": {
+      "message": "Mach das Format der Likes und Dislikes einheitlich."
+   },
+   "roundNumbers": {
+      "message": "Zeige abgerundete Zahlen"
+   },
+   "roundNumbersHover": {
+      "message": "Zahlen abrunden (Standardverhalten von YouTube)."
+   },
+   "shortsSupport": {
+      "message": "YouTube Shorts Unterstützung"
+   },
+   "textColorTheme": {
+      "message": "Farbschema:"
+   },
+   "textColorTheme1": {
+      "message": "Klassisch"
+   },
+   "textColorTheme2": {
+      "message": "Zugänglich"
+   },
+   "textColorTheme3": {
+      "message": "Neon"
+   },
+   "textColorizeRatioBar": {
+      "message": "Verhältnisbalken einfärben"
+   },
+   "textColorizeRatioBarHover": {
+      "message": "Benutzerdefinierte Farben für die Verhältnisleiste verwenden."
+   },
+   "textColorizeThumbs": {
+      "message": "Färbe Daumen-Icons"
+   },
+   "textColorizeThumbsHover": {
+      "message": "Nutze benutzerdefinierte Farben für die Daumen-Icons."
+   },
+   "textConsistentFormat": {
+      "message": "Mach das Format der Likes und Dislikes einheitlich."
+   },
+   "textConsistentFormatHover": {
+      "message": "Wie Zahlen neu formatieren"
+   },
+   "textDeveloper": {
+      "message": "von Dmitry Selivanov & Community"
+   },
+   "textLikesDisabled": {
+      "message": "Deaktiviert vom Ersteller"
+   },
+   "textNumberFormat": {
+      "message": "Zahlenformat:"
+   },
+   "textRoundingNumbers": {
+      "message": "Runde Likes/Dislikes ab (Standardverhalten von YouTube)"
+   },
+   "textRoundingNumbersHover": {
+      "message": "Zeige abgerundete Zahlen."
+   },
+   "textSettings": {
+      "message": "Deaktiviere Like/Dislike-Übermittlung"
+   },
+   "textSettingsHover": {
+      "message": "Stoppt deine Likes und Dislikes zu zählen."
+   },
+   "textTempUnavailable": {
+      "message": "Temporär nicht erreichbar"
+   },
+   "textUpdate": {
+      "message": "aktualisieren auf"
+   },
+   "version30installed": {
+      "message": "Version 3.0.0.18 installiert"
+   },
+   "whatsnew": {
+      "message": "Was ist neu"
+   }
+}

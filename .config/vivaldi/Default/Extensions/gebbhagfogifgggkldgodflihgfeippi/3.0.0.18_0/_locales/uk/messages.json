@@ -1,0 +1,134 @@
+{
+   "colorTheme": {
+      "message": "Кольорова схема:"
+   },
+   "colorizeRatio": {
+      "message": "Обрати кольори стрічки співвідношення"
+   },
+   "colorizeRatioHover": {
+      "message": "Змінює кольори стрічки співвідношення на обрані вами."
+   },
+   "colorizeThumbs": {
+      "message": "Обрати кольори відміток"
+   },
+   "colorizeThumbsHover": {
+      "message": "Змінює кольори піктограм відміток на обрані вами."
+   },
+   "considerDonating": {
+      "message": "Розширення досі існує лише за допомогою ваших пожертв, будь ласка, підтримайте проєкт."
+   },
+   "customColors": {
+      "message": "Користувальницькі кольори стрічки співвідношення та кнопок"
+   },
+   "customNumberFormats": {
+      "message": "Користувацькі формати значень"
+   },
+   "extensionDesc": {
+      "message": "Повертає здатність бачити відмітки «Не подобається»"
+   },
+   "extensionName": {
+      "message": "Return YouTube Dislike"
+   },
+   "extensionNameBeta": {
+      "message": "Return YouTube Dislike Beta"
+   },
+   "legendSettings": {
+      "message": "Налаштування"
+   },
+   "linkChangelog": {
+      "message": "Журнал змін"
+   },
+   "linkDonate": {
+      "message": "Підтримати"
+   },
+   "linkFAQ": {
+      "message": "ЧаПи"
+   },
+   "linkHelp": {
+      "message": "Допомога"
+   },
+   "linkWebsite": {
+      "message": "Вебсайт"
+   },
+   "numberFormat": {
+      "message": "Формат значень:"
+   },
+   "reformatLikes": {
+      "message": "Форматувати як числа"
+   },
+   "reformatLikesHover": {
+      "message": "Зробить формат «Подобається» та «Не подобається» однаковим"
+   },
+   "roundNumbers": {
+      "message": "Показувати заокруглені значення"
+   },
+   "roundNumbersHover": {
+      "message": "Округлює значення відміток (стандартний параметр YouTube)"
+   },
+   "shortsSupport": {
+      "message": "Підтримка YouTube Shorts"
+   },
+   "textColorTheme": {
+      "message": "Кольорова схема:"
+   },
+   "textColorTheme1": {
+      "message": "Класика"
+   },
+   "textColorTheme2": {
+      "message": "Доступність"
+   },
+   "textColorTheme3": {
+      "message": "Неон"
+   },
+   "textColorizeRatioBar": {
+      "message": "Обрати кольори стрічки співвідношення"
+   },
+   "textColorizeRatioBarHover": {
+      "message": "Змінює кольори стрічки співвідношення на обрані вами."
+   },
+   "textColorizeThumbs": {
+      "message": "Обрати кольори відміток"
+   },
+   "textColorizeThumbsHover": {
+      "message": "Змінює кольори піктограм відміток на обрані вами."
+   },
+   "textConsistentFormat": {
+      "message": "Зробить формат «Подобається» та «Не подобається» однаковим"
+   },
+   "textConsistentFormatHover": {
+      "message": "Форматувати як числа."
+   },
+   "textDeveloper": {
+      "message": "від Дмитра Селіванова та спільноти"
+   },
+   "textLikesDisabled": {
+      "message": "Вимкнуто власником"
+   },
+   "textNumberFormat": {
+      "message": "Формат значень:"
+   },
+   "textRoundingNumbers": {
+      "message": "Округлює значення відміток (стандартний параметр YouTube)"
+   },
+   "textRoundingNumbersHover": {
+      "message": "Показувати заокруглені значення."
+   },
+   "textSettings": {
+      "message": "Вимкнути надсилання відміток"
+   },
+   "textSettingsHover": {
+      "message": "Вимикає надсилання відміток «Подобається» та «Не подобається»."
+   },
+   "textTempUnavailable": {
+      "message": "Тимчасово недоступно"
+   },
+   "textUpdate": {
+      "message": "Оновлення до"
+   },
+   "version30installed": {
+      "message": "Версію 3.0.0.18 встановлено"
+   },
+   "whatsnew": {
+      "message": "Що нового"
+   }
+}

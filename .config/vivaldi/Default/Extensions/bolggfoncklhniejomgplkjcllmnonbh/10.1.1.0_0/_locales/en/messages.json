@@ -1,0 +1,600 @@
+{
+   "backupToFile": {
+      "message": "Backup to file"
+   },
+   "btnAlwaysTranslate": {
+      "message": "Always translate this site"
+   },
+   "btnApply": {
+      "message": "Apply"
+   },
+   "btnChangePosition": {
+      "message": "Change position"
+   },
+   "btnDonate": {
+      "message": "Donate"
+   },
+   "btnKeepOnScreen": {
+      "message": "Keep on screen"
+   },
+   "btnListen": {
+      "message": "Listen"
+   },
+   "btnMobileOriginal": {
+      "message": "Original"
+   },
+   "btnMobileTranslated": {
+      "message": "Translated"
+   },
+   "btnMoreOptions": {
+      "message": "More options"
+   },
+   "btnNeverTranslate": {
+      "message": "Never translate this site"
+   },
+   "btnNeverTranslateThisLanguage": {
+      "message": "Never translate this language"
+   },
+   "btnOpenOnGoogleTranslate": {
+      "message": "Open in Google Translate"
+   },
+   "btnOptions": {
+      "message": "Options"
+   },
+   "btnReplace": {
+      "message": "Replace"
+   },
+   "btnReset": {
+      "message": "Reset"
+   },
+   "btnRestore": {
+      "message": "Show original"
+   },
+   "btnShowPopup": {
+      "message": "Show popup"
+   },
+   "btnStopListening": {
+      "message": "Stop listening"
+   },
+   "btnTranslate": {
+      "message": "Translate"
+   },
+   "btnTranslateRestoreThisFrame": {
+      "message": "Translate/Restore this frame"
+   },
+   "btnTryAgain": {
+      "message": "Try again"
+   },
+   "btnUndoTranslation": {
+      "message": "Undo"
+   },
+   "btncopy": {
+      "message": "Copy"
+   },
+   "calculatestorage": {
+      "message": "Calculate"
+   },
+   "deleteTranslationCache": {
+      "message": "Delete translation cache"
+   },
+   "doYouWantOverwriteAllSettings": {
+      "message": "Do you want to overwrite all existing settings using the backup data?"
+   },
+   "doYouWantRestoreSettings": {
+      "message": "Do you want to restore the extension to its default settings?"
+   },
+   "doYouWantToDeleteTranslationCache": {
+      "message": "Do you want to delete the translation cache?"
+   },
+   "donatewithpaypal": {
+      "message": "Donate With PayPal"
+   },
+   "donationText": {
+      "message": "I have been developing, updating and supporting this extension for over five years. It is amazing to see that we have over 600,000 daily users.\n\nI would be grateful if you could help me financially via Paypal or by becoming a member of my Patreon, your contribution helps me to continue bringing improvements to this extension.\n\nThank you to everyone who has already contributed to this project."
+   },
+   "dontShowIfIsNotValidText": {
+      "message": "Do not show if the selected text is not valid"
+   },
+   "dontShowIfPageLangIsTargetLang": {
+      "message": "Do not show if the page language is the target language"
+   },
+   "dontShowIfPageLangIsUnknown": {
+      "message": "Do not show if the page language is unknown"
+   },
+   "dontShowIfSelectedTextIsTargetLang": {
+      "message": "Do not show if the selected text language is the target language"
+   },
+   "dontShowIfSelectedTextIsUnknown": {
+      "message": "Do not show if the selected text language is unknown"
+   },
+   "enterShortcut": {
+      "message": "Type a shortcut"
+   },
+   "extensionDescription": {
+      "message": "Translate your page in real time using Google or Yandex."
+   },
+   "fileIsCorrupted": {
+      "message": "The file appears to be corrupted"
+   },
+   "hotkeyError_ctrlOrAlt": {
+      "message": "Include Ctrl or Alt"
+   },
+   "hotkeyError_invalid": {
+      "message": "Invalid combination"
+   },
+   "hotkeyError_letter": {
+      "message": "Type a letter"
+   },
+   "lblAdd": {
+      "message": "Add"
+   },
+   "lblAlwaysTranslate": {
+      "message": "Always translate from $LANGUAGE_NAME$",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "English"
+         }
+      }
+   },
+   "lblAlwaysTranslateSites": {
+      "message": "Always translate these sites"
+   },
+   "lblAutoTranslateWhenClickingALink": {
+      "message": "Automatically translate when clicking on a link that takes you to the same domain as the current site"
+   },
+   "lblButtonInTheAddressBar": {
+      "message": "Show button in the address bar"
+   },
+   "lblDarkMode": {
+      "message": "Dark Mode"
+   },
+   "lblEnableDiskCache": {
+      "message": "Enable persistent translation cache (on-disk cache)"
+   },
+   "lblError": {
+      "message": "This page could not be translated"
+   },
+   "lblExperimental": {
+      "message": "Experimental"
+   },
+   "lblFavoriteLanguage": {
+      "message": "Favorite language $FAVORITE_LANGUAGE_NUM$",
+      "placeholders": {
+         "FAVORITE_LANGUAGE_NUM": {
+            "content": "$1",
+            "example": "2"
+         }
+      }
+   },
+   "lblHotTranslatedSelectedText": {
+      "message": "Replace selected text with translated text instantly"
+   },
+   "lblKeyboardShortcuts": {
+      "message": "Keyboard shortcuts"
+   },
+   "lblKeyboardShortcutsSpecial": {
+      "message": "Special keyboard shortcuts"
+   },
+   "lblMakeDonation": {
+      "message": "Make a donation"
+   },
+   "lblNeverTranslateLangs": {
+      "message": "Never translate these languages"
+   },
+   "lblOthers": {
+      "message": "Others"
+   },
+   "lblPageTranslateInto": {
+      "message": "Page translated into $LANGUAGE_NAME$",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "German"
+         }
+      }
+   },
+   "lblPageTranslationService": {
+      "message": "Page translation service"
+   },
+   "lblPersonalSettings": {
+      "message": "Personal settings"
+   },
+   "lblPlsDonate": {
+      "message": "Help the developer with a donation"
+   },
+   "lblReleaseNotes": {
+      "message": "Release Notes"
+   },
+   "lblReport": {
+      "message": "Report a problem"
+   },
+   "lblRestorePageToOriginal": {
+      "message": "Restore page to original"
+   },
+   "lblSelectPopupInterfaceStyle": {
+      "message": "Select popup interface style"
+   },
+   "lblSettings": {
+      "message": "Settings"
+   },
+   "lblShowContextMenu": {
+      "message": "Show the option to translate the page in the context menu"
+   },
+   "lblShowOriginalTextWhenHovering": {
+      "message": "Show original text when hovering"
+   },
+   "lblShowReleaseNotes": {
+      "message": "Show release notes when updating"
+   },
+   "lblShowTranslateSelectedButton": {
+      "message": "Show the button to translate the selected text"
+   },
+   "lblShowTranslateSelectedContextMenu": {
+      "message": "Show the option to translate the selected text in the context menu"
+   },
+   "lblShowTranslatedHoveringLangs": {
+      "message": "Show translated text when hovering over sites with these languages"
+   },
+   "lblShowTranslatedHoveringSites": {
+      "message": "Show translated text when hovering on these sites"
+   },
+   "lblShowTranslatedWhenHovering": {
+      "message": "Show translated text when hovering"
+   },
+   "lblShowTranslatedWhenHoveringThisLang": {
+      "message": "Show translation when hovering over websites in $LANGUAGE_NAME$",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "English"
+         }
+      }
+   },
+   "lblShowTranslatedWhenHoveringThisSite": {
+      "message": "Show translation when hovering over this site"
+   },
+   "lblStorageUsed": {
+      "message": "Storage used:"
+   },
+   "lblSwitchTranslatedAndOriginal": {
+      "message": "Switch between the translated and the original page"
+   },
+   "lblTargetLanguage": {
+      "message": "Target language $TARGET_LANGUAGE_NUM$",
+      "placeholders": {
+         "TARGET_LANGUAGE_NUM": {
+            "content": "$1",
+            "example": "2"
+         }
+      }
+   },
+   "lblTextToSpeechService": {
+      "message": "Text-to-speech service"
+   },
+   "lblTextTranslationService": {
+      "message": "Text Translation Service"
+   },
+   "lblTranslate": {
+      "message": "Translate this page?"
+   },
+   "lblTranslateInterface": {
+      "message": "Translate the interface"
+   },
+   "lblTranslatePageInto": {
+      "message": "Translate page into $LANGUAGE_NAME$?",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "German"
+         }
+      }
+   },
+   "lblTranslatePageToTargetLanguage": {
+      "message": "Translate the page to the target language"
+   },
+   "lblTranslateSelectedWhenPressTwice": {
+      "message": "Translate selected text when pressing $SHORTCUT_KEY$ twice",
+      "placeholders": {
+         "SHORTCUT_KEY": {
+            "content": "[Ctrl]"
+         }
+      }
+   },
+   "lblTranslateTag_pre": {
+      "message": "Enable translation for the tag $HTML_TAG_NAME$",
+      "placeholders": {
+         "HTML_TAG_NAME": {
+            "content": "\u003CPRE>"
+         }
+      }
+   },
+   "lblTranslateTextOverMouseWhenPressTwice": {
+      "message": "Translate the text over the mouse cursor when pressing $SHORTCUT_KEY$ twice",
+      "placeholders": {
+         "SHORTCUT_KEY": {
+            "content": "[Ctrl]"
+         }
+      }
+   },
+   "lblTranslating": {
+      "message": "Translating ..."
+   },
+   "lblTranslationCache": {
+      "message": "Translation cache"
+   },
+   "lblTtsSpeed": {
+      "message": "Text-to-speech audio speed"
+   },
+   "lblTtsVolume": {
+      "message": "Text-to-speech audio volume"
+   },
+   "lbldontsortresults": {
+      "message": "Do not sort translation results"
+   },
+   "lbltranslatedynamicallycreatedcontent": {
+      "message": "Translate dynamically created content"
+   },
+   "less": {
+      "message": "Less"
+   },
+   "more": {
+      "message": "More"
+   },
+   "msgAll": {
+      "message": "All"
+   },
+   "msgAlwaysShow": {
+      "message": "Always show"
+   },
+   "msgAutoDetect": {
+      "message": "Auto-detect"
+   },
+   "msgAutomatic": {
+      "message": "Automatic"
+   },
+   "msgChooseAnotherLanguage": {
+      "message": "Choose another language"
+   },
+   "msgDeepLTabReasoOpened": {
+      "message": "This tab opened because you clicked to translate selected text using DeepL."
+   },
+   "msgDefaultLanguage": {
+      "message": "Default language"
+   },
+   "msgDonationRecipient": {
+      "message": "Your donation goes to the developer of the $EXTENSION_NAME$ extension.",
+      "placeholders": {
+         "EXTENSION_NAME": {
+            "content": "#EXTENSION_NAME#",
+            "example": "TWP - Translate Web Pages"
+         }
+      }
+   },
+   "msgDontShowAgain": {
+      "message": "Don't show again"
+   },
+   "msgDownloadingDocument": {
+      "message": "Downloading the document..."
+   },
+   "msgEnableIframePageTranslation": {
+      "message": "Enable page translation in $IFRAME_TAG$",
+      "placeholders": {
+         "IFRAME_TAG": {
+            "content": "\u003CIFRAME>"
+         }
+      }
+   },
+   "msgErrorDownloadingDocument": {
+      "message": "Error downloading document"
+   },
+   "msgExtUILanguage": {
+      "message": "Extension user interface language"
+   },
+   "msgFavoriteLanguages": {
+      "message": "Favorite languages"
+   },
+   "msgFileLargerThan": {
+      "message": "This service does not support files larger than $FILE_SIZE$",
+      "placeholders": {
+         "FILE_SIZE": {
+            "content": "$1",
+            "example": "10 MB"
+         }
+      }
+   },
+   "msgHasBeenUpdated": {
+      "message": "The $EXTENSION_NAME$ extension has been updated to version $EXTENSION_VERSION$.",
+      "placeholders": {
+         "EXTENSION_NAME": {
+            "content": "#EXTENSION_NAME#",
+            "example": "TWP - Translate Web Pages"
+         },
+         "EXTENSION_VERSION": {
+            "content": "#EXTENSION_VERSION#",
+            "example": "9.7"
+         }
+      }
+   },
+   "msgHotkeys": {
+      "message": "Hotkeys"
+   },
+   "msgIWillBeGrateful": {
+      "message": "I will be grateful if you can make a donation."
+   },
+   "msgImproveTranslation": {
+      "message": "Improve translation"
+   },
+   "msgInterfaceComplex": {
+      "message": "Complex"
+   },
+   "msgInterfaceSimple": {
+      "message": "Simple"
+   },
+   "msgLanguages": {
+      "message": "Languages"
+   },
+   "msgNo": {
+      "message": "No"
+   },
+   "msgNoTranslateSelectedText": {
+      "message": "Do not translate selected text"
+   },
+   "msgOnlyWhenItouch3Fingers": {
+      "message": "Only when I touch three fingers on the screen"
+   },
+   "msgOpenOnYandexTranslator": {
+      "message": "Open in Yandex Translate"
+   },
+   "msgOpenTranslatedPDF": {
+      "message": "Open translated PDF"
+   },
+   "msgPDFtoHTML": {
+      "message": "PDF to HTML"
+   },
+   "msgPageTranslated": {
+      "message": "Page translated"
+   },
+   "msgPleaseWait": {
+      "message": "Please wait..."
+   },
+   "msgPrivacy": {
+      "message": "Privacy"
+   },
+   "msgRecents": {
+      "message": "Recents"
+   },
+   "msgSelectServiceConversion": {
+      "message": "Select a service to do this conversion"
+   },
+   "msgSelectTargetLanguage": {
+      "message": "Translate websites into this target language"
+   },
+   "msgSelectTargetLanguageForText": {
+      "message": "Translate selected text into this target language"
+   },
+   "msgSendDocument": {
+      "message": "Send document"
+   },
+   "msgSetDeepLAlert": {
+      "message": "Are you sure you want to set the translation service to DeepL?\nA new tab will open, and the translation will take place there."
+   },
+   "msgSites": {
+      "message": "Sites"
+   },
+   "msgStorage": {
+      "message": "Storage"
+   },
+   "msgStyle": {
+      "message": "Style"
+   },
+   "msgThanksForUseExtension": {
+      "message": "Thank you for using this extension."
+   },
+   "msgToTranslateThisDocument": {
+      "message": "To translate this document $DOC_TYPE$ it is necessary to convert it to HTML",
+      "placeholders": {
+         "DOC_TYPE": {
+            "content": "$1",
+            "example": "(.pdf)"
+         }
+      }
+   },
+   "msgTranslateFor": {
+      "message": "Translate to $LANGUAGE_NAME$",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "English"
+         }
+      }
+   },
+   "msgTranslateFromTo": {
+      "message": "$FROM_LANGUAGE$ to $TO_LANGUAGE$",
+      "placeholders": {
+         "FROM_LANGUAGE": {
+            "content": "$1",
+            "example": "German"
+         },
+         "TO_LANGUAGE": {
+            "content": "$2",
+            "example": "English"
+         }
+      }
+   },
+   "msgTranslatePDF": {
+      "message": "Translate PDF"
+   },
+   "msgTranslatePage": {
+      "message": "Translate page?"
+   },
+   "msgTranslateSelectedText": {
+      "message": "Translate selected text"
+   },
+   "msgTranslations": {
+      "message": "Translations"
+   },
+   "msgUnknownLanguage": {
+      "message": "Unknown"
+   },
+   "msgWhenNecessary": {
+      "message": "When necessary"
+   },
+   "msgWhenShowMobilePopup": {
+      "message": "When to show the mobile popup"
+   },
+   "msgYes": {
+      "message": "Yes"
+   },
+   "openNativeShortcutManager": {
+      "message": "Open native shortcut key manager"
+   },
+   "optionPopupConfig": {
+      "message": "Show the mobile popup"
+   },
+   "optionPopupThreeFingers": {
+      "message": "When I touch three fingers on the screen"
+   },
+   "optionsAddToCustomDictionary": {
+      "message": "Add to custom dictionary (This allows you to skip certain words during web page translation)"
+   },
+   "optionsAlwaysTranslate": {
+      "message": "Always translate these languages"
+   },
+   "optionsNeverTranslate": {
+      "message": "Never translate these sites"
+   },
+   "pageActionTitle": {
+      "message": "Translate this page"
+   },
+   "popupBlueWhenSiteIsTranslated": {
+      "message": "Make the pop-up icon blue when the site is translated"
+   },
+   "resetToDefault": {
+      "message": "Restore default settings"
+   },
+   "restoreFromFile": {
+      "message": "Restore from file"
+   },
+   "selectOriginalLanguage": {
+      "message": "Select the original website language"
+   },
+   "selectTargetLanguage": {
+      "message": "Select target language"
+   },
+   "selectToEnableTranslationService": {
+      "message": "Select the translation services you want to use"
+   },
+   "swapPopup": {
+      "message": "Switch between simple and complex interface"
+   },
+   "swapTranslationService": {
+      "message": "Switch between translation services"
+   },
+   "translateClickingOnce": {
+      "message": "Translate the page by clicking once on the button in the address bar. (To see the popup, right-click)"
+   },
+   "useAlternativeService": {
+      "message": "Silently use an alternate translation service if the current target language is not supported by the selected translation service"
+   }
+}

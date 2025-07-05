@@ -1,0 +1,89 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "icons/IconSponsorBlocker128px.png",
+         "16": "icons/IconSponsorBlocker16px.png",
+         "32": "icons/IconSponsorBlocker32px.png",
+         "64": "icons/IconSponsorBlocker64px.png"
+      },
+      "default_popup": "popup.html",
+      "default_title": "SponsorBlock",
+      "theme_icons": [ {
+         "dark": "icons/IconSponsorBlocker16px.png",
+         "light": "icons/IconSponsorBlocker16px.png",
+         "size": 16
+      }, {
+         "dark": "icons/IconSponsorBlocker32px.png",
+         "light": "icons/IconSponsorBlocker32px.png",
+         "size": 32
+      }, {
+         "dark": "icons/IconSponsorBlocker64px.png",
+         "light": "icons/IconSponsorBlocker64px.png",
+         "size": 64
+      }, {
+         "dark": "icons/IconSponsorBlocker128px.png",
+         "light": "icons/IconSponsorBlocker128px.png",
+         "size": 128
+      }, {
+         "dark": "icons/IconSponsorBlocker256px.png",
+         "light": "icons/IconSponsorBlocker256px.png",
+         "size": 256
+      }, {
+         "dark": "icons/IconSponsorBlocker512px.png",
+         "light": "icons/IconSponsorBlocker512px.png",
+         "size": 512
+      }, {
+         "dark": "icons/IconSponsorBlocker1024px.png",
+         "light": "icons/IconSponsorBlocker1024px.png",
+         "size": 1024
+      } ]
+   },
+   "background": {
+      "service_worker": "./js/background.js"
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "exclude_matches": [ "https://accounts.youtube.com/RotateCookiesPage*" ],
+      "js": [ "./js/document.js" ],
+      "matches": [ "https://*.youtube.com/*", "https://www.youtube-nocookie.com/embed/*" ],
+      "run_at": "document_start",
+      "world": "MAIN"
+   }, {
+      "all_frames": true,
+      "css": [ "content.css", "shared.css" ],
+      "exclude_matches": [ "https://accounts.youtube.com/RotateCookiesPage*" ],
+      "js": [ "./js/content.js" ],
+      "matches": [ "https://*.youtube.com/*", "https://www.youtube-nocookie.com/embed/*" ],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_Description__",
+   "homepage_url": "https://sponsor.ajay.app",
+   "host_permissions": [ "https://*.youtube.com/*", "https://sponsor.ajay.app/*" ],
+   "icons": {
+      "1024": "icons/IconSponsorBlocker1024px.png",
+      "128": "icons/IconSponsorBlocker128px.png",
+      "16": "icons/IconSponsorBlocker16px.png",
+      "256": "icons/IconSponsorBlocker256px.png",
+      "32": "icons/IconSponsorBlocker32px.png",
+      "512": "icons/IconSponsorBlocker512px.png",
+      "64": "icons/IconSponsorBlocker64px.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAjc1iNthsC5JkHtm2GbB4mri2L7XOKyt6XTPg0ajyxKCcveSCZadWIQNY/K1YgrBYJoC8vkbv0dDNi9Zbgn29AsxODJWsqKkUN7q/n0rlFvzWQuDYG1IR6UUBCuMCEL8mxKCkJoz3ORZWmgAhAU8G0LEwtCaakrYvvPRpV/e/NytYMnuSeq63LUGxWB4/YhKFNCjoldqy1dpz8HfMQvqKaX5F7WeQjj1nlvtNGU21uP0FkIDY8+Hj8/cZVIb2a4dijb8HCIg/L4YHdn5GnTDoHaZ7UVM9Fvfa8uNdxbp+POQ4XztTWm4fXea0SU395ee171/CBOP7pp2UgnSrMu+VxwIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_fullName__",
+   "optional_host_permissions": [ "*://*/*" ],
+   "options_ui": {
+      "open_in_tab": true,
+      "page": "options/options.html"
+   },
+   "permissions": [ "storage", "scripting" ],
+   "short_name": "SponsorBlock",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "5.12.4",
+   "web_accessible_resources": [ {
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "icons/LogoSponsorBlocker256px.png", "icons/IconSponsorBlocker256px.png", "icons/PlayerStartIconSponsorBlocker.svg", "icons/PlayerStopIconSponsorBlocker.svg", "icons/PlayerUploadIconSponsorBlocker.svg", "icons/PlayerUploadFailedIconSponsorBlocker.svg", "icons/PlayerCancelSegmentIconSponsorBlocker.svg", "icons/clipboard.svg", "icons/settings.svg", "icons/pencil.svg", "icons/check.svg", "icons/check-smaller.svg", "icons/upvote.png", "icons/downvote.png", "icons/thumbs_down.svg", "icons/thumbs_down_locked.svg", "icons/thumbs_up.svg", "icons/help.svg", "icons/report.png", "icons/close.png", "icons/skipIcon.svg", "icons/refresh.svg", "icons/beep.oga", "icons/pause.svg", "icons/stop.svg", "icons/skip.svg", "icons/heart.svg", "icons/visible.svg", "icons/not_visible.svg", "icons/sort.svg", "icons/money.svg", "icons/segway.png", "icons/close-smaller.svg", "icons/right-arrow.svg", "icons/campaign.svg", "icons/star.svg", "icons/lightbulb.svg", "icons/bolt.svg", "icons/stopwatch.svg", "icons/music-note.svg", "icons/import.svg", "icons/export.svg", "icons/PlayerInfoIconSponsorBlocker.svg", "icons/PlayerDeleteIconSponsorBlocker.svg", "icons/dearrow.svg", "popup.html", "popup.css", "content.css", "shared.css", "js/document.js", "libs/Source+Sans+Pro.css", "libs/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlxdu.woff2", "libs/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwmRduz8A.woff2", "libs/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwmBduz8A.woff2", "libs/6xKydSBYKcSV-LCoeQqfX1RYOo3ig4vwlBduz8A.woff2" ]
+   } ]
+}

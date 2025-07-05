@@ -1,0 +1,600 @@
+{
+   "backupToFile": {
+      "message": "Rugsteun na lêer"
+   },
+   "btnAlwaysTranslate": {
+      "message": "Vertaal altyd hierdie webwerf"
+   },
+   "btnApply": {
+      "message": "Doen aansoek"
+   },
+   "btnChangePosition": {
+      "message": "Verander posisie"
+   },
+   "btnDonate": {
+      "message": "skenk"
+   },
+   "btnKeepOnScreen": {
+      "message": "Hou op die skerm"
+   },
+   "btnListen": {
+      "message": "Luister"
+   },
+   "btnMobileOriginal": {
+      "message": "Oorspronklik"
+   },
+   "btnMobileTranslated": {
+      "message": "Vertaal"
+   },
+   "btnMoreOptions": {
+      "message": "Meer opsies"
+   },
+   "btnNeverTranslate": {
+      "message": "Moet nooit hierdie webwerf vertaal nie"
+   },
+   "btnNeverTranslateThisLanguage": {
+      "message": "Moet nooit hierdie taal vertaal nie"
+   },
+   "btnOpenOnGoogleTranslate": {
+      "message": "Maak oop in Google Translator"
+   },
+   "btnOptions": {
+      "message": "Opsies"
+   },
+   "btnReplace": {
+      "message": "Vervang"
+   },
+   "btnReset": {
+      "message": "Stel terug"
+   },
+   "btnRestore": {
+      "message": "Wys oorspronklike"
+   },
+   "btnShowPopup": {
+      "message": "Wys opspringer"
+   },
+   "btnStopListening": {
+      "message": "Hou op luister"
+   },
+   "btnTranslate": {
+      "message": "Vertaal"
+   },
+   "btnTranslateRestoreThisFrame": {
+      "message": "Vertaal/Herstel hierdie raam"
+   },
+   "btnTryAgain": {
+      "message": "Probeer weer"
+   },
+   "btnUndoTranslation": {
+      "message": "Ontdoen"
+   },
+   "btncopy": {
+      "message": "Kopieer"
+   },
+   "calculatestorage": {
+      "message": "Bereken"
+   },
+   "deleteTranslationCache": {
+      "message": "Vee vertaling kas uit"
+   },
+   "doYouWantOverwriteAllSettings": {
+      "message": "Wil jy alle bestaande instellings oorskryf deur die rugsteundata te gebruik?"
+   },
+   "doYouWantRestoreSettings": {
+      "message": "Wil jy die uitbreiding na sy verstekinstellings herstel?"
+   },
+   "doYouWantToDeleteTranslationCache": {
+      "message": "Wil jy die vertaalkas uitvee?"
+   },
+   "donatewithpaypal": {
+      "message": "Skenk met PayPal"
+   },
+   "donationText": {
+      "message": "Ek het hierdie uitbreiding al meer as vyf jaar ontwikkel, bygewerk en ondersteun. Dit is ongelooflik om te sien dat ons meer as 600 000 daaglikse gebruikers het.\n\nEk sal dankbaar wees as jy my finansieel kan help via Paypal of deur 'n lid van my Patreon te word, jou bydrae help my om voort te gaan om verbeterings aan hierdie uitbreiding te bring.\n\nDankie aan almal wat reeds bygedra het tot hierdie projek."
+   },
+   "dontShowIfIsNotValidText": {
+      "message": "Moenie wys as die geselekteerde teks nie geldig is nie"
+   },
+   "dontShowIfPageLangIsTargetLang": {
+      "message": "Moenie wys of die bladsytaal die doeltaal is nie"
+   },
+   "dontShowIfPageLangIsUnknown": {
+      "message": "Moenie wys as die bladsytaal onbekend is nie"
+   },
+   "dontShowIfSelectedTextIsTargetLang": {
+      "message": "Moenie wys of die geselekteerde tekstaal die doeltaal is nie"
+   },
+   "dontShowIfSelectedTextIsUnknown": {
+      "message": "Moenie wys as die geselekteerde tekstaal onbekend is nie"
+   },
+   "enterShortcut": {
+      "message": "Tik 'n kortpad"
+   },
+   "extensionDescription": {
+      "message": "Vertaal jou bladsy intyds met Google of Yandex."
+   },
+   "fileIsCorrupted": {
+      "message": "Dit lyk of die lêer beskadig is"
+   },
+   "hotkeyError_ctrlOrAlt": {
+      "message": "Sluit Ctrl of Alt in"
+   },
+   "hotkeyError_invalid": {
+      "message": "Ongeldige kombinasie"
+   },
+   "hotkeyError_letter": {
+      "message": "Tik 'n letter"
+   },
+   "lblAdd": {
+      "message": "Voeg by"
+   },
+   "lblAlwaysTranslate": {
+      "message": "Vertaal altyd vanaf $LANGUAGE_NAME$",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "English"
+         }
+      }
+   },
+   "lblAlwaysTranslateSites": {
+      "message": "Vertaal altyd hierdie webwerwe"
+   },
+   "lblAutoTranslateWhenClickingALink": {
+      "message": "Vertaal outomaties wanneer u op 'n skakel klik wat u na dieselfde domein as die huidige webwerf neem"
+   },
+   "lblButtonInTheAddressBar": {
+      "message": "Wys knoppie in die adresbalk"
+   },
+   "lblDarkMode": {
+      "message": "Donker modus"
+   },
+   "lblEnableDiskCache": {
+      "message": "Aktiveer aanhoudende vertaalkas (op-skyfkas)"
+   },
+   "lblError": {
+      "message": "Hierdie bladsy kon nie vertaal word nie"
+   },
+   "lblExperimental": {
+      "message": "Eksperimenteel"
+   },
+   "lblFavoriteLanguage": {
+      "message": "Gunsteling taal $FAVORITE_LANGUAGE_NUM$",
+      "placeholders": {
+         "FAVORITE_LANGUAGE_NUM": {
+            "content": "$1",
+            "example": "2"
+         }
+      }
+   },
+   "lblHotTranslatedSelectedText": {
+      "message": "Vervang geselekteerde teks onmiddellik met vertaalde teks"
+   },
+   "lblKeyboardShortcuts": {
+      "message": "Sleutelbord kortpaaie"
+   },
+   "lblKeyboardShortcutsSpecial": {
+      "message": "Spesiale sleutelbordkortpaaie"
+   },
+   "lblMakeDonation": {
+      "message": "Maak 'n skenking"
+   },
+   "lblNeverTranslateLangs": {
+      "message": "Moet nooit hierdie tale vertaal nie"
+   },
+   "lblOthers": {
+      "message": "Ander"
+   },
+   "lblPageTranslateInto": {
+      "message": "Bladsy in $LANGUAGE_NAME$vertaal",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "German"
+         }
+      }
+   },
+   "lblPageTranslationService": {
+      "message": "Bladsyvertaaldiens"
+   },
+   "lblPersonalSettings": {
+      "message": "Persoonlike instellings"
+   },
+   "lblPlsDonate": {
+      "message": "Help die ontwikkelaar met 'n skenking"
+   },
+   "lblReleaseNotes": {
+      "message": "Vrystellings notas"
+   },
+   "lblReport": {
+      "message": "Rapporteer 'n probleem"
+   },
+   "lblRestorePageToOriginal": {
+      "message": "Herstel bladsy na oorspronklike"
+   },
+   "lblSelectPopupInterfaceStyle": {
+      "message": "Kies opspring-koppelvlakstyl"
+   },
+   "lblSettings": {
+      "message": "Instellings"
+   },
+   "lblShowContextMenu": {
+      "message": "Wys die opsie om die bladsy te vertaal in die kontekskieslys"
+   },
+   "lblShowOriginalTextWhenHovering": {
+      "message": "Wys oorspronklike teks wanneer jy beweeg"
+   },
+   "lblShowReleaseNotes": {
+      "message": "Wys vrystellingnotas wanneer jy opdateer"
+   },
+   "lblShowTranslateSelectedButton": {
+      "message": "Wys die knoppie om die geselekteerde teks te vertaal"
+   },
+   "lblShowTranslateSelectedContextMenu": {
+      "message": "Wys die opsie om die geselekteerde teks te vertaal in die kontekskieslys"
+   },
+   "lblShowTranslatedHoveringLangs": {
+      "message": "Wys vertaalde teks wanneer jy oor werwe met hierdie tale beweeg"
+   },
+   "lblShowTranslatedHoveringSites": {
+      "message": "Wys vertaalde teks wanneer jy op hierdie werwe beweeg"
+   },
+   "lblShowTranslatedWhenHovering": {
+      "message": "Wys vertaalde teks wanneer jy beweeg"
+   },
+   "lblShowTranslatedWhenHoveringThisLang": {
+      "message": "Wys vertaling wanneer jy oor webwerwe in $LANGUAGE_NAME$beweeg",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "English"
+         }
+      }
+   },
+   "lblShowTranslatedWhenHoveringThisSite": {
+      "message": "Wys vertaling wanneer jy oor hierdie werf beweeg"
+   },
+   "lblStorageUsed": {
+      "message": "Berging gebruik:"
+   },
+   "lblSwitchTranslatedAndOriginal": {
+      "message": "Wissel tussen die vertaalde en die oorspronklike bladsy"
+   },
+   "lblTargetLanguage": {
+      "message": "Doeltaal $TARGET_LANGUAGE_NUM$",
+      "placeholders": {
+         "TARGET_LANGUAGE_NUM": {
+            "content": "$1",
+            "example": "2"
+         }
+      }
+   },
+   "lblTextToSpeechService": {
+      "message": "Teks-na-spraak diens"
+   },
+   "lblTextTranslationService": {
+      "message": "Teksvertaaldiens"
+   },
+   "lblTranslate": {
+      "message": "Vertaal hierdie bladsy?"
+   },
+   "lblTranslateInterface": {
+      "message": "Vertaal die koppelvlak"
+   },
+   "lblTranslatePageInto": {
+      "message": "Vertaal bladsy in $LANGUAGE_NAME$?",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "German"
+         }
+      }
+   },
+   "lblTranslatePageToTargetLanguage": {
+      "message": "Vertaal die bladsy na die doeltaal"
+   },
+   "lblTranslateSelectedWhenPressTwice": {
+      "message": "Vertaal geselekteerde teks wanneer $SHORTCUT_KEY$ twee keer gedruk word",
+      "placeholders": {
+         "SHORTCUT_KEY": {
+            "content": "[Ctrl]"
+         }
+      }
+   },
+   "lblTranslateTag_pre": {
+      "message": "Aktiveer vertaling vir die merker $HTML_TAG_NAME$",
+      "placeholders": {
+         "HTML_TAG_NAME": {
+            "content": "\u003CPRE>"
+         }
+      }
+   },
+   "lblTranslateTextOverMouseWhenPressTwice": {
+      "message": "Vertaal die teks oor die muiswyser wanneer jy $SHORTCUT_KEY$ twee keer druk",
+      "placeholders": {
+         "SHORTCUT_KEY": {
+            "content": "[Ctrl]"
+         }
+      }
+   },
+   "lblTranslating": {
+      "message": "Vertaal ..."
+   },
+   "lblTranslationCache": {
+      "message": "Vertaling kas"
+   },
+   "lblTtsSpeed": {
+      "message": "Teks-na-spraak klank spoed"
+   },
+   "lblTtsVolume": {
+      "message": "Teks-na-spraak klankvolume"
+   },
+   "lbldontsortresults": {
+      "message": "Moenie vertaalresultate sorteer nie"
+   },
+   "lbltranslatedynamicallycreatedcontent": {
+      "message": "Vertaal dinamies geskep inhoud"
+   },
+   "less": {
+      "message": "Minder"
+   },
+   "more": {
+      "message": "Meer"
+   },
+   "msgAll": {
+      "message": "Almal"
+   },
+   "msgAlwaysShow": {
+      "message": "Wys altyd"
+   },
+   "msgAutoDetect": {
+      "message": "Outo-bespeur"
+   },
+   "msgAutomatic": {
+      "message": "Outomatiese"
+   },
+   "msgChooseAnotherLanguage": {
+      "message": "Kies 'n ander taal"
+   },
+   "msgDeepLTabReasoOpened": {
+      "message": "Hierdie oortjie het oopgemaak omdat jy geklik het om geselekteerde teks met DeepL te vertaal."
+   },
+   "msgDefaultLanguage": {
+      "message": "Verstektaal"
+   },
+   "msgDonationRecipient": {
+      "message": "Jou skenking gaan na die ontwikkelaar van die $EXTENSION_NAME$ -uitbreiding.",
+      "placeholders": {
+         "EXTENSION_NAME": {
+            "content": "#EXTENSION_NAME#",
+            "example": "TWP - Translate Web Pages"
+         }
+      }
+   },
+   "msgDontShowAgain": {
+      "message": "Moenie weer wys nie"
+   },
+   "msgDownloadingDocument": {
+      "message": "Laai tans die dokument af..."
+   },
+   "msgEnableIframePageTranslation": {
+      "message": "Aktiveer bladsyvertaling in $IFRAME_TAG$",
+      "placeholders": {
+         "IFRAME_TAG": {
+            "content": "\u003CIFRAME>"
+         }
+      }
+   },
+   "msgErrorDownloadingDocument": {
+      "message": "Kon nie dokument aflaai nie"
+   },
+   "msgExtUILanguage": {
+      "message": "Uitbreiding gebruikerskoppelvlak taal"
+   },
+   "msgFavoriteLanguages": {
+      "message": "Gunsteling tale"
+   },
+   "msgFileLargerThan": {
+      "message": "Hierdie diens ondersteun nie lêers groter as $FILE_SIZE$nie",
+      "placeholders": {
+         "FILE_SIZE": {
+            "content": "$1",
+            "example": "10 MB"
+         }
+      }
+   },
+   "msgHasBeenUpdated": {
+      "message": "Die $EXTENSION_NAME$ -uitbreiding is opgedateer na weergawe $EXTENSION_VERSION$.",
+      "placeholders": {
+         "EXTENSION_NAME": {
+            "content": "#EXTENSION_NAME#",
+            "example": "TWP - Translate Web Pages"
+         },
+         "EXTENSION_VERSION": {
+            "content": "#EXTENSION_VERSION#",
+            "example": "9.7"
+         }
+      }
+   },
+   "msgHotkeys": {
+      "message": "Sneltoetse"
+   },
+   "msgIWillBeGrateful": {
+      "message": "Ek sal dankbaar wees as jy 'n skenking kan maak."
+   },
+   "msgImproveTranslation": {
+      "message": "Verbeter vertaling"
+   },
+   "msgInterfaceComplex": {
+      "message": "Kompleks"
+   },
+   "msgInterfaceSimple": {
+      "message": "Eenvoudig"
+   },
+   "msgLanguages": {
+      "message": "Tale"
+   },
+   "msgNo": {
+      "message": "Geen"
+   },
+   "msgNoTranslateSelectedText": {
+      "message": "Moenie geselekteerde teks vertaal nie"
+   },
+   "msgOnlyWhenItouch3Fingers": {
+      "message": "Eers wanneer ek drie vingers op die skerm raak"
+   },
+   "msgOpenOnYandexTranslator": {
+      "message": "Maak oop in yandex translate"
+   },
+   "msgOpenTranslatedPDF": {
+      "message": "Maak vertaalde PDF oop"
+   },
+   "msgPDFtoHTML": {
+      "message": "PDF na HTML"
+   },
+   "msgPageTranslated": {
+      "message": "Bladsy vertaal"
+   },
+   "msgPleaseWait": {
+      "message": "Wag asseblief..."
+   },
+   "msgPrivacy": {
+      "message": "Privaatheid"
+   },
+   "msgRecents": {
+      "message": "Onlangse"
+   },
+   "msgSelectServiceConversion": {
+      "message": "Kies 'n diens om hierdie omskakeling te doen"
+   },
+   "msgSelectTargetLanguage": {
+      "message": "Vertaal webwerwe in hierdie doeltaal"
+   },
+   "msgSelectTargetLanguageForText": {
+      "message": "Vertaal geselekteerde teks in hierdie doeltaal"
+   },
+   "msgSendDocument": {
+      "message": "Stuur dokument"
+   },
+   "msgSetDeepLAlert": {
+      "message": "Is jy seker jy wil die vertaaldiens op DeepL stel?\n'n Nuwe oortjie sal oopmaak, en die vertaling sal daar plaasvind."
+   },
+   "msgSites": {
+      "message": "Werwe"
+   },
+   "msgStorage": {
+      "message": "Berging"
+   },
+   "msgStyle": {
+      "message": "Styl"
+   },
+   "msgThanksForUseExtension": {
+      "message": "Dankie dat jy hierdie uitbreiding gebruik."
+   },
+   "msgToTranslateThisDocument": {
+      "message": "Om hierdie dokument $DOC_TYPE$ te vertaal is dit nodig om dit na HTML om te skakel",
+      "placeholders": {
+         "DOC_TYPE": {
+            "content": "$1",
+            "example": "(.pdf)"
+         }
+      }
+   },
+   "msgTranslateFor": {
+      "message": "Vertaal na $LANGUAGE_NAME$",
+      "placeholders": {
+         "LANGUAGE_NAME": {
+            "content": "$1",
+            "example": "English"
+         }
+      }
+   },
+   "msgTranslateFromTo": {
+      "message": "$FROM_LANGUAGE$ tot $TO_LANGUAGE$",
+      "placeholders": {
+         "FROM_LANGUAGE": {
+            "content": "$1",
+            "example": "German"
+         },
+         "TO_LANGUAGE": {
+            "content": "$2",
+            "example": "English"
+         }
+      }
+   },
+   "msgTranslatePDF": {
+      "message": "Vertaal PDF"
+   },
+   "msgTranslatePage": {
+      "message": "Vertaal bladsy?"
+   },
+   "msgTranslateSelectedText": {
+      "message": "Vertaal geselekteerde teks"
+   },
+   "msgTranslations": {
+      "message": "Vertalings"
+   },
+   "msgUnknownLanguage": {
+      "message": "Onbekend"
+   },
+   "msgWhenNecessary": {
+      "message": "Wanneer nodig"
+   },
+   "msgWhenShowMobilePopup": {
+      "message": "Wanneer om die mobiele pop-up te wys"
+   },
+   "msgYes": {
+      "message": "Ja"
+   },
+   "openNativeShortcutManager": {
+      "message": "Maak inheemse kortpadsleutelbestuurder oop"
+   },
+   "optionPopupConfig": {
+      "message": "Wys die mobiele pop-up"
+   },
+   "optionPopupThreeFingers": {
+      "message": "Wanneer ek drie vingers op die skerm raak"
+   },
+   "optionsAddToCustomDictionary": {
+      "message": "Voeg by gepasmaakte woordeboek (Dit laat jou toe om sekere woorde oor te slaan tydens webbladvertaling)"
+   },
+   "optionsAlwaysTranslate": {
+      "message": "Vertaal altyd hierdie tale"
+   },
+   "optionsNeverTranslate": {
+      "message": "Moet nooit hierdie webwerwe vertaal nie"
+   },
+   "pageActionTitle": {
+      "message": "Vertaal hierdie bladsy"
+   },
+   "popupBlueWhenSiteIsTranslated": {
+      "message": "Maak die opspringikoon blou wanneer die webwerf vertaal word"
+   },
+   "resetToDefault": {
+      "message": "Herstel verstekinstellings"
+   },
+   "restoreFromFile": {
+      "message": "Herstel vanaf lêer"
+   },
+   "selectOriginalLanguage": {
+      "message": "Kies die oorspronklike webwerftaal"
+   },
+   "selectTargetLanguage": {
+      "message": "Kies doeltaal"
+   },
+   "selectToEnableTranslationService": {
+      "message": "Kies die vertaaldienste wat jy wil gebruik"
+   },
+   "swapPopup": {
+      "message": "Skakel tussen eenvoudige en komplekse koppelvlak"
+   },
+   "swapTranslationService": {
+      "message": "Wissel tussen vertaaldienste"
+   },
+   "translateClickingOnce": {
+      "message": "Vertaal die bladsy deur een keer op die knoppie in die adresbalk te klik. (Om die opspringer te sien, regskliek)"
+   },
+   "useAlternativeService": {
+      "message": "Gebruik stilweg 'n alternatiewe vertaaldiens as die huidige teikentaal nie deur die geselekteerde vertaaldiens ondersteun word nie"
+   }
+}

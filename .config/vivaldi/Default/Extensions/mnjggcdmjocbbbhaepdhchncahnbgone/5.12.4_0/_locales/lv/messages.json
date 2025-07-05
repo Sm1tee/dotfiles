@@ -1,0 +1,72 @@
+{
+   "400": {
+      "message": "Serveris ziņo, ka šis pieprasījums ir nederīgs"
+   },
+   "409": {
+      "message": "Šis jau ir ticis aizsūtīts iepriekš"
+   },
+   "Description": {
+      "description": "Description of the extension.",
+      "message": "Izlaidiet sponsorus, abonēšanas lūgumus un vairāk, skatoties YouTube video. Ziņojiet par sponsoriem video, kurus jūs skatāties, lai ietaupītu citu laiku."
+   },
+   "Segment": {
+      "message": "segments"
+   },
+   "Segments": {
+      "message": "segmentu"
+   },
+   "Username": {
+      "message": "Lietotājvārds"
+   },
+   "add": {
+      "message": "Pievienot"
+   },
+   "askAQuestion": {
+      "message": "Uzdot jautājumu"
+   },
+   "cancel": {
+      "message": "Atcelt"
+   },
+   "channelWhitelisted": {
+      "message": "Kanāls iekļauts baltajā sarakstā!"
+   },
+   "delete": {
+      "message": "Dzēst"
+   },
+   "edit": {
+      "message": "Rediģēt"
+   },
+   "errorCode": {
+      "message": "Kļūdas kods: "
+   },
+   "fullName": {
+      "description": "Name of the extension.",
+      "message": "SponsorBlock priekš YouTube - Izlaid sponsorus"
+   },
+   "noVideoID": {
+      "message": "YouTube video netika atrasts. Ja šis nav pareizi, pārlādē lapu"
+   },
+   "questionButton": {
+      "message": "Man ir jautājums"
+   },
+   "refreshSegments": {
+      "message": "Pārlādēt segmentus"
+   },
+   "sourceCode": {
+      "description": "Used on Firefox Store Page",
+      "message": "Pirmkods"
+   },
+   "sponsorCancel": {
+      "message": "Beigt segmenta izveidi"
+   },
+   "sponsorEnd": {
+      "message": "Beigt segmentu"
+   },
+   "success": {
+      "message": "Izdevās!"
+   },
+   "website": {
+      "description": "Used on Firefox Store Page",
+      "message": "Tīmekļa vietne"
+   }
+}

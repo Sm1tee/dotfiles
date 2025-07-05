@@ -1,0 +1,134 @@
+{
+   "colorTheme": {
+      "message": "Tema de Cores:"
+   },
+   "colorizeRatio": {
+      "message": "Colorir barra de proporção"
+   },
+   "colorizeRatioHover": {
+      "message": "Usar cores personalizadas para a barra de proporção."
+   },
+   "colorizeThumbs": {
+      "message": "Colorir botões"
+   },
+   "colorizeThumbsHover": {
+      "message": "Usar cores personalizadas para os botões de curtir e descurtir."
+   },
+   "considerDonating": {
+      "message": "A única coisa que mantém a extensão funcionando são suas doações, considere apoiar o projeto."
+   },
+   "customColors": {
+      "message": "Cores personalizadas para barra de proporção e botões"
+   },
+   "customNumberFormats": {
+      "message": "Formato numérico personalizado"
+   },
+   "extensionDesc": {
+      "message": "Retorna a capacidade de ver descurtidas"
+   },
+   "extensionName": {
+      "message": "Volta Descurtidas do YouTube"
+   },
+   "extensionNameBeta": {
+      "message": "Volta Descurtidas do YouTube Beta"
+   },
+   "legendSettings": {
+      "message": "Configurações"
+   },
+   "linkChangelog": {
+      "message": "Registro de alterações"
+   },
+   "linkDonate": {
+      "message": "Doar"
+   },
+   "linkFAQ": {
+      "message": "Perguntas Frequentes"
+   },
+   "linkHelp": {
+      "message": "Ajuda"
+   },
+   "linkWebsite": {
+      "message": "Website"
+   },
+   "numberFormat": {
+      "message": "Formato numérico:"
+   },
+   "reformatLikes": {
+      "message": "Re-formatar número de curtidas"
+   },
+   "reformatLikesHover": {
+      "message": "Tornar o formato de curtidas e descurtidas consistente."
+   },
+   "roundNumbers": {
+      "message": "Mostrar números arredondados"
+   },
+   "roundNumbersHover": {
+      "message": "Arredondar os números para baixo (comportamento padrão do YouTube)."
+   },
+   "shortsSupport": {
+      "message": "Suporte a curtas do YouTube"
+   },
+   "textColorTheme": {
+      "message": "Tema de cores:"
+   },
+   "textColorTheme1": {
+      "message": "Clássico"
+   },
+   "textColorTheme2": {
+      "message": "Acessível"
+   },
+   "textColorTheme3": {
+      "message": "Néon"
+   },
+   "textColorizeRatioBar": {
+      "message": "Colorir barra de proporção"
+   },
+   "textColorizeRatioBarHover": {
+      "message": "Usar cores personalizadas para a barra de proporção."
+   },
+   "textColorizeThumbs": {
+      "message": "Colorir botões"
+   },
+   "textColorizeThumbsHover": {
+      "message": "Usar cores personalizadas para os botões de curtir e descurtir."
+   },
+   "textConsistentFormat": {
+      "message": "Tornar o formato de curtidas e descurtidas consistente"
+   },
+   "textConsistentFormatHover": {
+      "message": "Re-formatar número de curtidas."
+   },
+   "textDeveloper": {
+      "message": "por Dmitry Selivanov & Comunidade"
+   },
+   "textLikesDisabled": {
+      "message": "Desativado pelo proprietário"
+   },
+   "textNumberFormat": {
+      "message": "Formato numérico:"
+   },
+   "textRoundingNumbers": {
+      "message": "Arredondar as estatísticas de curtidas/descurtidas para baixo (comportamento padrão do YouTube)"
+   },
+   "textRoundingNumbersHover": {
+      "message": "Mostrar estatísticas arredondadas"
+   },
+   "textSettings": {
+      "message": "Desativar envio de curtidas/descurtidas"
+   },
+   "textSettingsHover": {
+      "message": "Para de contar suas curtidas e descurtidas."
+   },
+   "textTempUnavailable": {
+      "message": "Temporariamente Indisponível"
+   },
+   "textUpdate": {
+      "message": "Atualizar para"
+   },
+   "version30installed": {
+      "message": "Versão 3.0.0.18 instalada"
+   },
+   "whatsnew": {
+      "message": "O que há de novo?:"
+   }
+}

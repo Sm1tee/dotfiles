@@ -1,0 +1,205 @@
+{
+   "400": {
+      "message": "El server ha dit que aquesta sol·licitud es invalida"
+   },
+   "409": {
+      "message": "Això ja s'ha enviat abans"
+   },
+   "Description": {
+      "description": "Description of the extension.",
+      "message": "Omet els sponsorships, pregant per una subscripció i mes en videos de YouTube. Informa dels patrocinadors a els vídeos que mires per estalviar temps als altres."
+   },
+   "Dismiss": {
+      "message": "Omet"
+   },
+   "Hide": {
+      "message": "No mostris mai"
+   },
+   "Loading": {
+      "message": "Carregant..."
+   },
+   "Options": {
+      "message": "Opcions"
+   },
+   "Segment": {
+      "message": "segment"
+   },
+   "Segments": {
+      "message": "segments"
+   },
+   "Submissions": {
+      "message": "Propostes"
+   },
+   "Unknown": {
+      "message": "S'ha produït un error en enviar els temps d'anunciant, torneu-ho a provar més endavant."
+   },
+   "Username": {
+      "message": "Nom d'usuari"
+   },
+   "autoHideInfoButton": {
+      "message": "Amaga automàticament el botó d'informació"
+   },
+   "channelWhitelisted": {
+      "message": "El canal és a la llista blanca!"
+   },
+   "clearThis": {
+      "message": "Segur que voleu esborrar això?\n\n"
+   },
+   "clearTimes": {
+      "message": "Esborra els segments"
+   },
+   "clearTimesButton": {
+      "message": "Esborra temps"
+   },
+   "closePopup": {
+      "message": "Tanca la finestra"
+   },
+   "confirmMSG": {
+      "message": "Per editar o esborrar valors individuals, premeu el botó d'informació o cliqueu la pestanya de l'extensió al cantó superior dret."
+   },
+   "connectionError": {
+      "message": "S'ha produït un error de connexió. Codi d'error: "
+   },
+   "copyPublicID": {
+      "message": "Copia l'identificador públic d'usuari"
+   },
+   "fullName": {
+      "description": "Name of the extension.",
+      "message": "SponsorBlock per YouTube - Omet els Sponsorships"
+   },
+   "help": {
+      "message": "Ajuda"
+   },
+   "hideButtonsDescription": {
+      "message": "Això amaga els botons que apareixen al reproductor de YouTube per enviar segments."
+   },
+   "hideThis": {
+      "message": "Amaga això"
+   },
+   "hitGoBack": {
+      "message": "Premeu \"no saltar\" per tornar on estàveu."
+   },
+   "hourLower": {
+      "message": "hora"
+   },
+   "hoursLower": {
+      "message": "hores"
+   },
+   "manualPaused": {
+      "message": "S'ha aturat el temporitzador"
+   },
+   "minLower": {
+      "message": "minut"
+   },
+   "minsLower": {
+      "message": "minuts"
+   },
+   "noVideoID": {
+      "message": "No s'ha trobat cap vídeo de YouTube.\nSi penseu que és incorrecte, refresqueu la pestanya."
+   },
+   "openPopup": {
+      "message": "Obrir finestra de SponsorBlock"
+   },
+   "paused": {
+      "message": "En pausa"
+   },
+   "popupHint": {
+      "message": "Consell: Podeu crear tecles de drecera per enviar en \"opcions\""
+   },
+   "recordTimesDescription": {
+      "message": "Envia"
+   },
+   "refreshSegments": {
+      "message": "Refresca els segments"
+   },
+   "removeFromWhitelist": {
+      "message": "Treure canal de la llista blanca"
+   },
+   "reportButtonInfo": {
+      "message": "Notifiqueu que aquest enviament és incorrecte."
+   },
+   "reportButtonTitle": {
+      "message": "Informa"
+   },
+   "reskip": {
+      "message": "Saltar de nou"
+   },
+   "savedPeopleFrom": {
+      "message": "Heu estalviat la gent "
+   },
+   "serverDown": {
+      "message": "Sembla que ha caigut el servidor. Contacteu el desenvolupador immediatament."
+   },
+   "setUsername": {
+      "message": "Definiu el nom d'usuari"
+   },
+   "showButtons": {
+      "message": "Mostra els botons al reproductor de YouTube"
+   },
+   "showInfoButton": {
+      "message": "Mostra el botó d'informació al reproductor de YouTube"
+   },
+   "showSkipButton": {
+      "message": "Mantenir \"Botar al destacat\" al reproductor"
+   },
+   "sponsor404": {
+      "message": "No s'han trobat segments"
+   },
+   "sponsorCancel": {
+      "message": "Cancel·la la creació del segment"
+   },
+   "sponsorEnd": {
+      "message": "El segment acaba ara"
+   },
+   "sponsorFound": {
+      "message": "Aquest vídeo té segments a la base de dades!"
+   },
+   "sponsorStart": {
+      "message": "El segment comença ara"
+   },
+   "statusReminder": {
+      "message": "Visiteu status.sponsor.ajay.app per conèixer l'estat del servidor."
+   },
+   "submissionEditHint": {
+      "description": "Appears in the popup to inform them that editing has been moved to the video player.",
+      "message": "L'edició de seccions apareixerà després de prémer \"envia\""
+   },
+   "submitCheck": {
+      "message": "Segur que voleu enviar això?"
+   },
+   "success": {
+      "message": "Èxit!"
+   },
+   "unmute": {
+      "message": "Deixa de silenciar"
+   },
+   "unskip": {
+      "message": "No saltar"
+   },
+   "upvoteButtonInfo": {
+      "message": "Voteu millor aquesta submissió"
+   },
+   "viewLeaderboard": {
+      "message": "Classificació"
+   },
+   "voteOnTime": {
+      "message": "Vota un segment"
+   },
+   "voted": {
+      "message": "Votat!"
+   },
+   "whatChangeUserID": {
+      "message": "Això hauria de romandre privat: és semblant a una contrasenya i no s'hauria de compartir amb cap persona. Si algú hi té accés, poden suplantar-vos. Si esteu cercant el vostre identificador d'usuari públic, premeu la icona del portanotes a la finestra."
+   },
+   "whitelistChannel": {
+      "message": "Canal de llista blanca"
+   },
+   "youHaveSavedTime": {
+      "description": "You've saved people from 887,362 segments (236d 15h 5.3 minutes of their lives).",
+      "message": "Heu estalviat la gent"
+   },
+   "youHaveSavedTimeEnd": {
+      "description": "You've saved people from 887,362 segments (236d 15h 5.3 minutes of their lives).",
+      "message": " de les seves vides"
+   }
+}

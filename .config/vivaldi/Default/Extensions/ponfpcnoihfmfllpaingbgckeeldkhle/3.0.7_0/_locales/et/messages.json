@@ -1,0 +1,596 @@
+{
+   "appearance": {
+      "message": "Välimus"
+   },
+   "auto_apply_video_filters": {
+      "message": "Rakenda videofiltrid automaatselt"
+   },
+   "auto_boost_volume": {
+      "message": "Võimenda helitugevust automaatselt"
+   },
+   "auto_cinema_mode": {
+      "message": "Luba kinorežiim automaatselt"
+   },
+   "auto_enable_theater_mode": {
+      "message": "Lülita YouTube \"Kinorežiim\" automaatselt sisse"
+   },
+   "auto_execute_script": {
+      "message": "Automaatselt käivita skript, kui YouTube laaditakse vahekaardil"
+   },
+   "auto_expand_description": {
+      "message": "Automaatselt laienda video kirjeldused"
+   },
+   "auto_expand_player": {
+      "message": "Suurenda videomängija automaatselt"
+   },
+   "auto_hide_cards_end_screens": {
+      "message": "Peida infokaardid ja lõpuekraanid automaatselt"
+   },
+   "auto_select_quality": {
+      "message": "Vali esituskvaliteet automaatselt"
+   },
+   "auto_sort_comments": {
+      "message": "Sordi kommentaarid automaatselt uusimast vanimani"
+   },
+   "autoplay": {
+      "message": "Automaatesitus"
+   },
+   "backup": {
+      "message": "Tee varukoopia"
+   },
+   "below_video_player": {
+      "message": "Videomängija all"
+   },
+   "block_hfr_formats": {
+      "message": "Sunni standardsete kaadrisageduse vormingute kasutamist (24, 25, 30 k/s) kõrgete kaadrisageduste asemel (48, 50, 60 k/s)"
+   },
+   "block_webm_formats": {
+      "message": "Sunni MP4 vorming ja AVC koodeki kasutamine (H.264) WebM vormingu ja VP9 koodeki asemel (maksimaalne eraldusvõime: 1080p60 HD)"
+   },
+   "boost_volume": {
+      "message": "Helitugevuse võimendamine"
+   },
+   "bottom_center": {
+      "message": "Alumine keskus"
+   },
+   "bottom_left_corner": {
+      "message": "Alumine vasak nurk"
+   },
+   "bottom_of_window": {
+      "message": "Akna alumises osas"
+   },
+   "bottom_right_corner": {
+      "message": "Alumine parem nurk"
+   },
+   "brightness": {
+      "message": "Heledus:"
+   },
+   "cards_end_screens_control_info": {
+      "message": "Kliki, et lülitada infokaartide ja lõpukaartide nähtavus sisse/välja"
+   },
+   "center_control_bar": {
+      "message": "Paiguta juhikuriba keskele video mängija alla, kui see laiendatakse või täisekraanirežiimis"
+   },
+   "center_video_player": {
+      "message": "Vii videomängija vaateakna keskele"
+   },
+   "cinema_mode": {
+      "message": "Kinorežiim"
+   },
+   "cinema_mode_control_info": {
+      "message": "Kliki, et lülitada kinorežiim sisse/välja"
+   },
+   "cinema_mode_toggle_size": {
+      "message": "Automaatselt suurenda või kahanda videomängija, kui kinorežiimi lülituda"
+   },
+   "color": {
+      "message": "Värv:"
+   },
+   "color_inversion": {
+      "message": "Värvide pööramine:"
+   },
+   "configure_keyboard_shortcuts": {
+      "message": "Kohandada klaviatuuri kiirklahve"
+   },
+   "contrast": {
+      "message": "Kontrast:"
+   },
+   "control_bar_location": {
+      "message": "Juhikuriba asukoht:"
+   },
+   "control_speed": {
+      "message": "Juhi esituskiirust hiire rullikuga, kui hiirekursor on videomängija kohal ja \"Control\" klahvi (Ctrl) hoitakse all"
+   },
+   "control_speed_mouse_button": {
+      "message": "Ainult siis, kui paremat hiire nuppu vajutatakse"
+   },
+   "control_volume": {
+      "message": "Juhi helitugevust hiire rullikuga videomängijal hiirekursoriga peal olles"
+   },
+   "control_volume_mouse_button": {
+      "message": "Ainult parema hiirenupu vajutamisel"
+   },
+   "controls": {
+      "message": "Juhikud"
+   },
+   "controls_visible": {
+      "message": "Hoia juhikud nähtaval ilma ••• juhikut klikkimata või selle kohale hiirekursoriga liikumata"
+   },
+   "controls_within_control_bar": {
+      "message": "Paiguta juhikud ribale"
+   },
+   "controls_within_video_player": {
+      "message": "Paiguta juhikud videomängija sisse"
+   },
+   "convert_shorts": {
+      "message": "Teisenda Shorts"
+   },
+   "copy_to_clipboard": {
+      "message": "Kopeeri lõikelauale"
+   },
+   "custom_script": {
+      "message": "Kohandatud skript"
+   },
+   "custom_script_control_info": {
+      "message": "Kliki, et käivitada kohandatud skript"
+   },
+   "custom_script_instructions": {
+      "message": "Kleebi või kirjuta JavaScript kood siia, salvesta see alloleva nupu abil, seejärel klõpsa \"Kohandatud skript\" juhikul, kui soovid selle käivitada."
+   },
+   "custom_script_warning": {
+      "message": "Turvakaalutlustel võiksite kasutada ainult kasutada koodi, millest saate aru ja koodi, mis on kirjutatud usaldusväärse arendaja poolt."
+   },
+   "custom_theme": {
+      "message": "Kohandatud teema"
+   },
+   "custom_theme_instructions": {
+      "message": "Kleebi või trüki CSS kood siia, seejärel salvesta alloleva nupu abil."
+   },
+   "dark_theme": {
+      "message": "Tume teema"
+   },
+   "decrease_playback_speed": {
+      "message": "Vähenda esituskiirust"
+   },
+   "default_playback_speed": {
+      "message": "Esituskiiruse vaikesäte:"
+   },
+   "default_volume_level": {
+      "message": "Helitugevuse vaiketase:"
+   },
+   "description": {
+      "message": "Haara kontroll YouTube üle ja võimenda oma kasutajakogemust!"
+   },
+   "detailed_description": {
+      "message": "Ehitatud, et saada maksimum platvormist YouTube, see laiendus sisaldab igasuguseid funktsioone, mis võimaldab sul muuhulgas juhtida esituskiirust ja helitugevust hiire rullikuga, automatiseerita korduvaid tegevusi nn sobiva esituskvaliteedi valimine, konfigureerida tosinate jagu klaviatuuri kiirklahve, et YouTube juhtida nagu professionaal ja palju, palju muudki... Proovi seda! Kuid olge teadlik, et ilma selle laienduseta te enam YouTube kasutada ei taha ;)\n\nYouTube on Google LLC kaubamärk. Selle kaubamärk on kasutatav vastavalt Google tingimustele alludes."
+   },
+   "disable_autoplay": {
+      "message": "Keela automaatesitus"
+   },
+   "display_control_bar": {
+      "message": "Kuva juhikuriba selle peale liikudes hiirekursoriga"
+   },
+   "donate": {
+      "message": "Anneta"
+   },
+   "execute_custom_script": {
+      "message": "Käivita kohandatud skript"
+   },
+   "expand": {
+      "message": "Suurenda"
+   },
+   "expand_shrink_video_player": {
+      "message": "Suurenda või kahanda videomängija"
+   },
+   "expanded_player_viewport": {
+      "message": "Kasuta saadavalolevat ruumi, olenevalt vaateava mõõtmetest, videomängija suurendamiseks"
+   },
+   "export": {
+      "message": "Ekspordi"
+   },
+   "export_instructions": {
+      "message": "Loo uus tekstifail ja kleebi allolev kood ilma seda muutmata."
+   },
+   "flip_horizontally": {
+      "message": "Peegelda horisontaalselt"
+   },
+   "flip_horizontally_control_info": {
+      "message": "Kliki, et video horisontaalselt peegeldada"
+   },
+   "flip_vertically": {
+      "message": "Peegelda vertikaalselt"
+   },
+   "flip_vertically_control_info": {
+      "message": "Kliki, et video vertikaalselt peegeldada"
+   },
+   "flip_video_horizontally": {
+      "message": "Peegelda video horisontaalselt"
+   },
+   "flip_video_vertically": {
+      "message": "Peegelda video vertikaalselt"
+   },
+   "focus_video_player": {
+      "message": "Määra fookus videomängijale"
+   },
+   "gaussian_blur": {
+      "message": "Gaussi hägu:"
+   },
+   "grayscale": {
+      "message": "Halliskaala:"
+   },
+   "hide_chat": {
+      "message": "Peida vestlus"
+   },
+   "hide_comments": {
+      "message": "Peida kommentaarid"
+   },
+   "hide_related_videos": {
+      "message": "Peida seotud videod"
+   },
+   "hide_shorts": {
+      "message": "Peida Shorts"
+   },
+   "hue_rotation": {
+      "message": "Värvitooni pööre:"
+   },
+   "ignore_playlists": {
+      "message": "Ära keela esitusloendite automaatesitus"
+   },
+   "ignore_pop_up_player": {
+      "message": "Ignoreeri hüpikmängijat"
+   },
+   "import": {
+      "message": "Impordi"
+   },
+   "import_error": {
+      "message": "Varukoopia faili sisu pole õige!"
+   },
+   "import_instructions": {
+      "message": "Kleebi varukoopia faili sisu ja klõpsa \"Impordi\" nuppu. Lehekülg laaditakse automaatselt uuesti kui seaded edukalt imporditakse."
+   },
+   "increase_playback_speed": {
+      "message": "Suurenda esituskiirust"
+   },
+   "keyboard_shortcuts": {
+      "message": "Klaviatuuri kiirklahvid"
+   },
+   "keyboard_shortcuts_control_info": {
+      "message": "Kliki, et kuvada loend kõigist klaviatuuri kiirklahvidest YouTube jaoks (väline lehekülg)"
+   },
+   "keyboard_shortcuts_page": {
+      "message": "Kuva kõik klaviatuuri kiirklahvid YouTube jaoks"
+   },
+   "launch_mini_player": {
+      "message": "Käivita minimängija, kui kommentaaride lugemiseks alla keritakse"
+   },
+   "locale_code": {
+      "message": "et"
+   },
+   "locale_dir": {
+      "message": "ltr"
+   },
+   "loop": {
+      "message": "Tsükkel"
+   },
+   "loop_control_info": {
+      "message": "Kliki või paremkliki, et lülitada tsükkelrežiim sisse/välja"
+   },
+   "loop_end": {
+      "message": "Lõpp:"
+   },
+   "loop_start": {
+      "message": "Algus:"
+   },
+   "message": {
+      "message": "Sõnum"
+   },
+   "mini_player": {
+      "message": "Minimängija"
+   },
+   "mini_player_position": {
+      "message": "Minimängija asukoht:"
+   },
+   "mini_player_size": {
+      "message": "Minimängija suurus:"
+   },
+   "mouse": {
+      "message": "Hiir"
+   },
+   "not_now": {
+      "message": "Mitte praegu"
+   },
+   "opacity": {
+      "message": "Läbipaistmatus:"
+   },
+   "open_options_page": {
+      "message": "Ava valikute leht"
+   },
+   "options": {
+      "message": "Valikud"
+   },
+   "options_control_info": {
+      "message": "Kliki, et avada sätete leht"
+   },
+   "override_playback_speeds": {
+      "message": "Kirjuta üle esituskiiruse vaikesäte"
+   },
+   "page_reload_required": {
+      "message": "Enhancer for YouTube™ laiendust uuendati äsja, kõik YouTube lehed tuleb uuesti laadida."
+   },
+   "pause_videos": {
+      "message": "Vii taustakaartidel olevad videod pausile, kui video esitamist alustatakse esiplaanil oleval vahekaardil"
+   },
+   "playback_quality": {
+      "message": "Esituskvaliteet"
+   },
+   "playback_speed": {
+      "message": "Esituskiirus"
+   },
+   "playlists": {
+      "message": "Esitusloendid:"
+   },
+   "playlists_full_screen": {
+      "message": "Esitusloendid (täisekraan):"
+   },
+   "pop_up_player": {
+      "message": "Hüpikmängija"
+   },
+   "pop_up_player_control_info": {
+      "message": "Kliki või paremkliki, et vaadata hüpikmängijaga"
+   },
+   "pop_up_player_embeds": {
+      "message": "Hüpikmängija ja manusvideod:"
+   },
+   "pop_up_player_embeds_full_screen": {
+      "message": "Hüpikmängija ja manusvideod (täisekraan):"
+   },
+   "pop_up_player_size": {
+      "message": "Hüpikmängija suurus:"
+   },
+   "posts_per_row": {
+      "message": "Posts per row (latest news posts)"
+   },
+   "preserve_black_bars_color": {
+      "message": "Ära muuda vertikaalsete mustada ribade värvi, kui YouTube-DeepDark teema on rakendatud või kui kinorežiim on sisse lülitatud"
+   },
+   "prevent_autoplay": {
+      "message": "Takista videote, mis laaditi taustvahekaartidel, automaatne esitamine"
+   },
+   "prevent_autoplay_foreground_tab": {
+      "message": "Takista ka videote, mis laaditi esiplaanil oleval vahekaardil, automaatne esitamine"
+   },
+   "preview": {
+      "message": "Eelvaade"
+   },
+   "rate": {
+      "message": "Hinda"
+   },
+   "rate_extension": {
+      "message": "Hinnage oma kogemust laienduses Enhancer for YouTube™."
+   },
+   "reset": {
+      "message": "Nulli"
+   },
+   "reverse_mouse_wheel_direction": {
+      "message": "Inverteeri hiire rulliku suund esituskiiruse ja helitugevuse juhtimiseks"
+   },
+   "reverse_playlist": {
+      "message": "Pööra esitusloendi järjekord tagurpidi"
+   },
+   "reverse_playlist_control_info": {
+      "message": "Kliki või paremkliki, et vaadata esitusloendit tagurpidi järjekorras hüpikmängijaga"
+   },
+   "reverse_playlist_order": {
+      "message": "Esitusloendi järjekord tagurpidi"
+   },
+   "saturation": {
+      "message": "Küllastus:"
+   },
+   "save": {
+      "message": "Salvesta"
+   },
+   "screenshot": {
+      "message": "Kuvatõmmis"
+   },
+   "screenshot_control_info": {
+      "message": "Kliki, et teha videost kuvapilt"
+   },
+   "select_default_playback_speed": {
+      "message": "Vali esituskiiruse vaikesäte"
+   },
+   "select_normal_playback_speed": {
+      "message": "Vali tavaline esituskiirus"
+   },
+   "select_quality_1080p": {
+      "message": "Vali esituskvaliteet \"1080p\""
+   },
+   "select_quality_1440p": {
+      "message": "Vali esituskvaliteet \"1440p\""
+   },
+   "select_quality_144p": {
+      "message": "Vali esituskvaliteet \"144p\""
+   },
+   "select_quality_2160p": {
+      "message": "Vali esituskvaliteet \"2160p\""
+   },
+   "select_quality_240p": {
+      "message": "Vali esituskvaliteet \"240p\""
+   },
+   "select_quality_2880p": {
+      "message": "Vali esituskvaliteet \"2880p\""
+   },
+   "select_quality_360p": {
+      "message": "Vali esituskvaliteet \"360p\""
+   },
+   "select_quality_4320p": {
+      "message": "Vali esituskvaliteet \"4320p\""
+   },
+   "select_quality_480p": {
+      "message": "Vali esituskvaliteet \"480p\""
+   },
+   "select_quality_720p": {
+      "message": "Vali esituskvaliteet \"720p\""
+   },
+   "select_quality_auto": {
+      "message": "Vali esituskvaliteet \"Automaatne\""
+   },
+   "select_quality_full_screen": {
+      "message": "Vali teine esituskvaliteet täisekraani sisenemisel"
+   },
+   "sepia": {
+      "message": "Seepia:"
+   },
+   "shorts_per_row": {
+      "message": "Shorts per row"
+   },
+   "shorts_per_row_channel": {
+      "message": "Shorts per row (channel)"
+   },
+   "shrink": {
+      "message": "Kahanda"
+   },
+   "size_control_info": {
+      "message": "Kliki, et suurendada või kahandada videomängija või paremkliki, et viia videomängija vaateakna keskele"
+   },
+   "speed": {
+      "message": "Kiirus"
+   },
+   "speed_control_info": {
+      "message": "Kasuta hiirerullikut, et juhtida esituskiirust või kliki, et valida vaikekiirus või paremkliki, et valida tavaline esituskiirus"
+   },
+   "speed_minus_control_info": {
+      "message": "Kliki, et vähendada esituskiirust"
+   },
+   "speed_plus_control_info": {
+      "message": "Kliki, et suurendada esituskiirust"
+   },
+   "speed_variation": {
+      "message": "Kiiruse varieerimine hiire rulliku pööramisel või kiirusnuppude \"-\" ja \"+\" klikkimisel:"
+   },
+   "stop": {
+      "message": "Peata"
+   },
+   "stop_control_info": {
+      "message": "Kliki, et video peatada"
+   },
+   "stop_video": {
+      "message": "Peata video"
+   },
+   "stop_videos": {
+      "message": "Peata videod täielikult selle asemel, et automaatesitus keelata"
+   },
+   "support": {
+      "message": "Toeta"
+   },
+   "switch_back_previous_quality": {
+      "message": "Lülitu tagasi eelmisele esituskvaliteedile täisekraanist väljumisel"
+   },
+   "take_screenshot": {
+      "message": "Tee videost kuvapilt"
+   },
+   "theme": {
+      "message": "Teema"
+   },
+   "theme_custom_theme": {
+      "message": "Teema: Kohandatud teema"
+   },
+   "theme_enhancer_for_youtube": {
+      "message": "Teema: Enhancer for YouTube™"
+   },
+   "theme_youtube_dark": {
+      "message": "Teema: YouTube™ (Tume)"
+   },
+   "theme_youtube_deep_dark": {
+      "message": "Teema: YouTube-DeepDark"
+   },
+   "theme_youtube_deep_dark_custom": {
+      "message": "Teema: YouTube-DeepDark (Kohandatud)"
+   },
+   "toggle_cards_end_screens": {
+      "message": "Infokaartide ja lõpuekraanide nähtavuse lüliti"
+   },
+   "toggle_cinema_mode": {
+      "message": "Kinorežimi lüliti"
+   },
+   "toggle_comments_visibility": {
+      "message": "Kommentaaride nähtavuse lüliti"
+   },
+   "toggle_loop": {
+      "message": "Tsüklirežiimi lüliti"
+   },
+   "toggle_pip_mode": {
+      "message": "Pilt-pildis režiimi lüliti"
+   },
+   "toggle_related_videos_visibility": {
+      "message": "Seotud videote nähtavuse lüliti"
+   },
+   "toggle_video_filters": {
+      "message": "Videofiltrite lüliti"
+   },
+   "toggle_visibility": {
+      "message": "Infokaartide ja lõpuekraanide nähtavus"
+   },
+   "toggle_volume_booster": {
+      "message": "Helitugevuse võimendi lüliti"
+   },
+   "top_center": {
+      "message": "Ülemine keskus"
+   },
+   "top_left_corner": {
+      "message": "Ülemine vasak nurk"
+   },
+   "top_right_corner": {
+      "message": "Ülemine parem nurk"
+   },
+   "translate": {
+      "message": "Tõlgi"
+   },
+   "variant": {
+      "message": "Variant:"
+   },
+   "video_codecs_and_formats": {
+      "message": "Videokoodekid ja vormingud"
+   },
+   "video_filters": {
+      "message": "Video filtrid"
+   },
+   "video_filters_control_info": {
+      "message": "Kliki, et lülitada videofiltrid sisse/välja või paremkliki, et lülitada videofiltrite paneel sisse/välja"
+   },
+   "videos": {
+      "message": "Videod:"
+   },
+   "videos_full_screen": {
+      "message": "Videod (täisekraan):"
+   },
+   "videos_per_row": {
+      "message": "Videos per row"
+   },
+   "videos_per_row_channel": {
+      "message": "Videos per row (channel)"
+   },
+   "volume": {
+      "message": "Helitugevuse"
+   },
+   "volume_booster_control_info": {
+      "message": "Kliki, et lülitada helitugevuse võimendi sisse/välja"
+   },
+   "volume_booster_level": {
+      "message": "Helitugevuse võimendi tase:"
+   },
+   "volume_variation": {
+      "message": "Helitugevuse varieerimine hiire rulliku pööramisel:"
+   },
+   "watch_pop_up_player": {
+      "message": "Vaata hüpikmängijaga"
+   },
+   "youtube_dark_theme": {
+      "message": "YouTube (ametlik teema)"
+   },
+   "youtube_deep_dark": {
+      "message": "YouTube-DeepDark (koostas RaitaroH)"
+   },
+   "youtube_deep_dark_custom": {
+      "message": "YouTube-DeepDark (kohandatud)"
+   }
+}

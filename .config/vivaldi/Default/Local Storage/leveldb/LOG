@@ -1,0 +1,23 @@
+2025/06/14-00:06:27.621 4 Reusing MANIFEST /home/smitee/.config/vivaldi/Default/Local Storage/leveldb/MANIFEST-000001
+2025/06/14-00:06:27.625 4 Recovering log #4747
+2025/06/14-00:06:27.626 4 Reusing old log /home/smitee/.config/vivaldi/Default/Local Storage/leveldb/004747.log 
+2025/06/14-00:10:28.709 5 Level-0 table #4751: started
+2025/06/14-00:10:28.714 5 Level-0 table #4751: 27297 bytes OK
+2025/06/14-00:10:28.717 5 Delete type=0 #4747
+2025/06/14-00:10:28.717 5 Compacting 4@0 + 5@1 files
+2025/06/14-00:10:28.734 5 Generated table #4752@0: 2645 keys, 2100668 bytes
+2025/06/14-00:10:28.753 5 Generated table #4753@0: 1002 keys, 2361645 bytes
+2025/06/14-00:10:28.775 5 Generated table #4754@0: 2249 keys, 2111730 bytes
+2025/06/14-00:10:28.797 5 Generated table #4755@0: 7413 keys, 2105179 bytes
+2025/06/14-00:10:28.800 5 Generated table #4756@0: 219 keys, 229728 bytes
+2025/06/14-00:10:28.800 5 Compacted 4@0 + 5@1 files => 8908950 bytes
+2025/06/14-00:10:28.802 5 compacted to: files[ 0 6 1 0 0 0 0 ]
+2025/06/14-00:10:28.803 5 Delete type=2 #4748
+2025/06/14-00:10:28.803 5 Delete type=2 #4738
+2025/06/14-00:10:28.803 5 Delete type=2 #4737
+2025/06/14-00:10:28.803 5 Delete type=2 #4736
+2025/06/14-00:10:28.803 5 Delete type=2 #4740
+2025/06/14-00:10:28.803 5 Delete type=2 #4751
+2025/06/14-00:10:28.803 5 Delete type=2 #4743
+2025/06/14-00:10:28.803 5 Delete type=2 #4745
+2025/06/14-00:10:28.803 5 Delete type=2 #4739

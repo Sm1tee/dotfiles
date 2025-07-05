@@ -1,0 +1,86 @@
+{
+   "colorTheme": {
+      "message": "Цветовая схема:"
+   },
+   "colorizeRatio": {
+      "message": "Раскрасьте полосу неприязни"
+   },
+   "colorizeRatioHover": {
+      "message": "Раскрасьте полосу неприязни собственными цветами."
+   },
+   "colorizeThumbs": {
+      "message": "Раскрасьте кнопки"
+   },
+   "colorizeThumbsHover": {
+      "message": "Раскрасьте кнопки нравится и не нравится с помощью пользовательских цветов."
+   },
+   "considerDonating": {
+      "message": "Единственный источник доходов позволяющий расширению продолжать работу - ваши пожертвования. Пожалуйста, поддержите нас и помогите нам развиваться."
+   },
+   "customColors": {
+      "message": "Выбор цветов панели дизлайков и кнопок"
+   },
+   "customNumberFormats": {
+      "message": "Выбор формата чисел"
+   },
+   "extensionDesc": {
+      "message": "Возвращает способность видеть дизлайки"
+   },
+   "extensionName": {
+      "message": "Return YouTube Dislike"
+   },
+   "extensionNameBeta": {
+      "message": "Return YouTube Dislike Beta"
+   },
+   "legendSettings": {
+      "message": "Настройки"
+   },
+   "linkDonate": {
+      "message": "Пожертвовать"
+   },
+   "linkFAQ": {
+      "message": "ЧАВО"
+   },
+   "linkHelp": {
+      "message": "Помощь"
+   },
+   "linkWebsite": {
+      "message": "Сайт"
+   },
+   "numberFormat": {
+      "message": "Числовой формат"
+   },
+   "reformatLikes": {
+      "message": "Форматировать количество лайков"
+   },
+   "reformatLikesHover": {
+      "message": "Делает значение статистики более последовательным."
+   },
+   "roundNumbers": {
+      "message": "Показывать округленные числа"
+   },
+   "roundNumbersHover": {
+      "message": "Округлить значение счетчика (это параметр YouTube по умолчанию)."
+   },
+   "shortsSupport": {
+      "message": "Поддержка YouTube Shorts"
+   },
+   "textDeveloper": {
+      "message": "Дмитрий Селиванов и сообщество"
+   },
+   "textSettings": {
+      "message": "Отключить отправку лайков/дизлайков"
+   },
+   "textSettingsHover": {
+      "message": "Отключает отправку ваших отметок нравится/не нравится"
+   },
+   "textUpdate": {
+      "message": "обновление до"
+   },
+   "version30installed": {
+      "message": "Версия 3.0.0.18 установлена"
+   },
+   "whatsnew": {
+      "message": "Что нового"
+   }
+}

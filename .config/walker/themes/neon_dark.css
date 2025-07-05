@@ -1,0 +1,286 @@
+/* NEON DARK THEME FOR WALKER LAUNCHER - ИСПРАВЛЕНО */
+
+@define-color foreground rgba(255, 255, 255, 0.95);
+@define-color background rgba(15, 15, 20, 0.95);
+@define-color neon-main rgba(0, 255, 204, 0.9);
+@define-color neon-main-bright rgba(0, 255, 204, 1);
+@define-color neon-main-dim rgba(0, 255, 204, 0.7);
+@define-color accent-glow rgba(0, 255, 204, 0.3);
+@define-color background-lighter rgba(25, 25, 35, 0.9);
+
+#window,
+#box,
+#aiScroll,
+#aiList,
+#search,
+#password,
+#input,
+#prompt,
+#clear,
+#typeahead,
+#list,
+child,
+scrollbar,
+slider,
+#item,
+#text,
+#label,
+#bar,
+#sub,
+#activationlabel {
+  all: unset;
+}
+
+#cfgerr {
+  background: rgba(255, 50, 50, 0.6);
+  margin-top: 20px;
+  padding: 12px;
+  font-size: 1.2em;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 100, 100, 0.8);
+  box-shadow: 0 0 10px rgba(255, 50, 50, 0.4);
+}
+
+#window {
+  color: @foreground;
+  background: transparent;
+}
+
+#box {
+  border-radius: 16px;
+  background: linear-gradient(135deg, 
+    rgba(15, 15, 20, 0.98) 0%, 
+    rgba(25, 20, 35, 0.95) 100%);
+  padding: 30px;
+  border: 2px solid @neon-main-bright;
+  box-shadow:
+    0 0 20px rgba(0, 255, 204, 0.2),
+    0 0 40px rgba(0, 255, 204, 0.1),
+    0 10px 30px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  min-width: 800px;
+}
+
+#search {
+  box-shadow:
+    0 0 15px rgba(0, 255, 204, 0.3),
+    0 4px 15px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, 
+    @background-lighter 0%, 
+    rgba(30, 25, 40, 0.9) 100%);
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 255, 204, 0.6);
+  transition: all 0.3s ease;
+}
+
+#search:focus-within {
+  box-shadow:
+    0 0 20px rgba(0, 255, 204, 0.4),
+    0 0 35px rgba(0, 255, 204, 0.2),
+    0 4px 15px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: @neon-main-bright;
+}
+
+#prompt {
+  margin-left: 6px;
+  margin-right: 16px;
+  color: @neon-main-bright;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 6px rgba(0, 255, 204, 0.5));
+}
+
+#clear {
+  color: @neon-main;
+  opacity: 0.9;
+  transition: all 0.2s ease;
+  filter: drop-shadow(0 0 4px rgba(0, 255, 204, 0.4));
+}
+
+#clear:hover {
+  opacity: 1;
+  filter: drop-shadow(0 0 8px rgba(0, 255, 204, 0.6));
+}
+
+#password,
+#input,
+#typeahead {
+  border-radius: 8px;
+}
+
+#input {
+  background: none;
+  color: @foreground;
+  font-size: 1.1em;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+#typeahead {
+  color: @neon-main;
+  opacity: 0.7;
+  text-shadow: 0 0 6px rgba(0, 255, 204, 0.4);
+}
+
+#input placeholder {
+  opacity: 0.4;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+#list {
+  margin-top: 12px;
+}
+
+child {
+  padding: 16px 20px;
+  border-radius: 12px;
+  margin: 4px 0;
+  transition: all 0.2s ease;
+  background: linear-gradient(135deg, 
+    rgba(20, 20, 30, 0.6) 0%, 
+    rgba(30, 25, 40, 0.4) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+child:selected,
+child:hover {
+  background: linear-gradient(135deg, 
+    rgba(0, 255, 204, 0.15) 0%, 
+    rgba(0, 255, 204, 0.1) 50%,
+    rgba(0, 255, 204, 0.15) 100%);
+  border: 1px solid rgba(0, 255, 204, 0.6);
+  box-shadow:
+    0 0 12px rgba(0, 255, 204, 0.2),
+    0 0 20px rgba(0, 255, 204, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+#item {
+  display: flex;
+  align-items: center;
+}
+
+#icon {
+  margin-right: 16px;
+}
+
+#text {
+  flex: 1;
+  overflow: hidden;
+}
+
+#label {
+  font-weight: 600;
+  color: @foreground;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  font-size: 1.1em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#sub {
+  opacity: 0.7;
+  font-size: 0.9em;
+  color: @neon-main;
+  text-shadow: 0 0 4px rgba(0, 255, 204, 0.3);
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#activationlabel {
+  color: @neon-main-bright;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(0, 255, 204, 0.5);
+}
+
+#bar {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 255, 204, 0.3);
+}
+
+.barentry {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(0, 255, 204, 0.1);
+  border: 1px solid rgba(0, 255, 204, 0.3);
+  transition: all 0.2s ease;
+}
+
+.barentry:hover {
+  background: rgba(0, 255, 204, 0.2);
+  border-color: rgba(0, 255, 204, 0.6);
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+}
+
+.activation #activationlabel {
+  animation: neon-pulse 1.5s ease-in-out infinite alternate;
+}
+
+.activation #text,
+.activation #icon,
+.activation #search {
+  opacity: 0.6;
+}
+
+.aiItem {
+  padding: 16px;
+  border-radius: 12px;
+  color: @foreground;
+  background: linear-gradient(135deg, 
+    rgba(20, 20, 30, 0.8) 0%, 
+    rgba(25, 20, 35, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 8px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.aiItem.user {
+  padding-left: 0;
+  padding-right: 0;
+  background: linear-gradient(135deg, 
+    rgba(0, 255, 204, 0.1) 0%, 
+    rgba(0, 255, 204, 0.05) 100%);
+  border-left: 3px solid @neon-main;
+}
+
+.aiItem.assistant {
+  background: linear-gradient(135deg, 
+    rgba(0, 255, 204, 0.1) 0%, 
+    rgba(0, 255, 204, 0.05) 100%);
+  border-left: 3px solid @neon-main-dim;
+}
+
+/* Scrollbar styling */
+scrollbar {
+  background: rgba(20, 20, 30, 0.6);
+  border-radius: 8px;
+}
+
+slider {
+  background: linear-gradient(135deg, @neon-main, @neon-main-bright);
+  border-radius: 8px;
+  min-height: 20px;
+  min-width: 8px;
+}
+
+slider:hover {
+  background: linear-gradient(135deg, @neon-main-bright, @neon-main);
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.4);
+}
+
+/* Neon pulse animation */
+@keyframes neon-pulse {
+  0% {
+    text-shadow: 0 0 5px rgba(0, 255, 204, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(0, 255, 204, 0.9), 
+                 0 0 25px rgba(0, 255, 204, 0.6);
+  }
+}

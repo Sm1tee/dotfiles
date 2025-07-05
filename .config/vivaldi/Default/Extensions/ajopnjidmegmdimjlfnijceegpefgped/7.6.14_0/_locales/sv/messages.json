@@ -1,0 +1,41 @@
+{
+   "EXTENSION_DESCRIPTION": {
+      "message": "BetterTTV förbättrar Twitch och YouTube med nya funktioner, emotes och mer."
+   },
+   "EXTENSION_NAME": {
+      "message": "BetterTTV"
+   },
+   "EXTENSION_PERMISSIONS_UPGRADE_BODY_1": {
+      "message": "BetterTTV stöder både Twitch och YouTube"
+   },
+   "EXTENSION_PERMISSIONS_UPGRADE_BODY_2": {
+      "message": "För att aktivera båda måste vi be dig om ytterligare behörigheter. Klicka på knappen nedan för att fortsätta."
+   },
+   "EXTENSION_PERMISSIONS_UPGRADE_BUTTON": {
+      "message": "Tillåt Twitch och YouTube"
+   },
+   "EXTENSION_PERMISSIONS_UPGRADE_PAGE_TITLE": {
+      "message": "BetterTTV: Ytterligare Behörigheter"
+   },
+   "EXTENSION_PERMISSIONS_UPGRADE_TITLE": {
+      "message": "Tack för att du använder BetterTTV!"
+   },
+   "EXTENSION_POPUP_TEXT": {
+      "message": "BetterTTV Inställningar finns i Twitch chattinställningar på Twitch hemsidan. Du kan högerklicka på denna ikon och dölja den eftersom den inte behövs."
+   },
+   "MARKETING_DESCRIPTION": {
+      "message": "Även känd som \"BTTV\" eller \"Bättre Twitch TV\" av gemenskapen, syftar BetterTTV till att lägga till nya funktioner på Twitch och YouTube (i beta).\n\nHär är några av de funktioner vi lägger till:\n\n• Extra emotes i chatten - BetterTTV globala och per kanal anpassade emotes\n• Förbättrad emote meny\n• Anpassade nyckelord som riktar in sig på fraser, ord, användare, och chattmärken\n• Dela upp chattrader för enkel läsning\n• Se raderade länkar och meddelanden\n• Anon Chat - gå med i en kanal utan att visa i användarlistan\n• Automatiskt hämta kanalpoäng bonusar, fall och stunder\n• Dölj visuellt brus och skräp som rekommenderade kanaler, bitar, svar, meddelanden, och community höjdpunkter\n\nHur man använder:\n\n• Installera och besök Twitch/YouTube för att börja använda tillägget.\n• För att aktivera för YouTube måste du godkänna ytterligare behörighet vid installationen. Om du inte gjorde det kan du fortfarande aktivera det när som helst från inställningarna för BetterTTV.\n• Inställningarna kan konfigureras i chattinställningarna eller genom att klicka på BetterTTV-inställningarna i rullgardinsmenyn.\n• Obs: Alla inställningar är inte kompatibla med YouTube just nu."
+   },
+   "MARKETING_IMAGE_1": {
+      "message": "Lås upp fler Emotes\nBumpa upp ditt emote-spel i chatt med BetterTTV emotes."
+   },
+   "MARKETING_IMAGE_2": {
+      "message": "Lysande Navigering\nNavigera enkelt genom dina emotes och hitta den perfekta emoten for alla tillfällen."
+   },
+   "MARKETING_IMAGE_3": {
+      "message": "Fullständig anpassning"
+   },
+   "MARKETING_SUMMARY": {
+      "message": "Förbättrar Twitch och YouTube med nya funktioner, emotes och mer."
+   }
+}

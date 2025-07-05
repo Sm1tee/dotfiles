@@ -1,0 +1,283 @@
+/* Variables */
+:root {
+  color-scheme: dark;
+
+  --primary: #cc2929;
+  --primary: #f39090;
+  --secondary: #502e2e;
+  --tertiary: #221818;
+  --background: #352929;
+
+  --accent: #581111;
+  --lightGrey: #999;
+}
+
+/***   MATERIAL 3   ***/
+.m3-primary {
+  background: var(--primary) !important;
+  color: var(--background) !important;
+}
+.m3-btn {
+  background: var(--tertiary);
+  color: var(--primary);
+  transition: 0.4s;
+  border-radius: 4px;
+  font-weight: 500;
+  border-radius: 100em;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+  margin: 0.25em;
+}
+.m3-btn:hover {
+  background: var(--secondary) !important;
+  color: var(--primary) !important;
+}
+
+select {
+  border-radius: 1em;
+  background-color: var(--secondary);
+  color: var(--primary);
+  border: none;
+  outline: none;
+  padding: 3px 2px;
+}
+/***   END MATERIAL 3   ***/
+
+/* Window Styling */
+html,
+body {
+  background-color: var(--background);
+  color: var(--primary);
+  min-width: 310px;
+  min-height: 350px;
+  padding: 0.5em;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 26px;
+}
+
+#ext-version {
+  padding: 0.25rem 0.5rem;
+}
+
+button {
+  cursor: pointer;
+  padding: 5px 16px;
+  border: none;
+}
+
+#ext-update {
+  cursor: pointer;
+  color: var(--primary);
+  text-decoration: none;
+  background: var(--primary);
+  border-radius: 0.25rem;
+}
+#ext-update:hover {
+  text-decoration: underline;
+}
+
+#ext {
+  padding: 0.25rem 0;
+  z-index: 69;
+  position: fixed;
+  background: var(--secondary);
+  margin: 0;
+  bottom: 1.15rem;
+  right: 1.15rem;
+  border-radius: 0.25rem;
+}
+
+.switch::before,
+.label-with-hover-tip::before {
+  content: attr(data-hover);
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    visibility 0.1s linear,
+    opacity 0.1s linear;
+  width: 250px;
+  background-color: var(--secondary);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 160%;
+}
+
+.switch:hover::before,
+.label-with-hover-tip:hover::before {
+  visibility: visible;
+  opacity: 1;
+}
+
+.fade-in {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 2s;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#advancedToggle {
+  position: fixed;
+  background: none;
+  box-shadow: none;
+  color: var(--primary);
+  top: 26px;
+  right: 26px;
+  padding: 2px;
+  z-index: 69;
+  height: 2rem;
+  width: 2rem;
+  transition-duration: .25s;
+}
+
+#advancedToggle:hover {
+  transform: rotate(-90deg);
+}
+
+#advancedToggle:active {
+  transform: scale(1.5);
+}
+
+#advancedSettings {
+  opacity: 0;
+  pointer-events: none;
+  transition-duration: 0.15s;
+  transition-timing-function: ease-in-out;
+  transform: scale(1.1);
+  position: fixed;
+  background: var(--background);
+  top: 10px;
+  right: 14px;
+  width: calc(100% - 65px);
+  height: calc(100% - 58px);
+  padding: 1rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: none;
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #111; /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary); /* color of the scroll thumb */
+  border-radius: 1rem 0 0 1rem; /* roundness of the scroll thumb */
+  border-bottom: 0.25rem solid #111; /* creates padding around scroll thumb */
+  border-left: 0.25rem solid #111; /* creates padding around scroll thumb */
+  border-top: 0.25rem solid #111; /* creates padding around scroll thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #f22; /* color of the scroll thumb */
+  border-radius: 1rem 0 0 1rem; /* roundness of the scroll thumb */
+  border-bottom: 0.25rem solid #111; /* creates padding around scroll thumb */
+  border-left: 0.25rem solid #111; /* creates padding around scroll thumb */
+  border-top: 0.25rem solid #111; /* creates padding around scroll thumb */
+}
+
+#advancedLegend {
+  color: var(--secondary) !important;
+  /* margin: auto; */ /* Center the label */
+  /* padding: .25rem .5rem; */
+  /* border-radius: .25rem; */
+  /* border: .25rem solid var(--secondary); */
+}
+
+/*   Switches   */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 17px;
+  margin-bottom: 1rem;
+}
+
+.label-with-hover-tip {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 17px;
+  margin-bottom: 1rem;
+}
+
+.switch:last-of-type {
+  margin-bottom: 0;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--secondary);
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background: var(--primary);
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background: var(--accent);
+}
+
+input:checked + .slider::before {
+  transform: translateX(13px);
+  background: var(--primary);
+}
+
+.switchLabel {
+  margin-left: 0.5rem;
+  width: 250px !important;
+  transform: translateX(35px);
+  display: inline-block;
+}
+
+#server-status {
+  height: 72px;
+  width: 90px;
+  /* filter: invert(21%) sepia(100%) saturate(3618%) hue-rotate(102deg)
+    brightness(96%) contrast(108%); */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

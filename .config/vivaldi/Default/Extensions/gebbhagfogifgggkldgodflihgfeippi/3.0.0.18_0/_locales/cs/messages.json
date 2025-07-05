@@ -1,0 +1,62 @@
+{
+   "considerDonating": {
+      "message": "Jediná věc, díky které rozšíření funguje, jsou vaše příspěvky. Zvažte prosím podpoření projektu."
+   },
+   "customColors": {
+      "message": "Vlastní barvy pro lištu disliků a tlačítka"
+   },
+   "customNumberFormats": {
+      "message": "Vlastní formáty čísel"
+   },
+   "extensionDesc": {
+      "message": "Navrátí možnost zobrazení počtu disliků"
+   },
+   "extensionName": {
+      "message": "Return YouTube Dislike"
+   },
+   "extensionNameBeta": {
+      "message": "Return YouTube Dislike Beta"
+   },
+   "legendSettings": {
+      "message": "Nastavení"
+   },
+   "linkDonate": {
+      "message": "Přispějte"
+   },
+   "linkFAQ": {
+      "message": "FAQ"
+   },
+   "linkHelp": {
+      "message": "Nápověda"
+   },
+   "linkWebsite": {
+      "message": "Web"
+   },
+   "shortsSupport": {
+      "message": "Podpora YouTube Shorts"
+   },
+   "textDeveloper": {
+      "message": "vytvořil Dmitry Selivanov & komunita"
+   },
+   "textLikesDisabled": {
+      "message": "zakázáno majitelem"
+   },
+   "textSettings": {
+      "message": "Zakázat odesílání like/dislike"
+   },
+   "textSettingsHover": {
+      "message": "Zastaví počítání vašich liků a disliků."
+   },
+   "textTempUnavailable": {
+      "message": "dočasně nedostupné"
+   },
+   "textUpdate": {
+      "message": "aktualizovat na"
+   },
+   "version30installed": {
+      "message": "Verze 3.0.0.18 nainstalována"
+   },
+   "whatsnew": {
+      "message": "Co je nového"
+   }
+}

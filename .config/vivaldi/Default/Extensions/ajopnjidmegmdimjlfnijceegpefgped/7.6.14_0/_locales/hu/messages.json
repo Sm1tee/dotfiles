@@ -1,0 +1,26 @@
+{
+   "EXTENSION_DESCRIPTION": {
+      "message": "A BetterTTV fokozza a Twitch-et és YouTube-ot új funkciókkal, hangulatjelekkel, és még többel."
+   },
+   "EXTENSION_NAME": {
+      "message": "BetterTTV"
+   },
+   "EXTENSION_POPUP_TEXT": {
+      "message": "A BetterTTV beállítások a Twitch chat beállításokban található a Twitch weboldalon. Az ikon jobb kattintással el tüntethető mivel az nem szükséges."
+   },
+   "MARKETING_DESCRIPTION": {
+      "message": "A közösség által \"BTTV\" vagy \"Better Twitch TV\" néven is ismert BetterTTV célja, hogy új funkciókat adjon a Twitch-hez és a YouTube-hoz (bétában).\n\nItt van néhány funkció, amit hozzáadunk:\n\n• Extra hangulatjelek a chatben - BetterTTV globális és csatornánkénti egyedi hangulatjelek\n• Továbbfejlesztett hangulatjel menü\n• Egyéni kulcsszavak kifejezések, szavak, felhasználók és chat jelvények megcélzására\n• Szétválasztott chat sorok a könnyebb olvasás érdekében\n• Törölt linkek és üzenetek megtekintése\n• Névtelen chat - csatlakozz egy csatornához anélkül, hogy megjelennél a felhasználói listában\n• Automatikusan megszerzi a csatornapont-bónuszokat, dropokat és pillanatokat\n• Elrejti a vizuális képzavart és zavaró elemeket, mint például az ajánlott csatornákat, biteket, válaszokat, értesítéseket és közösségi kiemeléseket\n\nHogyan kell használni:\n\n• Csak telepítsd és látogass el a Twitch-re/YouTube-ra, hogy elkezdhesd használni a bővítményt.\n• Ahhoz, hogy engedélyezd a YouTube-on, a telepítéskor bele kell egyezned a további jogosultságokba. Ha nem, akkor is bármikor engedélyezheted a BetterTTV beállításaiban.\n• A beállítások a chatbeállításokban vagy a BetterTTV beállítások menüpontra kattintva a felhasználó legördülő menüjéből konfigurálhatók.\n• Megjegyzés: Jelenleg nem minden beállítás kompatibilis a YouTube-al."
+   },
+   "MARKETING_IMAGE_1": {
+      "message": "Oldj fel több hangulatjelet\nTurbózd fel játékosabb BetterTTV hangulatjelekkel a chatedet!"
+   },
+   "MARKETING_IMAGE_2": {
+      "message": "Kiváló navigáció\nNavigálj a hangulatjeleiden keresztül könnyedén, és találd meg a tökéletes hangulatjelet bármilyen alkalomra."
+   },
+   "MARKETING_IMAGE_3": {
+      "message": "Teljes testreszabhatóság"
+   },
+   "MARKETING_SUMMARY": {
+      "message": "Fokozza a Twitch-et és YouTube-ot új funkciókkal, hangulatjelekkel és többel."
+   }
+}

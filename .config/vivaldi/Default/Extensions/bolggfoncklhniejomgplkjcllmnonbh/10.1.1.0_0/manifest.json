@@ -1,0 +1,96 @@
+{
+   "background": {
+      "persistent": true,
+      "scripts": [ "/lib/polyfill.js", "/lib/checkedLastError.js", "/lib/stuff.js", "/lib/languages.js", "/lib/config.js", "/lib/platformInfo.js", "/lib/i18n.js", "/background/translationCache.js", "/background/translationService.js", "/background/textToSpeech.js", "/background/background.js" ]
+   },
+   "browser_action": {
+      "browser_style": false,
+      "default_icon": "/icons/icon-32.png",
+      "default_title": "__MSG_pageActionTitle__"
+   },
+   "commands": {
+      "hotkey-hot-translate-selected-text": {
+         "description": "__MSG_lblHotTranslatedSelectedText__"
+      },
+      "hotkey-show-original": {
+         "description": "__MSG_lblRestorePageToOriginal__"
+      },
+      "hotkey-swap-page-translation-service": {
+         "description": "__MSG_swapTranslationService__",
+         "suggested_key": {
+            "default": "Alt+Q"
+         }
+      },
+      "hotkey-toggle-translation": {
+         "description": "__MSG_lblSwitchTranslatedAndOriginal__",
+         "suggested_key": {
+            "default": "Alt+T"
+         }
+      },
+      "hotkey-translate-page-1": {
+         "description": "__MSG_lblTranslatePageToTargetLanguage__ 1"
+      },
+      "hotkey-translate-page-2": {
+         "description": "__MSG_lblTranslatePageToTargetLanguage__ 2"
+      },
+      "hotkey-translate-page-3": {
+         "description": "__MSG_lblTranslatePageToTargetLanguage__ 3"
+      },
+      "hotkey-translate-selected-text": {
+         "description": "__MSG_msgTranslateSelectedText__",
+         "suggested_key": {
+            "default": "Alt+S"
+         }
+      }
+   },
+   "content_scripts": [ {
+      "all_frames": false,
+      "js": [ "/contentScript/checkScriptIsInjected.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "/lib/polyfill.js", "/lib/checkedLastError.js", "/lib/languages.js", "/lib/config.js", "/lib/platformInfo.js" ],
+      "match_about_blank": true,
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": true,
+      "js": [ "/lib/i18n.js", "/contentScript/showOriginal.js", "/contentScript/pageTranslator.js", "/contentScript/translateSelected.js", "/contentScript/showTranslated.js" ],
+      "match_about_blank": true,
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_end"
+   }, {
+      "all_frames": false,
+      "js": [ "/contentScript/popupMobile.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_end"
+   }, {
+      "all_frames": false,
+      "js": [ "/contentScript/deepl.js" ],
+      "matches": [ "https://www.deepl.com/*/translator*" ],
+      "run_at": "document_end"
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_extensionDescription__",
+   "homepage_url": "https://github.com/FilipePS/Traduzir-paginas-web",
+   "icons": {
+      "128": "/icons/icon-128.png",
+      "32": "/icons/icon-32.png",
+      "64": "/icons/icon-64.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA95gya6P8bhyZGlP1dVooRbm8d8MaixtfUMhK7oSvLTUEPAfbfbFs7VP6qaplnoO7gi614jsVsNVP57sODJwdjGk5oO3LFSjIsb4zm/HHsi6Ga5/LZHwQivQFyiNDSc11PCEfro8B9dlcLB4P6tUK5Mdz5bf0CLc03YdlbIY9n0Ns1/8d/OObjDPANiWqy7MK+0osb1N6iIp8L9aJlOwOU/KuEW5g4j+wf5JgxN1fXRONyF6nkqwBfdt1wlUOZHOilkKd5CLrFRcj2As159mCSqHUUiriGuEld6zi5hkTxzSPX0wHRVJ23uqT/t3e7NgP/3MjXb/3X5+tvUtbSiBtLQIDAQAB",
+   "manifest_version": 2,
+   "minimum_chrome_version": "70.0",
+   "name": "TWP - Translate Web Pages",
+   "optional_permissions": [ "webNavigation" ],
+   "options_ui": {
+      "browser_style": false,
+      "open_in_tab": true,
+      "page": "/options/options.html"
+   },
+   "permissions": [ "\u003Call_urls>", "storage", "activeTab", "contextMenus", "webRequest" ],
+   "update_url": "https://raw.githubusercontent.com/FilipePS/Traduzir-paginas-web/master/dist/chromium/updates.xml",
+   "version": "10.1.1.0",
+   "web_accessible_resources": [ "/icons/icon-32.png", "/icons/google-translate-32.png", "/icons/bing-translate-32.png", "/icons/yandex-translate-32.png", "/icons/swap-32.png", "/contentScript/css/*", "/contentScript/html/*", "/_locales/*", "/options/open-options.html" ]
+}

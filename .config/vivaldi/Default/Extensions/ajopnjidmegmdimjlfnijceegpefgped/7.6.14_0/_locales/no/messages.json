@@ -1,0 +1,26 @@
+{
+   "EXTENSION_DESCRIPTION": {
+      "message": "BetterTTV forbedrer Twitch og YouTube med nye funksjoner, uttrykksikoner og mer."
+   },
+   "EXTENSION_NAME": {
+      "message": "BetterTTV"
+   },
+   "EXTENSION_POPUP_TEXT": {
+      "message": "Innstillinger for BetterTTV ligger i Twitch-chat på Twitch-nettsiden. Du kan høyreklikke på dette ikonet og skjule det siden ikonet ikke er nødvendig."
+   },
+   "MARKETING_DESCRIPTION": {
+      "message": "Også kjent som \"BTTV\" eller \"Better Twitch TV\" av fellesskapet, har BetterTTV som mål å legge til nye funksjoner til Twitch og YouTube (i beta).\n\nHer er noen av funksjonene vi legger til:\n\n• Ekstra følelser i chat - BetterTTV globale og tilpassede følelser per kanal\n• Forbedret følelsesmeny\n• Egendefinerte søkeord rettet mot setninger, ord, brukere og chattemerker\n• Del chattelinjer for enkel lesing\n• Se slettede lenker og meldinger\n• Anon Chat – bli med i en kanal uten å vises i brukerlisten\n• Få automatisk bonuser, drops og øyeblikk av kanalpoeng\n• Skjul visuell støy og rot som anbefalte kanaler, biter, svar, merknader og fellesskapshøydepunkter\n\nHvordan å bruke:\n\n• Bare installer og besøk Twitch/YouTube for å begynne å bruke tillegget.\n• For å aktivere YouTube må du godta tilleggstillatelsen ved installasjonen. Hvis du ikke gjorde det, kan du fortsatt aktivere det når som helst fra BetterTTV-innstillingene.\n• Innstillinger kan konfigureres i chat-innstillingene eller ved å klikke på BetterTTV-innstillingene fra brukerens rullegardinmeny.\n• Merk: Ikke alle innstillinger er kompatible med YouTube for øyeblikket."
+   },
+   "MARKETING_IMAGE_1": {
+      "message": "Lås opp flere følelser\nSkru opp emote-spillet ditt i chat med BetterTTV-emosjoner."
+   },
+   "MARKETING_IMAGE_2": {
+      "message": "Strålende navigasjon\nNaviger lett gjennom følelsene dine, og finn den perfekte følelsen for enhver anledning."
+   },
+   "MARKETING_IMAGE_3": {
+      "message": "Full tilpasning"
+   },
+   "MARKETING_SUMMARY": {
+      "message": "Forbedrer Twitch og YouTube med nye funksjoner, uttrykksikoner og mer."
+   }
+}
