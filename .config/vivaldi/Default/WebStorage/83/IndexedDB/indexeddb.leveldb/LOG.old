@@ -1,7 +1,0 @@
-2025/04/16-20:07:51.910 c17 Reusing MANIFEST /home/smitee/.config/vivaldi/Default/WebStorage/83/IndexedDB/indexeddb.leveldb/MANIFEST-000001
-2025/04/16-20:07:51.910 c17 Recovering log #3
-2025/04/16-20:07:51.911 c17 Reusing old log /home/smitee/.config/vivaldi/Default/WebStorage/83/IndexedDB/indexeddb.leveldb/000003.log 
-2025/04/16-20:25:25.753 c15 Level-0 table #5: started
-2025/04/16-20:25:25.757 c15 Level-0 table #5: 433876 bytes OK
-2025/04/16-20:25:25.759 c15 Delete type=0 #3
-2025/04/16-20:25:25.759 c15 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
