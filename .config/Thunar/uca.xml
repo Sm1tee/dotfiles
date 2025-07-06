@@ -51,4 +51,15 @@
 	<audio-files/>
 	<video-files/>
 </action>
+<action>
+	<icon></icon>
+	<name>Установить как аватар</name>
+	<submenu></submenu>
+	<unique-id>1750694327020392-1</unique-id>
+	<command>convert %f -resize 256x256^ -gravity center -crop 256x256+0+0 +repage /tmp/avatar.png &amp;&amp; pkexec cp /tmp/avatar.png /var/lib/AccountsService/icons/$USER &amp;&amp; rm /tmp/avatar.png</command>
+	<description>Использовать изображение как аватар пользователя</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<image-files/>
+</action>
 </actions>

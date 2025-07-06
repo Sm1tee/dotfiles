@@ -1,3 +1,15 @@
-2025/05/02-16:16:41.011 3a2e Reusing MANIFEST /home/smitee/.config/vivaldi/Default/WebStorage/60/IndexedDB/indexeddb.leveldb/MANIFEST-000001
-2025/05/02-16:16:41.011 3a2e Recovering log #4
-2025/05/02-16:16:41.014 3a2e Reusing old log /home/smitee/.config/vivaldi/Default/WebStorage/60/IndexedDB/indexeddb.leveldb/000004.log 
+2025/07/04-17:27:00.434 4d2 Reusing MANIFEST /home/smitee/.config/vivaldi/Default/WebStorage/60/IndexedDB/indexeddb.leveldb/MANIFEST-000001
+2025/07/04-17:27:00.434 4d2 Recovering log #4
+2025/07/04-17:27:00.436 4d2 Reusing old log /home/smitee/.config/vivaldi/Default/WebStorage/60/IndexedDB/indexeddb.leveldb/000004.log 
+2025/07/04-17:27:03.700 4d2 Level-0 table #8: started
+2025/07/04-17:27:03.706 4d2 Level-0 table #8: 929519 bytes OK
+2025/07/04-17:27:03.709 4d2 Delete type=0 #4
+2025/07/04-17:27:03.710 4d2 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2025/07/04-17:27:03.710 4d2 Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x02\x01\x1f\x04\x03\x01\x06\x00Q\x00U\x00E\x00U\x00E\x00D\x03\x00\x00\x00\x00\x00\x00L@\x03\x00P8V]}yB\x00\x03\x00\x00\x00\x00\x00\x00.@' @ 1543 : 1
+2025/07/04-17:27:03.710 4d2 Compacting 1@1 + 1@2 files
+2025/07/04-17:27:03.713 4d2 Generated table #9@1: 47 keys, 6963 bytes
+2025/07/04-17:27:03.713 4d2 Compacted 1@1 + 1@2 files => 6963 bytes
+2025/07/04-17:27:03.717 4d2 compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/07/04-17:27:03.717 4d2 Delete type=2 #5
+2025/07/04-17:27:03.717 4d2 Delete type=2 #8
+2025/07/04-17:27:03.717 4d2 Manual compaction at level-1 from '\x00\x02\x01\x1f\x04\x03\x01\x06\x00Q\x00U\x00E\x00U\x00E\x00D\x03\x00\x00\x00\x00\x00\x00L@\x03\x00P8V]}yB\x00\x03\x00\x00\x00\x00\x00\x00.@' @ 1543 : 1 .. (end); will stop at (end)

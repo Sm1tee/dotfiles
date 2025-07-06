@@ -1,5 +1,5 @@
 {
-   "checksum": "2e2af3a1a76dc74372520b49ece2e4da",
+   "checksum": "ddaf1107ca0d5fd800b1c059166276a1",
    "children": [ {
       "children": [  ],
       "content": "",
@@ -60,6 +60,56 @@
       "subject": "",
       "type": "note",
       "url": "https://app.fluig.cc/editor/QMgpCnPJo7LQ"
+   }, {
+      "children": [  ],
+      "content": "",
+      "date_added": "13395255945149529",
+      "guid": "31455cb7-14c8-4378-b1c1-13d11d0bba15",
+      "id": "10",
+      "last_modified": "13395255945149529",
+      "subject": "",
+      "type": "note",
+      "url": "https://aistudio.google.com/app/prompts/1hnI5woYsE7uMeFi-mNMkr5ENrD47G52D"
+   }, {
+      "children": [  ],
+      "content": "/certificate import file-name=cacert.pem passphrase=\"\"\n",
+      "date_added": "13395503584114019",
+      "guid": "448235da-aaca-472e-819e-8cfdd265ba4c",
+      "id": "11",
+      "last_modified": "13395503584114019",
+      "subject": "",
+      "type": "note",
+      "url": "https://www.comss.ru/page.php?id=12996"
+   }, {
+      "children": [  ],
+      "content": "/ip dns cache flush\n",
+      "date_added": "13395503610034909",
+      "guid": "001d05da-8639-4ca3-bc2f-c3f8629bd158",
+      "id": "12",
+      "last_modified": "13395503610034909",
+      "subject": "",
+      "type": "note",
+      "url": "https://www.comss.ru/page.php?id=12996"
+   }, {
+      "children": [  ],
+      "content": "git push origin main\n",
+      "date_added": "13395685391961345",
+      "guid": "587a629f-88fd-4397-b639-7e82fa0d77b8",
+      "id": "13",
+      "last_modified": "13395685391961345",
+      "subject": "",
+      "type": "note",
+      "url": "https://claude.ai/chat/6f649a7f-b0a8-4e8f-9713-41320d07b8ef"
+   }, {
+      "children": [  ],
+      "content": "workshop_download_item \u003Cgame id> \u003Cmod id> validate\n",
+      "date_added": "13395939574835150",
+      "guid": "711f6c48-ad7f-4263-8eb4-361b972d55a0",
+      "id": "14",
+      "last_modified": "13395939574835150",
+      "subject": "",
+      "type": "note",
+      "url": "https://habr.com/ru/articles/552978/"
    }, {
       "children": [  ],
       "date_added": "13390053598632940",

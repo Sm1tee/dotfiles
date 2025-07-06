@@ -8,3 +8,4 @@ keybind = ctrl+/=open_config
 shell-integration = fish
 confirm-close-surface = false
 copy-on-select = true
+cursor-click-to-move = true

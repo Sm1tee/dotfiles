@@ -1,3 +1,14 @@
-2025/06/14-00:06:27.822 4c24 Creating DB /home/smitee/.config/vivaldi/Default/IndexedDB/chrome-extension_kapjaoifikajdcdehfdlmojlepfpkpoe_0.indexeddb.leveldb since it was missing.
-2025/06/14-00:06:27.830 4c24 Reusing MANIFEST /home/smitee/.config/vivaldi/Default/IndexedDB/chrome-extension_kapjaoifikajdcdehfdlmojlepfpkpoe_0.indexeddb.leveldb/MANIFEST-000001
-2025/06/14-00:06:27.857 4c55 Manual compaction at level-0 from '\x00\x03\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x04\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/07/06-19:13:30.659 53c Reusing MANIFEST /home/smitee/.config/vivaldi/Default/IndexedDB/chrome-extension_kapjaoifikajdcdehfdlmojlepfpkpoe_0.indexeddb.leveldb/MANIFEST-000001
+2025/07/06-19:13:30.660 53c Recovering log #21661
+2025/07/06-19:13:30.660 53c Reusing old log /home/smitee/.config/vivaldi/Default/IndexedDB/chrome-extension_kapjaoifikajdcdehfdlmojlepfpkpoe_0.indexeddb.leveldb/021661.log 
+2025/07/06-19:13:30.660 53c Delete type=2 #21659
+2025/07/06-19:13:30.679 53c Level-0 table #21666: started
+2025/07/06-19:13:30.682 53c Level-0 table #21666: 999 bytes OK
+2025/07/06-19:13:30.685 53c Delete type=0 #21661
+2025/07/06-19:13:30.685 53b Manual compaction at level-0 from ' f\x15\x00\x00\x00' @ 72057594037927935 : 1 .. ' g\x15\x00\x00\x00' @ 0 : 0; will stop at ' f\x15\x00\x00\x05' @ 180985 : 1
+2025/07/06-19:13:30.685 53b Compacting 1@0 + 1@1 files
+2025/07/06-19:13:30.688 53b Generated table #21667@0: 30 keys, 751 bytes
+2025/07/06-19:13:30.688 53b Compacted 1@0 + 1@1 files => 751 bytes
+2025/07/06-19:13:30.691 53b compacted to: files[ 0 1 1 0 0 0 0 ]
+2025/07/06-19:13:30.691 53b Delete type=2 #21666
+2025/07/06-19:13:30.691 53b Manual compaction at level-0 from ' f\x15\x00\x00\x05' @ 180985 : 1 .. ' g\x15\x00\x00\x00' @ 0 : 0; will stop at (end)

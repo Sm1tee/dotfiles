@@ -1,2 +1,3 @@
-2025/06/14-00:06:28.062 4c24 Creating DB /home/smitee/.config/vivaldi/Default/IndexedDB/chrome-extension_cjpalhdlnbpafiamejdnhcphjbkeiagm_0.indexeddb.leveldb since it was missing.
-2025/06/14-00:06:28.067 4c24 Reusing MANIFEST /home/smitee/.config/vivaldi/Default/IndexedDB/chrome-extension_cjpalhdlnbpafiamejdnhcphjbkeiagm_0.indexeddb.leveldb/MANIFEST-000001
+2025/07/06-14:56:59.206 54d Reusing MANIFEST /home/smitee/.config/vivaldi/Default/IndexedDB/chrome-extension_cjpalhdlnbpafiamejdnhcphjbkeiagm_0.indexeddb.leveldb/MANIFEST-000001
+2025/07/06-14:56:59.206 54d Recovering log #66
+2025/07/06-14:56:59.207 54d Reusing old log /home/smitee/.config/vivaldi/Default/IndexedDB/chrome-extension_cjpalhdlnbpafiamejdnhcphjbkeiagm_0.indexeddb.leveldb/000066.log 

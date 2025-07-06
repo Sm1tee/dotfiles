@@ -1,5 +1,5 @@
 {
-   "checksum": "85cad40f3d57cb27b1d98ce913ffb0c8",
+   "checksum": "68c28393c37df3293510237880ac7363",
    "children": [ {
       "children": [  ],
       "content": "",
@@ -40,6 +40,66 @@
       "subject": "",
       "type": "note",
       "url": "https://aistudio.google.com/app/prompts/1gwkeHqQmGbA0G_Rb3SRj3sw0g2FZzHnY"
+   }, {
+      "children": [  ],
+      "content": "",
+      "date_added": "13391449487029029",
+      "guid": "fb59913a-4afb-4e31-83e8-0bfc5f410a16",
+      "id": "8",
+      "last_modified": "13391449487029029",
+      "subject": "",
+      "type": "note",
+      "url": "https://app.fluig.cc/editor/QMgpCnPJo7LQ"
+   }, {
+      "children": [  ],
+      "content": "",
+      "date_added": "13391449496500690",
+      "guid": "3208800c-b86e-489c-8936-e59d16ff314e",
+      "id": "9",
+      "last_modified": "13391449496500690",
+      "subject": "",
+      "type": "note",
+      "url": "https://app.fluig.cc/editor/QMgpCnPJo7LQ"
+   }, {
+      "children": [  ],
+      "content": "",
+      "date_added": "13395255945149529",
+      "guid": "31455cb7-14c8-4378-b1c1-13d11d0bba15",
+      "id": "10",
+      "last_modified": "13395255945149529",
+      "subject": "",
+      "type": "note",
+      "url": "https://aistudio.google.com/app/prompts/1hnI5woYsE7uMeFi-mNMkr5ENrD47G52D"
+   }, {
+      "children": [  ],
+      "content": "/certificate import file-name=cacert.pem passphrase=\"\"\n",
+      "date_added": "13395503584114019",
+      "guid": "448235da-aaca-472e-819e-8cfdd265ba4c",
+      "id": "11",
+      "last_modified": "13395503584114019",
+      "subject": "",
+      "type": "note",
+      "url": "https://www.comss.ru/page.php?id=12996"
+   }, {
+      "children": [  ],
+      "content": "/ip dns cache flush\n",
+      "date_added": "13395503610034909",
+      "guid": "001d05da-8639-4ca3-bc2f-c3f8629bd158",
+      "id": "12",
+      "last_modified": "13395503610034909",
+      "subject": "",
+      "type": "note",
+      "url": "https://www.comss.ru/page.php?id=12996"
+   }, {
+      "children": [  ],
+      "content": "git push origin main\n",
+      "date_added": "13395685391961345",
+      "guid": "587a629f-88fd-4397-b639-7e82fa0d77b8",
+      "id": "13",
+      "last_modified": "13395685391961345",
+      "subject": "",
+      "type": "note",
+      "url": "https://claude.ai/chat/6f649a7f-b0a8-4e8f-9713-41320d07b8ef"
    }, {
       "children": [  ],
       "date_added": "13390053598632940",

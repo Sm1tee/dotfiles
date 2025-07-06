@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" version="1.1" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <filter id="filter11290-0" x="-.024" y="-.024" width="1.048" height="1.048" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.15875313"/>
+  </filter>
+  <linearGradient id="linearGradient1196" x1="-90.176" x2="-30.912" y1="61.671" y2="2.3988" gradientTransform="translate(157.02 3.9902)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#1a1a1a" offset="0"/>
+   <stop stop-color="#4d4d4d" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g transform="translate(-64.235 -3.9902)">
+  <circle transform="matrix(3.7796 0 0 3.7796 64.235 3.9902)" cx="8.4665" cy="8.4665" r="7.9377" filter="url(#filter11290-0)" image-rendering="optimizeSpeed" opacity=".25" stroke-width=".14032"/>
+  <g>
+   <circle cx="96.235" cy="35.99" r="30" fill="url(#linearGradient1196)" stroke-linecap="round" stroke-width="1.4611"/>
+   <path d="m89.903 6.666a30 30 0 0 0-8 2.9688v20.848l4.002-4.002 3.998 3.998z" fill="#c83737" image-rendering="optimizeSpeed" stroke-width="3.7796"/>
+   <path d="m121.82 20.33c-0.56758 0.28015-1.1354 0.58629-1.7031 0.93945-2.1071 1.3107-4.103 2.9608-5.9883 4.9512-1.8298 1.9417-3.4929 4.1513-4.9902 6.627-1.4417 2.4271-2.5233 4.9507-3.2441 7.5723-0.7763 2.6213-1.1089 5.0248-0.99805 7.209 0.16635 2.1359 0.69293 3.9324 1.5801 5.3887 0.88722 1.4563 2.1056 2.4998 3.6582 3.1309 1.5526 0.63104 3.3834 0.7516 5.4902 0.36328 1.1486-0.21742 2.3066-0.59358 3.4726-1.0996a30 30 0 0 0 4.5703-7.2852c-0.34722 0.23206-0.69691 0.45916-1.0547 0.66797-1.6635 0.9223-3.2738 1.4559-4.8262 1.6016-1.608 0.14563-2.9634-0.09751-4.0723-0.72852-1.109-0.63104-1.9701-1.5777-2.5801-2.8398-0.55447-1.2621-0.83203-2.7662-0.83203-4.5137 0-1.7961 0.33265-3.7387 0.99805-5.8262 0.6654-2.0873 1.6082-4.0775 2.8281-5.9707 1.2199-1.9417 2.5505-3.6415 3.9922-5.0977 1.4673-1.4749 2.9886-2.6667 4.5625-3.582a30 30 0 0 0-0.86328-1.5078z" fill="#1c95f5" image-rendering="optimizeSpeed" stroke-width="3.7796"/>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" version="1.1" viewBox="0 0 16.933 16.933" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <filter id="filter11290" x="-.024" y="-.024" width="1.048" height="1.048" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.15875313"/>
+  </filter>
+  <linearGradient id="linearGradient1005" x1="2.7889" x2="16.101" y1="14.246" y2=".93425" gradientTransform="matrix(1 0 0 1 3.0264 2.1231)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#ff5050" offset="0"/>
+   <stop stop-color="#fa4b5a" offset=".5"/>
+   <stop stop-color="#ff7864" offset="1"/>
+  </linearGradient>
+ </defs>
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g transform="translate(-3.0616 -2.1167)">
+  <circle transform="matrix(1 0 0 1 3.0616 2.1167)" cx="8.4665" cy="8.4665" r="7.9377" filter="url(#filter11290)" opacity=".25" stroke-width=".14032"/>
+  <path d="m19.466 10.583c0 0.95156-0.16749 1.8639-0.47465 2.7095-0.21351 0.58769-0.4944 1.1433-0.83395 1.6572-0.14222 0.21608-0.29515 0.42476-0.45747 0.6253-0.51967 0.6418-1.1372 1.2007-1.8305 1.6543-0.2553 0.16718-0.52066 0.32011-0.79538 0.45713-1.0668 0.5339-2.2711 0.83423-3.5457 0.83423s-2.4788-0.30033-3.5457-0.83426c-0.27475-0.13705-0.54041-0.28998-0.79572-0.45713-0.70208-0.45974-1.327-1.0274-1.8509-1.6798-0.16263-0.20216-0.31525-0.41276-0.45747-0.63079-0.33047-0.50541-0.60422-1.0507-0.81352-1.627-0.30712-0.84531-0.47431-1.7573-0.47431-2.7086 0-4.3839 3.5538-7.9377 7.9377-7.9377 2.2005 0 4.1918 0.8955 5.6296 2.3417 0.41437 0.41663 0.78276 0.87931 1.0963 1.3795 0.29646 0.47108 0.54429 0.97584 0.73706 1.5068 0.30719 0.84561 0.47468 1.7579 0.47468 2.7095z" fill="url(#linearGradient1005)" stroke-width=".031007"/>
+  <text x="11.442967" y="15.550929" fill="#ffffff" font-family="sans-serif" font-size="3.9761px" font-weight="400" letter-spacing="0" opacity=".5" stroke-width=".099002" word-spacing="0" style="line-height:1.25"><tspan x="11.442967" y="15.550929" stroke-width=".099002">Aa</tspan></text>
+  <path d="m9.9006 2.8055c-0.78614 0.15994-1.531 0.43206-2.2196 0.79659v5.6216l1.1103-1.1103 1.1092 1.1092z" fill="#fff" stroke-width=".032515"/>
+ </g>
+</svg>

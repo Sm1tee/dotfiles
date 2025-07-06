@@ -1,0 +1,977 @@
+14:29:07.003: Platform: Wayland
+14:29:07.003: CPU Name: AMD Ryzen 5 7600X 6-Core Processor
+14:29:07.003: CPU Speed: 4353.253MHz
+14:29:07.003: Physical Cores: 6, Logical Cores: 12
+14:29:07.003: Physical Memory: 31687MB Total, 24706MB Free
+14:29:07.003: Kernel Version: Linux 6.15.3-arch1-1
+14:29:07.003: Distribution: "EndeavourOS" Unknown
+14:29:07.003: Desktop Environment: Hyprland (Hyprland)
+14:29:07.003: Session Type: wayland
+14:29:07.004: Qt Version: 6.9.1 (runtime), 6.9.0 (compiled)
+14:29:07.004: Portable mode: false
+14:29:07.059: OBS 31.0.3 (linux)
+14:29:07.059: ---------------------------------
+14:29:07.059: ---------------------------------
+14:29:07.059: audio settings reset:
+14:29:07.059: 	samples per sec: 48000
+14:29:07.059: 	speakers:        2
+14:29:07.059: 	max buffering:   960 milliseconds
+14:29:07.059: 	buffering type:  dynamically increasing
+14:29:07.060: ---------------------------------
+14:29:07.060: Initializing OpenGL...
+14:29:07.060: Using EGL/Wayland
+14:29:07.084: Initialized EGL 1.5
+14:29:07.092: Loading up OpenGL on adapter AMD AMD Radeon RX 7700 XT (radeonsi, navi32, LLVM 20.1.6, DRM 3.63, 6.15.3-arch1-1)
+14:29:07.092: OpenGL loaded successfully, version 4.6 (Core Profile) Mesa 25.1.4-arch1.1, shading language 4.60
+14:29:07.110: ---------------------------------
+14:29:07.110: video settings reset:
+14:29:07.110: 	base resolution:   1920x1080
+14:29:07.110: 	output resolution: 1920x1080
+14:29:07.110: 	downscale filter:  Bicubic
+14:29:07.110: 	fps:               60/1
+14:29:07.110: 	format:            NV12
+14:29:07.110: 	YUV mode:          Rec. 709/Partial
+14:29:07.110: NV12 texture support enabled
+14:29:07.110: P010 texture support not available
+14:29:07.112: Audio monitoring device:
+14:29:07.112: 	name: По умолчанию
+14:29:07.112: 	id: default
+14:29:07.112: ---------------------------------
+14:29:07.117: Failed to load 'en-US' text for module: 'decklink-captions.so'
+14:29:07.122: Failed to load 'en-US' text for module: 'decklink-output-ui.so'
+14:29:07.126: A DeckLink iterator could not be created.  The DeckLink drivers may not be installed
+14:29:07.126: Failed to initialize module 'decklink.so'
+14:29:07.209: [pipewire] Available capture sources:
+14:29:07.209: [pipewire]     - Monitor source
+14:29:07.209: [pipewire]     - Window source
+14:29:07.222: v4l2loopback not installed, virtual camera not registered
+14:29:07.252: LIBVA_DRIVER_NAME variable is set, this could prevent FFmpeg VAAPI from working correctly
+14:29:07.255: VAAPI: API version 1.22
+14:29:07.255: FFmpeg VAAPI H264 encoding supported
+14:29:07.258: FFmpeg VAAPI AV1 encoding supported
+14:29:07.261: FFmpeg VAAPI HEVC encoding supported
+14:29:07.276: os_dlopen(libnvidia-encode.so.1->libnvidia-encode.so.1): libnvidia-encode.so.1: невозможно открыть разделяемый объектный файл: Нет такого файла или каталога
+14:29:07.276: 
+14:29:07.276: NVENC not supported
+14:29:07.276: Failed to initialize module 'obs-nvenc.so'
+14:29:07.322: os_dlopen(/usr/lib/obs-plugins/obs-websocket.so->/usr/lib/obs-plugins/obs-websocket.so): libqrcodegencpp.so.1: невозможно открыть разделяемый объектный файл: Нет такого файла или каталога
+14:29:07.322: 
+14:29:07.324: os_dlopen(/usr/lib/obs-plugins/obs-websocket.so->/usr/lib/obs-plugins/obs-websocket.so): libqrcodegencpp.so.1: невозможно открыть разделяемый объектный файл: Нет такого файла или каталога
+14:29:07.324: 
+14:29:07.324: Module '/usr/lib/obs-plugins/obs-websocket.so' not loaded
+14:29:07.340: ---------------------------------
+14:29:07.340:   Loaded Modules:
+14:29:07.340:     text-freetype2.so
+14:29:07.340:     rtmp-services.so
+14:29:07.340:     obs-x264.so
+14:29:07.340:     obs-webrtc.so
+14:29:07.340:     obs-vst.so
+14:29:07.340:     obs-transitions.so
+14:29:07.340:     obs-qsv11.so
+14:29:07.340:     obs-outputs.so
+14:29:07.340:     obs-libfdk.so
+14:29:07.340:     obs-filters.so
+14:29:07.340:     obs-ffmpeg.so
+14:29:07.340:     linux-v4l2.so
+14:29:07.340:     linux-pulseaudio.so
+14:29:07.340:     linux-pipewire.so
+14:29:07.340:     linux-jack.so
+14:29:07.340:     linux-capture.so
+14:29:07.340:     linux-alsa.so
+14:29:07.340:     image-source.so
+14:29:07.340:     frontend-tools.so
+14:29:07.340:     decklink-output-ui.so
+14:29:07.340:     decklink-captions.so
+14:29:07.340: ---------------------------------
+14:29:07.340: ---------------------------------
+14:29:07.340: Available Encoders:
+14:29:07.340:   Video Encoders:
+14:29:07.340: 	- ffmpeg_svt_av1 (SVT-AV1)
+14:29:07.340: 	- ffmpeg_aom_av1 (AOM AV1)
+14:29:07.340: 	- ffmpeg_vaapi_tex (FFmpeg VAAPI H.264)
+14:29:07.340: 	- av1_ffmpeg_vaapi_tex (FFmpeg VAAPI AV1)
+14:29:07.340: 	- hevc_ffmpeg_vaapi_tex (FFmpeg VAAPI HEVC)
+14:29:07.340: 	- obs_x264 (x264)
+14:29:07.340:   Audio Encoders:
+14:29:07.340: 	- ffmpeg_aac (FFmpeg AAC)
+14:29:07.340: 	- ffmpeg_opus (FFmpeg Opus)
+14:29:07.340: 	- ffmpeg_pcm_s16le (FFmpeg PCM (16 бит))
+14:29:07.340: 	- ffmpeg_pcm_s24le (FFmpeg PCM (24 бита))
+14:29:07.340: 	- ffmpeg_pcm_f32le (FFmpeg PCM (32 бита с пл. тчк.))
+14:29:07.340: 	- ffmpeg_alac (FFmpeg ALAC (24 бита))
+14:29:07.340: 	- ffmpeg_flac (FFmpeg FLAC (16 бит))
+14:29:07.340: 	- libfdk_aac (libfdk AAC)
+14:29:07.340: ==== Startup complete ===============================================
+14:29:07.380: All scene data cleared
+14:29:07.380: ------------------------------------------------
+14:29:07.383: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.5) 15.0.0'
+14:29:07.383: pulse-input: Audio format: s16le, 48000 Hz, 2 channels
+14:29:07.383: pulse-input: Started recording from 'alsa_output.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.analog-stereo.monitor' (default)
+14:29:07.383: [Loaded global audio device]: 'Звук раб. стола'
+14:29:07.383:     - filter: 'Усиление (Gain)' (gain_filter)
+14:29:07.384: pulse-input: Server name: 'PulseAudio (on PipeWire 1.4.5) 15.0.0'
+14:29:07.384: pulse-input: Audio format: s24le, 48000 Hz, 2 channels
+14:29:07.384: pulse-input: Sample format s24le not supported by OBS,using float32le instead for recording
+14:29:07.384: pulse-input: Started recording from 'alsa_input.usb-Generic_Realtek_Audio_USB_201701110001-00.analog-stereo' (default)
+14:29:07.384: [Loaded global audio device]: 'Микр/доп'
+14:29:07.384:     - filter: 'Усиление (Gain)' (gain_filter)
+14:29:07.384:     - filter: 'Шумоподавление (Noise Suppression)' (noise_suppress_filter_v2)
+14:29:07.384: PipeWire initialized
+14:29:07.385: Switched to scene 'Сцена'
+14:29:07.385: ------------------------------------------------
+14:29:07.385: Loaded scenes:
+14:29:07.385: - scene 'Сцена':
+14:29:07.385:     - source: 'Захват экрана (PipeWire)' (pipewire-screen-capture-source)
+14:29:07.385: ------------------------------------------------
+14:29:07.414: [pipewire] Screencast session created
+14:29:07.934: adding 21 milliseconds of audio buffering, total audio buffering is now 21 milliseconds (source: Звук раб. стола)
+14:29:07.934: 
+14:29:07.977: adding 21 milliseconds of audio buffering, total audio buffering is now 42 milliseconds (source: Микр/доп)
+14:29:07.977: 
+14:29:08.504: [pipewire] Asking for monitor and window
+14:29:08.505: [pipewire] source selected, setting up screencast
+14:29:08.509: [pipewire] Server version: 1.4.5
+14:29:08.509: [pipewire] Library version: 1.4.5
+14:29:08.509: [pipewire] Header version: 1.4.2
+14:29:08.509: [pipewire] Created stream 0x561c2e2cced0
+14:29:08.509: [pipewire] Stream 0x561c2e2cced0 state: "connecting" (error: none)
+14:29:08.509: [pipewire] Playing stream 0x561c2e2cced0
+14:29:08.509: [pipewire] Stream 0x561c2e2cced0 state: "paused" (error: none)
+14:29:08.515: [pipewire] Negotiated format:
+14:29:08.515: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+14:29:08.515: [pipewire]     Modifier: 0x0
+14:29:08.515: [pipewire]     Size: 2560x1440
+14:29:08.515: [pipewire]     Framerate: 0/1
+14:29:08.515: [pipewire] Negotiated format:
+14:29:08.515: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+14:29:08.515: [pipewire]     Modifier: 0x20000002086bb04
+14:29:08.515: [pipewire]     Size: 2560x1440
+14:29:08.515: [pipewire]     Framerate: 0/1
+14:29:08.531: [pipewire] Stream 0x561c2e2cced0 state: "streaming" (error: none)
+14:29:08.539: Cannot create EGLImage: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+14:29:08.539: [pipewire] Renegotiating stream
+14:29:08.539: [pipewire] Stream 0x561c2e2cced0 state: "paused" (error: none)
+14:29:08.539: [pipewire] Negotiated format:
+14:29:08.539: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+14:29:08.539: [pipewire]     Modifier: 0x20000002086bb04
+14:29:08.539: [pipewire]     Size: 2560x1440
+14:29:08.539: [pipewire]     Framerate: 0/1
+14:29:08.539: [pipewire] Negotiated format:
+14:29:08.539: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+14:29:08.539: [pipewire]     Modifier: 0x200000020867b04
+14:29:08.539: [pipewire]     Size: 2560x1440
+14:29:08.539: [pipewire]     Framerate: 0/1
+14:29:08.540: [pipewire] Stream 0x561c2e2cced0 state: "streaming" (error: none)
+14:29:08.552: Cannot create EGLImage: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+14:29:08.552: [pipewire] Renegotiating stream
+14:29:08.552: [pipewire] Stream 0x561c2e2cced0 state: "paused" (error: none)
+14:29:08.552: [pipewire] Negotiated format:
+14:29:08.552: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+14:29:08.552: [pipewire]     Modifier: 0x200000020867b04
+14:29:08.552: [pipewire]     Size: 2560x1440
+14:29:08.552: [pipewire]     Framerate: 0/1
+14:29:08.552: [pipewire] Negotiated format:
+14:29:08.552: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+14:29:08.552: [pipewire]     Modifier: 0x200000020837b04
+14:29:08.552: [pipewire]     Size: 2560x1440
+14:29:08.552: [pipewire]     Framerate: 0/1
+14:29:08.553: [pipewire] Stream 0x561c2e2cced0 state: "streaming" (error: none)
+14:29:08.565: Cannot create EGLImage: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+14:29:08.565: [pipewire] Renegotiating stream
+14:29:08.565: [pipewire] Stream 0x561c2e2cced0 state: "paused" (error: none)
+14:29:08.565: [pipewire] Negotiated format:
+14:29:08.565: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+14:29:08.565: [pipewire]     Modifier: 0x200000020837b04
+14:29:08.565: [pipewire]     Size: 2560x1440
+14:29:08.565: [pipewire]     Framerate: 0/1
+14:29:08.566: [pipewire] Negotiated format:
+14:29:08.566: [pipewire]     Format: 8 (Spa:Enum:VideoFormat:BGRx)
+14:29:08.566: [pipewire]     Modifier: 0x200000020801b04
+14:29:08.566: [pipewire]     Size: 2560x1440
+14:29:08.566: [pipewire]     Framerate: 0/1
+14:29:08.566: [pipewire] Stream 0x561c2e2cced0 state: "streaming" (error: none)
+14:29:41.596: ---------------------------------
+14:29:41.596: [x264 encoder: 'simple_video_recording'] preset: veryfast
+14:29:41.596: [x264 encoder: 'simple_video_recording'] profile: high
+14:29:41.603: [x264 encoder: 'simple_video_recording'] settings:
+14:29:41.603: 	rate_control: CRF
+14:29:41.603: 	bitrate:      0
+14:29:41.603: 	buffer size:  0
+14:29:41.603: 	crf:          23
+14:29:41.603: 	fps_num:      60
+14:29:41.603: 	fps_den:      1
+14:29:41.603: 	width:        1920
+14:29:41.603: 	height:       1080
+14:29:41.603: 	keyint:       250
+14:29:41.603: 
+14:29:41.609: libfdk_aac encoder created
+14:29:41.609: libfdk_aac bitrate: 192, channels: 2
+14:29:41.610: ==== Recording Start ===============================================
+14:29:41.610: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 14-29-41.mp4'...
+14:29:59.264: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 14-29-41.mp4' stopped
+14:29:59.264: Output 'simple_file_output': stopping
+14:29:59.264: Output 'simple_file_output': Total frames output: 1027
+14:29:59.264: Output 'simple_file_output': Total drawn frames: 1060
+14:29:59.264: ==== Recording Stop ================================================
+14:29:59.269: libfdk_aac encoder destroyed
+14:36:27.593: adding 42 milliseconds of audio buffering, total audio buffering is now 85 milliseconds (source: Микр/доп)
+14:36:27.593: 
+14:36:59.129: ---------------------------------
+14:36:59.129: [x264 encoder: 'simple_video_recording'] preset: veryfast
+14:36:59.129: [x264 encoder: 'simple_video_recording'] profile: high
+14:36:59.129: [x264 encoder: 'simple_video_recording'] settings:
+14:36:59.129: 	rate_control: CRF
+14:36:59.129: 	bitrate:      0
+14:36:59.129: 	buffer size:  0
+14:36:59.129: 	crf:          23
+14:36:59.129: 	fps_num:      60
+14:36:59.129: 	fps_den:      1
+14:36:59.129: 	width:        1920
+14:36:59.129: 	height:       1080
+14:36:59.129: 	keyint:       250
+14:36:59.129: 
+14:36:59.134: libfdk_aac encoder created
+14:36:59.134: libfdk_aac bitrate: 192, channels: 2
+14:36:59.135: ==== Recording Start ===============================================
+14:36:59.135: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 14-36-59.mp4'...
+14:37:13.226: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 14-36-59.mp4' stopped
+14:37:13.226: Output 'simple_file_output': stopping
+14:37:13.226: Output 'simple_file_output': Total frames output: 813
+14:37:13.226: Output 'simple_file_output': Total drawn frames: 845
+14:37:13.227: ==== Recording Stop ================================================
+14:37:13.233: libfdk_aac encoder destroyed
+14:37:36.439: ---------------------------------
+14:37:36.439: [x264 encoder: 'simple_video_recording'] preset: veryfast
+14:37:36.439: [x264 encoder: 'simple_video_recording'] profile: high
+14:37:36.439: [x264 encoder: 'simple_video_recording'] settings:
+14:37:36.439: 	rate_control: CRF
+14:37:36.439: 	bitrate:      0
+14:37:36.439: 	buffer size:  0
+14:37:36.439: 	crf:          23
+14:37:36.439: 	fps_num:      60
+14:37:36.439: 	fps_den:      1
+14:37:36.439: 	width:        1920
+14:37:36.439: 	height:       1080
+14:37:36.439: 	keyint:       250
+14:37:36.439: 
+14:37:36.444: libfdk_aac encoder created
+14:37:36.444: libfdk_aac bitrate: 192, channels: 2
+14:37:36.445: ==== Recording Start ===============================================
+14:37:36.445: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 14-37-36.mp4'...
+14:37:56.147: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 14-37-36.mp4' stopped
+14:37:56.147: Output 'simple_file_output': stopping
+14:37:56.147: Output 'simple_file_output': Total frames output: 1150
+14:37:56.147: Output 'simple_file_output': Total drawn frames: 1182
+14:37:56.148: ==== Recording Stop ================================================
+14:37:56.154: libfdk_aac encoder destroyed
+14:39:43.650: ---------------------------------
+14:39:43.650: [x264 encoder: 'simple_video_recording'] preset: veryfast
+14:39:43.650: [x264 encoder: 'simple_video_recording'] profile: high
+14:39:43.650: [x264 encoder: 'simple_video_recording'] settings:
+14:39:43.650: 	rate_control: CRF
+14:39:43.650: 	bitrate:      0
+14:39:43.650: 	buffer size:  0
+14:39:43.650: 	crf:          23
+14:39:43.650: 	fps_num:      60
+14:39:43.650: 	fps_den:      1
+14:39:43.650: 	width:        1920
+14:39:43.650: 	height:       1080
+14:39:43.650: 	keyint:       250
+14:39:43.650: 
+14:39:43.655: libfdk_aac encoder created
+14:39:43.655: libfdk_aac bitrate: 192, channels: 2
+14:39:43.656: ==== Recording Start ===============================================
+14:39:43.656: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 14-39-43.mp4'...
+14:40:02.181: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 14-39-43.mp4' stopped
+14:40:02.181: Output 'simple_file_output': stopping
+14:40:02.181: Output 'simple_file_output': Total frames output: 1079
+14:40:02.181: Output 'simple_file_output': Total drawn frames: 1112
+14:40:02.181: ==== Recording Stop ================================================
+14:40:02.187: libfdk_aac encoder destroyed
+14:41:59.393: ---------------------------------
+14:41:59.393: [x264 encoder: 'simple_video_recording'] preset: veryfast
+14:41:59.393: [x264 encoder: 'simple_video_recording'] profile: high
+14:41:59.393: [x264 encoder: 'simple_video_recording'] settings:
+14:41:59.393: 	rate_control: CRF
+14:41:59.393: 	bitrate:      0
+14:41:59.393: 	buffer size:  0
+14:41:59.393: 	crf:          23
+14:41:59.393: 	fps_num:      60
+14:41:59.393: 	fps_den:      1
+14:41:59.393: 	width:        1920
+14:41:59.393: 	height:       1080
+14:41:59.393: 	keyint:       250
+14:41:59.393: 
+14:41:59.398: libfdk_aac encoder created
+14:41:59.398: libfdk_aac bitrate: 192, channels: 2
+14:41:59.399: ==== Recording Start ===============================================
+14:41:59.399: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 14-41-59.mp4'...
+14:42:19.978: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 14-41-59.mp4' stopped
+14:42:19.978: Output 'simple_file_output': stopping
+14:42:19.978: Output 'simple_file_output': Total frames output: 1202
+14:42:19.978: Output 'simple_file_output': Total drawn frames: 1235
+14:42:19.979: ==== Recording Stop ================================================
+14:42:19.994: libfdk_aac encoder destroyed
+14:47:56.741: ---------------------------------
+14:47:56.741: [x264 encoder: 'simple_video_recording'] preset: veryfast
+14:47:56.741: [x264 encoder: 'simple_video_recording'] profile: high
+14:47:56.741: [x264 encoder: 'simple_video_recording'] settings:
+14:47:56.741: 	rate_control: CRF
+14:47:56.741: 	bitrate:      0
+14:47:56.741: 	buffer size:  0
+14:47:56.741: 	crf:          23
+14:47:56.741: 	fps_num:      60
+14:47:56.741: 	fps_den:      1
+14:47:56.741: 	width:        1920
+14:47:56.741: 	height:       1080
+14:47:56.741: 	keyint:       250
+14:47:56.741: 
+14:47:56.746: libfdk_aac encoder created
+14:47:56.746: libfdk_aac bitrate: 192, channels: 2
+14:47:56.747: ==== Recording Start ===============================================
+14:47:56.747: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 14-47-56.mp4'...
+14:48:19.744: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 14-47-56.mp4' stopped
+14:48:19.744: Output 'simple_file_output': stopping
+14:48:19.744: Output 'simple_file_output': Total frames output: 1347
+14:48:19.744: Output 'simple_file_output': Total drawn frames: 1379
+14:48:19.744: ==== Recording Stop ================================================
+14:48:19.749: libfdk_aac encoder destroyed
+14:49:30.103: ---------------------------------
+14:49:30.103: [x264 encoder: 'simple_video_recording'] preset: veryfast
+14:49:30.103: [x264 encoder: 'simple_video_recording'] profile: high
+14:49:30.103: [x264 encoder: 'simple_video_recording'] settings:
+14:49:30.103: 	rate_control: CRF
+14:49:30.103: 	bitrate:      0
+14:49:30.103: 	buffer size:  0
+14:49:30.103: 	crf:          23
+14:49:30.103: 	fps_num:      60
+14:49:30.103: 	fps_den:      1
+14:49:30.103: 	width:        1920
+14:49:30.103: 	height:       1080
+14:49:30.103: 	keyint:       250
+14:49:30.103: 
+14:49:30.108: libfdk_aac encoder created
+14:49:30.109: libfdk_aac bitrate: 192, channels: 2
+14:49:30.109: ==== Recording Start ===============================================
+14:49:30.109: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 14-49-30.mp4'...
+14:49:46.784: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 14-49-30.mp4' stopped
+14:49:46.784: Output 'simple_file_output': stopping
+14:49:46.784: Output 'simple_file_output': Total frames output: 969
+14:49:46.784: Output 'simple_file_output': Total drawn frames: 1001
+14:49:46.784: ==== Recording Stop ================================================
+14:49:46.805: libfdk_aac encoder destroyed
+14:50:40.172: ---------------------------------
+14:50:40.172: [x264 encoder: 'simple_video_recording'] preset: veryfast
+14:50:40.172: [x264 encoder: 'simple_video_recording'] profile: high
+14:50:40.172: [x264 encoder: 'simple_video_recording'] settings:
+14:50:40.172: 	rate_control: CRF
+14:50:40.172: 	bitrate:      0
+14:50:40.172: 	buffer size:  0
+14:50:40.172: 	crf:          23
+14:50:40.172: 	fps_num:      60
+14:50:40.172: 	fps_den:      1
+14:50:40.172: 	width:        1920
+14:50:40.172: 	height:       1080
+14:50:40.172: 	keyint:       250
+14:50:40.172: 
+14:50:40.177: libfdk_aac encoder created
+14:50:40.177: libfdk_aac bitrate: 192, channels: 2
+14:50:40.178: ==== Recording Start ===============================================
+14:50:40.178: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 14-50-40.mp4'...
+14:51:05.547: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 14-50-40.mp4' stopped
+14:51:05.547: Output 'simple_file_output': stopping
+14:51:05.547: Output 'simple_file_output': Total frames output: 1490
+14:51:05.547: Output 'simple_file_output': Total drawn frames: 1522
+14:51:05.547: ==== Recording Stop ================================================
+14:51:05.563: libfdk_aac encoder destroyed
+14:52:36.963: ---------------------------------
+14:52:36.963: [x264 encoder: 'simple_video_recording'] preset: veryfast
+14:52:36.963: [x264 encoder: 'simple_video_recording'] profile: high
+14:52:36.963: [x264 encoder: 'simple_video_recording'] settings:
+14:52:36.963: 	rate_control: CRF
+14:52:36.963: 	bitrate:      0
+14:52:36.963: 	buffer size:  0
+14:52:36.963: 	crf:          23
+14:52:36.963: 	fps_num:      60
+14:52:36.963: 	fps_den:      1
+14:52:36.963: 	width:        1920
+14:52:36.963: 	height:       1080
+14:52:36.963: 	keyint:       250
+14:52:36.963: 
+14:52:36.968: libfdk_aac encoder created
+14:52:36.968: libfdk_aac bitrate: 192, channels: 2
+14:52:36.969: ==== Recording Start ===============================================
+14:52:36.969: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 14-52-36.mp4'...
+14:52:56.664: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 14-52-36.mp4' stopped
+14:52:56.664: Output 'simple_file_output': stopping
+14:52:56.664: Output 'simple_file_output': Total frames output: 1149
+14:52:56.664: Output 'simple_file_output': Total drawn frames: 1182
+14:52:56.664: ==== Recording Stop ================================================
+14:52:56.671: libfdk_aac encoder destroyed
+15:03:40.764: ---------------------------------
+15:03:40.764: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:03:40.764: [x264 encoder: 'simple_video_recording'] profile: high
+15:03:40.764: [x264 encoder: 'simple_video_recording'] settings:
+15:03:40.764: 	rate_control: CRF
+15:03:40.764: 	bitrate:      0
+15:03:40.764: 	buffer size:  0
+15:03:40.764: 	crf:          23
+15:03:40.764: 	fps_num:      60
+15:03:40.764: 	fps_den:      1
+15:03:40.764: 	width:        1920
+15:03:40.764: 	height:       1080
+15:03:40.764: 	keyint:       250
+15:03:40.764: 
+15:03:40.769: libfdk_aac encoder created
+15:03:40.769: libfdk_aac bitrate: 192, channels: 2
+15:03:40.770: ==== Recording Start ===============================================
+15:03:40.770: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-03-40.mp4'...
+15:04:04.000: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-03-40.mp4' stopped
+15:04:04.000: Output 'simple_file_output': stopping
+15:04:04.000: Output 'simple_file_output': Total frames output: 1362
+15:04:04.000: Output 'simple_file_output': Total drawn frames: 1394
+15:04:04.000: ==== Recording Stop ================================================
+15:04:04.010: libfdk_aac encoder destroyed
+15:05:14.761: ---------------------------------
+15:05:14.761: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:05:14.761: [x264 encoder: 'simple_video_recording'] profile: high
+15:05:14.761: [x264 encoder: 'simple_video_recording'] settings:
+15:05:14.761: 	rate_control: CRF
+15:05:14.761: 	bitrate:      0
+15:05:14.761: 	buffer size:  0
+15:05:14.761: 	crf:          23
+15:05:14.761: 	fps_num:      60
+15:05:14.761: 	fps_den:      1
+15:05:14.761: 	width:        1920
+15:05:14.761: 	height:       1080
+15:05:14.761: 	keyint:       250
+15:05:14.761: 
+15:05:14.766: libfdk_aac encoder created
+15:05:14.766: libfdk_aac bitrate: 192, channels: 2
+15:05:14.767: ==== Recording Start ===============================================
+15:05:14.767: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-05-14.mp4'...
+15:05:37.731: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-05-14.mp4' stopped
+15:05:37.731: Output 'simple_file_output': stopping
+15:05:37.731: Output 'simple_file_output': Total frames output: 1345
+15:05:37.731: Output 'simple_file_output': Total drawn frames: 1378
+15:05:37.731: ==== Recording Stop ================================================
+15:05:37.737: libfdk_aac encoder destroyed
+15:07:01.601: ---------------------------------
+15:07:01.601: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:07:01.601: [x264 encoder: 'simple_video_recording'] profile: high
+15:07:01.601: [x264 encoder: 'simple_video_recording'] settings:
+15:07:01.601: 	rate_control: CRF
+15:07:01.601: 	bitrate:      0
+15:07:01.601: 	buffer size:  0
+15:07:01.601: 	crf:          23
+15:07:01.601: 	fps_num:      60
+15:07:01.601: 	fps_den:      1
+15:07:01.601: 	width:        1920
+15:07:01.601: 	height:       1080
+15:07:01.601: 	keyint:       250
+15:07:01.601: 
+15:07:01.605: libfdk_aac encoder created
+15:07:01.605: libfdk_aac bitrate: 192, channels: 2
+15:07:01.606: ==== Recording Start ===============================================
+15:07:01.606: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-07-01.mp4'...
+15:07:22.831: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-07-01.mp4' stopped
+15:07:22.831: Output 'simple_file_output': stopping
+15:07:22.831: Output 'simple_file_output': Total frames output: 1241
+15:07:22.831: Output 'simple_file_output': Total drawn frames: 1274
+15:07:22.831: ==== Recording Stop ================================================
+15:07:22.842: libfdk_aac encoder destroyed
+15:19:51.784: ---------------------------------
+15:19:51.784: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:19:51.784: [x264 encoder: 'simple_video_recording'] profile: high
+15:19:51.784: [x264 encoder: 'simple_video_recording'] settings:
+15:19:51.784: 	rate_control: CRF
+15:19:51.784: 	bitrate:      0
+15:19:51.784: 	buffer size:  0
+15:19:51.784: 	crf:          23
+15:19:51.784: 	fps_num:      60
+15:19:51.784: 	fps_den:      1
+15:19:51.784: 	width:        1920
+15:19:51.784: 	height:       1080
+15:19:51.784: 	keyint:       250
+15:19:51.784: 
+15:19:51.789: libfdk_aac encoder created
+15:19:51.789: libfdk_aac bitrate: 192, channels: 2
+15:19:51.790: ==== Recording Start ===============================================
+15:19:51.790: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-19-51.mp4'...
+15:20:08.264: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-19-51.mp4' stopped
+15:20:08.264: Output 'simple_file_output': stopping
+15:20:08.264: Output 'simple_file_output': Total frames output: 956
+15:20:08.264: Output 'simple_file_output': Total drawn frames: 989
+15:20:08.264: ==== Recording Stop ================================================
+15:20:08.271: libfdk_aac encoder destroyed
+15:21:29.484: ---------------------------------
+15:21:29.484: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:21:29.484: [x264 encoder: 'simple_video_recording'] profile: high
+15:21:29.484: [x264 encoder: 'simple_video_recording'] settings:
+15:21:29.484: 	rate_control: CRF
+15:21:29.484: 	bitrate:      0
+15:21:29.484: 	buffer size:  0
+15:21:29.484: 	crf:          23
+15:21:29.484: 	fps_num:      60
+15:21:29.484: 	fps_den:      1
+15:21:29.484: 	width:        1920
+15:21:29.484: 	height:       1080
+15:21:29.484: 	keyint:       250
+15:21:29.484: 
+15:21:29.489: libfdk_aac encoder created
+15:21:29.490: libfdk_aac bitrate: 192, channels: 2
+15:21:29.490: ==== Recording Start ===============================================
+15:21:29.490: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-21-29.mp4'...
+15:21:35.864: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-21-29.mp4' stopped
+15:21:35.864: Output 'simple_file_output': stopping
+15:21:35.864: Output 'simple_file_output': Total frames output: 350
+15:21:35.864: Output 'simple_file_output': Total drawn frames: 383
+15:21:35.864: ==== Recording Stop ================================================
+15:21:35.870: libfdk_aac encoder destroyed
+15:22:01.586: ---------------------------------
+15:22:01.586: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:22:01.586: [x264 encoder: 'simple_video_recording'] profile: high
+15:22:01.586: [x264 encoder: 'simple_video_recording'] settings:
+15:22:01.586: 	rate_control: CRF
+15:22:01.586: 	bitrate:      0
+15:22:01.586: 	buffer size:  0
+15:22:01.586: 	crf:          23
+15:22:01.586: 	fps_num:      60
+15:22:01.586: 	fps_den:      1
+15:22:01.586: 	width:        1920
+15:22:01.586: 	height:       1080
+15:22:01.586: 	keyint:       250
+15:22:01.586: 
+15:22:01.592: libfdk_aac encoder created
+15:22:01.592: libfdk_aac bitrate: 192, channels: 2
+15:22:01.593: ==== Recording Start ===============================================
+15:22:01.593: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-22-01.mp4'...
+15:22:21.322: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-22-01.mp4' stopped
+15:22:21.322: Output 'simple_file_output': stopping
+15:22:21.322: Output 'simple_file_output': Total frames output: 1152
+15:22:21.322: Output 'simple_file_output': Total drawn frames: 1184
+15:22:21.322: ==== Recording Stop ================================================
+15:22:21.328: libfdk_aac encoder destroyed
+15:23:13.153: ---------------------------------
+15:23:13.153: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:23:13.153: [x264 encoder: 'simple_video_recording'] profile: high
+15:23:13.153: [x264 encoder: 'simple_video_recording'] settings:
+15:23:13.153: 	rate_control: CRF
+15:23:13.153: 	bitrate:      0
+15:23:13.153: 	buffer size:  0
+15:23:13.153: 	crf:          23
+15:23:13.153: 	fps_num:      60
+15:23:13.153: 	fps_den:      1
+15:23:13.153: 	width:        1920
+15:23:13.153: 	height:       1080
+15:23:13.153: 	keyint:       250
+15:23:13.153: 
+15:23:13.158: libfdk_aac encoder created
+15:23:13.158: libfdk_aac bitrate: 192, channels: 2
+15:23:13.159: ==== Recording Start ===============================================
+15:23:13.159: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-23-13.mp4'...
+15:23:36.010: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-23-13.mp4' stopped
+15:23:36.010: Output 'simple_file_output': stopping
+15:23:36.010: Output 'simple_file_output': Total frames output: 1339
+15:23:36.010: Output 'simple_file_output': Total drawn frames: 1371
+15:23:36.010: ==== Recording Stop ================================================
+15:23:36.015: libfdk_aac encoder destroyed
+15:25:42.826: ---------------------------------
+15:25:42.826: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:25:42.826: [x264 encoder: 'simple_video_recording'] profile: high
+15:25:42.826: [x264 encoder: 'simple_video_recording'] settings:
+15:25:42.826: 	rate_control: CRF
+15:25:42.826: 	bitrate:      0
+15:25:42.826: 	buffer size:  0
+15:25:42.826: 	crf:          23
+15:25:42.826: 	fps_num:      60
+15:25:42.826: 	fps_den:      1
+15:25:42.826: 	width:        1920
+15:25:42.826: 	height:       1080
+15:25:42.826: 	keyint:       250
+15:25:42.826: 
+15:25:42.831: libfdk_aac encoder created
+15:25:42.831: libfdk_aac bitrate: 192, channels: 2
+15:25:42.832: ==== Recording Start ===============================================
+15:25:42.832: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-25-42.mp4'...
+15:26:01.034: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-25-42.mp4' stopped
+15:26:01.034: Output 'simple_file_output': stopping
+15:26:01.034: Output 'simple_file_output': Total frames output: 1060
+15:26:01.034: Output 'simple_file_output': Total drawn frames: 1092
+15:26:01.035: ==== Recording Stop ================================================
+15:26:01.039: libfdk_aac encoder destroyed
+15:27:59.115: ---------------------------------
+15:27:59.115: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:27:59.115: [x264 encoder: 'simple_video_recording'] profile: high
+15:27:59.115: [x264 encoder: 'simple_video_recording'] settings:
+15:27:59.115: 	rate_control: CRF
+15:27:59.115: 	bitrate:      0
+15:27:59.115: 	buffer size:  0
+15:27:59.115: 	crf:          23
+15:27:59.115: 	fps_num:      60
+15:27:59.115: 	fps_den:      1
+15:27:59.115: 	width:        1920
+15:27:59.115: 	height:       1080
+15:27:59.115: 	keyint:       250
+15:27:59.115: 
+15:27:59.120: libfdk_aac encoder created
+15:27:59.121: libfdk_aac bitrate: 192, channels: 2
+15:27:59.123: ==== Recording Start ===============================================
+15:27:59.123: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-27-59.mp4'...
+15:28:19.829: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-27-59.mp4' stopped
+15:28:19.834: Output 'simple_file_output': stopping
+15:28:19.834: Output 'simple_file_output': Total frames output: 1210
+15:28:19.834: Output 'simple_file_output': Total drawn frames: 1243
+15:28:19.834: ==== Recording Stop ================================================
+15:28:19.840: libfdk_aac encoder destroyed
+15:29:58.191: ---------------------------------
+15:29:58.191: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:29:58.191: [x264 encoder: 'simple_video_recording'] profile: high
+15:29:58.191: [x264 encoder: 'simple_video_recording'] settings:
+15:29:58.191: 	rate_control: CRF
+15:29:58.191: 	bitrate:      0
+15:29:58.191: 	buffer size:  0
+15:29:58.191: 	crf:          23
+15:29:58.191: 	fps_num:      60
+15:29:58.191: 	fps_den:      1
+15:29:58.191: 	width:        1920
+15:29:58.191: 	height:       1080
+15:29:58.191: 	keyint:       250
+15:29:58.191: 
+15:29:58.196: libfdk_aac encoder created
+15:29:58.196: libfdk_aac bitrate: 192, channels: 2
+15:29:58.197: ==== Recording Start ===============================================
+15:29:58.197: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-29-58.mp4'...
+15:30:14.514: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-29-58.mp4' stopped
+15:30:14.514: Output 'simple_file_output': stopping
+15:30:14.514: Output 'simple_file_output': Total frames output: 946
+15:30:14.514: Output 'simple_file_output': Total drawn frames: 979
+15:30:14.515: ==== Recording Stop ================================================
+15:30:14.527: libfdk_aac encoder destroyed
+15:31:27.042: ---------------------------------
+15:31:27.042: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:31:27.042: [x264 encoder: 'simple_video_recording'] profile: high
+15:31:27.042: [x264 encoder: 'simple_video_recording'] settings:
+15:31:27.042: 	rate_control: CRF
+15:31:27.042: 	bitrate:      0
+15:31:27.042: 	buffer size:  0
+15:31:27.042: 	crf:          23
+15:31:27.042: 	fps_num:      60
+15:31:27.042: 	fps_den:      1
+15:31:27.042: 	width:        1920
+15:31:27.042: 	height:       1080
+15:31:27.042: 	keyint:       250
+15:31:27.042: 
+15:31:27.047: libfdk_aac encoder created
+15:31:27.047: libfdk_aac bitrate: 192, channels: 2
+15:31:27.048: ==== Recording Start ===============================================
+15:31:27.048: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-31-27.mp4'...
+15:31:41.498: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-31-27.mp4' stopped
+15:31:41.498: Output 'simple_file_output': stopping
+15:31:41.498: Output 'simple_file_output': Total frames output: 835
+15:31:41.498: Output 'simple_file_output': Total drawn frames: 867
+15:31:41.498: ==== Recording Stop ================================================
+15:31:41.504: libfdk_aac encoder destroyed
+15:32:55.270: ---------------------------------
+15:32:55.270: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:32:55.270: [x264 encoder: 'simple_video_recording'] profile: high
+15:32:55.270: [x264 encoder: 'simple_video_recording'] settings:
+15:32:55.270: 	rate_control: CRF
+15:32:55.270: 	bitrate:      0
+15:32:55.270: 	buffer size:  0
+15:32:55.270: 	crf:          23
+15:32:55.270: 	fps_num:      60
+15:32:55.270: 	fps_den:      1
+15:32:55.270: 	width:        1920
+15:32:55.270: 	height:       1080
+15:32:55.270: 	keyint:       250
+15:32:55.270: 
+15:32:55.275: libfdk_aac encoder created
+15:32:55.275: libfdk_aac bitrate: 192, channels: 2
+15:32:55.276: ==== Recording Start ===============================================
+15:32:55.276: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-32-55.mp4'...
+15:33:14.797: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-32-55.mp4' stopped
+15:33:14.797: Output 'simple_file_output': stopping
+15:33:14.797: Output 'simple_file_output': Total frames output: 1139
+15:33:14.797: Output 'simple_file_output': Total drawn frames: 1172
+15:33:14.797: ==== Recording Stop ================================================
+15:33:14.803: libfdk_aac encoder destroyed
+15:35:14.657: ---------------------------------
+15:35:14.657: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:35:14.657: [x264 encoder: 'simple_video_recording'] profile: high
+15:35:14.657: [x264 encoder: 'simple_video_recording'] settings:
+15:35:14.657: 	rate_control: CRF
+15:35:14.657: 	bitrate:      0
+15:35:14.657: 	buffer size:  0
+15:35:14.657: 	crf:          23
+15:35:14.657: 	fps_num:      60
+15:35:14.657: 	fps_den:      1
+15:35:14.657: 	width:        1920
+15:35:14.657: 	height:       1080
+15:35:14.657: 	keyint:       250
+15:35:14.657: 
+15:35:14.662: libfdk_aac encoder created
+15:35:14.662: libfdk_aac bitrate: 192, channels: 2
+15:35:14.663: ==== Recording Start ===============================================
+15:35:14.663: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-35-14.mp4'...
+15:35:33.258: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-35-14.mp4' stopped
+15:35:33.258: Output 'simple_file_output': stopping
+15:35:33.258: Output 'simple_file_output': Total frames output: 1083
+15:35:33.258: Output 'simple_file_output': Total drawn frames: 1115
+15:35:33.258: ==== Recording Stop ================================================
+15:35:33.264: libfdk_aac encoder destroyed
+15:38:30.403: ---------------------------------
+15:38:30.403: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:38:30.403: [x264 encoder: 'simple_video_recording'] profile: high
+15:38:30.403: [x264 encoder: 'simple_video_recording'] settings:
+15:38:30.403: 	rate_control: CRF
+15:38:30.403: 	bitrate:      0
+15:38:30.403: 	buffer size:  0
+15:38:30.403: 	crf:          23
+15:38:30.403: 	fps_num:      60
+15:38:30.403: 	fps_den:      1
+15:38:30.403: 	width:        1920
+15:38:30.403: 	height:       1080
+15:38:30.403: 	keyint:       250
+15:38:30.403: 
+15:38:30.408: libfdk_aac encoder created
+15:38:30.408: libfdk_aac bitrate: 192, channels: 2
+15:38:30.409: ==== Recording Start ===============================================
+15:38:30.409: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-38-30.mp4'...
+15:38:44.531: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-38-30.mp4' stopped
+15:38:44.531: Output 'simple_file_output': stopping
+15:38:44.531: Output 'simple_file_output': Total frames output: 815
+15:38:44.531: Output 'simple_file_output': Total drawn frames: 848
+15:38:44.531: ==== Recording Stop ================================================
+15:38:44.538: libfdk_aac encoder destroyed
+15:40:20.083: ---------------------------------
+15:40:20.083: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:40:20.083: [x264 encoder: 'simple_video_recording'] profile: high
+15:40:20.083: [x264 encoder: 'simple_video_recording'] settings:
+15:40:20.083: 	rate_control: CRF
+15:40:20.083: 	bitrate:      0
+15:40:20.083: 	buffer size:  0
+15:40:20.083: 	crf:          23
+15:40:20.083: 	fps_num:      60
+15:40:20.083: 	fps_den:      1
+15:40:20.083: 	width:        1920
+15:40:20.083: 	height:       1080
+15:40:20.083: 	keyint:       250
+15:40:20.083: 
+15:40:20.088: libfdk_aac encoder created
+15:40:20.088: libfdk_aac bitrate: 192, channels: 2
+15:40:20.089: ==== Recording Start ===============================================
+15:40:20.089: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-40-20.mp4'...
+15:40:40.180: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-40-20.mp4' stopped
+15:40:40.180: Output 'simple_file_output': stopping
+15:40:40.180: Output 'simple_file_output': Total frames output: 1173
+15:40:40.181: Output 'simple_file_output': Total drawn frames: 1206
+15:40:40.181: ==== Recording Stop ================================================
+15:40:40.193: libfdk_aac encoder destroyed
+15:41:31.592: ---------------------------------
+15:41:31.592: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:41:31.592: [x264 encoder: 'simple_video_recording'] profile: high
+15:41:31.592: [x264 encoder: 'simple_video_recording'] settings:
+15:41:31.592: 	rate_control: CRF
+15:41:31.592: 	bitrate:      0
+15:41:31.592: 	buffer size:  0
+15:41:31.592: 	crf:          23
+15:41:31.592: 	fps_num:      60
+15:41:31.592: 	fps_den:      1
+15:41:31.592: 	width:        1920
+15:41:31.592: 	height:       1080
+15:41:31.592: 	keyint:       250
+15:41:31.592: 
+15:41:31.597: libfdk_aac encoder created
+15:41:31.597: libfdk_aac bitrate: 192, channels: 2
+15:41:31.598: ==== Recording Start ===============================================
+15:41:31.598: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-41-31.mp4'...
+15:41:49.531: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-41-31.mp4' stopped
+15:41:49.531: Output 'simple_file_output': stopping
+15:41:49.531: Output 'simple_file_output': Total frames output: 1043
+15:41:49.531: Output 'simple_file_output': Total drawn frames: 1076
+15:41:49.531: ==== Recording Stop ================================================
+15:41:49.543: libfdk_aac encoder destroyed
+15:43:14.162: ---------------------------------
+15:43:14.162: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:43:14.162: [x264 encoder: 'simple_video_recording'] profile: high
+15:43:14.162: [x264 encoder: 'simple_video_recording'] settings:
+15:43:14.162: 	rate_control: CRF
+15:43:14.162: 	bitrate:      0
+15:43:14.162: 	buffer size:  0
+15:43:14.162: 	crf:          23
+15:43:14.162: 	fps_num:      60
+15:43:14.162: 	fps_den:      1
+15:43:14.162: 	width:        1920
+15:43:14.162: 	height:       1080
+15:43:14.162: 	keyint:       250
+15:43:14.162: 
+15:43:14.168: libfdk_aac encoder created
+15:43:14.168: libfdk_aac bitrate: 192, channels: 2
+15:43:14.168: ==== Recording Start ===============================================
+15:43:14.168: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-43-14.mp4'...
+15:43:35.164: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-43-14.mp4' stopped
+15:43:35.164: Output 'simple_file_output': stopping
+15:43:35.164: Output 'simple_file_output': Total frames output: 1227
+15:43:35.164: Output 'simple_file_output': Total drawn frames: 1260
+15:43:35.164: ==== Recording Stop ================================================
+15:43:35.172: libfdk_aac encoder destroyed
+15:45:09.889: ---------------------------------
+15:45:09.889: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:45:09.889: [x264 encoder: 'simple_video_recording'] profile: high
+15:45:09.889: [x264 encoder: 'simple_video_recording'] settings:
+15:45:09.889: 	rate_control: CRF
+15:45:09.889: 	bitrate:      0
+15:45:09.889: 	buffer size:  0
+15:45:09.889: 	crf:          23
+15:45:09.889: 	fps_num:      60
+15:45:09.889: 	fps_den:      1
+15:45:09.889: 	width:        1920
+15:45:09.889: 	height:       1080
+15:45:09.889: 	keyint:       250
+15:45:09.889: 
+15:45:09.895: libfdk_aac encoder created
+15:45:09.895: libfdk_aac bitrate: 192, channels: 2
+15:45:09.896: ==== Recording Start ===============================================
+15:45:09.896: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-45-09.mp4'...
+15:45:27.497: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-45-09.mp4' stopped
+15:45:27.497: Output 'simple_file_output': stopping
+15:45:27.497: Output 'simple_file_output': Total frames output: 1023
+15:45:27.497: Output 'simple_file_output': Total drawn frames: 1056
+15:45:27.497: ==== Recording Stop ================================================
+15:45:27.505: libfdk_aac encoder destroyed
+15:46:47.698: ---------------------------------
+15:46:47.698: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:46:47.698: [x264 encoder: 'simple_video_recording'] profile: high
+15:46:47.698: [x264 encoder: 'simple_video_recording'] settings:
+15:46:47.698: 	rate_control: CRF
+15:46:47.698: 	bitrate:      0
+15:46:47.698: 	buffer size:  0
+15:46:47.698: 	crf:          23
+15:46:47.698: 	fps_num:      60
+15:46:47.698: 	fps_den:      1
+15:46:47.698: 	width:        1920
+15:46:47.698: 	height:       1080
+15:46:47.698: 	keyint:       250
+15:46:47.698: 
+15:46:47.703: libfdk_aac encoder created
+15:46:47.703: libfdk_aac bitrate: 192, channels: 2
+15:46:47.704: ==== Recording Start ===============================================
+15:46:47.704: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-46-47.mp4'...
+15:47:07.098: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-46-47.mp4' stopped
+15:47:07.098: Output 'simple_file_output': stopping
+15:47:07.098: Output 'simple_file_output': Total frames output: 1131
+15:47:07.098: Output 'simple_file_output': Total drawn frames: 1164
+15:47:07.098: ==== Recording Stop ================================================
+15:47:07.107: libfdk_aac encoder destroyed
+15:48:03.301: ---------------------------------
+15:48:03.301: [x264 encoder: 'simple_video_recording'] preset: veryfast
+15:48:03.301: [x264 encoder: 'simple_video_recording'] profile: high
+15:48:03.301: [x264 encoder: 'simple_video_recording'] settings:
+15:48:03.301: 	rate_control: CRF
+15:48:03.301: 	bitrate:      0
+15:48:03.301: 	buffer size:  0
+15:48:03.301: 	crf:          23
+15:48:03.301: 	fps_num:      60
+15:48:03.301: 	fps_den:      1
+15:48:03.301: 	width:        1920
+15:48:03.301: 	height:       1080
+15:48:03.301: 	keyint:       250
+15:48:03.301: 
+15:48:03.306: libfdk_aac encoder created
+15:48:03.306: libfdk_aac bitrate: 192, channels: 2
+15:48:03.307: ==== Recording Start ===============================================
+15:48:03.307: [ffmpeg muxer: 'simple_file_output'] Writing file '/home/smitee/2025-06-29 15-48-03.mp4'...
+15:48:20.277: [ffmpeg muxer: 'simple_file_output'] Output of file '/home/smitee/2025-06-29 15-48-03.mp4' stopped
+15:48:20.277: Output 'simple_file_output': stopping
+15:48:20.277: Output 'simple_file_output': Total frames output: 986
+15:48:20.277: Output 'simple_file_output': Total drawn frames: 1018
+15:48:20.277: ==== Recording Stop ================================================
+15:48:20.281: libfdk_aac encoder destroyed
+16:12:50.526: adding 85 milliseconds of audio buffering, total audio buffering is now 170 milliseconds (source: Микр/доп)
+16:12:50.526: 
+16:18:21.073: ==== Shutting down ==================================================
+16:18:21.075: pulse-input: Stopped recording from 'alsa_output.usb-C-Media_Electronics_Inc._USB_Audio_Device-00.analog-stereo.monitor'
+16:18:21.075: pulse-input: Got 262148 packets with 314577600 frames
+16:18:21.076: pulse-input: Stopped recording from 'alsa_input.usb-Generic_Realtek_Audio_USB_201701110001-00.analog-stereo'
+16:18:21.076: pulse-input: Got 262142 packets with 314570400 frames
+16:18:21.080: [pipewire] Stream 0x561c2e2cced0 state: "paused" (error: none)
+16:18:21.080: [pipewire] Stream 0x561c2e2cced0 state: "unconnected" (error: none)
+16:18:21.112: All scene data cleared
+16:18:21.112: ------------------------------------------------
+16:18:21.183: [Scripting] Total detached callbacks: 0
+16:18:21.183: Freeing OBS context data
+16:18:21.211: == Profiler Results =============================
+16:18:21.211: run_program_init: 425.851 ms
+16:18:21.211:  ┣OBSApp::AppInit: 5.974 ms
+16:18:21.211:  ┃ ┗OBSApp::InitLocale: 0.761 ms
+16:18:21.211:  ┗OBSApp::OBSInit: 407.031 ms
+16:18:21.211:    ┣obs_startup: 1.248 ms
+16:18:21.211:    ┗OBSBasic::OBSInit: 350.881 ms
+16:18:21.211:      ┣OBSBasic::InitBasicConfig: 0.344 ms
+16:18:21.211:      ┣OBSBasic::ResetAudio: 0.065 ms
+16:18:21.211:      ┣OBSBasic::ResetVideo: 52.49 ms
+16:18:21.211:      ┃ ┗obs_init_graphics: 50.983 ms
+16:18:21.211:      ┃   ┗shader compilation: 17.506 ms
+16:18:21.211:      ┣OBSBasic::InitOBSCallbacks: 0.002 ms
+16:18:21.211:      ┣OBSBasic::InitHotkeys: 0.022 ms
+16:18:21.211:      ┣obs_load_all_modules2: 227.581 ms
+16:18:21.211:      ┃ ┣obs_init_module(decklink-captions.so): 0 ms
+16:18:21.211:      ┃ ┣obs_init_module(decklink-output-ui.so): 0 ms
+16:18:21.211:      ┃ ┣obs_init_module(decklink.so): 0.07 ms
+16:18:21.211:      ┃ ┣obs_init_module(frontend-tools.so): 44.221 ms
+16:18:21.211:      ┃ ┣obs_init_module(image-source.so): 0.007 ms
+16:18:21.211:      ┃ ┣obs_init_module(linux-alsa.so): 0.001 ms
+16:18:21.211:      ┃ ┣obs_init_module(linux-capture.so): 0 ms
+16:18:21.211:      ┃ ┣obs_init_module(linux-jack.so): 0.003 ms
+16:18:21.211:      ┃ ┣obs_init_module(linux-pipewire.so): 7.712 ms
+16:18:21.211:      ┃ ┣obs_init_module(linux-pulseaudio.so): 0.004 ms
+16:18:21.211:      ┃ ┣obs_init_module(linux-v4l2.so): 2.587 ms
+16:18:21.211:      ┃ ┣obs_init_module(obs-ffmpeg.so): 9.145 ms
+16:18:21.211:      ┃ ┣obs_init_module(obs-filters.so): 0.014 ms
+16:18:21.211:      ┃ ┣obs_init_module(obs-libfdk.so): 0.001 ms
+16:18:21.211:      ┃ ┣obs_init_module(obs-nvenc.so): 0.072 ms
+16:18:21.211:      ┃ ┃ ┗nvenc_check: 0.063 ms
+16:18:21.211:      ┃ ┣obs_init_module(obs-outputs.so): 0.003 ms
+16:18:21.211:      ┃ ┣obs_init_module(obs-qsv11.so): 6.431 ms
+16:18:21.211:      ┃ ┣obs_init_module(obs-transitions.so): 0.005 ms
+16:18:21.211:      ┃ ┣obs_init_module(obs-vst.so): 0.002 ms
+16:18:21.211:      ┃ ┣obs_init_module(obs-webrtc.so): 0.004 ms
+16:18:21.211:      ┃ ┣obs_init_module(obs-x264.so): 0.003 ms
+16:18:21.211:      ┃ ┣obs_init_module(rtmp-services.so): 0.66 ms
+16:18:21.211:      ┃ ┗obs_init_module(text-freetype2.so): 0.007 ms
+16:18:21.211:      ┣OBSBasic::InitService: 0.79 ms
+16:18:21.211:      ┣OBSBasic::ResetOutputs: 0.132 ms
+16:18:21.211:      ┣OBSBasic::CreateHotkeys: 0.016 ms
+16:18:21.211:      ┣OBSBasic::InitPrimitives: 0.269 ms
+16:18:21.211:      ┗OBSBasic::Load: 44.393 ms
+16:18:21.211: obs_hotkey_thread(25 ms): min=0 ms, median=0 ms, max=0.042 ms, 99th percentile=0.001 ms, 100% below 25 ms
+16:18:21.211: audio_thread(Audio): min=0.004 ms, median=0.021 ms, max=6.792 ms, 99th percentile=0.118 ms
+16:18:21.211:  ┗receive_audio: min=0 ms, median=0.054 ms, max=6.763 ms, 99th percentile=0.091 ms, 0.0829004 calls per parent call
+16:18:21.211:    ┣buffer_audio: min=0 ms, median=0.001 ms, max=0.013 ms, 99th percentile=0.002 ms
+16:18:21.211:    ┗do_encode: min=0.027 ms, median=0.052 ms, max=6.762 ms, 99th percentile=0.087 ms
+16:18:21.211:      ┣encode(simple_aac_recording0): min=0.026 ms, median=0.049 ms, max=0.269 ms, 99th percentile=0.078 ms
+16:18:21.211:      ┗send_packet: min=0 ms, median=0.002 ms, max=6.725 ms, 99th percentile=0.013 ms
+16:18:21.211: obs_graphics_thread(16.6667 ms): min=0.066 ms, median=0.127 ms, max=23.187 ms, 99th percentile=0.596 ms, 99.9997% below 16.667 ms
+16:18:21.211:  ┣tick_sources: min=0 ms, median=0.002 ms, max=2.254 ms, 99th percentile=0.009 ms
+16:18:21.211:  ┣output_frame: min=0.032 ms, median=0.062 ms, max=9.491 ms, 99th percentile=0.376 ms
+16:18:21.211:  ┃ ┣gs_context(video->graphics): min=0.032 ms, median=0.062 ms, max=9.488 ms, 99th percentile=0.233 ms
+16:18:21.211:  ┃ ┃ ┣render_video: min=0.006 ms, median=0.021 ms, max=2.998 ms, 99th percentile=0.086 ms
+16:18:21.211:  ┃ ┃ ┃ ┣render_main_texture: min=0.005 ms, median=0.02 ms, max=2.993 ms, 99th percentile=0.078 ms
+16:18:21.211:  ┃ ┃ ┃ ┣render_convert_texture: min=0.008 ms, median=0.017 ms, max=0.415 ms, 99th percentile=0.029 ms, 0.0828724 calls per parent call
+16:18:21.211:  ┃ ┃ ┃ ┗stage_output_texture: min=0.004 ms, median=0.009 ms, max=0.824 ms, 99th percentile=0.018 ms, 0.0828724 calls per parent call
+16:18:21.211:  ┃ ┃ ┣gs_flush: min=0 ms, median=0.037 ms, max=9.326 ms, 99th percentile=0.13 ms
+16:18:21.211:  ┃ ┃ ┗download_frame: min=0 ms, median=0.025 ms, max=0.226 ms, 99th percentile=0.047 ms, 0.0828724 calls per parent call
+16:18:21.211:  ┃ ┗output_video_data: min=0.126 ms, median=0.157 ms, max=3.96 ms, 99th percentile=0.319 ms, 0.0827987 calls per parent call
+16:18:21.211:  ┗render_displays: min=0.001 ms, median=0.057 ms, max=6.088 ms, 99th percentile=0.199 ms
+16:18:21.211: video_thread(video): min=0.463 ms, median=0.584 ms, max=5.664 ms, 99th percentile=0.945 ms
+16:18:21.211:  ┗receive_video: min=0.462 ms, median=0.583 ms, max=5.664 ms, 99th percentile=0.944 ms
+16:18:21.211:    ┗do_encode: min=0.462 ms, median=0.583 ms, max=5.663 ms, 99th percentile=0.944 ms
+16:18:21.211:      ┣encode(simple_video_recording): min=0.46 ms, median=0.578 ms, max=3.634 ms, 99th percentile=0.933 ms
+16:18:21.211:      ┗send_packet: min=0 ms, median=0.003 ms, max=5.123 ms, 99th percentile=0.021 ms
+16:18:21.211: =================================================
+16:18:21.211: == Profiler Time Between Calls ==================
+16:18:21.211: obs_hotkey_thread(25 ms): min=25.004 ms, median=25.056 ms, max=33.451 ms, 99.6945% within ±2% of 25 ms (0% lower, 0.305522% higher)
+16:18:21.211: obs_graphics_thread(16.6667 ms): min=10.14 ms, median=16.667 ms, max=23.191 ms, 99.2117% within ±2% of 16.667 ms (0.389582% lower, 0.398737% higher)
+16:18:21.211: =================================================
+16:18:21.226: Number of memory leaks: 0

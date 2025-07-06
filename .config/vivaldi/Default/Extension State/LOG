@@ -1,3 +1,6 @@
-2025/06/14-00:06:27.866 4c24 Reusing MANIFEST /home/smitee/.config/vivaldi/Default/Extension State/MANIFEST-000001
-2025/06/14-00:06:27.867 4c24 Recovering log #371
-2025/06/14-00:06:27.872 4c24 Reusing old log /home/smitee/.config/vivaldi/Default/Extension State/000371.log 
+2025/07/06-14:56:59.094 54c Reusing MANIFEST /home/smitee/.config/vivaldi/Default/Extension State/MANIFEST-000001
+2025/07/06-14:56:59.095 54c Recovering log #465
+2025/07/06-14:56:59.100 54c Reusing old log /home/smitee/.config/vivaldi/Default/Extension State/000465.log 
+2025/07/06-17:32:00.516 53b Level-0 table #469: started
+2025/07/06-17:32:00.530 53b Level-0 table #469: 765536 bytes OK
+2025/07/06-17:32:00.534 53b Delete type=0 #465

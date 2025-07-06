@@ -4,8 +4,8 @@
 ## 0. Стартовые пакеты для  Hyprland
 
 ```
-sudo pacman -S --needed git hyprland kitty sddm fish
-```
+sudo pacman -S --needed git hyprland ghostty kitty sddm fish reflector nano sudo msedit nano git
+``` 
 
 [Репозиторий с полезными инструментами](https://github.com/hyprland-community/awesome-hyprland#runners-menus-and-application-launchers)
 
@@ -85,10 +85,14 @@ sudo reflector --country Russia --protocol https --latest 20 --sort rate --save 
 
 ---
 
-## 8. Установить yay 
+## 8. Установить yay  и paru
 
 ```
 sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+```
+
+```
+yay -S paru
 ```
 
 ---
@@ -103,51 +107,69 @@ yay -S --needed  ttf-dejavu ttf-liberation noto-fonts ttf-font-awesome ttf-mater
 
 ## 10. Настройка SDDM
 
-Настроить конфиг sddm через fish
+### 1) Скачать репозиторий
+
+git clone --depth 1 https://github.com/Sm1tee/sddm-theme
+
+### 2) Перейти в репозиторий
+
+```
+cd sddm-sm1tee
+```
+
+### 3) Скопировать тему
+
+```
+sudo cp -r themes/sm1tee /usr/share/sddm/themes/
+```
+
+### 4) Установить шрифты
+
+```
+sudo cp -r themes/sm1tee/fonts/* /usr/share/fonts/ 
+```
+
+```
+sudo cp -r themes/sm1tee/fonts/* /.local/share/fonts
+```
+
+```
+sudo fc-cache -fv
+```
+
+
+### 4) Настроить конфиг sddm 
+
+```
+sudo msedit /etc/sddm.conf
+```
    
 ```
-sudo sh -c 'tee -a /etc/sddm.conf <<EOF
 [Theme]
-Current=smitee
+Current=sm1tee
 CursorTheme=Vimix-white-cursors
 CursorSize=30
 
 [General]
-
 DisplayServer=wayland
-GreeterEnvironment=wayland
+GreeterEnvironment=wayland,QML2_IMPORT_PATH=/usr/share/sddm/themes/silent/components/,QT_IM_MODULE=qtvirtualkeyboard,XKB_DEFAULT_LAYOUT=us,ru
 Numlock=on
-EOF'
-```
-
-Скопировать шрифты
-
-```
-sudo cp -r ~/.local/share/fonts /usr/share/fonts/
-```
-
-Установить пакеты
-
-```
-yay -S --needed sddm qt6-svg qt6-virtualkeyboard qt6-multimedia-ffmpeg
+InputMethod=qtvirtualkeyboard
 ```
 
 
-
-
----
 
 ## Установить мультикодеки
 
 ```
-yay -S --needed gst-libav gst-plugins-base gst-plugins-good lib32-gst-plugins-good gst-plugins-bad lib32-gst-plugins-bad gst-plugins-ugly lib32-gst-plugins-ugly gst-plugin-pipewire gstreamer ffmpeg libde265 libdvdcss libdvdread libdvdnav a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libvpx opencore-amr openjpeg2 speex x264 x265 xvidcore wavpack chromium-widevine
+yay -S --needed gst-libav gst-plugins-base gst-plugins-good lib32-gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire gstreamer ffmpeg libde265 libdvdcss libdvdread libdvdnav a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libvpx opencore-amr openjpeg2 speex x264 x265 xvidcore wavpack 
 ```
 
 
 ## 11. Установить основные пакеты:
 
 ```
-sudo pacman -S --needed base-devel nano reflector sudo curl net-tools wget git openssh networkmanager rsync unzip zip inxi fish fastfetch amd-ucode linux-firmware
+sudo pacman -S --needed base-devel curl net-tools wget openssh networkmanager rsync unzip zip inxi fastfetch amd-ucode linux-firmware
 ```
 
 ---
@@ -155,12 +177,12 @@ sudo pacman -S --needed base-devel nano reflector sudo curl net-tools wget git o
 ## 12.  Установить необходимые пакеты для Hyprland
 
 ```
-yay -S --needed waybar hyprpaper xdg-desktop-portal-hyprland hyprpolkitagent hyprsysteminfo nwg-look kora-icon-theme dracula-gtk-theme swaync pipewire pipewire-pulse pipewire-alsa lib32-pipewire wireplumber hyprshot slurp grim hyprland-qtutils hyprgraphics  hyprwayland-scanner aquamarine hyprutils hyprlock qt6-svg qt6-declarative qt5-quickcontrols2 wlogout nwg-drawer networkmanager gnome-calendar thunar q pavucontrol sddm ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender libxcursor pixman wayland-protocols cairo pango libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang hyprcursor hyprwayland-scanner xcb-util-errors hyprutils glaze hyprgraphics aquamarine re2 hyprland-qtutils qt5ct qt6ct qt5-wayland qt6-wayland lib32-pipewire vimix-cursors swappy wl-clipboard wl-clip-persist cliphist tela-circle-icon-theme-all winbox nwg-displays gtk4-layer-shell polkit-gnome xdg-user-dirs gvfs-mtp gvfs-afc gvfs-smb udisks2 udiskie gtk2
+yay -S --needed waybar hyprpaper xdg-desktop-portal-hyprland hyprpolkitagent hyprsysteminfo nwg-look kora-icon-theme dracula-gtk-theme swaync pipewire pipewire-pulse pipewire-alsa lib32-pipewire wireplumber hyprshot slurp grim hyprland-qtutils hyprgraphics  hyprwayland-scanner aquamarine hyprutils hyprlock qt6-svg qt6-declarative qt5-quickcontrols2 wlogout nwg-drawer networkmanager gnome-calendar thunar q pavucontrol sddm ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender libxcursor pixman wayland-protocols cairo pango libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang hyprcursor hyprwayland-scanner xcb-util-errors hyprutils glaze hyprgraphics aquamarine re2 hyprland-qtutils qt5ct qt6ct qt5-wayland qt6-wayland lib32-pipewire vimix-cursors swappy wl-clipboard wl-clip-persist cliphist tela-circle-icon-theme-all winbox nwg-displays gtk4-layer-shell polkit-gnome xdg-user-dirs gvfs-mtp gvfs-afc gvfs-smb udisks2 udiskie gtk2 
 ```
 
 ## 13. Установить "рабочий" софт для Hyprland
 
- -  Файловый менеджер - thunar (gvfs + tumbler)
+ -  Файловый менеджер - thunar + плагины
  -  Терминал - ghostty
  -  Терминал стиль - starship
  -  Текстовый редактор - mousepad
@@ -178,10 +200,10 @@ yay -S --needed waybar hyprpaper xdg-desktop-portal-hyprland hyprpolkitagent hyp
  -  Редактор заметок - [Obsidian](https://github.com/obsidianmd/obsidian-releases)
  -  Редактор шрифтов  - gnome-font-viewer
 -  Калькулятор - gnome-calculator
-
+- Смена обоев - waypaper
 
 ```
-yay -S --needed ghostty starship gvfs tumbler mousepad walker-bin mpv loupe onlyoffice-bin xarchiver papers qbittorrent-qt5  gnome-disk-utility mission-center filezilla vivaldi obsidian zoxide mcfly visual-studio-code-bin telegram-desktop gnome-font-viewer gnome-calculator thunar-archive-plugin thunar-media-tags-plugin
+yay -S --needed ghostty starship gvfs tumbler mousepad walker-bin mpv loupe onlyoffice-bin xarchiver papers qbittorrent-qt5  gnome-disk-utility mission-center filezilla vivaldi obsidian zoxide mcfly visual-studio-code-bin telegram-desktop gnome-font-viewer gnome-calculator thunar-archive-plugin thunar-media-tags-plugin thunar-volman waypaper
 ```  
 
 Визуальное изменение громкости 

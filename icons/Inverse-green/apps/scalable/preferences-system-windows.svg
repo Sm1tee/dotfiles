@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" version="1.1" viewBox="0 0 16.933 16.933" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <filter id="filter11290-3" x="-.024" y="-.024" width="1.048" height="1.048" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.15875313"/>
+  </filter>
+  <linearGradient id="linearGradient1005-6" x1=".73911" x2="16.388" y1="16.296" y2=".64687" gradientTransform="translate(-.034965 .00655)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#00c8ff" offset="0"/>
+   <stop stop-color="#14a0ff" offset="1"/>
+  </linearGradient>
+  <linearGradient id="linearGradient13469" x1="236.32" x2="369.76" y1="321.6" y2="321.6" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient1005-6"/>
+  <linearGradient id="linearGradient9533" x1=".73911" x2="16.388" y1="16.296" y2=".64687" gradientTransform="matrix(1 0 0 1 1.7037 2.6902)" gradientUnits="userSpaceOnUse" xlink:href="#linearGradient1005-6"/>
+ </defs>
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g transform="translate(-1.7387 -2.6836)">
+  <circle transform="matrix(1 0 0 1 1.7387 2.6836)" cx="8.4665" cy="8.4665" r="7.9377" filter="url(#filter11290-3)" opacity=".25" stroke-width=".14032"/>
+  <path d="m18.143 11.15c0 0.95156-0.16749 1.8639-0.47465 2.7095-0.21351 0.58769-0.4944 1.1433-0.83395 1.6572-0.14222 0.21608-0.29515 0.42476-0.45747 0.6253-0.51967 0.6418-1.1372 1.2007-1.8305 1.6543-0.2553 0.16718-0.52066 0.32011-0.79538 0.45713-1.0668 0.5339-2.2711 0.83423-3.5457 0.83423s-2.4788-0.30033-3.5457-0.83426c-0.27475-0.13705-0.54041-0.28998-0.79572-0.45713-0.70208-0.45974-1.327-1.0274-1.8509-1.6798-0.16263-0.20216-0.31525-0.41276-0.45747-0.63079-0.33047-0.50541-0.60422-1.0507-0.81352-1.627-0.30712-0.84531-0.47431-1.7573-0.47431-2.7086 0-4.3839 3.5538-7.9377 7.9377-7.9377 2.2005 0 4.1918 0.8955 5.6296 2.3417 0.41437 0.41663 0.78276 0.87931 1.0963 1.3795 0.29646 0.47108 0.54429 0.97584 0.73705 1.5068 0.30719 0.84561 0.47468 1.7579 0.47468 2.7095z" fill="url(#linearGradient9533)" stroke-width=".031007"/>
+  <g stroke-width=".025866">
+   <path d="m14.1 5.6437-10.013 2.683c-0.38121 0.10214-0.60448 0.48886-0.50233 0.87007l1.8636 6.9552c0.10214 0.38121 0.48886 0.60448 0.87007 0.50233l10.005-2.6809c0.38121-0.10214 0.60448-0.48886 0.50233-0.87007l-1.8636-6.9552c-0.093676-0.38348-0.48886-0.60448-0.8616-0.5046z" fill="#f1f3f7"/>
+   <rect transform="rotate(-15)" x="1.7919" y="10.846" width="10.366" height="6.1305" fill="#fcfcfd"/>
+   <circle transform="rotate(-15)" cx="11.931" cy="10.022" r=".22803" fill="#f0582f"/>
+   <circle transform="rotate(-15)" cx="11.132" cy="10.022" r=".22803" fill="#fbd303"/>
+   <circle transform="rotate(-15)" cx="10.334" cy="10.022" r=".22803" fill="#6eb1e1"/>
+  </g>
+  <polygon transform="matrix(.023254 7.337e-8 -7.337e-8 .023254 3.3681 4.1797)" points="281.28 325.6 343.36 387.68 369.76 361.12 307.68 299.04 334.24 272.64 236.32 255.52 253.28 353.6" fill="url(#linearGradient13469)"/>
+ </g>
+</svg>

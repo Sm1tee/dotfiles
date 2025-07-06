@@ -1,3 +1,6 @@
-2025/06/14-00:03:49.291 4 Reusing MANIFEST /home/smitee/.config/vivaldi/Default/Local Storage/leveldb/MANIFEST-000001
-2025/06/14-00:03:49.295 4 Recovering log #4747
-2025/06/14-00:03:49.295 4 Reusing old log /home/smitee/.config/vivaldi/Default/Local Storage/leveldb/004747.log 
+2025/07/06-03:26:16.003 4 Reusing MANIFEST /home/smitee/.config/vivaldi/Default/Local Storage/leveldb/MANIFEST-000001
+2025/07/06-03:26:16.005 4 Recovering log #6567
+2025/07/06-03:26:16.005 4 Reusing old log /home/smitee/.config/vivaldi/Default/Local Storage/leveldb/006567.log 
+2025/07/06-03:27:16.010 5 Level-0 table #6571: started
+2025/07/06-03:27:16.020 5 Level-0 table #6571: 29333 bytes OK
+2025/07/06-03:27:16.024 5 Delete type=0 #6567

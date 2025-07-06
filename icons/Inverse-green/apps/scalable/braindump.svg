@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" version="1.1" viewBox="0 0 16.933 16.933" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <filter id="filter11290-60" x="-.024" y="-.024" width="1.048" height="1.048" color-interpolation-filters="sRGB">
+   <feGaussianBlur stdDeviation="0.15875313"/>
+  </filter>
+  <linearGradient id="linearGradient1005-62" x1="2.9667" x2="16.101" y1="14.069" y2=".93425" gradientTransform="translate(14.264 11.128)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#ff7d50" offset="0"/>
+   <stop stop-color="#fa4b5a" offset=".51596"/>
+   <stop stop-color="#ff509b" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g transform="translate(-14.299 -11.122)">
+  <circle cx="22.766" cy="19.588" r="7.9377" filter="url(#filter11290-60)" opacity=".25" stroke-width=".14032"/>
+  <path d="m30.703 19.588c0 0.95153-0.16749 1.8639-0.47465 2.7093-0.21351 0.58768-0.49439 1.1433-0.83392 1.6572-0.14222 0.21608-0.29514 0.42475-0.45746 0.62528-0.51966 0.64179-1.1372 1.2007-1.8305 1.6543-0.2553 0.16718-0.52064 0.32009-0.79535 0.45711-1.0668 0.53389-2.2711 0.83421-3.5456 0.83421s-2.4788-0.30032-3.5456-0.83424c-0.27474-0.13705-0.5404-0.28998-0.79569-0.45711-0.70206-0.45973-1.327-1.0274-1.8509-1.6798-0.16263-0.20216-0.31524-0.41274-0.45746-0.63078-0.33046-0.5054-0.60422-1.0507-0.8135-1.627-0.30712-0.8453-0.47431-1.7573-0.47431-2.7085 0-4.3838 3.5538-7.9376 7.9376-7.9376 2.2005 0 4.1917 0.89549 5.6294 2.3417 0.41436 0.41663 0.78273 0.8793 1.0963 1.3795 0.29646 0.47108 0.54429 0.97582 0.73704 1.5068 0.30718 0.84559 0.47468 1.7579 0.47468 2.7093z" fill="url(#linearGradient1005-62)" stroke-width=".031006"/>
+  <path d="m22.772 14.958a3.4297 3.4297 0 0 0-2.0641 6.1734v1.0291a0.68595 0.68595 0 0 0 0.68592 0.68592h2.7437a0.68595 0.68595 0 0 0 0.68592-0.68592v-1.0291a3.4297 3.4297 0 0 0-2.0515-6.1734zm0.32419 1.5825v1.9845h0.99249l-1.6536 2.6456v-1.9845h-0.99248zm-1.7024 6.9917-0.06195 0.0054a0.34297 0.34297 0 0 0 0.06195 0.6805h2.7437l0.06195-0.0054a0.34297 0.34297 0 0 0-0.06195-0.6805z" fill="#fff" stroke-width=".0093782"/>
+ </g>
+</svg>

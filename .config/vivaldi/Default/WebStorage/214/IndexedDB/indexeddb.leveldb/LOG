@@ -1,7 +1,15 @@
-2025/06/11-19:57:27.413 63d Reusing MANIFEST /home/smitee/.config/vivaldi/Default/WebStorage/214/IndexedDB/indexeddb.leveldb/MANIFEST-000001
-2025/06/11-19:57:27.413 63d Recovering log #3
-2025/06/11-19:57:27.414 63d Reusing old log /home/smitee/.config/vivaldi/Default/WebStorage/214/IndexedDB/indexeddb.leveldb/000003.log 
-2025/06/11-20:04:22.031 63d Level-0 table #5: started
-2025/06/11-20:04:22.035 63d Level-0 table #5: 328544 bytes OK
-2025/06/11-20:04:22.038 63d Delete type=0 #3
-2025/06/11-20:04:22.038 63d Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2025/07/01-00:02:25.466 2baa Reusing MANIFEST /home/smitee/.config/vivaldi/Default/WebStorage/214/IndexedDB/indexeddb.leveldb/MANIFEST-000001
+2025/07/01-00:02:25.467 2baa Recovering log #7
+2025/07/01-00:02:25.467 2baa Reusing old log /home/smitee/.config/vivaldi/Default/WebStorage/214/IndexedDB/indexeddb.leveldb/000007.log 
+2025/07/01-00:23:20.812 2bab Level-0 table #12: started
+2025/07/01-00:23:20.815 2bab Level-0 table #12: 85678 bytes OK
+2025/07/01-00:23:20.819 2bab Delete type=0 #7
+2025/07/01-00:23:20.819 2bab Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2025/07/01-00:23:20.819 2bab Manual compaction at level-1 from (begin) .. (end); will stop at '\x00\x02\x01\x1f\x04\x03\x01\x06\x00Q\x00U\x00E\x00U\x00E\x00D\x03\x00\x00\x00\x00\x00\x00L@\x03\x00\x90\x05\xb8\xc9{yB\x00\x03\x00\x00\x00\x00\x00\x004@' @ 2219 : 1
+2025/07/01-00:23:20.819 2bab Compacting 1@1 + 1@2 files
+2025/07/01-00:23:20.822 2bab Generated table #13@1: 50 keys, 9208 bytes
+2025/07/01-00:23:20.822 2bab Compacted 1@1 + 1@2 files => 9208 bytes
+2025/07/01-00:23:20.825 2bab compacted to: files[ 0 0 1 0 0 0 0 ]
+2025/07/01-00:23:20.825 2bab Delete type=2 #12
+2025/07/01-00:23:20.825 2bab Delete type=2 #9
+2025/07/01-00:23:20.825 2bab Manual compaction at level-1 from '\x00\x02\x01\x1f\x04\x03\x01\x06\x00Q\x00U\x00E\x00U\x00E\x00D\x03\x00\x00\x00\x00\x00\x00L@\x03\x00\x90\x05\xb8\xc9{yB\x00\x03\x00\x00\x00\x00\x00\x004@' @ 2219 : 1 .. (end); will stop at (end)

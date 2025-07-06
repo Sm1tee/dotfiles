@@ -7,14 +7,12 @@ starship init fish | source
 zoxide init fish | source
 mcfly init fish | source
 
-
+alias g='gemini'
 alias q='paru'
 alias l='lsd -ll'
 alias cd='z'
-
-
-
-
+alias c='wl-copy'
+alias rm='trash-put'
 
 
 

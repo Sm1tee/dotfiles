@@ -1,2 +1,3 @@
-2025/04/28-00:22:53.101 6805 Creating DB /home/smitee/.config/vivaldi/Default/WebStorage/113/IndexedDB/indexeddb.leveldb since it was missing.
-2025/04/28-00:22:53.106 6805 Reusing MANIFEST /home/smitee/.config/vivaldi/Default/WebStorage/113/IndexedDB/indexeddb.leveldb/MANIFEST-000001
+2025/06/30-16:36:59.825 4f3 Reusing MANIFEST /home/smitee/.config/vivaldi/Default/WebStorage/113/IndexedDB/indexeddb.leveldb/MANIFEST-000001
+2025/06/30-16:36:59.825 4f3 Recovering log #3
+2025/06/30-16:36:59.826 4f3 Reusing old log /home/smitee/.config/vivaldi/Default/WebStorage/113/IndexedDB/indexeddb.leveldb/000003.log 

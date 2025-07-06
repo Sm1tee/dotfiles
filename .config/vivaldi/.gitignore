@@ -1,0 +1,31 @@
+# Супер-минималистичный .gitignore для профиля Vivaldi
+
+# 1. По умолчанию игнорировать всё.
+*
+
+# 2. Не игнорировать папки (чтобы Git мог их видеть).
+!*/
+
+# 3. Не игнорировать сам этот файл.
+!.gitignore
+
+# --- Дальше самое главное для восстановления ---
+
+# Основные настройки браузера
+!/Default/Preferences
+!/Default/Secure Preferences
+
+# Самое важное: сохраненные пароли и куки для авто-входа
+!/Default/Login Data
+!/Default/Cookies
+
+# Ваши закладки (как вы и просили)
+!/Default/Bookmarks
+
+# Всё, что связано с расширениями (сами расширения и их настройки)
+!/Default/Extensions/
+!/Default/Local Extension Settings/
+!/Default/Extension Rules/
+!/Default/Extension State/
+!/Default/Sync Extension Settings/
+!/Default/Managed Extension Settings/
