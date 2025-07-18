@@ -35,6 +35,8 @@ application/x-bittorrent=org.qbittorrent.qBittorrent.desktop
 x-scheme-handler/magnet=org.qbittorrent.qBittorrent.desktop
 application/x-ms-dos-executable;application/x-wine-extension-msp;application/x-msi;application/x-msdos-program;text/win-bat;=PortProton.desktop
 image/png=org.gnome.Loupe.desktop
+application/octet-stream=xarchiver.desktop
+inode/symlink=code.desktop
 
 [Added Associations]
 application/x-bat=org.xfce.mousepad.desktop;
@@ -44,3 +46,11 @@ image/png=org.gnome.Loupe.desktop;
 application/xml=org.xfce.mousepad.desktop;
 text/html=vivaldi-stable.desktop;org.xfce.mousepad.desktop;
 application/vnd.microsoft.portable-executable=wine.desktop;
+application/x-shellscript=org.xfce.mousepad.desktop;code.desktop;
+video/mp4=mpv.desktop;vivaldi-stable.desktop;
+application/x-desktop=org.xfce.mousepad.desktop;cursor-cursor.desktop;
+text/markdown=code.desktop;
+application/octet-stream=xarchiver.desktop;
+application/json=code.desktop;
+application/x-zerosize=org.xfce.mousepad.desktop;code.desktop;
+inode/symlink=code.desktop;

@@ -4,15 +4,12 @@
  *                                                                                      *
  ****************************************************************************************/
 * {
-	border: none;                    /* Убираем рамку */
-	font-size: 1rem;                 /* Размер шрифта */
-  }
+	border: none;                                              /* Убираем рамку у всех элементов */
+}
   
-  window#waybar {
-  background-color: transparent;      /* Цвет фона панели */
-	transition-property: background-color; /* Указываем свойство для анимации */
-	transition-duration: 0.5s;        /* Длительность анимации */
-  }
+window#waybar {
+    background-color: transparent;                           /* Прозрачный фон для самой панели */
+}
   
 
 /****************************************************************************************
@@ -21,28 +18,24 @@
  *                                                                                      *
  ****************************************************************************************/
 
-  #wireplumber,
-  #network,
-	#clock,
-  #language,
-	#tray,
-  #power-profiles-daemon,
-  #custom-swaync,
-	#custom-power,
-	#custom-apps,
-	#taskbar
-  	{
+#pulseaudio,
+#network,
+#clock,
+#language,
+#tray,
+#power-profiles-daemon,
+#custom-swaync,
+#custom-power,
+#systemd-failed-units,
+#custom-pacman 
 
- border-radius: 1rem;              /* Скругление углов */
-    font-family: 'Neuropol','JetBrainsMono NF';     /* Шрифт  */
-    font-size: 1.5rem;              /* Используем rem для размера шрифта */
-    margin: 0.5rem 0.3rem;          /* Внешние отступы также в rem */
-    padding: 0.2rem 2rem 0rem 2rem;              /* Внутренние отступы */
-    transition: all 0.3s ease;      /* Плавный переход */
-    background-color: #26263f;  
-    font-weight: bold; 
-    box-shadow: none; 
-    color: #00ffcc; 
+{
+    font-family: 'Neuropol','JetBrainsMono NF';                /* Шрифт */
+    font-size: 1.5rem;                                         /* Размер шрифта */
+    background-color: #26263f;                               /* Цвет фона */
+    font-weight: bold;                                         /* Жирность шрифта */
+    box-shadow: none;                                          /* Убираем тень */
+    color: #00ffcc;                                          /* Цвет текста */
 }
   
 /****************************************************************************************
@@ -51,43 +44,58 @@
  *                                                                                      *
  ****************************************************************************************/
 
-#workspaces { /* Стили для секции workspaces (рабочие пространства) */      
-  font-family: 'Neuropol','JetBrainsMono NF';
+
+
+#workspaces {
+    font-family: 'Neuropol','JetBrainsMono NF';                /* Шрифт */
+    border-radius: 0rem 0rem 9rem 0rem;                        /* Скругление углов */
+    margin: 0rem 0rem  0rem  0rem;                             /* Внешние отступы */
+    padding: 0rem 2rem 0rem 0rem;                              /* Внутренние отступы */
+    transition: all 0.3s ease;                                 /* Плавный переход для анимаций */
+    background-color: #26263f;                               /* Цвет фона */
+    font-weight: bold;                                         /* Жирность шрифта */
 }
 
-#workspaces button label {  /* Стили для label внутри кнопок рабочих пространств */
-  font-size: 1.3rem;   
+#workspaces button label {
+    font-size: 1.3rem;                                         /* Размер шрифта для меток кнопок */
 }
 
-#workspaces button {   /* Стили для кнопок рабочих пространств */
-font-weight: bold;
-
-font-size: 2.5rem; 
-margin: 0.5rem 0.3rem;   
-padding: 0rem 1.1rem;       /* Внешние отступы */    
-border-radius: 1rem;              /* Скругление углов */
-
-background-color: #26263f;    /* Цвет фона */
-color: #00ffcc;           /* Цвет текста */
+#workspaces button {
+    color: #00ffcc;                                          /* Цвет иконки/текста */
+    border-radius: 1rem;                                       /* Скругление углов */
+    margin: 0rem 0.5rem;                                       /* Внешние отступы */
 }
 
 
-#workspaces button.active {   /* Стили для активной кнопки рабочего пространства */
-color: #280a6d;                /* Цвет текста */
-background-color: #d6d6a5;     /* Цвет фона */
+#workspaces button.active {
+    color: #280a6d;                                          /* Цвет текста активного рабочего пространства */
+    border-radius: 0.3rem;                                     /* Скругление углов */
+    background-color: #d6d6a5;                               /* Цвет фона активного рабочего пространства */
 }
 
-#workspaces button:hover {   /* Стили для кнопок рабочих пространств при наведении */
-box-shadow: inherit;           /* Наследование тени */
-text-shadow: inherit;          /* Наследование тени текста */
-color: #280a6d;                 /* Цвет текста */
-background-color: #d6d6a5;    /* Цвет фона */
-}
+#workspaces button:hover {
+    color: #280a6d;                                          /* Цвет текста при наведении */
+    border-radius: 0.3rem;                                     /* Скругление углов */
+    background-color: #d6d6a5;                               /* Цвет фона при наведении */
+
+ }
 	
-#workspaces button.urgent {  /* Стили для срочной кнопки рабочего пространства */
-background-color: #b2284f;     /* Цвет фона */
+#workspaces button.urgent {                                    /* Стили для "срочного" рабочего пространства (например, с уведомлением) */
 }
   
+
+/****************************************************************************************
+ *                                                                                      *
+ *                                     Обновление                                       *
+ *                                                                                      *
+ ****************************************************************************************/
+
+#custom-pacman {
+    margin: 0rem 0rem 0rem 5rem;                               /* Внешние отступы */
+    padding: 0rem 2rem 0rem 2rem;                              /* Внутренние отступы */
+    border-radius: 0rem 0rem 1.5rem 1.5rem;                    /* Скругление углов */
+}
+
   
 /****************************************************************************************
  *                                                                                      *
@@ -96,29 +104,40 @@ background-color: #b2284f;     /* Цвет фона */
  ****************************************************************************************/
 
  #clock {
-  font-family: 'Neuropol'; 
-  
-
+    margin: 0rem 0rem;                                         /* Внешние отступы */
+    padding: 0.7rem 2rem 0.5rem 2rem;                          /* Внутренние отступы */
+    border-radius: 0rem 0rem 2rem 2rem;                        /* Скругление углов */
+    font-size: 1.7rem;                                         /* Размер шрифта */
 }
 
 
+/****************************************************************************************
+ *                                                                                      *
+ *                                     Ошибки SystemD                                   *
+ *                                                                                      *
+ ****************************************************************************************/
 
+ #systemd-failed-units {
+    margin: 0rem 9rem 0rem 0rem;                               /* Внешние отступы */
+    padding: 0.3rem 4rem 0rem 4rem;                            /* Внутренние отступы */
+    border-radius: 0rem 0rem 2rem 2rem;                        /* Скругление углов */
+}
 
 
 
 
 /****************************************************************************************
  *                                                                                      *
- *                                   ПАНЕЛЬ ЗАДАЧ                                       *
+ *                                     ТРЕЙ                                             *
  *                                                                                      *
  ****************************************************************************************/
 
- #taskbar {
-margin: 0.5rem 0rem 0.5rem 12rem;
-background-color: transparent; 
-
+ #tray {
+    margin: 0rem 5rem 0rem 0rem;                               /* Внешние отступы */
+    padding: 0rem 2rem 0rem 2rem;                              /* Внутренние отступы */
+    border-radius: 0rem 0rem 1.5rem 1.5rem;                    /* Скругление углов */
 }
-
+ 
 
 
 /****************************************************************************************
@@ -128,42 +147,10 @@ background-color: transparent;
  ****************************************************************************************/
 
  #language {
-  border-radius: 1rem 0rem 0rem 1rem;              /* Скругление углов */
-  margin: 0.5rem 0rem;
-  padding: 0.3rem 0rem 0rem 1.5rem;              /* Внутренние отступы */
-
+    border-radius: 0rem 0rem 0rem 9rem;                        /* Скругление углов */
+    padding: 0rem 0rem 0rem 1rem;                              /* Внутренние отступы */
+    min-width: 4rem;                                           /* Минимальная ширина */
 }
-
-
-
-/****************************************************************************************
- *                                                                                      *
- *                                     Уведомления                                      *
- *                                                                                      *
- ****************************************************************************************/
-
-#custom-swaync {
-	color: #00ffcc;  /* Цвет текста иконки SwayNC */
-  border-radius: 0rem 1rem 1rem 0rem;              /* Скругление углов */
-  margin: 0.5rem 1rem 0.5rem 0rem;
-  padding: 0rem 2rem 0rem 1rem;              /* Внутренние отступы */
-}
-
-#custom-swaync.notification {
-  background-color: #e20b20;  /* Цвет фона иконки SwayNC при наличии уведомлений */
-  color: #ffffff;  /* Цвет текста при наличии уведомлений */
-  animation: blink 1s infinite;  /* Анимация для мигания */
-  border-radius: 0rem 1rem 1rem 0rem;              /* Скругление углов */
-  margin: 0.5rem 1rem 0.5rem 0rem;
-  padding: 0rem 2rem 0rem 1rem;              /* Внутренние отступы */
-}
-
-@keyframes blink {
-  0% { opacity: 1; }  /* Начало анимации, полная видимость */
-  50% { opacity: 0.3; }  /* Середина анимации, уменьшенная видимость */
-  100% { opacity: 1; }  /* Конец анимации, полная видимость */
-}
-
 
 
 /****************************************************************************************
@@ -172,10 +159,9 @@ background-color: transparent;
  *                                                                                      *
  ****************************************************************************************/
 
-#wireplumber {
-  border-radius: 0rem;              /* Скругление углов */
-  margin: 0.5rem 0rem;
-  padding: 0rem 1.1rem 0rem 1rem;              /* Внутренние отступы */
+#pulseaudio {
+    border-radius: 0rem 0rem 0rem 0rem;                        /* Скругление углов */
+    padding: 0rem 1.5rem 0rem 1rem;                            /* Внутренние отступы */
 }
 
  
@@ -187,37 +173,109 @@ background-color: transparent;
  ****************************************************************************************/
 
  #power-profiles-daemon {
-  border-radius: 0rem;              /* Скругление углов */
-  margin: 0.5rem 0rem 0.5rem 0rem;
-  padding: 0rem 1.5rem 0rem 0rem;              /* Внутренние отступы */  
-  
+    border-radius: 0rem 0rem 0rem 0rem;                        /* Скругление углов */
+    padding: 0rem 1rem 0rem 0.5rem;                            /* Внутренние отступы */
   }
   
 
 
-
 /****************************************************************************************
  *                                                                                      *
- *                                     ТРЕЙ                                             *
+ *                                     Уведомления                                      *
  *                                                                                      *
  ****************************************************************************************/
 
- #tray {
-	box-shadow: none;          /* Убираем тень */	 
-  margin: 0.5rem 1rem;
-  
+#custom-swaync {
+    color: #00ffcc;                                          /* Цвет текста иконки */
+    border-radius: 0rem 0rem 0rem 0rem;                        /* Скругление углов */
+    padding: 0rem 1rem 0rem 1rem;                              /* Внутренние отступы */
 }
- 
+
+#custom-swaync.notification {
+    background-color: #e20b20;                               /* Цвет фона при наличии уведомлений */
+    color: #ffffff;                                          /* Цвет текста при наличии уведомлений */
+    border-radius: 0.5rem;                                     /* Скругление углов */
+    animation: blink 1s infinite;                              /* Анимация мигания */
+}
+
+@keyframes blink {
+    0% { opacity: 1; }                                         /* Начало анимации: полная видимость */
+    50% { opacity: 0.3; }                                      /* Середина анимации: частичная видимость */
+    100% { opacity: 1; }                                       /* Конец анимации: полная видимость */
+}
+
+
 
 
 /****************************************************************************************
  *                                                                                      *
- *                                     Кнопка выключения                                *
+ *                                 ГРУППА МЕНЮ ПИТАНИЯ                                  *
  *                                                                                      *
  ****************************************************************************************/
 
- #custom-power {
-  color: #fc1212;
-  margin: 0.5rem 1rem 0.5rem 1rem;
-  }
-  
+/* Стили для основной кнопки питания */
+#custom-power {
+    color: #00ffcc;                                          /* Цвет иконки */
+    margin: 0rem 0rem 0rem 0rem;                               /* Внешние отступы */
+    padding: 0rem 1rem 0rem 2rem;                              /* Внутренние отступы */
+    border-radius: 0rem 0rem 0rem 0rem;                        /* Скругление углов */
+    transition: all 0.3s ease;                                 /* Плавный переход для анимаций */
+}
+
+/* Общие стили для кнопок меню питания */
+#custom-shutdown,
+#custom-reboot,
+#custom-logout {
+    background-color: #26263f;                               /* Цвет фона */
+    padding: 0rem 2rem 0rem 2rem;                              /* Внутренние отступы */
+    margin: 0rem 0rem 0rem 0rem;                               /* Внешние отступы */
+    transition: all 0.3s ease;                                 /* Плавный переход для анимаций */
+    font-family: 'Neuropol','JetBrainsMono NF';                /* Шрифт */
+    font-size: 1.5rem;                                         /* Размер шрифта */
+    font-weight: bold;                                         /* Жирность шрифта */
+    border-radius: 0rem 0rem 0rem 0rem;                        /* Скругление углов */
+}
+
+/* Индивидуальные настройки для кнопки выключения */
+#custom-shutdown {
+    color: #fc1212;                                          /* Цвет иконки (красный) */
+    padding: 0rem 1.5rem 0rem 1.5rem;                          /* Внутренние отступы */
+}
+
+/* Индивидуальные настройки для кнопки перезагрузки */
+#custom-reboot {
+    color: #f7db07;                                          /* Цвет иконки (желтый) */
+    padding: 0rem 1.5rem 0rem 1.5rem;                          /* Внутренние отступы */
+}
+
+/* Индивидуальные настройки для кнопки выхода */
+#custom-logout {
+    color: #65f342;                                          /* Цвет иконки (зеленый) */
+    padding: 0rem 1.5rem 0rem 1.5rem;                          /* Внутренние отступы */
+}
+
+/* Эффекты при наведении на кнопку выключения */
+#custom-shutdown:hover {
+    background-color: #fc1212;                               /* Цвет фона при наведении */
+    border-radius: 0.3rem;                                     /* Скругление углов */
+    color: #000000;                                          /* Цвет текста при наведении */
+}
+
+/* Эффекты при наведении на кнопку перезагрузки */
+#custom-reboot:hover {
+    background-color: #f7db07;                               /* Цвет фона при наведении */
+    border-radius: 0.3rem;                                     /* Скругление углов */
+    color: #000000;                                          /* Цвет текста при наведении */
+}
+
+/* Эффекты при наведении на кнопку выхода */
+#custom-logout:hover {
+    background-color: #65f342;                               /* Цвет фона при наведении */
+    border-radius: 0.3rem;                                     /* Скругление углов */
+    color: #000000;                                          /* Цвет текста при наведении */
+}
+
+/* Стили для всей группы меню */
+#power-menu {
+    background-color: transparent;                             /* Прозрачный фон для контейнера меню */
+}

@@ -1,265 +1,389 @@
-terminal = "ghostty"
-app_launch_prefix = ""
-terminal_title_flag = ""
-locale = ""
-close_when_open = false
-theme = "neon_dark"
-monitor = ""
-hotreload_theme = true
-as_window = false
-timeout = 0
-disable_click_to_close = false
-force_keyboard_focus = false
+# ═══════════════════════════════════════════════════════════════════════════════
+#                         WALKER LAUNCHER - ОСНОВНАЯ КОНФИГУРАЦИЯ
+#                    Настройки поведения и функциональности launcher'а
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                        ОСНОВНЫЕ НАСТРОЙКИ                                   │
+# └─────────────────────────────────────────────────────────────────────────────┘
+
+terminal = "ghostty"                        # Терминал по умолчанию для запуска команд
+app_launch_prefix = ""                      # Префикс для запуска приложений
+terminal_title_flag = ""                    # Флаг для установки заголовка терминала
+locale = ""                                 # Локаль (пустая = системная)
+close_when_open = true                      # Закрывать walker при открытии приложения
+theme = "neon_dark"                         # Используемая тема (наша кастомная тема)
+monitor = ""                                # Монитор для отображения (пустой = основной)
+hotreload_theme = true                      # Горячая перезагрузка темы при изменениях
+as_window = false                           # Отображать как обычное окно (false = overlay)
+timeout = 0                                 # Таймаут автозакрытия (0 = отключен)
+disable_click_to_close = false              # Отключить закрытие по клику вне окна
+force_keyboard_focus = true                # Принудительный фокус клавиатуры
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                        ГОРЯЧИЕ КЛАВИШИ                                      │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [keys]
-accept_typeahead = ["tab"]
-trigger_labels = "lalt"
-next = ["down"]
-prev = ["up"]
-close = ["esc"]
-remove_from_history = ["shift backspace"]
-resume_query = ["ctrl r"]
-toggle_exact_search = ["ctrl m"]
+accept_typeahead = ["tab"]                  # Принять автодополнение
+trigger_labels = "lalt"                     # Показать метки быстрого запуска
+next = ["down"]                             # Следующий элемент
+prev = ["up"]                               # Предыдущий элемент
+close = ["esc"]                             # Закрыть walker
+remove_from_history = ["shift backspace"]   # Удалить из истории
+resume_query = ["ctrl r"]                   # Восстановить последний запрос
+toggle_exact_search = ["ctrl m"]            # Переключить точный поиск
 
+# Модификаторы для режима активации
 [keys.activation_modifiers]
-keep_open = "shift"
-# alternate = "alt"
+keep_open = "shift"                         # Держать окно открытым после запуска
+# alternate = "alt"                         # Альтернативное действие (закомментировано)
 
+# Горячие клавиши для AI функций
 [keys.ai]
-clear_session = ["ctrl x"]
-copy_last_response = ["ctrl c"]
-resume_session = ["ctrl r"]
-run_last_response = ["ctrl e"]
+clear_session = ["ctrl x"]                  # Очистить сессию AI
+copy_last_response = ["ctrl c"]             # Скопировать последний ответ AI
+resume_session = ["ctrl r"]                 # Восстановить сессию AI
+run_last_response = ["ctrl e"]              # Выполнить последний ответ AI
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                        СОБЫТИЯ И ХУКИ                                       │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [events]
-on_activate = ""
-on_selection = ""
-on_exit = ""
-on_launch = ""
-on_query_change = ""
+on_activate = ""                            # Команда при активации walker
+on_selection = ""                           # Команда при выборе элемента
+on_exit = ""                                # Команда при выходе из walker
+on_launch = ""                              # Команда при запуске приложения
+on_query_change = ""                        # Команда при изменении поискового запроса
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                        НАСТРОЙКИ СПИСКА                                     │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [list]
-dynamic_sub = true
-keyboard_scroll_style = "emacs"
-max_entries = 15
-show_initial_entries = true
-single_click = true
-visibility_threshold = 20
-placeholder = "Не нашел :("
+dynamic_sub = true                          # Динамические подзаголовки
+keyboard_scroll_style = "emacs"             # Стиль прокрутки клавиатурой (emacs/vim)
+max_entries = 15                            # Максимальное количество элементов в списке
+show_initial_entries = true                 # Показывать элементы при пустом запросе
+single_click = true                         # Запуск по одному клику мыши
+visibility_threshold = 20                   # Порог видимости для элементов
+placeholder = "Не нашел :("                 # Текст когда ничего не найдено
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                        НАСТРОЙКИ ПОИСКА                                     │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [search]
-argument_delimiter = "#"
-placeholder = "Поиск"
-delay = 0
-resume_last_query = false
+argument_delimiter = "#"                    # Разделитель аргументов в поиске
+placeholder = "Поиск"                       # Placeholder текст в поле поиска
+delay = 0                                   # Задержка поиска в миллисекундах
+resume_last_query = false                   # Восстанавливать последний запрос при открытии
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                        РЕЖИМ АКТИВАЦИИ                                      │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [activation_mode]
-labels = "12345678"
+labels = "12345678"                         # Метки для быстрого запуска (цифры 1-8)
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                        ВСТРОЕННЫЕ МОДУЛИ                                    │
+# └─────────────────────────────────────────────────────────────────────────────┘
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                           ПРИЛОЖЕНИЯ                                        │
+# │  Поиск и запуск установленных приложений                                   │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [builtins.applications]
-weight = 5
-name = "applications"
-placeholder = "Applications"
-prioritize_new = true
-hide_actions_with_empty_query = true
-context_aware = true
-refresh = true
-show_sub_when_single = false
-show_icon_when_single = true
-show_generic = false
-history = true
+weight = 5                                  # Приоритет модуля (чем меньше, тем выше)
+name = "applications"                       # Внутреннее имя модуля
+placeholder = "Applications"                # Placeholder для этого модуля
+prioritize_new = true                       # Приоритет новым приложениям
+hide_actions_with_empty_query = true        # Скрывать действия при пустом запросе
+context_aware = true                        # Контекстно-зависимый поиск
+refresh = true                              # Обновлять список приложений
+show_sub_when_single = false                # Показывать подзаголовок для одного результата
+show_icon_when_single = true                # Показывать иконку для одного результата
+show_generic = false                        # Показывать общие приложения
+history = true                              # Сохранять историю запусков
 
-
+# Действия для приложений (контекстное меню)
 [builtins.applications.actions]
-enabled = false
-hide_category = false
-hide_without_query = true
+enabled = false                             # Включить действия приложений
+hide_category = false                       # Скрывать категорию действий
+hide_without_query = true                   # Скрывать без поискового запроса
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                           ЗАКЛАДКИ                                          │
+# │  Быстрый доступ к веб-сайтам и ссылкам                                     │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [builtins.bookmarks]
-weight = 5
-placeholder = "Bookmarks"
-name = "bookmarks"
-icon = "bookmark"
-switcher_only = true
-hidden = true
+weight = 5                                  # Приоритет модуля
+placeholder = "Bookmarks"                   # Placeholder для закладок
+name = "bookmarks"                          # Внутреннее имя модуля
+icon = "bookmark"                           # Иконка модуля
+switcher_only = true                        # Доступен только через переключатель
+hidden = true                               # Скрыт по умолчанию
 
-
+# Пример закладки
 [[builtins.bookmarks.entries]]
-label = "Walker"
-url = "https://github.com/abenz1267/walker"
-keywords = ["walker", "github"]
+label = "Walker"                            # Название закладки
+url = "https://github.com/abenz1267/walker" # URL закладки
+keywords = ["walker", "github"]             # Ключевые слова для поиска
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                      ВЫБОР ЭКРАНА/ОКНА                                      │
+# │  Инструмент для выбора экрана или окна для скриншотов                      │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [builtins.xdph_picker]
-hidden = true
-weight = 5
-placeholder = "Screen/Window Picker"
-show_sub_when_single = true
-name = "xdphpicker"
-switcher_only = true
+hidden = true                               # Скрыт по умолчанию
+weight = 5                                  # Приоритет модуля
+placeholder = "Screen/Window Picker"        # Placeholder для выбора экрана
+show_sub_when_single = true                 # Показывать подзаголовок
+name = "xdphpicker"                         # Внутреннее имя модуля
+switcher_only = true                        # Доступен только через переключатель
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                           AI АССИСТЕНТ                                      │
+# │  Интеграция с AI для ответов на вопросы и помощи                          │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [builtins.ai]
-weight = 5
-placeholder = "AI"
-name = "ai"
-icon = "help-browser"
-switcher_only = false
-show_sub_when_single = true
+weight = 5                                  # Приоритет модуля
+placeholder = "AI"                          # Placeholder для AI
+name = "ai"                                 # Внутреннее имя модуля
+icon = "help-browser"                       # Иконка модуля
+switcher_only = false                       # Доступен в основном поиске
+show_sub_when_single = true                 # Показывать подзаголовок
 
+# Настройки AI провайдера (Anthropic Claude)
 [[builtins.ai.anthropic.prompts]]
-model = "claude-3-haiku-20240307" # Какая-нибудь реальная модель Anthropic
-label = "Тестовый AI"
-prompt = "Test prompt"
+model = "claude-3-haiku-20240307"           # Модель Claude для использования
+label = "Тестовый AI"                       # Название AI ассистента
+prompt = "Test prompt"                      # Системный промпт для AI
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                           КАЛЬКУЛЯТОР                                       │
+# │  Встроенный калькулятор для быстрых вычислений                             │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [builtins.calc]
-require_number = true
-weight = 55
-name = "calc"
-icon = "accessories-calculator"
-placeholder = "Calculator"
-min_chars = 2
+require_number = true                       # Требовать числа для активации
+weight = 55                                 # Приоритет модуля (ниже чем у приложений)
+name = "calc"                               # Внутреннее имя модуля
+icon = "accessories-calculator"             # Иконка калькулятора
+placeholder = "Calculator"                  # Placeholder для калькулятора
+min_chars = 2                               # Минимальное количество символов для активации
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                           ОКНА                                              │
+# │  Переключение между открытыми окнами                                        │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [builtins.windows]
-weight = 5
-icon = "view-restore"
-name = "windows"
-placeholder = "Windows"
-show_icon_when_single = true
-switcher_only = true
-hidden = true
+weight = 5                                  # Приоритет модуля
+icon = "view-restore"                       # Иконка модуля
+name = "windows"                            # Внутреннее имя модуля
+placeholder = "Windows"                     # Placeholder для окон
+show_icon_when_single = true                # Показывать иконку для одного результата
+switcher_only = true                        # Доступен только через переключатель
+hidden = true                               # Скрыт по умолчанию
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                           БУФЕР ОБМЕНА                                      │
+# │  История буфера обмена с возможностью поиска и вставки                     │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [builtins.clipboard]
-always_put_new_on_top = true
-exec = "wl-copy"
-weight = 5
-name = "clipboard"
-avoid_line_breaks = true
-placeholder = "Clipboard"
-image_height = 300
-max_entries = 15
-prefix = "cc"
-switcher_only = false
+always_put_new_on_top = true                # Новые элементы всегда наверху
+exec = "wl-copy"                            # Команда для копирования (Wayland)
+weight = 5                                  # Приоритет модуля
+name = "clipboard"                          # Внутреннее имя модуля
+avoid_line_breaks = true                    # Избегать переносов строк в превью
+placeholder = "Clipboard"                   # Placeholder для буфера обмена
+image_height = 300                          # Высота превью изображений
+max_entries = 15                            # Максимальное количество элементов в истории
+prefix = "cc"                               # Префикс для активации модуля
+switcher_only = false                       # Доступен в основном поиске
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                           КОМАНДЫ                                           │
+# │  Выполнение системных команд                                               │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [builtins.commands]
-weight = 5
-icon = "utilities-terminal"
-switcher_only = true
-name = "commands"
-placeholder = "Commands"
+weight = 5                                  # Приоритет модуля
+icon = "utilities-terminal"                 # Иконка терминала
+switcher_only = true                        # Доступен только через переключатель
+name = "commands"                           # Внутреннее имя модуля
+placeholder = "Commands"                    # Placeholder для команд
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                      ПОЛЬЗОВАТЕЛЬСКИЕ КОМАНДЫ                               │
+# │  Настраиваемые команды пользователя                                        │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [builtins.custom_commands]
-weight = 5
-icon = "utilities-terminal"
-name = "custom_commands"
-placeholder = "Custom Commands"
+weight = 5                                  # Приоритет модуля
+icon = "utilities-terminal"                 # Иконка терминала
+name = "custom_commands"                    # Внутреннее имя модуля
+placeholder = "Custom Commands"             # Placeholder для пользовательских команд
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                           ЭМОДЗИ                                            │
+# │  Поиск и вставка эмодзи                                                    │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [builtins.emojis]
-exec = "wl-copy"
-weight = 5
-name = "emojis"
-placeholder = "Emojis"
-switcher_only = true
-history = true
-typeahead = true
-show_unqualified = false
-hidden = true
+exec = "wl-copy"                            # Команда для копирования эмодзи
+weight = 5                                  # Приоритет модуля
+name = "emojis"                             # Внутреннее имя модуля
+placeholder = "Emojis"                      # Placeholder для эмодзи
+switcher_only = true                        # Доступен только через переключатель
+history = true                              # Сохранять историю использования
+typeahead = true                            # Автодополнение при вводе
+show_unqualified = false                    # Не показывать неквалифицированные эмодзи
+hidden = true                               # Скрыт по умолчанию
 
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                           СИМВОЛЫ                                           │
+# │  Поиск и вставка специальных символов                                      │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [builtins.symbols]
-after_copy = ""
-weight = 5
-name = "symbols"
-placeholder = "Symbols"
-switcher_only = true
-history = true
-typeahead = true
-hidden = true
+after_copy = ""                             # Команда после копирования символа
+weight = 5                                  # Приоритет модуля
+name = "symbols"                            # Внутреннее имя модуля
+placeholder = "Symbols"                     # Placeholder для символов
+switcher_only = true                        # Доступен только через переключатель
+history = true                              # Сохранять историю использования
+typeahead = true                            # Автодополнение при вводе
+hidden = true                               # Скрыт по умолчанию
 
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                        ПОИСК ФАЙЛОВ                                         │
+# │  Поиск файлов в файловой системе                                           │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [builtins.finder]
-use_fd = false
-fd_flags = "--ignore-vcs --type file"
-weight = 5
-icon = "file"
-name = "finder"
-placeholder = "Finder"
-switcher_only = true
-ignore_gitignore = true
-refresh = true
-concurrency = 8
-show_icon_when_single = true
-preview_images = false
+use_fd = false                              # Использовать fd вместо find
+fd_flags = "--ignore-vcs --type file"       # Флаги для fd команды
+weight = 5                                  # Приоритет модуля
+icon = "file"                               # Иконка файла
+name = "finder"                             # Внутреннее имя модуля
+placeholder = "Finder"                      # Placeholder для поиска файлов
+switcher_only = true                        # Доступен только через переключатель
+ignore_gitignore = true                     # Игнорировать .gitignore файлы
+refresh = true                              # Обновлять результаты поиска
+concurrency = 8                             # Количество параллельных потоков поиска
+show_icon_when_single = true                # Показывать иконку для одного результата
+preview_images = false                      # Предварительный просмотр изображений
 
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                        ЗАПУСК КОМАНД                                        │
+# │  Выполнение исполняемых файлов и скриптов                                  │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [builtins.runner]
-eager_loading = true
-weight = 5
-icon = "utilities-terminal"
-name = "runner"
-placeholder = "Runner"
-typeahead = true
-history = true
-generic_entry = false
-refresh = true
-use_fd = false
-switcher_only = true
-hidden = true
+eager_loading = true                        # Предварительная загрузка команд
+weight = 5                                  # Приоритет модуля
+icon = "utilities-terminal"                 # Иконка терминала
+name = "runner"                             # Внутреннее имя модуля
+placeholder = "Runner"                      # Placeholder для запуска команд
+typeahead = true                            # Автодополнение при вводе
+history = true                              # Сохранять историю запусков
+generic_entry = false                       # Не показывать общие записи
+refresh = true                              # Обновлять список команд
+use_fd = false                              # Использовать fd для поиска
+switcher_only = true                        # Доступен только через переключатель
+hidden = true                               # Скрыт по умолчанию
 
-[builtins.ssh]
-weight = 5
-icon = "preferences-system-network"
-name = "ssh"
-placeholder = "SSH"
-switcher_only = true
-history = true
-refresh = true
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                        SSH ПОДКЛЮЧЕНИЯ                                      │
+# │  Быстрое подключение к SSH серверам                                        │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
-[builtins.switcher]
-weight = 5
-name = "switcher"
-placeholder = "Switcher"
-prefix = "/"
+#[builtins.ssh]
+#weight = 5                                  # Приоритет модуля
+#icon = "preferences-system-network"         # Иконка сети
+#name = "ssh"                                # Внутреннее имя модуля
+#placeholder = "SSH"                         # Placeholder для SSH
+#switcher_only = true                        # Доступен только через переключатель
+#history = true                              # Сохранять историю подключений
+#refresh = true                              # Обновлять список серверов
 
-[builtins.websearch]
-keep_selection = true
-weight = 5
-icon = "applications-internet"
-name = "websearch"
-placeholder = "Websearch"
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                        ПЕРЕКЛЮЧАТЕЛЬ МОДУЛЕЙ                                │
+# │  Переключение между различными модулями walker                              │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
+#[builtins.switcher]
+#weight = 5                                  # Приоритет модуля
+#name = "switcher"                           # Внутреннее имя модуля
+#placeholder = "Switcher"                    # Placeholder для переключателя
+#prefix = "/"                                # Префикс для активации переключателя
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                        ВЕБ-ПОИСК                                           │
+# │  Поиск в интернете через различные поисковые системы                       │
+# └─────────────────────────────────────────────────────────────────────────────┘
+
+#[builtins.websearch]
+#keep_selection = true                       # Сохранять выделение после поиска
+#weight = 5                                  # Приоритет модуля
+#icon = "applications-internet"              # Иконка интернета
+#name = "websearch"                          # Внутреннее имя модуля
+#placeholder = "Websearch"                   # Placeholder для веб-поиска
+
+# Поисковые системы
 [[builtins.websearch.entries]]
-name = "Google"
-url = "https://www.google.com/search?q=%TERM%"
-switcher_only = true
+name = "Google"                             # Название поисковой системы
+url = "https://www.google.com/search?q=%TERM%" # URL с плейсхолдером для запроса
+switcher_only = true                        # Доступен только через переключатель
 
+#[[builtins.websearch.entries]]
+#name = "DuckDuckGo"                         # Приватная поисковая система
+#url = "https://duckduckgo.com/?q=%TERM%"    # URL DuckDuckGo
+#switcher_only = true                        # Доступен только через переключатель
 
-[[builtins.websearch.entries]]
-name = "DuckDuckGo"
-url = "https://duckduckgo.com/?q=%TERM%"
-switcher_only = true
+#[[builtins.websearch.entries]]
+#name = "Ecosia"                             # Экологичная поисковая система
+#url = "https://www.ecosia.org/search?q=%TERM%" # URL Ecosia
+#switcher_only = true                        # Доступен только через переключатель
 
-[[builtins.websearch.entries]]
-name = "Ecosia"
-url = "https://www.ecosia.org/search?q=%TERM%"
-switcher_only = true
+#[[builtins.websearch.entries]]
+#name = "Yandex"                             # Российская поисковая система
+#url = "https://yandex.com/search/?text=%TERM%" # URL Yandex
+#switcher_only = true                        # Доступен только через переключатель
 
-[[builtins.websearch.entries]]
-name = "Yandex"
-url = "https://yandex.com/search/?text=%TERM%"
-switcher_only = true
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                        DMENU СОВМЕСТИМОСТЬ                                  │
+# │  Совместимость с dmenu для использования в скриптах                        │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
-[builtins.dmenu]
-hidden = true
-weight = 5
-name = "dmenu"
-placeholder = "Dmenu"
-switcher_only = true
-show_icon_when_single = true
+#[builtins.dmenu]
+#hidden = true                               # Скрыт по умолчанию
+#weight = 5                                  # Приоритет модуля
+#name = "dmenu"                              # Внутреннее имя модуля
+#placeholder = "Dmenu"                       # Placeholder для dmenu
+#switcher_only = true                        # Доступен только через переключатель
+#show_icon_when_single = true                # Показывать иконку для одного результата
+
+# ┌─────────────────────────────────────────────────────────────────────────────┐
+# │                        ПЕРЕВОДЧИК                                           │
+# │  Перевод текста между различными языками                                   │
+# └─────────────────────────────────────────────────────────────────────────────┘
 
 [builtins.translation]
-delay = 1000
-weight = 5
-name = "translation"
-icon = "accessories-dictionary"
-placeholder = "Translation"
-switcher_only = true
-provider = "googlefree"
+delay = 1000                                # Задержка перед переводом (мс)
+weight = 5                                  # Приоритет модуля
+name = "translation"                        # Внутреннее имя модуля
+icon = "accessories-dictionary"             # Иконка словаря
+placeholder = "Translation"                 # Placeholder для переводчика
+switcher_only = true                        # Доступен только через переключатель
+provider = "googlefree"                     # Провайдер перевода (бесплатный Google)
+

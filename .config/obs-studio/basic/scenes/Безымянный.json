@@ -1,6 +1,6 @@
 {
     "DesktopAudioDevice1": {
-        "prev_ver": 520093699,
+        "prev_ver": 520093700,
         "name": "Звук раб. стола",
         "uuid": "e8472c4d-893b-463a-b039-96ed7e9f2cca",
         "id": "pulse_output_capture",
@@ -31,7 +31,7 @@
         "private_settings": {},
         "filters": [
             {
-                "prev_ver": 520093699,
+                "prev_ver": 520093700,
                 "name": "Усиление (Gain)",
                 "uuid": "4f510dc2-8284-459a-9e41-415e5c7978d2",
                 "id": "gain_filter",
@@ -59,7 +59,7 @@
         ]
     },
     "AuxAudioDevice1": {
-        "prev_ver": 520093699,
+        "prev_ver": 520093700,
         "name": "Микр/доп",
         "uuid": "b68b57ff-5395-414b-b2ed-ba1d24f6d64b",
         "id": "pulse_input_capture",
@@ -90,7 +90,7 @@
         "private_settings": {},
         "filters": [
             {
-                "prev_ver": 520093699,
+                "prev_ver": 520093700,
                 "name": "Усиление (Gain)",
                 "uuid": "e7ac1ecc-b8ab-4a5c-bfe1-4629707e7ee0",
                 "id": "gain_filter",
@@ -116,7 +116,7 @@
                 "private_settings": {}
             },
             {
-                "prev_ver": 520093699,
+                "prev_ver": 520093700,
                 "name": "Шумоподавление (Noise Suppression)",
                 "uuid": "169ba600-fbc1-44d0-b468-e385b9293d11",
                 "id": "noise_suppress_filter",
@@ -151,13 +151,13 @@
     "name": "Безымянный",
     "sources": [
         {
-            "prev_ver": 520093699,
+            "prev_ver": 520093700,
             "name": "Сцена",
             "uuid": "a2c6b6d8-4168-46e5-86ef-9ae896096fa3",
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 2,
+                "id_counter": 3,
                 "custom_size": false,
                 "items": [
                     {
@@ -214,6 +214,61 @@
                             "duration": 0
                         },
                         "private_settings": {}
+                    },
+                    {
+                        "name": "Доска",
+                        "source_uuid": "5a5a71df-5379-4f1f-8821-a423dfb0daf4",
+                        "visible": false,
+                        "locked": false,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 0,
+                        "crop_top": 0,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 3,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "pos_rel": {
+                            "x": -1.7777777910232544,
+                            "y": -1.0
+                        },
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "scale_rel": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
                     }
                 ]
             },
@@ -231,7 +286,9 @@
             "hotkeys": {
                 "OBSBasic.SelectScene": [],
                 "libobs.show_scene_item.1": [],
-                "libobs.hide_scene_item.1": []
+                "libobs.hide_scene_item.1": [],
+                "libobs.show_scene_item.3": [],
+                "libobs.hide_scene_item.3": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -239,9 +296,35 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 520093699,
+            "prev_ver": 520093700,
             "name": "Захват экрана (PipeWire)",
             "uuid": "ab5fab96-e915-456b-ba2a-3e9f1394d17e",
+            "id": "pipewire-screen-capture-source",
+            "versioned_id": "pipewire-screen-capture-source",
+            "settings": {
+                "RestoreToken": ""
+            },
+            "mixers": 0,
+            "sync": 0,
+            "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {},
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 520093700,
+            "name": "Доска",
+            "uuid": "5a5a71df-5379-4f1f-8821-a423dfb0daf4",
             "id": "pipewire-screen-capture-source",
             "versioned_id": "pipewire-screen-capture-source",
             "settings": {

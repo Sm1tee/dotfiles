@@ -62,4 +62,37 @@
 	<patterns>*</patterns>
 	<image-files/>
 </action>
+<action>
+	<icon></icon>
+	<name>Обрезать видео</name>
+	<submenu></submenu>
+	<unique-id>1752855180802492-1</unique-id>
+	<command>~/.config/Thunar/scripts/video-trim.sh %f</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>Разрезать видео на 2 части</name>
+	<submenu></submenu>
+	<unique-id>1752856319555457-1</unique-id>
+	<command>~/.config/Thunar/scripts/video-split.sh %f</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>Объеденить видео</name>
+	<submenu></submenu>
+	<unique-id>1752857055898879-1</unique-id>
+	<command>~/.config/Thunar/scripts/video-concat.sh %F</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<video-files/>
+</action>
 </actions>

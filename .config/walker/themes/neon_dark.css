@@ -1,12 +1,34 @@
-/* NEON DARK THEME FOR WALKER LAUNCHER - ИСПРАВЛЕНО */
+/* ═══════════════════════════════════════════════════════════════════════════════
+ *                    WALKER LAUNCHER - NEON DARK THEME
+ *                   Соответствует цветовой схеме Waybar
+ * ═══════════════════════════════════════════════════════════════════════════════ */
 
-@define-color foreground rgba(255, 255, 255, 0.95);
-@define-color background rgba(15, 15, 20, 0.95);
-@define-color neon-main rgba(0, 255, 204, 0.9);
-@define-color neon-main-bright rgba(0, 255, 204, 1);
-@define-color neon-main-dim rgba(0, 255, 204, 0.7);
-@define-color accent-glow rgba(0, 255, 204, 0.3);
-@define-color background-lighter rgba(25, 25, 35, 0.9);
+/* ┌─────────────────────────────────────────────────────────────────────────────┐
+ * │                           ЦВЕТОВАЯ ПАЛИТРА                                  │
+ * └─────────────────────────────────────────────────────────────────────────────┘ */
+
+@define-color foreground #ffffff;
+/* Основной цвет текста - белый */
+@define-color background #24243d;
+/* Основной фон - темно-серый с фиолетовым оттенком */
+@define-color neon-main #00ffcc;
+/* Акцентный цвет - бирюзовый (как в waybar) */
+@define-color neon-main-bright #00ffcc;
+/* Яркий акцентный цвет */
+@define-color neon-main-dim #00ffcc;
+/* Приглушенный акцентный цвет */
+@define-color accent-glow #00ffcc;
+/* Цвет свечения */
+@define-color background-lighter #26263f;
+/* Светлый фон для элементов списка */
+@define-color active-bg #404060;
+/* Фон активного/выделенного элемента */
+@define-color active-text #ffffff;
+/* Цвет текста активного элемента */
+
+/* ┌─────────────────────────────────────────────────────────────────────────────┐
+ * │                        СБРОС СТИЛЕЙ ПО УМОЛЧАНИЮ                           │
+ * └─────────────────────────────────────────────────────────────────────────────┘ */
 
 #window,
 #box,
@@ -29,258 +51,404 @@ slider,
 #sub,
 #activationlabel {
   all: unset;
+  /* Сброс всех стилей для чистого старта */
 }
 
+/* ┌─────────────────────────────────────────────────────────────────────────────┐
+ * │                          СООБЩЕНИЯ ОБ ОШИБКАХ                              │
+ * └─────────────────────────────────────────────────────────────────────────────┘ */
+
 #cfgerr {
-  background: rgba(255, 50, 50, 0.6);
-  margin-top: 20px;
+  background: #fc1212;
+  /* Красный фон для ошибок */
+  margin-top: 12px;
+  /* Отступ сверху */
   padding: 12px;
+  /* Внутренние отступы */
   font-size: 1.2em;
+  /* Увеличенный размер шрифта */
   border-radius: 8px;
-  border: 1px solid rgba(255, 100, 100, 0.8);
-  box-shadow: 0 0 10px rgba(255, 50, 50, 0.4);
+  /* Скругленные углы */
+  color: #ffffff;
+  /* Белый текст */
 }
+
+/* ┌─────────────────────────────────────────────────────────────────────────────┐
+ * │                           ОСНОВНОЕ ОКНО                                     │
+ * └─────────────────────────────────────────────────────────────────────────────┘ */
 
 #window {
   color: @foreground;
+  /* Цвет текста */
   background: transparent;
+  /* Прозрачный фон (не заливает весь экран) */
 }
 
 #box {
   border-radius: 16px;
-  background: linear-gradient(135deg, 
-    rgba(15, 15, 20, 0.98) 0%, 
-    rgba(25, 20, 35, 0.95) 100%);
+  /* Скругленные углы окна */
+  background: @background;
+  /* Основной фон окна */
   padding: 30px;
-  border: 2px solid @neon-main-bright;
-  box-shadow:
-    0 0 20px rgba(0, 255, 204, 0.2),
-    0 0 40px rgba(0, 255, 204, 0.1),
-    0 10px 30px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  min-width: 800px;
+  /* Внутренние отступы */
 }
 
+/* ┌─────────────────────────────────────────────────────────────────────────────┐
+ * │                           ПОЛЕ ПОИСКА                                       │
+ * └─────────────────────────────────────────────────────────────────────────────┘ */
+
 #search {
-  box-shadow:
-    0 0 15px rgba(0, 255, 204, 0.3),
-    0 4px 15px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  background: linear-gradient(135deg, 
-    @background-lighter 0%, 
-    rgba(30, 25, 40, 0.9) 100%);
+  background: @background-lighter;
+  /* Фон поля поиска */
   padding: 12px 16px;
+  /* Внутренние отступы */
   border-radius: 12px;
-  border: 1px solid rgba(0, 255, 204, 0.6);
+  /* Скругленные углы */
   transition: all 0.3s ease;
+  /* Плавный переход при изменениях */
 }
 
 #search:focus-within {
-  box-shadow:
-    0 0 20px rgba(0, 255, 204, 0.4),
-    0 0 35px rgba(0, 255, 204, 0.2),
-    0 4px 15px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  border-color: @neon-main-bright;
+  background: @active-bg;
+  /* Фон при фокусе на поле поиска */
 }
 
+/* Иконка поиска */
 #prompt {
   margin-left: 6px;
+  /* Отступ слева */
   margin-right: 16px;
+  /* Отступ справа */
   color: @neon-main-bright;
-  opacity: 0.8;
-  filter: drop-shadow(0 0 6px rgba(0, 255, 204, 0.5));
+  /* Цвет иконки поиска */
 }
 
+/* Кнопка очистки поиска */
 #clear {
   color: @neon-main;
-  opacity: 0.9;
+  /* Цвет кнопки очистки */
   transition: all 0.2s ease;
-  filter: drop-shadow(0 0 4px rgba(0, 255, 204, 0.4));
+  /* Плавный переход */
 }
 
 #clear:hover {
-  opacity: 1;
-  filter: drop-shadow(0 0 8px rgba(0, 255, 204, 0.6));
+  color: @active-bg;
+  /* Цвет при наведении */
 }
+
+/* ┌─────────────────────────────────────────────────────────────────────────────┐
+ * │                         ПОЛЯ ВВОДА ТЕКСТА                                  │
+ * └─────────────────────────────────────────────────────────────────────────────┘ */
 
 #password,
 #input,
 #typeahead {
   border-radius: 8px;
+  /* Скругленные углы полей ввода */
 }
 
 #input {
   background: none;
+  /* Прозрачный фон */
   color: @foreground;
+  /* Цвет текста */
   font-size: 1.1em;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  /* Размер шрифта */
 }
 
 #typeahead {
   color: @neon-main;
-  opacity: 0.7;
-  text-shadow: 0 0 6px rgba(0, 255, 204, 0.4);
+  /* Цвет подсказок при вводе */
 }
 
 #input placeholder {
-  opacity: 0.4;
-  color: rgba(255, 255, 255, 0.4);
+  color: #888888;
+  /* Цвет placeholder текста */
 }
+
+/* ┌─────────────────────────────────────────────────────────────────────────────┐
+ * │                           СПИСОК ЭЛЕМЕНТОВ                                  │
+ * └─────────────────────────────────────────────────────────────────────────────┘ */
 
 #list {
-  margin-top: 12px;
+  border: none;
+  /* Убираем границы */
+  outline: none;
+  /* Убираем outline */
 }
 
+/* Отдельный элемент списка */
 child {
   padding: 16px 20px;
+  /* Внутренние отступы элемента */
   border-radius: 12px;
+  /* Скругленные углы */
   margin: 4px 0;
+  /* Отступы между элементами */
   transition: all 0.2s ease;
-  background: linear-gradient(135deg, 
-    rgba(20, 20, 30, 0.6) 0%, 
-    rgba(30, 25, 40, 0.4) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* Плавный переход при наведении */
+  background: @background-lighter;
+  /* Фон элемента */
 }
 
+/* Выделенный или активный элемент */
 child:selected,
 child:hover {
-  background: linear-gradient(135deg, 
-    rgba(0, 255, 204, 0.15) 0%, 
-    rgba(0, 255, 204, 0.1) 50%,
-    rgba(0, 255, 204, 0.15) 100%);
-  border: 1px solid rgba(0, 255, 204, 0.6);
-  box-shadow:
-    0 0 12px rgba(0, 255, 204, 0.2),
-    0 0 20px rgba(0, 255, 204, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  background: @active-bg;
+  /* Фон при выделении */
+  color: @active-text;
+  /* Цвет текста при выделении */
 }
+
+/* ┌─────────────────────────────────────────────────────────────────────────────┐
+ * │                        СОДЕРЖИМОЕ ЭЛЕМЕНТОВ                                 │
+ * └─────────────────────────────────────────────────────────────────────────────┘ */
 
 #item {
   display: flex;
+  /* Flexbox для выравнивания */
   align-items: center;
+  /* Вертикальное выравнивание по центру */
 }
 
 #icon {
   margin-right: 16px;
+  /* Отступ справа от иконки */
 }
 
 #text {
   flex: 1;
+  /* Занимает оставшееся место */
   overflow: hidden;
+  /* Скрывает переполнение */
 }
 
+/* Основной текст элемента */
 #label {
   font-weight: 600;
+  /* Полужирный шрифт */
   color: @foreground;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  /* Цвет основного текста */
   font-size: 1.1em;
+  /* Размер шрифта */
   white-space: nowrap;
+  /* Запрет переноса строк */
   overflow: hidden;
+  /* Скрытие переполнения */
   text-overflow: ellipsis;
+  /* Многоточие при обрезании */
 }
 
+/* Дополнительный текст элемента */
 #sub {
-  opacity: 0.7;
   font-size: 0.9em;
+  /* Меньший размер шрифта */
   color: @neon-main;
-  text-shadow: 0 0 4px rgba(0, 255, 204, 0.3);
+  /* Акцентный цвет */
   margin-top: 4px;
+  /* Отступ сверху */
   white-space: nowrap;
+  /* Запрет переноса строк */
   overflow: hidden;
+  /* Скрытие переполнения */
   text-overflow: ellipsis;
+  /* Многоточие при обрезании */
 }
 
+/* Метка активации (горячие клавиши) */
 #activationlabel {
   color: @neon-main-bright;
+  /* Яркий акцентный цвет */
   font-weight: bold;
-  text-shadow: 0 0 8px rgba(0, 255, 204, 0.5);
+  /* Жирный шрифт */
 }
+
+/* ┌─────────────────────────────────────────────────────────────────────────────┐
+ * │                            НИЖНЯЯ ПАНЕЛЬ                                    │
+ * └─────────────────────────────────────────────────────────────────────────────┘ */
 
 #bar {
   margin-top: 16px;
+  /* Отступ сверху */
   padding-top: 16px;
-  border-top: 1px solid rgba(0, 255, 204, 0.3);
+  /* Внутренний отступ сверху */
+  border-top: 1px solid @neon-main;
+  /* Разделительная линия сверху */
 }
 
 .barentry {
   padding: 8px 12px;
+  /* Внутренние отступы */
   border-radius: 8px;
-  background: rgba(0, 255, 204, 0.1);
-  border: 1px solid rgba(0, 255, 204, 0.3);
+  /* Скругленные углы */
+  background: @background-lighter;
+  /* Фон элемента панели */
   transition: all 0.2s ease;
+  /* Плавный переход */
 }
 
 .barentry:hover {
-  background: rgba(0, 255, 204, 0.2);
-  border-color: rgba(0, 255, 204, 0.6);
-  box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+  background: @active-bg;
+  /* Фон при наведении */
+  color: @active-text;
+  /* Цвет текста при наведении */
 }
+
+/* ┌─────────────────────────────────────────────────────────────────────────────┐
+ * │                          РЕЖИМ АКТИВАЦИИ                                    │
+ * └─────────────────────────────────────────────────────────────────────────────┘ */
 
 .activation #activationlabel {
   animation: neon-pulse 1.5s ease-in-out infinite alternate;
+  /* Пульсирующая анимация */
 }
 
 .activation #text,
 .activation #icon,
 .activation #search {
-  opacity: 0.6;
+  color: @neon-main;
+  /* Акцентный цвет в режиме активации */
 }
+
+/* ┌─────────────────────────────────────────────────────────────────────────────┐
+ * │                           AI ЭЛЕМЕНТЫ                                       │
+ * └─────────────────────────────────────────────────────────────────────────────┘ */
 
 .aiItem {
   padding: 16px;
+  /* Внутренние отступы */
   border-radius: 12px;
+  /* Скругленные углы */
   color: @foreground;
-  background: linear-gradient(135deg, 
-    rgba(20, 20, 30, 0.8) 0%, 
-    rgba(25, 20, 35, 0.8) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* Цвет текста */
+  background: @background-lighter;
+  /* Фон AI элемента */
   margin: 8px 0;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  /* Отступы между элементами */
 }
 
+/* AI элемент пользователя */
 .aiItem.user {
   padding-left: 0;
+  /* Убираем левый отступ */
   padding-right: 0;
-  background: linear-gradient(135deg, 
-    rgba(0, 255, 204, 0.1) 0%, 
-    rgba(0, 255, 204, 0.05) 100%);
+  /* Убираем правый отступ */
+  background: @background-lighter;
+  /* Фон */
   border-left: 3px solid @neon-main;
+  /* Левая цветная полоска */
 }
 
+/* AI элемент ассистента */
 .aiItem.assistant {
-  background: linear-gradient(135deg, 
-    rgba(0, 255, 204, 0.1) 0%, 
-    rgba(0, 255, 204, 0.05) 100%);
-  border-left: 3px solid @neon-main-dim;
+  background: @background-lighter;
+  /* Фон */
+  border-left: 3px solid @neon-main;
+  /* Левая цветная полоска */
 }
 
-/* Scrollbar styling */
+/* ┌─────────────────────────────────────────────────────────────────────────────┐
+ * │                           ПОЛОСА ПРОКРУТКИ                                  │
+ * └─────────────────────────────────────────────────────────────────────────────┘ */
+
 scrollbar {
-  background: rgba(20, 20, 30, 0.6);
+  background: transparent;
+  /* Прозрачный фон полосы прокрутки */
   border-radius: 8px;
+  /* Скругленные углы */
+  border: none;
+  /* Убираем границы */
+  outline: none;
+  /* Убираем outline */
+  opacity: 0;
+  /* Полная прозрачность */
+  width: 0;
+  /* Нулевая ширина */
 }
 
 slider {
-  background: linear-gradient(135deg, @neon-main, @neon-main-bright);
+  background: transparent;
+  /* Прозрачный ползунок */
   border-radius: 8px;
-  min-height: 20px;
-  min-width: 8px;
+  /* Скругленные углы */
+  min-height: 0;
+  /* Нулевая высота */
+  min-width: 0;
+  /* Нулевая ширина */
+  border: none;
+  /* Убираем границы */
+  outline: none;
+  /* Убираем outline */
+  opacity: 0;
+  /* Полная прозрачность */
 }
 
 slider:hover {
-  background: linear-gradient(135deg, @neon-main-bright, @neon-main);
-  box-shadow: 0 0 10px rgba(0, 255, 204, 0.4);
+  background: transparent;
+  /* Прозрачный при наведении */
+  opacity: 0;
+  /* Полная прозрачность при наведении */
 }
 
-/* Neon pulse animation */
+/* ┌─────────────────────────────────────────────────────────────────────────────┐
+ * │                             АНИМАЦИИ                                        │
+ * └─────────────────────────────────────────────────────────────────────────────┘ */
+
+/* Пульсирующая анимация для активных элементов */
 @keyframes neon-pulse {
   0% {
     text-shadow: 0 0 5px rgba(0, 255, 204, 0.6);
   }
+
   100% {
-    text-shadow: 0 0 15px rgba(0, 255, 204, 0.9), 
-                 0 0 25px rgba(0, 255, 204, 0.6);
+    text-shadow: 0 0 15px rgba(0, 255, 204, 0.9),
+      0 0 25px rgba(0, 255, 204, 0.6);
   }
+}
+
+/* ┌─────────────────────────────────────────────────────────────────────────────┐
+ * │                    ИСПРАВЛЕНИЕ БАГОВ ОТОБРАЖЕНИЯ                            │
+ * └─────────────────────────────────────────────────────────────────────────────┘ */
+
+/* Агрессивное удаление всех пунктирных линий */
+*,
+*:focus,
+*:focus-visible,
+*:active,
+*:hover,
+*::before,
+*::after {
+  outline: none !important;
+  /* Убираем outline */
+  border-style: solid !important;
+  /* Принудительно сплошные границы */
+  box-shadow: none !important;
+  /* Убираем тени */
+}
+
+/* Специфичные правила для элементов прокрутки */
+scrolledwindow,
+scrolledwindow *,
+viewport,
+viewport *,
+.scroll-indicator,
+.focus-ring,
+trough,
+trough * {
+  outline: none !important;
+  /* Убираем outline */
+  border-style: solid !important;
+  /* Принудительно сплошные границы */
+  box-shadow: none !important;
+  /* Убираем тени */
+}
+
+/* Скрытие системных индикаторов фокуса */
+:focus {
+  outline: 0 !important;
+  /* Убираем outline при фокусе */
+  outline-offset: 0 !important;
+  /* Убираем смещение outline */
+  box-shadow: none !important;
+  /* Убираем тени при фокусе */
 }

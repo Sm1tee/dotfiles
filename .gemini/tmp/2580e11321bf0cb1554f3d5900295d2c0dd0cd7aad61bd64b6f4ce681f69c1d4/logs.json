@@ -1,0 +1,65 @@
+[
+  {
+    "sessionId": "8a803d63-9d98-4c78-b60f-88ebab4bd5a0",
+    "messageId": 0,
+    "type": "user",
+    "message": "ты находишься в папке инструмента nodpi мне нужно настроить его запуск одним словом в терминале без захода в эту папку",
+    "timestamp": "2025-07-12T11:36:18.076Z"
+  },
+  {
+    "sessionId": "8a803d63-9d98-4c78-b60f-88ebab4bd5a0",
+    "messageId": 1,
+    "type": "user",
+    "message": "··• nodpi\n[ERROR]: File blacklist.txt not found",
+    "timestamp": "2025-07-12T11:38:12.269Z"
+  },
+  {
+    "sessionId": "8a803d63-9d98-4c78-b60f-88ebab4bd5a0",
+    "messageId": 2,
+    "type": "user",
+    "message": "··• cat << 'EOF' > /home/smitee/Документы/nodpi_v1.9_linux/nodpi_launcher.sh\n             #!/bin/sh\n             cd \"/home/smitee/Документы/nodpi_v1.9_linux\"\n             ./nodpi \"$@\"\n             EOF",
+    "timestamp": "2025-07-12T11:39:43.077Z"
+  },
+  {
+    "sessionId": "8a803d63-9d98-4c78-b60f-88ebab4bd5a0",
+    "messageId": 3,
+    "type": "user",
+    "message": "я ничего не создал░▒▓        ▓▒░ ◦•···············································································•◦ ░▒▓   0s ▓▒░\n ··• cat << 'EOF' > /home/smitee/Документы/nodpi_v1.9_linux/nodpi_launcher.sh\n             #!/bin/sh\nfish: Expected a string, but found a redirection.9_linux\"\ncat << 'EOF' > /home/smitee/Документы/nodpi_v1.9_linux/nodpi_launcher.sh\n     ^       EOF",
+    "timestamp": "2025-07-12T11:40:01.421Z"
+  },
+  {
+    "sessionId": "8a803d63-9d98-4c78-b60f-88ebab4bd5a0",
+    "messageId": 4,
+    "type": "user",
+    "message": "··• printf '%s\\n' '#!/bin/sh' 'cd \"/home/smitee/Документы/nodpi_v1.9_linux\"' './nodpi \"$@\"' >\n        /home/smitee/Документы/nodpi_v1.9_linux/nodpi_launcher.sh\nfish: Expected a string, but found end of the statement\nprintf '%s\\n' '#!/bin/sh' 'cd \"/home/smitee/Документы/nodpi_v1.9_linux\"' './nodpi \"$@\"' >",
+    "timestamp": "2025-07-12T11:40:53.158Z"
+  },
+  {
+    "sessionId": "8a803d63-9d98-4c78-b60f-88ebab4bd5a0",
+    "messageId": 5,
+    "type": "user",
+    "message": "он запускается, но я просил чтобы она в фоне работала чтобы я мог зкарыть терминал",
+    "timestamp": "2025-07-12T11:42:12.279Z"
+  },
+  {
+    "sessionId": "8a803d63-9d98-4c78-b60f-88ebab4bd5a0",
+    "messageId": 6,
+    "type": "user",
+    "message": "теперь запомни что мне нельзя писать в пошаговом решении вопроса более одного действия за раз, потому что если ум еня не получится первое действие я должен иметь возможность об этом сообщить",
+    "timestamp": "2025-07-12T11:43:38.008Z"
+  },
+  {
+    "sessionId": "8a803d63-9d98-4c78-b60f-88ebab4bd5a0",
+    "messageId": 7,
+    "type": "user",
+    "message": "покажи мне содержание файла в котором хранится всё что ты запомнил",
+    "timestamp": "2025-07-12T11:44:35.080Z"
+  },
+  {
+    "sessionId": "8a803d63-9d98-4c78-b60f-88ebab4bd5a0",
+    "messageId": 8,
+    "type": "user",
+    "message": "Я использую оболочку Fish. - не ты а я использую",
+    "timestamp": "2025-07-12T11:45:30.137Z"
+  }
+]
