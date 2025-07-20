@@ -77,7 +77,7 @@
 - Подключение к интернету
 - Пользователь с правами sudo
 
-### Установка одной командой
+### Запуск установки одной командой
 
 ```bash
 curl -L https://github.com/Sm1tee/dotfiles/archive/refs/heads/master.zip -o dotfiles.zip && unzip -q dotfiles.zip && mv dotfiles-master dotfiles && rm dotfiles.zip && cd dotfiles && chmod +x install-hyprland.sh && ./install-hyprland.sh
@@ -85,7 +85,7 @@ curl -L https://github.com/Sm1tee/dotfiles/archive/refs/heads/master.zip -o dotf
 
 ---
 
-## 📦 Что устанавливается
+## 📦 Что можно будет устанавливить в процессе:
 
 <details>
 <summary><b>🏗️ Основные пакеты Hyprland</b></summary>
