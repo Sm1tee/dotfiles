@@ -85,7 +85,7 @@
     "window-rewrite": {                                    // Замена имен окон на иконки
         "class<thunar>": "",                              // Иконка для Thunar
         "class<ONLYOFFICE>": "󰏆",                          // Иконка для ONLYOFFICE
-        "class<Vivaldi-stable>": "",                      // Иконка для Vivaldi
+        "class<Vivaldi-stable>": "🌏",                      // Иконка для Vivaldi
         "class<kitty>": "",                               // Иконка для Kitty
         "class<com.mitchellh.ghostty>": "",               // Иконка для ghostty
         "class<Dota2>": "󰸶",                               // Иконка для Dota2

@@ -1,0 +1,43 @@
+<?xml version="1.1" encoding="UTF-8"?>
+
+<channel name="thunar" version="1.0">
+  <property name="last-view" type="string" value="ThunarIconView"/>
+  <property name="last-icon-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_200_PERCENT"/>
+  <property name="last-window-maximized" type="bool" value="true"/>
+  <property name="last-show-hidden" type="bool" value="true"/>
+  <property name="last-separator-position" type="int" value="190"/>
+  <property name="hidden-bookmarks" type="array">
+    <value type="string" value="computer:///"/>
+    <value type="string" value="network:///"/>
+    <value type="string" value="file:///home/smitee/%D0%A0%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B9%20%D1%81%D1%82%D0%BE%D0%BB"/>
+    <value type="string" value="recent:///"/>
+    <value type="string" value="file:///home/smitee/.config/walker"/>
+  </property>
+  <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
+  <property name="last-details-view-column-widths" type="string" value="50,50,184,142,50,1221,50,50,514,50,50,98,50,205"/>
+  <property name="last-renamer-dialog-maximized" type="bool" value="true"/>
+  <property name="misc-single-click" type="bool" value="false"/>
+  <property name="last-sort-column" type="string" value="THUNAR_COLUMN_NAME"/>
+  <property name="last-sort-order" type="string" value="GTK_SORT_ASCENDING"/>
+  <property name="last-compact-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_200_PERCENT"/>
+  <property name="last-location-bar" type="string" value="ThunarLocationEntry"/>
+  <property name="last-image-preview-visible" type="bool" value="false"/>
+  <property name="last-menubar-visible" type="bool" value="true"/>
+  <property name="last-statusbar-visible" type="bool" value="true"/>
+  <property name="last-toolbar-items" type="string" value="menu:0,back:1,forward:1,open-parent:0,open-home:0,new-tab:0,new-window:0,toggle-split-view:0,undo:0,redo:0,zoom-out:0,zoom-in:0,zoom-reset:0,view-as-icons:1,view-as-detailed-list:1,view-as-compact-list:1,view-switcher:0,location-bar:1,reload:0,search:0,uca-action-1742730083275159-1:0,uca-action-1750197148777926-1:0"/>
+  <property name="misc-highlighting-enabled" type="bool" value="false"/>
+  <property name="misc-use-csd" type="bool" value="true"/>
+  <property name="misc-file-size-binary" type="bool" value="false"/>
+  <property name="misc-thumbnail-draw-frames" type="bool" value="true"/>
+  <property name="misc-date-style" type="string" value="THUNAR_DATE_STYLE_SHORT"/>
+  <property name="shortcuts-icon-size" type="string" value="THUNAR_ICON_SIZE_32"/>
+  <property name="shortcuts-icon-emblems" type="bool" value="false"/>
+  <property name="tree-icon-size" type="string" value="THUNAR_ICON_SIZE_32"/>
+  <property name="misc-symbolic-icons-in-sidepane" type="bool" value="false"/>
+  <property name="misc-middle-click-in-tab" type="bool" value="true"/>
+  <property name="misc-full-path-in-tab-title" type="bool" value="true"/>
+  <property name="last-side-pane" type="string" value="THUNAR_SIDEPANE_TYPE_SHORTCUTS"/>
+  <property name="last-details-view-visible-columns" type="string" value="THUNAR_COLUMN_DATE_MODIFIED,THUNAR_COLUMN_NAME,THUNAR_COLUMN_SIZE,THUNAR_COLUMN_TYPE"/>
+  <property name="last-details-view-fixed-columns" type="bool" value="false"/>
+  <property name="misc-folder-item-count" type="string" value="THUNAR_FOLDER_ITEM_COUNT_ONLY_LOCAL"/>
+</channel>
