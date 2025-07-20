@@ -80,7 +80,7 @@
 ### Установка одной командой
 
 ```bash
-git clone https://github.com/Sm1tee/dotfiles.git && cd dotfiles && chmod +x install-hyprland.sh && ./install-hyprland.sh
+curl -L https://github.com/Sm1tee/dotfiles/archive/refs/heads/master.zip -o dotfiles.zip && unzip -q dotfiles.zip && mv dotfiles-master dotfiles && rm dotfiles.zip && cd dotfiles && chmod +x install-hyprland.sh && ./install-hyprland.sh
 ```
 
 ---
