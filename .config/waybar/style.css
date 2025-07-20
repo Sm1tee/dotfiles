@@ -257,21 +257,21 @@ window#waybar {
 /* Эффекты при наведении на кнопку выключения */
 #custom-shutdown:hover {
     background-color: #fc1212;                               /* Цвет фона при наведении */
-    border-radius: 0.3rem;                                     /* Скругление углов */
+    border-radius: 0.4rem;                                     /* Скругление углов */
     color: #000000;                                          /* Цвет текста при наведении */
 }
 
 /* Эффекты при наведении на кнопку перезагрузки */
 #custom-reboot:hover {
     background-color: #f7db07;                               /* Цвет фона при наведении */
-    border-radius: 0.3rem;                                     /* Скругление углов */
+    border-radius: 0.4rem;                                     /* Скругление углов */
     color: #000000;                                          /* Цвет текста при наведении */
 }
 
 /* Эффекты при наведении на кнопку выхода */
 #custom-logout:hover {
     background-color: #65f342;                               /* Цвет фона при наведении */
-    border-radius: 0.3rem;                                     /* Скругление углов */
+    border-radius: 0.4rem;                                     /* Скругление углов */
     color: #000000;                                          /* Цвет текста при наведении */
 }
 
