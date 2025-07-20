@@ -366,7 +366,7 @@ install_applications() {
     echo -e "  • ${WHITE}ghostty${NC} - современный быстрый терминал"
     echo -e "  • ${WHITE}starship${NC} - красивая настраиваемая командная строка"
     echo -e "  • ${WHITE}mousepad${NC} - простой текстовый редактор (как Блокнот)"
-    echo -e "  • ${WHITE}walker-bin${NC} - быстрый запуск приложений (Alt+F2)"
+    echo -e "  • ${WHITE}walker-bin${NC} - быстрый запуск приложений"
     echo -e "  • ${WHITE}mpv${NC} - мощный видеоплеер с поддержкой всех форматов"
     echo -e "  • ${WHITE}loupe${NC} - современный просмотрщик изображений"
     echo -e "  • ${WHITE}onlyoffice-bin${NC} - полноценный офисный пакет (Word, Excel, PowerPoint)"
