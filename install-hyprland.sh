@@ -138,7 +138,7 @@ main() {
     print_step_info "1" "ВКЛЮЧЕНИЕ РЕПОЗИТОРИЯ MULTILIB" \
         "Включение поддержки 32-битных приложений, необходимых для игр и некоторых программ."
     
-    print_command "grep -q \"^\\[multilib\\]\" /etc/pacman.conf || sudo sed -i '/#\\[multilib\\]/s/^#//;s/#Include/Include/' /etc/pacman.conf && sudo pacman -Sy"
+    print_command "grep -q \"^\\[multilib\\]\" /etc/pacman.conf || sudo sed -i '/#\\[multilib\\]/,/^#Include/ { s/^#//; }' /etc/pacman.conf && sudo pacman -Sy"
     
     echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
     echo -e "  • Современные компьютеры 64-битные, но многие программы еще 32-битные"
@@ -149,7 +149,7 @@ main() {
     echo ""
     
     if confirm_action "Включить репозиторий multilib?"; then
-        execute_command "grep -q \"^\\[multilib\\]\" /etc/pacman.conf || (sudo sed -i '/#\\[multilib\\]/s/^#//;s/#Include/Include/' /etc/pacman.conf && sudo pacman -Sy)" \
+        execute_command "grep -q \"^\\[multilib\\]\" /etc/pacman.conf || (sudo sed -i '/#\\[multilib\\]/,/^#Include/ { s/^#//; }' /etc/pacman.conf && sudo pacman -Sy)" \
             "Репозиторий multilib успешно включен!" \
             "Ошибка при включении multilib!"
         pause_for_user
@@ -324,7 +324,7 @@ install_hyprland_packages() {
     
     local all_packages="git hyprland ghostty kitty sddm fish reflector nano sudo msedit base-devel curl net-tools wget openssh networkmanager rsync unzip zip inxi fastfetch amd-ucode linux-firmware waybar hyprpaper xdg-desktop-portal-hyprland hyprpolkitagent hyprsysteminfo nwg-look kora-icon-theme pipewire pipewire-pulse pipewire-alsa lib32-pipewire wireplumber hyprshot slurp grim hyprland-qtutils hyprgraphics hyprwayland-scanner aquamarine hyprutils hyprlock qt6-svg qt6-declarative qt5-quickcontrols2 nwg-drawer gnome-calendar thunar pavucontrol ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite libxrender libxcursor pixman wayland-protocols cairo pango libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang hyprcursor xcb-util-errors glaze re2 qt5ct qt6ct qt5-wayland qt6-wayland vimix-cursors satty wl-clipboard wl-clip-persist cliphist winbox nwg-displays gtk4-layer-shell polkit-gnome xdg-user-dirs gvfs-mtp gvfs-afc gvfs-smb udisks2 udiskie gtk2 kvantum xdg-desktop-portal-gtk"
     
-    print_command "sudo pacman -S --needed $all_packages"
+    print_command "yay -S --needed $all_packages"
     
     echo -e "${CYAN}${ARROW} Что будет установлено:${NC}"
     echo -e "  • ${WHITE}Базовые инструменты${NC} - git, nano, curl, wget, openssh"
@@ -341,7 +341,7 @@ install_hyprland_packages() {
     echo ""
     
     if confirm_action "Установить все пакеты Hyprland?"; then
-        execute_command "sudo pacman -S --needed $all_packages" \
+        execute_command "yay -S --needed $all_packages" \
             "Все пакеты Hyprland успешно установлены!" \
             "Ошибка при установке пакетов Hyprland!"
         pause_for_user

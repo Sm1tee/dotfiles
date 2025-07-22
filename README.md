@@ -1,5 +1,13 @@
 # 🔥 Arch Hyprland Auto-Installer by Sm1tee
 
+
+## Демонстрация
+
+[![Посмотрите видео обзор](https://img.youtube.com/vi/Rj_KQUqIx7U/maxresdefault.jpg)](https://www.youtube.com/watch?v=Rj_KQUqIx7U "Нажмите для просмотра видео")
+
+*Нажмите на изображение выше, чтобы посмотреть видео обзор проекта*
+
+
 <div align="center">
 
 ![Hyprland](https://img.shields.io/badge/Hyprland-Dynamic%20Tiling-blue?style=for-the-badge&logo=wayland&logoColor=white)
