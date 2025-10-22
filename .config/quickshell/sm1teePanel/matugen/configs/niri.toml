@@ -1,0 +1,3 @@
+[templates.niri]
+input_path = './matugen/templates/niri-colors.kdl'
+output_path = '~/.config/niri/dms/colors.kdl'

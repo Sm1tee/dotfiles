@@ -1,0 +1,3 @@
+[templates.pywalfox]
+input_path = './matugen/templates/pywalfox-colors.json'
+output_path = '~/.cache/wal/dank-pywalfox.json'

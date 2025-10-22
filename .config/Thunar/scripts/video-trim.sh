@@ -1,7 +1,5 @@
 #!/bin/bash
-
 # Скрипт для обрезки видео через ffmpeg с GUI выбором времени
-
 # Исправление темы для GTK4 приложений
 export GSK_RENDERER=gl
 export GTK_THEME=Adwaita:dark
@@ -46,6 +44,54 @@ if [ -z "$END_TIME" ]; then
     exit 0
 fi
 
+# Функция для преобразования времени в секунды
+time_to_seconds() {
+    local time_str="$1"
+    
+    # Если введено только число секунд
+    if [[ "$time_str" =~ ^[0-9]+$ ]]; then
+        echo "$time_str"
+        return
+    fi
+    
+    # Если формат ЧЧ:ММ:СС или ММ:СС
+    if [[ "$time_str" =~ ^([0-9]+):([0-9]+):([0-9]+)$ ]]; then
+        local hours=${BASH_REMATCH[1]}
+        local minutes=${BASH_REMATCH[2]}
+        local seconds=${BASH_REMATCH[3]}
+        echo $((hours * 3600 + minutes * 60 + seconds))
+    elif [[ "$time_str" =~ ^([0-9]+):([0-9]+)$ ]]; then
+        local minutes=${BASH_REMATCH[1]}
+        local seconds=${BASH_REMATCH[2]}
+        echo $((minutes * 60 + seconds))
+    else
+        echo "0"
+    fi
+}
+
+# Функция для преобразования секунд в формат времени
+seconds_to_time() {
+    local total_seconds="$1"
+    local hours=$((total_seconds / 3600))
+    local minutes=$(((total_seconds % 3600) / 60))
+    local seconds=$((total_seconds % 60))
+    printf "%02d:%02d:%02d" "$hours" "$minutes" "$seconds"
+}
+
+# Преобразование времен в секунды для расчета длительности
+START_SECONDS=$(time_to_seconds "$START_TIME")
+END_SECONDS=$(time_to_seconds "$END_TIME")
+
+# Проверка корректности временных интервалов
+if [ "$END_SECONDS" -le "$START_SECONDS" ]; then
+    zenity --error --text="Время окончания должно быть больше времени начала"
+    exit 1
+fi
+
+# Вычисление длительности фрагмента
+DURATION_SECONDS=$((END_SECONDS - START_SECONDS))
+DURATION_TIME=$(seconds_to_time "$DURATION_SECONDS")
+
 # Получение имени файла без расширения и расширения
 FILENAME=$(basename "$VIDEO_FILE")
 BASENAME="${FILENAME%.*}"
@@ -68,7 +114,8 @@ done
     echo "# Начало обрезки видео..."
     
     # Выполнение ffmpeg с обрезкой
-    ffmpeg -i "$VIDEO_FILE" -ss "$START_TIME" -to "$END_TIME" -c copy "$OUTPUT_FILE" 2>&1 | while read line; do
+    # Используем -ss перед -i для быстрого поиска, потом -ss после -i для точности
+    ffmpeg -ss "$START_TIME" -i "$VIDEO_FILE" -t "$DURATION_TIME" -c copy "$OUTPUT_FILE" 2>&1 | while read line; do
         echo "50"
         echo "# Обрезка видео: $line"
     done
@@ -84,11 +131,6 @@ done
 # Проверка успешности выполнения
 if [ $? -eq 0 ] && [ -f "$OUTPUT_FILE" ]; then
     zenity --info --text="Видео успешно обрезано и сохранено как:\n$OUTPUT_FILE"
-    
-    # Предложение открыть папку с результатом
-    if zenity --question --text="Открыть папку с обрезанным видео?"; then
-        thunar "$DIRECTORY"
-    fi
 else
     zenity --error --text="Ошибка при обрезке видео"
 fi

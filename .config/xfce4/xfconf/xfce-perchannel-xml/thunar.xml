@@ -2,10 +2,10 @@
 
 <channel name="thunar" version="1.0">
   <property name="last-view" type="string" value="ThunarIconView"/>
-  <property name="last-icon-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_200_PERCENT"/>
+  <property name="last-icon-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_150_PERCENT"/>
   <property name="last-window-maximized" type="bool" value="true"/>
   <property name="last-show-hidden" type="bool" value="true"/>
-  <property name="last-separator-position" type="int" value="190"/>
+  <property name="last-separator-position" type="int" value="205"/>
   <property name="hidden-bookmarks" type="array">
     <value type="string" value="computer:///"/>
     <value type="string" value="network:///"/>
@@ -13,12 +13,12 @@
     <value type="string" value="recent:///"/>
     <value type="string" value="file:///home/smitee/.config/walker"/>
   </property>
-  <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
-  <property name="last-details-view-column-widths" type="string" value="50,50,184,142,50,1221,50,50,514,50,50,98,50,205"/>
+  <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_100_PERCENT"/>
+  <property name="last-details-view-column-widths" type="string" value="50,50,166,184,50,830,50,50,297,50,50,98,50,205"/>
   <property name="last-renamer-dialog-maximized" type="bool" value="true"/>
   <property name="misc-single-click" type="bool" value="false"/>
-  <property name="last-sort-column" type="string" value="THUNAR_COLUMN_NAME"/>
-  <property name="last-sort-order" type="string" value="GTK_SORT_ASCENDING"/>
+  <property name="last-sort-column" type="string" value="THUNAR_COLUMN_DATE_MODIFIED"/>
+  <property name="last-sort-order" type="string" value="GTK_SORT_DESCENDING"/>
   <property name="last-compact-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_200_PERCENT"/>
   <property name="last-location-bar" type="string" value="ThunarLocationEntry"/>
   <property name="last-image-preview-visible" type="bool" value="false"/>

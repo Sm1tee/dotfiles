@@ -1,0 +1,137 @@
+import QtQuick
+import qs.Common
+import qs.Services
+import qs.Modules.ControlCenter.Details
+import qs.Modules.ControlCenter.Models
+
+Item {
+    id: root
+
+    property string expandedSection: ""
+    property var expandedWidgetData: null
+    property var bluetoothCodecSelector: null
+
+    property var pluginDetailInstance: null
+    property var widgetModel: null
+
+    Loader {
+        id: pluginDetailLoader
+        width: parent.width
+        height: 250
+        y: Theme.spacingS
+        active: false
+        sourceComponent: null
+    }
+
+    Loader {
+        id: coreDetailLoader
+        width: parent.width
+        height: 250
+        y: Theme.spacingS
+        active: false
+        sourceComponent: null
+    }
+
+    onExpandedSectionChanged: {
+        if (pluginDetailInstance) {
+            pluginDetailInstance.destroy()
+            pluginDetailInstance = null
+        }
+        pluginDetailLoader.active = false
+        coreDetailLoader.active = false
+
+        if (!root.expandedSection) {
+            return
+        }
+
+        if (root.expandedSection.startsWith("builtin_")) {
+            return
+        }
+
+        if (root.expandedSection.startsWith("plugin_")) {
+            const pluginId = root.expandedSection.replace("plugin_", "")
+            const pluginComponent = PluginService.pluginWidgetComponents[pluginId]
+            if (!pluginComponent) {
+                return
+            }
+
+            pluginDetailInstance = pluginComponent.createObject(null)
+            if (!pluginDetailInstance || !pluginDetailInstance.ccDetailContent) {
+                if (pluginDetailInstance) {
+                    pluginDetailInstance.destroy()
+                    pluginDetailInstance = null
+                }
+                return
+            }
+
+            pluginDetailLoader.sourceComponent = pluginDetailInstance.ccDetailContent
+            pluginDetailLoader.active = parent.height > 0
+            return
+        }
+
+        if (root.expandedSection.startsWith("diskUsage_")) {
+            coreDetailLoader.sourceComponent = diskUsageDetailComponent
+            coreDetailLoader.active = parent.height > 0
+            return
+        }
+
+        switch (root.expandedSection) {
+        case "network":
+        case "wifi": coreDetailLoader.sourceComponent = networkDetailComponent; break
+        case "bluetooth": coreDetailLoader.sourceComponent = bluetoothDetailComponent; break
+        case "audioOutput": coreDetailLoader.sourceComponent = audioOutputDetailComponent; break
+        case "audioInput": coreDetailLoader.sourceComponent = audioInputDetailComponent; break
+        case "battery": coreDetailLoader.sourceComponent = batteryDetailComponent; break
+        default: return
+        }
+
+        coreDetailLoader.active = parent.height > 0
+    }
+
+    Component {
+        id: networkDetailComponent
+        NetworkDetail {}
+    }
+
+    Component {
+        id: bluetoothDetailComponent
+        BluetoothDetail {
+            id: bluetoothDetail
+            onShowCodecSelector: function(device) {
+                if (root.bluetoothCodecSelector) {
+                    root.bluetoothCodecSelector.show(device)
+                    root.bluetoothCodecSelector.codecSelected.connect(function(deviceAddress, codecName) {
+                        bluetoothDetail.updateDeviceCodecDisplay(deviceAddress, codecName)
+                    })
+                }
+            }
+        }
+    }
+
+    Component {
+        id: audioOutputDetailComponent
+        AudioOutputDetail {}
+    }
+
+    Component {
+        id: audioInputDetailComponent
+        AudioInputDetail {}
+    }
+
+    Component {
+        id: batteryDetailComponent
+        BatteryDetail {}
+    }
+
+    Component {
+        id: diskUsageDetailComponent
+        DiskUsageDetail {
+            currentMountPath: {
+                const instanceId = root.expandedWidgetData?.instanceId || ""
+                // Читаем из SessionData если есть, иначе из настроек
+                return SessionData.diskWidgetMountPaths[instanceId] || root.expandedWidgetData?.mountPath || "/"
+            }
+            instanceId: root.expandedWidgetData?.instanceId || ""
+        }
+    }
+}

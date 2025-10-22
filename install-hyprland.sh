@@ -53,9 +53,30 @@ print_step_info() {
     local description="$3"
     
     echo -e "${BLUE}╭─────────────────────────────────────────────────────────────────────────────╮${NC}"
-    echo -e "${BLUE}│ ${WHITE}ШАГ $step_num: $title${NC}"
+    echo -e "${BLUE}│ ${WHITE}ШАГ $step_num: $title"
     echo -e "${BLUE}│${NC}"
-    echo -e "${BLUE}│ ${CYAN}$description${NC}"
+    
+    # Разбиваем описание на строки по 75 символов
+    local max_width=75
+    local words=($description)
+    local line=""
+    
+    for word in "${words[@]}"; do
+        if [ ${#line} -eq 0 ]; then
+            line="$word"
+        elif [ $((${#line} + ${#word} + 1)) -le $max_width ]; then
+            line="$line $word"
+        else
+            echo -e "${BLUE}│ ${CYAN}$line${NC}"
+            line="$word"
+        fi
+    done
+    
+    # Выводим последнюю строку если есть
+    if [ ${#line} -gt 0 ]; then
+        echo -e "${BLUE}│ ${CYAN}$line${NC}"
+    fi
+    
     echo -e "${BLUE}╰─────────────────────────────────────────────────────────────────────────────╯${NC}"
     echo ""
 }
@@ -122,6 +143,18 @@ fi
 
 # Главная функция установки
 main() {
+    # Проверка и временная установка русской локали для корректного отображения текста
+    if ! locale -a 2>/dev/null | grep -q "ru_RU.utf8"; then
+        echo "Russian locale not found. Installing for correct text display..."
+        sudo sed -i 's/#ru_RU.UTF-8/ru_RU.UTF-8/' /etc/locale.gen 2>/dev/null
+        sudo locale-gen >/dev/null 2>&1
+        echo "Locale installed successfully!"
+    fi
+    
+    # Устанавливаем русскую локаль для текущей сессии скрипта
+    export LANG=ru_RU.UTF-8
+    export LC_ALL=ru_RU.UTF-8
+    
     print_header
     
     echo -e "${GREEN}${STAR} Добро пожаловать в автоматический установщик!${NC}"
@@ -135,8 +168,8 @@ main() {
     fi
 
     # ШАГ 1: Включение multilib
-    print_step_info "1" "ВКЛЮЧЕНИЕ РЕПОЗИТОРИЯ MULTILIB" \
-        "Включение поддержки 32-битных приложений, необходимых для игр и некоторых программ."
+    print_step_info "1" "ВКЛЮЧЕНИЕ MULTILIB" \
+        "Включение поддержки 32-битных приложений"
     
     print_command "grep -q \"^\\[multilib\\]\" /etc/pacman.conf || sudo sed -i '/#\\[multilib\\]/,/^#Include/ { s/^#//; }' /etc/pacman.conf && sudo pacman -Sy"
     
@@ -158,7 +191,7 @@ main() {
     fi
 
     # ШАГ 2: Включение параллельных загрузок
-    print_step_info "2" "ОПТИМИЗАЦИЯ СКОРОСТИ ЗАГРУЗКИ ПАКЕТОВ" \
+    print_step_info "2" "ПАРАЛЛЕЛЬНАЯ ЗАГРУЗКА ПАКЕТОВ" \
         "Включение одновременной загрузки 10 пакетов для ускорения установки."
     
     print_command "sudo sed -i '/^#ParallelDownloads/s/^#//;s/^ParallelDownloads = [0-9]\\+/ParallelDownloads = 10/' /etc/pacman.conf"
@@ -186,7 +219,7 @@ main() {
 # Функция для установки зеркал и ключей
 install_mirrors_and_keys() {
     # ШАГ 3: Настройка зеркал
-    print_step_info "3" "ОПТИМИЗАЦИЯ ЗЕРКАЛ ARCH LINUX" \
+    print_step_info "3" "НАСТРОЙКА ЗЕРКАЛ" \
         "Автоматический выбор самых быстрых зеркал для загрузки пакетов."
     
     print_command "sudo pacman -S --needed reflector && sudo reflector --country Russia --protocol https --latest 20 --sort rate --save /etc/pacman.d/mirrorlist"
@@ -213,7 +246,7 @@ install_mirrors_and_keys() {
     fi
 
     # ШАГ 4: Обновление ключей Arch
-    print_step_info "4" "ОБНОВЛЕНИЕ КЛЮЧЕЙ ARCH LINUX" \
+    print_step_info "4" "ОБНОВЛЕНИЕ КЛЮЧЕЙ" \
         "Инициализация и обновление ключей безопасности для проверки подлинности пакетов."
     
     echo -e "${CYAN}${ARROW} Команды для выполнения:${NC}"
@@ -318,35 +351,131 @@ install_aur_helpers() {
 
 # Функция для установки всех пакетов Hyprland
 install_hyprland_packages() {
-    # ШАГ 6: Установка ВСЕХ пакетов Hyprland (объединенная установка)
-    print_step_info "6" "УСТАНОВКА ВСЕХ ПАКЕТОВ HYPRLAND" \
-        "Установка всех необходимых пакетов для полноценной работы Hyprland - базовые системные пакеты, сам Hyprland и все компоненты."
+    # ШАГ 6.1: Установка базовой системы и библиотек
+    print_step_info "6.1" "БАЗОВАЯ СИСТЕМА И БИБЛИОТЕКИ" \
+        "Установка системных утилит, компиляторов и всех необходимых библиотек для работы Hyprland."
     
-    local all_packages="git hyprland ghostty kitty sddm fish reflector nano sudo msedit base-devel curl net-tools wget openssh networkmanager rsync unzip zip inxi fastfetch amd-ucode linux-firmware waybar hyprpaper xdg-desktop-portal-hyprland hyprpolkitagent hyprsysteminfo nwg-look kora-icon-theme pipewire pipewire-pulse pipewire-alsa lib32-pipewire wireplumber hyprshot slurp grim hyprland-qtutils hyprgraphics hyprwayland-scanner aquamarine hyprutils hyprlock qt6-svg qt6-declarative qt5-quickcontrols2 nwg-drawer gnome-calendar thunar pavucontrol ninja gcc cmake meson libxcb xcb-proto xcb-util xcb-util-keysyms libxfixes libx11 libxcomposite pacman-contrib libxrender libxcursor pixman wayland-protocols cairo pango libxkbcommon xcb-util-wm xorg-xwayland libinput libliftoff libdisplay-info cpio tomlplusplus hyprlang hyprcursor xcb-util-errors glaze re2 qt5ct qt6ct qt5-wayland qt6-wayland vimix-cursors satty wl-clipboard wl-clip-persist cliphist winbox nwg-displays gtk4-layer-shell polkit-gnome xdg-user-dirs gvfs-mtp gvfs-afc gvfs-smb udisks2 udiskie gtk2 kvantum xdg-desktop-portal-gtk"
+    local base_packages="amd-ucode brightnessctl cairo cmake cpio curl dbus fastfetch glaze inxi libdisplay-info libinput libliftoff libnotify libx11 libxcb libxcomposite libxcursor libxfixes libxkbcommon libxrender linux-headers meson nano net-tools networkmanager ninja pacman-contrib pango pixman polkit re2 rsync sudo tomlplusplus unzip upower wayland-protocols wget xcb-proto xcb-util xcb-util-errors xcb-util-keysyms xcb-util-wm xdg-desktop-portal xdg-user-dirs xdg-utils xorg-xwayland zip"
     
-    print_command "yay -S --needed $all_packages"
+    print_command "yay -S --needed $base_packages"
     
     echo -e "${CYAN}${ARROW} Что будет установлено:${NC}"
-    echo -e "  • ${WHITE}Базовые инструменты${NC} - git, nano, curl, wget, openssh"
-    echo -e "  • ${WHITE}Системные компоненты${NC} - base-devel, networkmanager, fastfetch"
-    echo -e "  • ${WHITE}Hyprland и компоненты${NC} - сам hyprland, waybar, hyprpaper, hyprlock"
-    echo -e "  • ${WHITE}Аудиосистема${NC} - pipewire, wireplumber (современная замена pulseaudio)"
-    echo -e "  • ${WHITE}Графические инструменты${NC} - скриншоты, темы, иконки"
-    echo -e "  • ${WHITE}Файловый менеджер${NC} - thunar с плагинами"
-    echo -e "  • ${WHITE}Терминалы${NC} - ghostty, kitty"
-    echo -e "  • ${WHITE}Системные библиотеки${NC} - Qt, GTK, Wayland протоколы"
+    echo -e "  • ${WHITE}Базовые утилиты${NC} - curl, nano, rsync, sudo, unzip, wget, zip"
+    echo -e "  • ${WHITE}Системные компоненты${NC} - fastfetch, inxi, net-tools, networkmanager, pacman-contrib"
+    echo -e "  • ${WHITE}Инструменты сборки${NC} - cmake, meson, ninja"
+    echo -e "  • ${WHITE}XDG утилиты${NC} - xdg-desktop-portal, xdg-user-dirs, xdg-utils"
+    echo -e "  • ${WHITE}Системные сервисы${NC} - brightnessctl, libnotify, polkit, upower"
+    echo -e "  • ${WHITE}Wayland библиотеки${NC} - libxcb, wayland-protocols, xcb-proto, xcb-util"
+    echo -e "  • ${WHITE}Графические библиотеки${NC} - cairo, libinput, pango, pixman"
+    echo -e "  • ${WHITE}X11 совместимость${NC} - libx11, libxcomposite, libxcursor, libxfixes, xorg-xwayland"
+    echo -e "  • ${WHITE}Железо и прошивки${NC} - amd-ucode, linux-headers"
+    echo ""
+    
+    echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
+    echo -e "  • Это фундамент системы - без этого ничего не заработает"
+    echo -e "  • Компиляторы нужны для сборки AUR пакетов"
+    echo -e "  • Библиотеки Wayland и X11 для работы графических приложений"
+    echo -e "  • Системные сервисы для управления питанием и Bluetooth"
+    echo ""
+    
+    echo -e "${YELLOW}${WARNING} Это базовый набор. Установка обязательна для дальнейшей работы.${NC}"
+    echo ""
+    
+    if confirm_action "Установить базовую систему и библиотеки?"; then
+        execute_command "yay -S --needed $base_packages" \
+            "Базовая система и библиотеки успешно установлены!" \
+            "Ошибка при установке базовой системы!"
+        pause_for_user
+    else
+        add_skipped_action "Установка базовой системы и библиотек"
+    fi
+
+    install_hyprland_core
+}
+
+# Функция для установки Hyprland и его экосистемы
+install_hyprland_core() {
+    # ШАГ 6.2: Установка Hyprland и его экосистемы
+    print_step_info "6.2" "HYPRLAND И ЭКОСИСТЕМА" \
+        "Установка самого Hyprland, его компонентов, quickshell и инструментов для работы."
+    
+    local hyprland_packages="aquamarine cliphist grim hyprland hyprland-qtutils hyprcursor hyprgraphics hyprlang hyprpolkitagent hyprutils hyprwayland-scanner matugen-bin quickshell-git satty slurp wl-clip-persist wl-clipboard xdg-desktop-portal-hyprland"
+    
+    print_command "yay -S --needed $hyprland_packages"
+    
+    echo -e "${CYAN}${ARROW} Что будет установлено:${NC}"
+    echo -e "  • ${WHITE}Hyprland${NC} - сам композитор Wayland"
+    echo -e "  • ${WHITE}Core зависимости${NC} - aquamarine, hyprcursor, hyprgraphics, hyprlang, hyprutils, hyprwayland-scanner"
+    echo -e "  • ${WHITE}Системная интеграция${NC} - hyprpolkitagent, xdg-desktop-portal-hyprland"
+    echo -e "  • ${WHITE}Quickshell${NC} - интерфейс (панель, виджеты, меню, уведомления, блокировка экрана)"
+    echo -e "  • ${WHITE}Цветовые схемы${NC} - matugen-bin для генерации тем"
+    echo -e "  • ${WHITE}Скриншоты${NC} - grim, satty"
+    echo -e "  • ${WHITE}Буфер обмена${NC} - cliphist, wl-clip-persist, wl-clipboard"
+    echo ""
+    
+    echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
+    echo -e "  • Это сердце системы - сам Hyprland и все его компоненты"
+    echo -e "  • Quickshell - полноценный интерфейс для Hyprland"
+    echo -e "  • Инструменты для скриншотов и работы с буфером обмена"
+    echo -e "  • Автоматическая генерация цветовых схем под обои"
     echo ""
     
     echo -e "${YELLOW}${WARNING} Это большой набор пакетов. Установка займет некоторое время в зависимости от скорости интернета.${NC}"
     echo ""
     
-    if confirm_action "Установить все пакеты Hyprland?"; then
-        execute_command "yay -S --needed $all_packages" \
-            "Все пакеты Hyprland успешно установлены!" \
-            "Ошибка при установке пакетов Hyprland!"
+    if confirm_action "Установить Hyprland и его экосистему?"; then
+        execute_command "yay -S --needed $hyprland_packages" \
+            "Hyprland и его экосистема успешно установлены!" \
+            "Ошибка при установке Hyprland!"
         pause_for_user
     else
-        add_skipped_action "Установка пакетов Hyprland"
+        add_skipped_action "Установка Hyprland и его экосистемы"
+    fi
+
+    install_user_environment
+}
+
+# Функция для установки пользовательского окружения
+install_user_environment() {
+    # ШАГ 6.3: Установка пользовательского окружения
+    print_step_info "6.3" "ПОЛЬЗОВАТЕЛЬСКОЕ ОКРУЖЕНИЕ" \
+        "Установка Qt/GTK тем, терминалов, файлового менеджера, аудиосистемы и визуального оформления."
+    
+    local environment_packages="fish gtk2 gtk4-layer-shell gvfs-afc gvfs-mtp gvfs-smb kitty kora-icon-theme kvantum lib32-pipewire nwg-look pavucontrol pipewire pipewire-alsa pipewire-pulse polkit-gnome qt5-quickcontrols2 qt5-wayland qt5ct qt6-base qt6-declarative qt6-svg qt6-wayland qt6ct sddm udisks2 udiskie vimix-cursors winbox wireplumber xdg-desktop-portal-gtk"
+    
+    print_command "yay -S --needed $environment_packages"
+    
+    echo -e "${CYAN}${ARROW} Что будет установлено:${NC}"
+    echo -e "  • ${WHITE}Qt библиотеки${NC} - qt5-quickcontrols2, qt5-wayland, qt5ct, qt6-base, qt6-declarative, qt6-svg, qt6-wayland, qt6ct"
+    echo -e "  • ${WHITE}GTK библиотеки${NC} - gtk2, gtk4-layer-shell, xdg-desktop-portal-gtk"
+    echo -e "  • ${WHITE}Темы и настройки${NC} - kvantum, nwg-look"
+    echo -e "  • ${WHITE}Иконки и курсоры${NC} - kora-icon-theme, vimix-cursors"
+    echo -e "  • ${WHITE}Терминал${NC} - kitty"
+    echo -e "  • ${WHITE}Оболочка${NC} - fish"
+    echo -e "  • ${WHITE}Менеджер входа${NC} - sddm"
+    echo -e "  • ${WHITE}Polkit агент${NC} - polkit-gnome"
+      echo -e "  • ${WHITE}Монтирование дисков${NC} - gvfs-afc, gvfs-mtp, gvfs-smb, udisks2, udiskie"
+    echo -e "  • ${WHITE}Аудиосистема${NC} - lib32-pipewire, pavucontrol, pipewire, pipewire-alsa, pipewire-pulse, wireplumber"
+    echo -e "  • ${WHITE}Дополнительно${NC} - winbox"
+    echo ""
+    
+    echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
+    echo -e "  • Все для комфортной работы - темы, файловый менеджер, аудио"
+    echo -e "  • Pipewire - современная аудиосистема (замена pulseaudio)"
+    echo -e "  • Thunar - легкий и быстрый файловый менеджер"
+    echo -e "  • SDDM - красивый экран входа в систему"
+    echo ""
+    
+    echo -e "${YELLOW}${WARNING} Это большой набор пакетов. Установка займет некоторое время в зависимости от скорости интернета.${NC}"
+    echo ""
+    
+    if confirm_action "Установить пользовательское окружение?"; then
+        execute_command "yay -S --needed $environment_packages" \
+            "Пользовательское окружение успешно установлено!" \
+            "Ошибка при установке пользовательского окружения!"
+        pause_for_user
+    else
+        add_skipped_action "Установка пользовательского окружения"
     fi
 
     install_applications
@@ -358,27 +487,27 @@ install_applications() {
     print_step_info "7" "УСТАНОВКА РАБОЧИХ ПРИЛОЖЕНИЙ" \
         "Установка полезных приложений для повседневной работы в Hyprland."
     
-    local work_packages="ghostty starship gvfs tumbler mousepad walker-bin mpv loupe onlyoffice-bin xarchiver papers qbittorrent gnome-disk-utility mission-center filezilla vivaldi obsidian zoxide mcfly visual-studio-code-bin telegram-desktop gnome-font-viewer gnome-calculator thunar-archive-plugin thunar-media-tags-plugin thunar-volman waypaper ncdu lsd pandoc dunst"
+    local work_packages="brave-bin filezilla ghostty gnome-calculator gnome-disk-utility gnome-font-viewer gvfs loupe lsd mcfly mission-center mpv ncdu obsidian onlyoffice-bin pandoc papers qbittorrent starship telegram-desktop thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler visual-studio-code-bin xarchiver zed zoxide"
     
     print_command "yay -S --needed $work_packages"
     
     echo -e "${CYAN}${ARROW} Подробное описание приложений :${NC}"
     echo -e "  • ${WHITE}ghostty${NC} - современный быстрый терминал"
     echo -e "  • ${WHITE}starship${NC} - красивая настраиваемая командная строка"
-    echo -e "  • ${WHITE}mousepad${NC} - простой текстовый редактор (как Блокнот)"
-    echo -e "  • ${WHITE}walker-bin${NC} - быстрый запуск приложений"
+    echo -e "  • ${WHITE}zed${NC} - простой текстовый редактор (как Блокнот)"
     echo -e "  • ${WHITE}mpv${NC} - мощный видеоплеер с поддержкой всех форматов"
     echo -e "  • ${WHITE}loupe${NC} - современный просмотрщик изображений"
     echo -e "  • ${WHITE}onlyoffice-bin${NC} - полноценный офисный пакет (Word, Excel, PowerPoint)"
     echo -e "  • ${WHITE}xarchiver${NC} - архиватор с графическим интерфейсом"
     echo -e "  • ${WHITE}papers${NC} - просмотрщик PDF документов"
     echo -e "  • ${WHITE}qbittorrent${NC} - торрент-клиент"
-    echo -e "  • ${WHITE}vivaldi${NC} - современный веб-браузер"
+    echo -e "  • ${WHITE}brave${NC} - современный веб-браузер"
     echo -e "  • ${WHITE}obsidian${NC} - продвинутый редактор заметок"
     echo -e "  • ${WHITE}visual-studio-code${NC} - популярный редактор кода"
     echo -e "  • ${WHITE}telegram-desktop${NC} - мессенджер Telegram"
     echo -e "  • ${WHITE}mission-center${NC} - системный монитор (диспетчер задач)"
-    echo -e "  • ${WHITE}waypaper${NC} - программа для смены обоев рабочего стола"
+    echo -e "  • ${WHITE}thunar${NC} - файловый менеджер с плагинами"
+    echo -e "  • ${WHITE}gvfs, tumbler${NC} - поддержка миниатюр и монтирования"
     echo ""
     
     echo -e "${YELLOW}${WARNING} Это большой набор приложений. Вы можете пропустить этот шаг и установить нужные программы позже.${NC}"
@@ -399,10 +528,10 @@ install_applications() {
 # Функция для установки кодеков
 install_codecs() {
     # ШАГ 8: Установка кодеков
-    print_step_info "8" "УСТАНОВКА МУЛЬТИМЕДИЙНЫХ КОДЕКОВ" \
+    print_step_info "8" "МУЛЬТИМЕДИЙНЫЕ КОДЕКИ" \
         "Установка кодеков для воспроизведения видео, аудио и других мультимедийных файлов."
     
-    local codec_packages="gst-libav gst-plugins-base gst-plugins-good lib32-gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-plugin-pipewire gstreamer ffmpeg libde265 libdvdcss libdvdread libdvdnav a52dec faac faad2 flac jasper lame libdca libdv libmad libmpeg2 libtheora libvorbis libvpx opencore-amr openjpeg2 speex x264 x265 xvidcore wavpack"
+    local codec_packages="a52dec faac faad2 ffmpeg flac gst-libav gst-plugin-pipewire gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly gstreamer jasper lame lib32-gst-plugins-good lib32-libva lib32-libvpx libdca libde265 libdv libdvdcss libdvdnav libdvdread libmad libmpeg2 libtheora libvorbis libvpx opencore-amr openjpeg2 speex wavpack x264 x265 xvidcore"
     
     print_command "yay -S --needed $codec_packages"
     
@@ -429,10 +558,10 @@ install_codecs() {
 # Функция для установки шрифтов и тем
 install_fonts_and_themes() {
     # ШАГ 9: Установка шрифтов, тем, иконок и обоев
-    print_step_info "9" "УСТАНОВКА ШРИФТОВ, ТЕМ, ИКОНОК И ОБОЕВ" \
+    print_step_info "9" "ШРИФТЫ И ОФОРМЛЕНИЕ" \
         "Установка красивых шрифтов, тем оформления, иконок и обоев для создания современного интерфейса."
     
-    local font_packages="ttf-dejavu ttf-liberation noto-fonts ttf-font-awesome ttf-material-design-icons ttf-roboto ttf-pt-sans ttf-fira-code ttf-jetbrains-mono ttf-ms-fonts noto-fonts-emoji ttf-hack nerd-fonts ttf-fantasque-nerd otf-font-awesome awesome-terminal-fonts ttf-fira-sans"
+    local font_packages="awesome-terminal-fonts inter-font nerd-fonts noto-fonts noto-fonts-emoji ttf-dejavu ttf-fira-code ttf-fira-sans ttf-font-awesome ttf-hack ttf-jetbrains-mono ttf-liberation ttf-material-design-icons ttf-ms-fonts ttf-opensans ttf-pt-sans ttf-roboto"
     
     print_command "yay -S --needed $font_packages"
     
@@ -636,13 +765,53 @@ install_fish_and_settings() {
         add_skipped_action "Включение оптимизации SSD"
     fi
 
+    install_bluetooth
+}
+
+# Функция для установки и настройки Bluetooth
+install_bluetooth() {
+    # ШАГ 13: Установка и настройка Bluetooth
+    print_step_info "13" "НАСТРОЙКА BLUETOOTH" \
+        "Установка пакетов для работы с Bluetooth устройствами."
+    
+    local bluetooth_packages="bluez blueman bluez-utils"
+    
+    print_command "yay -S --needed $bluetooth_packages"
+    
+    echo -e "${CYAN}${ARROW} Что будет установлено:${NC}"
+    echo -e "  • ${WHITE}bluez${NC} - основной стек Bluetooth для Linux"
+    echo -e "  • ${WHITE}blueman${NC} - графический менеджер Bluetooth"
+    echo -e "  • ${WHITE}bluez-utils${NC} - утилиты для работы с Bluetooth"
+    echo ""
+    
+    echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
+    echo -e "  • Подключение Bluetooth наушников, клавиатур, мышей"
+    echo -e "  • Передача файлов по Bluetooth"
+    echo -e "  • Управление Bluetooth устройствами через GUI"
+    echo ""
+    
+    if confirm_action "Установить Bluetooth?"; then
+        execute_command "yay -S --needed $bluetooth_packages" \
+            "Bluetooth успешно установлен!" \
+            "Ошибка при установке Bluetooth!"
+        
+        echo -e "${CYAN}${ARROW} Включение службы Bluetooth...${NC}"
+        execute_command "sudo systemctl enable bluetooth" \
+            "Служба Bluetooth включена!" \
+            "Ошибка при включении службы Bluetooth!"
+        
+        pause_for_user
+    else
+        add_skipped_action "Установка и настройка Bluetooth"
+    fi
+
     install_sddm_config
 }
 
 # Функция для настройки SDDM
 install_sddm_config() {
-    # ШАГ 13: Настройка SDDM
-    print_step_info "13" "НАСТРОЙКА МЕНЕДЖЕРА ДИСПЛЕЯ SDDM" \
+    # ШАГ 14: Настройка SDDM
+    print_step_info "14" "НАСТРОЙКА SDDM" \
         "Установка красивых тем экрана входа где вы вводите пароль"
     
     echo -e "${CYAN}${ARROW} Что будет установлено:${NC}"
@@ -701,16 +870,13 @@ install_sddm_config() {
     echo -e "  • ${WHITE}Игровые драйверы${NC} - Mesa, Vulkan, DXVK для AMD видеокарт"
     echo -e "  • ${WHITE}Wine и библиотеки${NC} - для запуска Windows-игр"
     echo -e "  • ${WHITE}Системные оптимизации${NC} - настройки ядра для лучшей производительности"
-    echo -e "  • ${WHITE}Игровые утилиты${NC} - MangoHUD, GameMode, Bottles"
+    echo -e "  • ${WHITE}Игровые утилиты${NC} - MangoHUD, GameMode"
     echo ""
     
     echo -e "${YELLOW}${WARNING} При согласии ничего не установится - вы попадете в меню установки различных компанентов для игр${NC}"
     echo ""
     
-    echo -e "${CYAN}${STAR} Хотите перейти к установке пакетов для игр? (y/n): ${NC}"
-    read -r gaming_response
-    
-    if [[ "$gaming_response" =~ ^[yYдД] ]]; then
+    if confirm_action "Хотите перейти к установке пакетов для игр?"; then
         install_gaming_packages
     fi
 
@@ -722,14 +888,14 @@ install_sddm_config() {
 
 # Функция для установки игровых пакетов
 install_gaming_packages() {
-    print_step_info "14" "НАСТРОЙКА ДЛЯ ИГР" \
+    print_step_info "15" "НАСТРОЙКА ДЛЯ ИГР" \
         "Установка пакетов и настроек для комфортной игры на Linux."
     
     # Игровые пакеты
-    print_step_info "14.1" "УСТАНОВКА ОСНОВНЫХ ИГРОВЫХ ПАКЕТОВ" \
+    print_step_info "15.1" "ИГРОВЫЕ ПАКЕТЫ" \
         "Установка драйверов, библиотек и инструментов для комфортной игры на Linux с AMD видеокартой."
     
-    local gaming_packages="mesa lib32-mesa vkd3d lib32-vkd3d xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau vulkan-mesa-layers ttf-liberation goverlay mangohud gamemode glfw protontricks gamescope dxvk-bin bottles"
+    local gaming_packages="mesa lib32-mesa vkd3d lib32-vkd3d xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau vulkan-mesa-layers ttf-liberation goverlay mangohud gamemode glfw protontricks gamescope dxvk-bin"
     
     print_command "yay -S --needed $gaming_packages"
     
@@ -738,11 +904,12 @@ install_gaming_packages() {
     echo -e "  • ${WHITE}lib32-*${NC} - поддержка 32-битных игр (старые игры)"
     echo -e "  • ${WHITE}mangohud${NC} - отображение FPS и температуры в играх"
     echo -e "  • ${WHITE}gamemode${NC} - автоматическая оптимизация системы для игр"
-    echo -e "  • ${WHITE}bottles${NC} - удобное управление Wine-префиксами"
     echo -e "  • ${WHITE}dxvk${NC} - перевод DirectX в Vulkan для лучшей производительности"
     echo ""
     
-    echo -e "${YELLOW}${WARNING} Эти пакеты оптимизированы для AMD видеокарт. Для NVIDIA нужны другие драйверы.${NC}"
+    echo -e "${RED}${WARNING} ВНИМАНИЕ! Эти пакеты ТОЛЬКО для AMD видеокарт!${NC}"
+    echo -e "${YELLOW}${WARNING} Для NVIDIA или Intel видеокарт нужны другие драйверы.${NC}"
+    echo -e "${YELLOW}${WARNING} Установка этих пакетов на систему с NVIDIA может вызвать конфликты.${NC}"
     echo ""
     
     if confirm_action "Установить игровые пакеты?"; then
@@ -755,7 +922,7 @@ install_gaming_packages() {
     fi
 
     # Wine пакеты
-    print_step_info "14.2" "УСТАНОВКА WINE ДЛЯ WINDOWS-ИГР" \
+    print_step_info "15.2" "WINE ДЛЯ WINDOWS-ИГР" \
         "Wine позволяет запускать Windows-приложения и игры на Linux. Это большой набор пакетов для полной совместимости."
     
     local wine_packages="wine giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses ocl-icd lib32-ocl-icd libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader lib32-opencl-icd-loader wine-gecko wine-mono winetricks vulkan-tools zenity fontconfig lib32-fontconfig wqy-zenhei"
@@ -783,84 +950,42 @@ install_gaming_packages() {
     fi
 
     # Системные оптимизации
-    print_step_info "14.3" "СИСТЕМНЫЕ ОПТИМИЗАЦИИ ДЛЯ ИГР" \
-        "Настройка ядра Linux для максимальной производительности в играх. Эти настройки улучшат FPS и уменьшат задержки."
+    print_step_info "15.3" "УВЕЛИЧЕНИЕ ЛИМИТА ПАМЯТИ ДЛЯ ИГР" \
+        "Увеличение vm.max_map_count для современных игр, требующих большого количества памяти."
     
-    echo -e "${CYAN}${ARROW} Что будет настроено (объяснение ):${NC}"
-    echo -e "  • ${WHITE}vm.max_map_count${NC} - увеличение лимита памяти для современных игр"
-    echo -e "  • ${WHITE}vm.swappiness${NC} - уменьшение использования файла подкачки"
-    echo -e "  • ${WHITE}kernel.sched_*${NC} - оптимизация планировщика процессов"
-    echo -e "  • ${WHITE}net.*${NC} - оптимизация сети для онлайн-игр"
+    echo -e "${CYAN}${ARROW} Что будет настроено:${NC}"
+    echo -e "  • ${WHITE}vm.max_map_count = 2147483642${NC} - увеличение лимита mmap для современных игр"
     echo ""
     
-    print_command "sudo tee /etc/sysctl.d/99-custom-optimizations.conf"
-    
-    echo -e "${YELLOW}${WARNING} Эти настройки изменят поведение системы. Они безопасны, но влияют на всю систему.${NC}"
+    echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
+    echo -e "  • Необходимо для запуска некоторых современных игр (Star Citizen, Elden Ring и др.)"
+    echo -e "  • Требуется для многих игр на Proton/Wine"
+    echo -e "  • По умолчанию лимит слишком мал для требовательных игр"
     echo ""
     
-    if confirm_action "Применить системные оптимизации для игр?"; then
-        cat << 'EOF' | sudo tee /etc/sysctl.d/99-custom-optimizations.conf > /dev/null
-# --- Комплексные оптимизации системы ---
-
-# 1. Управление памятью и дисковым кэшем
-# Увеличивает лимит mmap для современных игр
-vm.max_map_count = 2147483642
-# Снижает "желание" системы использовать swap-файл
-vm.swappiness = 10
-# Предотвращает фризы при уплотнении памяти
-vm.compaction_unevictable_allowed = 0
-# Уменьшает дисковый кэш для предотвращения "замираний" системы
-vm.dirty_ratio = 10
-vm.dirty_background_ratio = 5
-# Заставляет систему быстрее сбрасывать кэш на диск
-vm.dirty_expire_centisecs = 1500
-vm.dirty_writeback_centisecs = 500
-
-# 2. Настройки планировщика ядра для максимальной отзывчивости
-# Отключает автогруппировку, чтобы игра получала максимум ресурсов
-kernel.sched_autogroup_enabled = 0
-# Предотвращает заикания при создании игрой дочерних процессов
-kernel.sched_child_runs_first = 0
-# Увеличивает временной срез для процессов, снижая накладные расходы
-kernel.sched_latency_ns = 5000000
-# Снижает "миграцию" процессов между ядрами CPU для лучшего использования кэша
-kernel.sched_migration_cost_ns = 500000
-
-# 3. Оптимизация сети для онлайн-игр и быстрых соединений
-# Современный алгоритм управления очередью для борьбы с "bufferbloat"
-net.core.default_qdisc = fq_codel
-# Алгоритм контроля перегрузок от Google для максимальной скорости
-net.ipv4.tcp_congestion_control = bbr
-# Увеличение TCP-буферов для быстрых интернет-соединений
-net.core.rmem_max = 4194304
-net.core.wmem_max = 4194304
-net.ipv4.tcp_rmem = 4096 87380 4194304
-net.ipv4.tcp_wmem = 4096 16384 4194304
-# Увеличивает очередь для входящих пакетов, предотвращая их потерю
-net.core.netdev_max_backlog = 16384
-# Ускоряет закрытие неактивных соединений
-net.ipv4.tcp_fin_timeout = 15
-# Включает ускоренное открытие TCP-соединений
-net.ipv4.tcp_fastopen = 3
-# Включает определение оптимального размера пакета
-net.ipv4.tcp_mtu_probing = 1
-EOF
+    print_command "echo 'vm.max_map_count = 2147483642' | sudo tee /etc/sysctl.d/99-max-map-count.conf"
+    
+    echo -e "${YELLOW}${WARNING} Эта настройка безопасна и не влияет на производительность системы.${NC}"
+    echo ""
+    
+    if confirm_action "Увеличить лимит памяти для игр?"; then
+        echo 'vm.max_map_count = 2147483642' | sudo tee /etc/sysctl.d/99-max-map-count.conf > /dev/null
         
         execute_command "sudo sysctl --system" \
-            "Системные оптимизации применены!" \
-            "Ошибка при применении оптимизаций!"
+            "Лимит памяти успешно увеличен!" \
+            "Ошибка при применении настройки!"
         
         echo -e "${CYAN}${ARROW} Проверка настройки vm.max_map_count:${NC}"
         sysctl vm.max_map_count
         pause_for_user
     else
-        add_skipped_action "Применение системных оптимизаций для игр"
+        add_skipped_action "Увеличение лимита памяти для игр"
     fi
 }
 
 # Функция для установки пакетов печати
 install_printing_packages() {
-    print_step_info "15" "НАСТРОЙКА ПЕЧАТИ" \
+    print_step_info "16" "НАСТРОЙКА ПЕЧАТИ" \
         "Установка пакетов для работы с принтерами и сканерами."
     
     local printing_packages="cups cups-filters cups-pdf libcups libcupsfilters splix python-pycups lib32-libcups simple-scan hplip hplip-plugin print-manager"
@@ -890,12 +1015,12 @@ install_printing_packages() {
 
 # Финальная конфигурация
 final_configuration() {
-    print_step_info "16" "ФИНАЛЬНАЯ НАСТРОЙКА" \
+    print_step_info "17" "ФИНАЛЬНАЯ НАСТРОЙКА" \
         "Завершающие настройки и копирование конфигурационных файлов."
     
     # Настройка Git
     echo -e "${BLUE}╭─────────────────────────────────────────────────────────────────────────────╮${NC}"
-    echo -e "${BLUE}│ ${WHITE} 16.1 НАСТРОЙКА GIT${NC}"
+    echo -e "${BLUE}│ ${WHITE} 17.1 НАСТРОЙКА GIT${NC}"
     echo -e "${BLUE}╰─────────────────────────────────────────────────────────────────────────────╯${NC}"
     echo ""
     echo -e "${CYAN}${ARROW} Настройка Git (сохранение паролей):${NC}"
@@ -915,11 +1040,11 @@ final_configuration() {
     # Копирование конфигурационных файлов
     if [ -d ".config" ]; then
         echo -e "${BLUE}╭─────────────────────────────────────────────────────────────────────────────╮${NC}"
-        echo -e "${BLUE}│ ${WHITE} 16.2 КОПИРОВАНИЕ КОНФИГУРАЦИОННЫХ ФАЙЛОВ${NC}"
+        echo -e "${BLUE}│ ${WHITE} 17.2 КОПИРОВАНИЕ КОНФИГУРАЦИОННЫХ ФАЙЛОВ${NC}"
         echo -e "${BLUE}╰─────────────────────────────────────────────────────────────────────────────╯${NC}"
         echo ""
         echo -e "${CYAN}${ARROW} Копирование конфигурационных файлов:${NC}"
-        echo -e "  • ${WHITE}Что это${NC} - готовые настройки для Hyprland, waybar, терминалов"
+        echo -e "  • ${WHITE}Что это${NC} - готовые настройки для Hyprland, терминалов"
         echo -e "  • ${WHITE}Зачем нужно${NC} - чтобы система сразу работала красиво и удобно"
         echo -e "  • ${WHITE}Откуда${NC} - из папки .config в текущей директории"
         echo -e "  • ${WHITE}Куда${NC} - в ~/.config (домашняя папка пользователя)"
@@ -936,7 +1061,7 @@ final_configuration() {
 
     # Включение служб
     echo -e "${BLUE}╭─────────────────────────────────────────────────────────────────────────────╮${NC}"
-    echo -e "${BLUE}│ ${WHITE} 16.3 ВКЛЮЧЕНИЕ СИСТЕМНЫХ СЛУЖБ${NC}"
+    echo -e "${BLUE}│ ${WHITE} 17.3 ВКЛЮЧЕНИЕ СИСТЕМНЫХ СЛУЖБ${NC}"
     echo -e "${BLUE}╰─────────────────────────────────────────────────────────────────────────────╯${NC}"
     echo ""
     echo -e "${CYAN}${ARROW} Включение необходимых системных служб...${NC}"

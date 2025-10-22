@@ -1,0 +1,3 @@
+[templates.vesktop]
+input_path = './matugen/templates/vesktop.css'
+output_path = '~/.config/vesktop/themes/dank-discord.css'

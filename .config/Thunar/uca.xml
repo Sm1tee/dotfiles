@@ -5,7 +5,7 @@
 	<name>Открыть в терминале</name>
 	<submenu></submenu>
 	<unique-id>1742730083275159-1</unique-id>
-	<command>ghostty</command>
+	<command>ghostty -e sh -c &apos;cd &quot;$1&quot; &amp;&amp; exec $SHELL&apos; -- %f</command>
 	<description>Example for a custom action</description>
 	<range></range>
 	<patterns>*</patterns>
@@ -28,7 +28,7 @@
 	<name>Скопировать путь к файлу</name>
 	<submenu></submenu>
 	<unique-id>1750197148777926-1</unique-id>
-	<command>sh -c &apos;echo -n %f | wl-copy&apos;</command>
+	<command>sh -c &apos;printf %s &quot;$0&quot; | wl-copy&apos; %f</command>
 	<description></description>
 	<range>*</range>
 	<patterns>*</patterns>
@@ -93,6 +93,33 @@
 	<description></description>
 	<range>*</range>
 	<patterns>*</patterns>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>Коррекция звука </name>
+	<submenu></submenu>
+	<unique-id>1753040691148347-1</unique-id>
+	<command>~/.config/Thunar/scripts/thunar-fade.sh %f</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<video-files/>
+</action>
+<action>
+	<icon></icon>
+	<name>Проверить на вирусы</name>
+	<submenu></submenu>
+	<unique-id>1753191702510485-1</unique-id>
+	<command>~/.config/Thunar/scripts/virustotal-check.sh %f</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
 	<video-files/>
 </action>
 </actions>

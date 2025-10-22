@@ -1,0 +1,501 @@
+import QtQuick
+import QtQuick.Controls
+import Quickshell.Widgets
+import qs.Common
+import qs.Services
+import qs.Widgets
+
+Item {
+    id: dockTab
+
+    DankFlickable {
+        anchors.fill: parent
+        anchors.topMargin: Theme.spacingL
+        clip: true
+        contentHeight: mainColumn.height
+        contentWidth: width
+
+        Column {
+            id: mainColumn
+            width: parent.width
+            spacing: Theme.spacingXL
+
+            // Dock Position
+            StyledRect {
+                width: parent.width
+                height: dockPositionSection.implicitHeight + Theme.spacingL * 2
+                radius: Theme.cornerRadius
+                color: Theme.surfaceContainerHigh
+                border.color: Qt.rgba(Theme.outline.r, Theme.outline.g,
+                                      Theme.outline.b, 0.2)
+                border.width: 0
+
+                Column {
+                    id: dockPositionSection
+
+                    anchors.fill: parent
+                    anchors.margins: Theme.spacingL
+                    spacing: Theme.spacingM
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingM
+
+                        DankIcon {
+                            name: "swap_vert"
+                            size: Theme.iconSize
+                            color: Theme.primary
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        StyledText {
+                            text: "Позиция"
+                            font.pixelSize: Theme.fontSizeLarge
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+
+                    Item {
+                        width: parent.width
+                        height: childrenRect.height
+
+                        DankButtonGroup {
+                            id: positionButtonGroup
+                            x: (parent.width - width) / 2
+                            minButtonWidth: Math.floor((parent.width - spacing * 3) / 4)
+                            model: ["Сверху", "Снизу", "Слева", "Справа"]
+                            currentIndex: {
+                                switch (SettingsData.dockPosition) {
+                                    case SettingsData.Position.Top: return 0
+                                    case SettingsData.Position.Bottom: return 1
+                                    case SettingsData.Position.Left: return 2
+                                    case SettingsData.Position.Right: return 3
+                                    default: return 1
+                                }
+                            }
+                            onSelectionChanged: (index, selected) => {
+                                if (selected) {
+                                    switch (index) {
+                                        case 0: SettingsData.setDockPosition(SettingsData.Position.Top); break
+                                        case 1: SettingsData.setDockPosition(SettingsData.Position.Bottom); break
+                                        case 2: SettingsData.setDockPosition(SettingsData.Position.Left); break
+                                        case 3: SettingsData.setDockPosition(SettingsData.Position.Right); break
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Dock Visibility Section
+            StyledRect {
+                width: parent.width
+                height: dockVisibilitySection.implicitHeight + Theme.spacingL * 2
+                radius: Theme.cornerRadius
+                color: Theme.surfaceContainerHigh
+                border.color: Qt.rgba(Theme.outline.r, Theme.outline.g,
+                                      Theme.outline.b, 0.2)
+                border.width: 0
+
+                Column {
+                    id: dockVisibilitySection
+
+                    anchors.fill: parent
+                    anchors.margins: Theme.spacingL
+                    spacing: Theme.spacingM
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingM
+
+                        DankIcon {
+                            name: "visibility_off"
+                            size: Theme.iconSize
+                            color: Theme.primary
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        Column {
+                            width: parent.width - Theme.iconSize - Theme.spacingM
+                                   - autoHideToggle.width - Theme.spacingM
+                            spacing: Theme.spacingXS
+                            anchors.verticalCenter: parent.verticalCenter
+
+                            StyledText {
+                                text: "Автоскрытие дока"
+                                font.pixelSize: Theme.fontSizeLarge
+                                font.weight: Font.Medium
+                                color: Theme.surfaceText
+                            }
+
+                            StyledText {
+                                text: "Скрывать док когда он не используется и показывать при наведении на область дока"
+                                font.pixelSize: Theme.fontSizeSmall
+                                color: Theme.surfaceVariantText
+                                wrapMode: Text.WordWrap
+                                width: parent.width
+                            }
+                        }
+
+                        DankToggle {
+                            id: autoHideToggle
+
+                            anchors.verticalCenter: parent.verticalCenter
+                            checked: SettingsData.dockAutoHide
+                            onToggled: checked => {
+                                           SettingsData.setDockAutoHide(checked)
+                                       }
+                        }
+                    }
+
+                    Rectangle {
+                        width: parent.width
+                        height: 1
+                        color: Theme.outline
+                        opacity: 0.2
+                    }
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingM
+
+                        DankIcon {
+                            name: "dock_to_bottom"
+                            size: Theme.iconSize
+                            color: Theme.primary
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        Column {
+                            width: parent.width - Theme.iconSize - Theme.spacingM
+                                   - enableToggle.width - Theme.spacingM
+                            spacing: Theme.spacingXS
+                            anchors.verticalCenter: parent.verticalCenter
+
+                            StyledText {
+                                text: "Показывать док"
+                                font.pixelSize: Theme.fontSizeLarge
+                                font.weight: Font.Medium
+                                color: Theme.surfaceText
+                            }
+
+                            StyledText {
+                                text: "Отображать док с закрепленными и запущенными приложениями, который можно расположить сверху, снизу, слева или справа экрана"
+                                font.pixelSize: Theme.fontSizeSmall
+                                color: Theme.surfaceVariantText
+                                wrapMode: Text.WordWrap
+                                width: parent.width
+                            }
+                        }
+
+                        DankToggle {
+                            id: enableToggle
+
+                            anchors.verticalCenter: parent.verticalCenter
+                            checked: SettingsData.showDock
+                            onToggled: checked => {
+                                           SettingsData.setShowDock(checked)
+                                       }
+                        }
+                    }
+
+                    Rectangle {
+                        width: parent.width
+                        height: 1
+                        color: Theme.outline
+                        opacity: 0.2
+                        visible: CompositorService.isNiri
+                    }
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingM
+                        visible: CompositorService.isNiri
+
+                        DankIcon {
+                            name: "fullscreen"
+                            size: Theme.iconSize
+                            color: Theme.primary
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        Column {
+                            width: parent.width - Theme.iconSize - Theme.spacingM
+                                   - overviewToggle.width - Theme.spacingM
+                            spacing: Theme.spacingXS
+                            anchors.verticalCenter: parent.verticalCenter
+
+                            StyledText {
+                                text: "Показывать в обзоре"
+                                font.pixelSize: Theme.fontSizeLarge
+                                font.weight: Font.Medium
+                                color: Theme.surfaceText
+                            }
+
+                            StyledText {
+                                text: "Всегда показывать док когда открыт обзор niri"
+                                font.pixelSize: Theme.fontSizeSmall
+                                color: Theme.surfaceVariantText
+                                wrapMode: Text.WordWrap
+                                width: parent.width
+                            }
+                        }
+
+                        DankToggle {
+                            id: overviewToggle
+
+                            anchors.verticalCenter: parent.verticalCenter
+                            checked: SettingsData.dockOpenOnOverview
+                            onToggled: checked => {
+                                           SettingsData.setDockOpenOnOverview(checked)
+                                       }
+                        }
+                    }
+                }
+            }
+
+            // Group by App
+            StyledRect {
+                width: parent.width
+                height: groupByAppSection.implicitHeight + Theme.spacingL * 2
+                radius: Theme.cornerRadius
+                color: Theme.surfaceContainerHigh
+                border.color: Qt.rgba(Theme.outline.r, Theme.outline.g,
+                                      Theme.outline.b, 0.2)
+                border.width: 0
+                visible: SettingsData.showDock
+                opacity: visible ? 1 : 0
+
+                Column {
+                    id: groupByAppSection
+
+                    anchors.fill: parent
+                    anchors.margins: Theme.spacingL
+                    spacing: Theme.spacingM
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingM
+
+                        DankIcon {
+                            name: "apps"
+                            size: Theme.iconSize
+                            color: Theme.primary
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        Column {
+                            width: parent.width - Theme.iconSize - Theme.spacingM
+                                   - groupByAppToggle.width - Theme.spacingM
+                            spacing: Theme.spacingXS
+                            anchors.verticalCenter: parent.verticalCenter
+
+                            StyledText {
+                                text: "Группировать по приложениям"
+                                font.pixelSize: Theme.fontSizeLarge
+                                font.weight: Font.Medium
+                                color: Theme.surfaceText
+                            }
+
+                            StyledText {
+                                text: "Группировать несколько окон одного приложения вместе с индикатором количества окон"
+                                font.pixelSize: Theme.fontSizeSmall
+                                color: Theme.surfaceVariantText
+                                wrapMode: Text.WordWrap
+                                width: parent.width
+                            }
+                        }
+
+                        DankToggle {
+                            id: groupByAppToggle
+
+                            anchors.verticalCenter: parent.verticalCenter
+                            checked: SettingsData.dockGroupByApp
+                            onToggled: checked => {
+                                           SettingsData.setDockGroupByApp(checked)
+                                       }
+                        }
+                    }
+                }
+
+                Behavior on opacity {
+                    NumberAnimation {
+                        duration: Theme.mediumDuration
+                        easing.type: Theme.emphasizedEasing
+                    }
+                }
+            }
+
+            // Dock Spacing Section
+            StyledRect {
+                width: parent.width
+                height: dockSpacingSection.implicitHeight + Theme.spacingL * 2
+                radius: Theme.cornerRadius
+                color: Theme.surfaceContainerHigh
+                border.color: Qt.rgba(Theme.outline.r, Theme.outline.g,
+                                      Theme.outline.b, 0.2)
+                border.width: 0
+                visible: SettingsData.showDock
+                opacity: visible ? 1 : 0
+
+                Column {
+                    id: dockSpacingSection
+
+                    anchors.fill: parent
+                    anchors.margins: Theme.spacingL
+                    spacing: Theme.spacingM
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingM
+
+                        DankIcon {
+                            name: "space_bar"
+                            size: Theme.iconSize
+                            color: Theme.primary
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        StyledText {
+                            text: "Отступы"
+                            font.pixelSize: Theme.fontSizeLarge
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+
+                    Column {
+                        width: parent.width
+                        spacing: Theme.spacingS
+
+                        StyledText {
+                            text: "Внутренние отступы"
+                            font.pixelSize: Theme.fontSizeSmall
+                            color: Theme.surfaceText
+                            font.weight: Font.Medium
+                        }
+
+                        DankSlider {
+                            width: parent.width
+                            height: 24
+                            value: SettingsData.dockSpacing
+                            minimum: 0
+                            maximum: 32
+                            unit: ""
+                            showValue: true
+                            wheelEnabled: false
+                            thumbOutlineColor: Theme.surfaceContainerHigh
+                            onSliderValueChanged: newValue => {
+                                                      SettingsData.setDockSpacing(
+                                                          newValue)
+                                                  }
+                        }
+                    }
+
+                    Column {
+                        width: parent.width
+                        spacing: Theme.spacingS
+
+                        StyledText {
+                            text: "Отступ от края (эксклюзивная зона)"
+                            font.pixelSize: Theme.fontSizeSmall
+                            color: Theme.surfaceText
+                            font.weight: Font.Medium
+                        }
+
+                        DankSlider {
+                            width: parent.width
+                            height: 24
+                            value: SettingsData.dockBottomGap
+                            minimum: -100
+                            maximum: 100
+                            unit: ""
+                            showValue: true
+                            wheelEnabled: false
+                            thumbOutlineColor: Theme.surfaceContainerHigh
+                            onSliderValueChanged: newValue => {
+                                                      SettingsData.setDockBottomGap(
+                                                          newValue)
+                                                  }
+                        }
+                    }
+                }
+
+                Behavior on opacity {
+                    NumberAnimation {
+                        duration: Theme.mediumDuration
+                        easing.type: Theme.emphasizedEasing
+                    }
+                }
+            }
+
+            // Dock Transparency Section
+            StyledRect {
+                width: parent.width
+                height: transparencySection.implicitHeight + Theme.spacingL * 2
+                radius: Theme.cornerRadius
+                color: Theme.surfaceContainerHigh
+                border.color: Qt.rgba(Theme.outline.r, Theme.outline.g,
+                                      Theme.outline.b, 0.2)
+                border.width: 0
+                visible: SettingsData.showDock
+                opacity: visible ? 1 : 0
+
+                Column {
+                    id: transparencySection
+
+                    anchors.fill: parent
+                    anchors.margins: Theme.spacingL
+                    spacing: Theme.spacingM
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingM
+
+                        DankIcon {
+                            name: "opacity"
+                            size: Theme.iconSize
+                            color: Theme.primary
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        StyledText {
+                            text: "Прозрачность дока"
+                            font.pixelSize: Theme.fontSizeLarge
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+
+                    DankSlider {
+                        width: parent.width
+                        height: 32
+                        value: Math.round(SettingsData.dockTransparency * 100)
+                        minimum: 0
+                        maximum: 100
+                        unit: "%"
+                        showValue: true
+                        wheelEnabled: false
+                        thumbOutlineColor: Theme.surfaceContainerHigh
+                        onSliderValueChanged: newValue => {
+                                                  SettingsData.setDockTransparency(
+                                                      newValue / 100)
+                                              }
+                    }
+                }
+
+                Behavior on opacity {
+                    NumberAnimation {
+                        duration: Theme.mediumDuration
+                        easing.type: Theme.emphasizedEasing
+                    }
+                }
+            }
+        }
+    }
+}

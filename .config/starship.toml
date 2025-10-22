@@ -1,34 +1,20 @@
 palette = "catppuccin_macchiato"
 format = """
-[░▒▓](crust)\
 $os\
-[](bg:lavender fg:crust)\
+[](bg:lavender fg:crust)\
 $directory\
-[ ](fg:lavender bg:surface0)\
-$git_branch\
-$git_status\
-$hg_branch\
-[ ](fg:surface0 bg:crust)\
-[▓▒░](crust)\
-[ ◦•](surface2)\
+[](fg:lavender)\
 $fill\
-[•◦ ](surface2)\
-[░▒▓](crust)\
-[ ](fg:surface0 bg:crust)\
+[](fg:surface0)\
 $status\
 $cmd_duration\
-[ ](fg:crust bg:surface0)\
-$battery\
-[▓▒░](crust)
-$username\
-[·](surface0)\
-[·](surface2)\
-[•](overlay1)\
+[](fg:surface0)\
+\n$username\
 [ ](teal)\
 """
 
 [fill]
-symbol = "·"
+symbol = "-"
 style = "surface2"
 
 [directory]

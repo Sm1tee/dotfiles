@@ -1,0 +1,3 @@
+[templates.firefox]
+input_path = './matugen/templates/firefox-userchrome.css'
+output_path = '~/.config/sm1teePanel/firefox.css'

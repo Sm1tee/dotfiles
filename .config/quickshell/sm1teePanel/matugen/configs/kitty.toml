@@ -1,0 +1,3 @@
+[templates.kitty]
+input_path = './matugen/templates/kitty.conf'
+output_path = '~/.config/kitty/dank-theme.conf'

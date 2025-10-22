@@ -1,0 +1,3 @@
+[templates.dgop]
+input_path = './matugen/templates/dgop.json'
+output_path = '~/.config/dgop/colors.json'
