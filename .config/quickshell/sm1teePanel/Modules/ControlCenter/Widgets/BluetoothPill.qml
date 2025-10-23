@@ -41,25 +41,25 @@ CompoundPill {
             return "Bluetooth"
         }
         if (!BluetoothService.adapter) {
-            return "No adapter"
+            return "Нет адаптера"
         }
         if (!BluetoothService.adapter.enabled) {
-            return "Disabled"
+            return "Выключен"
         }
-        return "Enabled"
+        return "Включен"
     }
 
     secondaryText: {
         if (!BluetoothService.available) {
-            return "No adapters"
+            return "Нет адаптеров"
         }
         if (!BluetoothService.adapter || !BluetoothService.adapter.enabled) {
-            return "Off"
+            return "Выкл"
         }
         if (primaryDevice) {
-            return primaryDevice.name || primaryDevice.alias || primaryDevice.deviceName || "Connected Device"
+            return primaryDevice.name || primaryDevice.alias || primaryDevice.deviceName || "Подключенное устройство"
         }
-        return "No devices"
+        return "Нет устройств"
     }
 
     onToggled: {

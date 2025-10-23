@@ -1042,6 +1042,83 @@ Singleton {
         setNetworkPreference("wifi")
     }
 
+    function connectToHiddenWifi(ssid, password = "", username = "") {
+        if (root.isConnecting) {
+            return
+        }
+
+        root.isConnecting = true
+        root.connectingSSID = ssid
+        root.connectionError = ""
+        root.connectionStatus = "connecting"
+
+        // For hidden networks, we need to add "hidden yes" parameter
+        if (password) {
+            hiddenWifiConnector.command = lowPriorityCmd.concat(["nmcli", "dev", "wifi", "connect", ssid, "password", password, "hidden", "yes"])
+        } else {
+            hiddenWifiConnector.command = lowPriorityCmd.concat(["nmcli", "dev", "wifi", "connect", ssid, "hidden", "yes"])
+        }
+        
+        hiddenWifiConnector.running = true
+    }
+
+    Process {
+        id: hiddenWifiConnector
+        running: false
+
+        property bool connectionSucceeded: false
+
+        stdout: StdioCollector {
+            onStreamFinished: {
+                if (text.includes("successfully")) {
+                    hiddenWifiConnector.connectionSucceeded = true
+                    ToastService.showInfo(`Подключено к ${root.connectingSSID}`)
+                    root.connectionError = ""
+                    root.connectionStatus = "connected"
+
+                    if (root.userPreference === "wifi" || root.userPreference === "auto") {
+                        setConnectionPriority("wifi")
+                    }
+                }
+            }
+        }
+
+        stderr: StdioCollector {
+            onStreamFinished: {
+                root.connectionError = text
+                root.lastConnectionError = text
+                if (!hiddenWifiConnector.connectionSucceeded && text.trim() !== "") {
+                    if (text.includes("password") || text.includes("authentication")) {
+                        root.connectionStatus = "invalid_password"
+                        root.passwordDialogShouldReopen = true
+                        ToastService.showError(`Неверный пароль для ${root.connectingSSID}`)
+                    } else {
+                        root.connectionStatus = "failed"
+                        ToastService.showError(`Не удалось подключиться к ${root.connectingSSID}`)
+                    }
+                }
+            }
+        }
+
+        onExited: exitCode => {
+            if (exitCode === 0 || hiddenWifiConnector.connectionSucceeded) {
+                if (!hiddenWifiConnector.connectionSucceeded) {
+                    ToastService.showInfo(`Подключено к ${root.connectingSSID}`)
+                    root.connectionStatus = "connected"
+                }
+            } else if (!hiddenWifiConnector.connectionSucceeded) {
+                if (root.connectionStatus !== "invalid_password") {
+                    ToastService.showError(`Не удалось подключиться к ${root.connectingSSID}`)
+                }
+            }
+
+            root.isConnecting = false
+            root.connectingSSID = ""
+            hiddenWifiConnector.connectionSucceeded = false
+            Qt.callLater(() => refreshNetworkState())
+        }
+    }
+
     function toggleNetworkConnection(type) {
         if (type === "ethernet") {
             if (root.networkStatus === "ethernet") {

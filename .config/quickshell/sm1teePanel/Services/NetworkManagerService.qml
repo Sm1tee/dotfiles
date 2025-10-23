@@ -388,6 +388,51 @@ Singleton {
         setNetworkPreference("wifi")
     }
 
+    function connectToHiddenWifi(ssid, password = "", username = "") {
+        if (!networkAvailable || isConnecting) return
+
+        isConnecting = true
+        connectingSSID = ssid
+        connectionError = ""
+        connectionStatus = "connecting"
+
+        const params = { 
+            ssid: ssid,
+            hidden: true
+        }
+        if (password) params.password = password
+        if (username) params.username = username
+
+        DMSService.sendRequest("network.wifi.connect", params, response => {
+            if (response.error) {
+                connectionError = response.error
+                lastConnectionError = response.error
+                connectionStatus = response.error.includes("password") || response.error.includes("authentication")
+                    ? "invalid_password"
+                    : "failed"
+
+                if (connectionStatus === "invalid_password") {
+                    passwordDialogShouldReopen = true
+                    ToastService.showError(`Неверный пароль для ${ssid}`)
+                } else {
+                    ToastService.showError(`Не удалось подключиться к ${ssid}`)
+                }
+            } else {
+                connectionError = ""
+                connectionStatus = "connected"
+                ToastService.showInfo(`Подключено к ${ssid}`)
+
+                if (userPreference === "wifi" || userPreference === "auto") {
+                    setConnectionPriority("wifi")
+                }
+            }
+
+            isConnecting = false
+            connectingSSID = ""
+            Qt.callLater(() => getState())
+        })
+    }
+
     function toggleNetworkConnection(type) {
         if (!networkAvailable) return
 

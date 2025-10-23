@@ -189,6 +189,12 @@ Singleton {
         }
     }
 
+    function connectToHiddenWifi(ssid, password = "", username = "") {
+        if (activeService && activeService.connectToHiddenWifi) {
+            activeService.connectToHiddenWifi(ssid, password, username)
+        }
+    }
+
     function toggleNetworkConnection(type) {
         if (activeService && activeService.toggleNetworkConnection) {
             activeService.toggleNetworkConnection(type)

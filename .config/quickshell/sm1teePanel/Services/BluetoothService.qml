@@ -10,6 +10,33 @@ import Quickshell.Bluetooth
 Singleton {
     id: root
 
+    // Запускаем bluetoothctl как Bluetooth Agent с задержкой
+    // Задержка нужна чтобы BlueZ успел восстановить соединения после загрузки
+    Timer {
+        id: agentStartTimer
+        interval: 2000
+        running: root.available
+        repeat: false
+        onTriggered: {
+            if (root.available) {
+                bluetoothAgent.running = true
+            }
+        }
+    }
+    
+    Process {
+        id: bluetoothAgent
+        running: root.available
+        command: ["sh", "-c", "(echo 'agent on'; echo 'default-agent'; cat) | bluetoothctl"]
+        
+        stdout: SplitParser {
+            splitMarker: "\n"
+            onRead: data => {
+                // Агент работает в фоне
+            }
+        }
+    }
+
     readonly property BluetoothAdapter adapter: Bluetooth.defaultAdapter
     readonly property bool available: adapter !== null
     readonly property bool enabled: (adapter && adapter.enabled) ?? false
@@ -106,24 +133,24 @@ Singleton {
 
     function getSignalStrength(device) {
         if (!device || device.signalStrength === undefined || device.signalStrength <= 0) {
-            return "Unknown"
+            return "Неизвестно"
         }
 
         const signal = device.signalStrength
         if (signal >= 80) {
-            return "Excellent"
+            return "Отличный"
         }
         if (signal >= 60) {
-            return "Good"
+            return "Хороший"
         }
         if (signal >= 40) {
-            return "Fair"
+            return "Средний"
         }
         if (signal >= 20) {
-            return "Poor"
+            return "Слабый"
         }
 
-        return "Very Poor"
+        return "Очень слабый"
     }
 
     function getSignalIcon(device) {
@@ -161,7 +188,13 @@ Singleton {
         }
 
         device.trusted = true
-        device.connect()
+        
+        // Для новых устройств сначала нужно сопряжение (pair), потом подключение
+        if (!device.paired) {
+            device.pair()
+        } else {
+            device.connect()
+        }
     }
 
     function getCardName(device) {
@@ -185,49 +218,49 @@ Singleton {
         const codecMap = {
             "LDAC": {
                 "name": "LDAC",
-                "description": "Highest quality • Higher battery usage",
+                "description": "Высочайшее качество • Больше расход батареи",
                 "qualityColor": "#4CAF50"
             },
             "APTX_HD": {
                 "name": "aptX HD",
-                "description": "High quality • Balanced battery",
+                "description": "Высокое качество • Сбалансированная батарея",
                 "qualityColor": "#FF9800"
             },
             "APTX": {
                 "name": "aptX",
-                "description": "Good quality • Low latency",
+                "description": "Хорошее качество • Низкая задержка",
                 "qualityColor": "#FF9800"
             },
             "AAC": {
                 "name": "AAC",
-                "description": "Balanced quality and battery",
+                "description": "Сбалансированное качество и батарея",
                 "qualityColor": "#2196F3"
             },
             "SBC_XQ": {
                 "name": "SBC-XQ",
-                "description": "Enhanced SBC • Better compatibility",
+                "description": "Улучшенный SBC • Лучшая совместимость",
                 "qualityColor": "#2196F3"
             },
             "SBC": {
                 "name": "SBC",
-                "description": "Basic quality • Universal compatibility",
+                "description": "Базовое качество • Универсальная совместимость",
                 "qualityColor": "#9E9E9E"
             },
             "MSBC": {
                 "name": "mSBC",
-                "description": "Modified SBC • Optimized for speech",
+                "description": "Модифицированный SBC • Оптимизирован для речи",
                 "qualityColor": "#9E9E9E"
             },
             "CVSD": {
                 "name": "CVSD",
-                "description": "Basic speech codec • Legacy compatibility",
+                "description": "Базовый речевой кодек • Устаревшая совместимость",
                 "qualityColor": "#9E9E9E"
             }
         }
 
         return codecMap[codec] || {
             "name": codecName,
-            "description": "Unknown codec",
+            "description": "Неизвестный кодек",
             "qualityColor": "#9E9E9E"
         }
     }
@@ -285,7 +318,7 @@ Singleton {
 
     function switchCodec(device, profileName, callback) {
         if (!device || !isAudioDevice(device)) {
-            callback(false, "Invalid device")
+            callback(false, "Неверное устройство")
             return
         }
 
@@ -465,7 +498,7 @@ Singleton {
 
         onExited: function (exitCode, exitStatus) {
             if (callback) {
-                callback(exitCode === 0, exitCode === 0 ? "Codec switched successfully" : "Failed to switch codec")
+                callback(exitCode === 0, exitCode === 0 ? "Кодек успешно переключен" : "Не удалось переключить кодек")
             }
 
             // If successful, refresh the codec for this device

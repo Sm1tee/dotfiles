@@ -102,10 +102,10 @@ DankPopout {
                         StyledText {
                             anchors.verticalCenter: parent.verticalCenter
                             text: {
-                                if (SystemUpdateService.isChecking) return "Checking...";
-                                if (SystemUpdateService.hasError) return "Error";
-                                if (SystemUpdateService.updateCount === 0) return "Up to date";
-                                return SystemUpdateService.updateCount + " updates";
+                                if (SystemUpdateService.isChecking) return "Проверка...";
+                                if (SystemUpdateService.hasError) return "Ошибка";
+                                if (SystemUpdateService.updateCount === 0) return "Обновлено";
+                                return SystemUpdateService.updateCount + " обновлений";
                             }
                             font.pixelSize: Theme.fontSizeMedium
                             color: {
@@ -168,18 +168,18 @@ DankPopout {
                             width: parent.width
                             text: {
                                 if (SystemUpdateService.hasError) {
-                                    return "Failed to check for updates:\n" + SystemUpdateService.errorMessage;
+                                    return "Не удалось проверить обновления:\n" + SystemUpdateService.errorMessage;
                                 }
                                 if (!SystemUpdateService.helperAvailable) {
-                                    return "No package manager found. Please install 'paru' or 'yay' on Arch-based systems to check for updates.";
+                                    return "Менеджер пакетов не найден. Установите 'paru' или 'yay' для проверки обновлений.";
                                 }
                                 if (SystemUpdateService.isChecking) {
-                                    return "Checking for updates...";
+                                    return "Проверка обновлений...";
                                 }
                                 if (SystemUpdateService.updateCount === 0) {
-                                    return "Your system is up to date!";
+                                    return "Ваша система обновлена!";
                                 }
-                                return `Found ${SystemUpdateService.updateCount} packages to update:`;
+                                return `Найдено ${SystemUpdateService.updateCount} пакетов для обновления:`;
                             }
                             font.pixelSize: Theme.fontSizeMedium
                             color: {

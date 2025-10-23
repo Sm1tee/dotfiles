@@ -77,7 +77,7 @@ Rectangle {
                 }
                 
                 StyledText {
-                    text: BluetoothService.adapter && BluetoothService.adapter.discovering ? "Scanning" : "Scan"
+                    text: BluetoothService.adapter && BluetoothService.adapter.discovering ? "Сканирование" : "Сканировать"
                     color: BluetoothService.adapter && BluetoothService.adapter.enabled ? Theme.primary : Theme.surfaceVariantText
                     font.pixelSize: Theme.fontSizeMedium
                     font.weight: Font.Medium
@@ -187,7 +187,7 @@ Rectangle {
                             width: 200
                             
                             StyledText {
-                                text: modelData.name || modelData.deviceName || "Unknown Device"
+                                text: modelData.name || modelData.deviceName || "Неизвестное устройство"
                                 font.pixelSize: Theme.fontSizeMedium
                                 color: Theme.surfaceText
                                 font.weight: modelData.connected ? Font.Medium : Font.Normal
@@ -201,15 +201,15 @@ Rectangle {
                                 StyledText {
                                     text: {
                                         if (modelData.state === BluetoothDeviceState.Connecting)
-                                            return "Connecting..."
+                                            return "Подключение..."
                                         if (modelData.connected) {
-                                            let status = "Connected"
+                                            let status = "Подключено"
                                             if (currentCodec) {
                                                 status += " • " + currentCodec
                                             }
                                             return status
                                         }
-                                        return "Paired"
+                                        return "Сопряжено"
                                     }
                                     font.pixelSize: Theme.fontSizeSmall
                                     color: {
@@ -355,7 +355,7 @@ Rectangle {
                             width: 200
                             
                             StyledText {
-                                text: modelData.name || modelData.deviceName || "Unknown Device"
+                                text: modelData.name || modelData.deviceName || "Неизвестное устройство"
                                 font.pixelSize: Theme.fontSizeMedium
                                 color: Theme.surfaceText
                                 elide: Text.ElideRight
@@ -367,8 +367,8 @@ Rectangle {
                                 
                                 StyledText {
                                     text: {
-                                        if (modelData.pairing) return "Pairing..."
-                                        if (modelData.blocked) return "Blocked"
+                                        if (modelData.pairing) return "Сопряжение..."
+                                        if (modelData.blocked) return "Заблокировано"
                                         return BluetoothService.getSignalStrength(modelData)
                                     }
                                     font.pixelSize: Theme.fontSizeSmall
@@ -390,9 +390,9 @@ Rectangle {
                         anchors.rightMargin: Theme.spacingM
                         anchors.verticalCenter: parent.verticalCenter
                         text: {
-                            if (modelData.pairing) return "Pairing..."
-                            if (!canConnect) return "Cannot pair"
-                            return "Pair"
+                            if (modelData.pairing) return "Сопряжение..."
+                            if (!canConnect) return "Невозможно"
+                            return "Подключить"
                         }
                         font.pixelSize: Theme.fontSizeSmall
                         color: canConnect ? Theme.primary : Theme.surfaceVariantText
@@ -445,7 +445,7 @@ Rectangle {
         }
         
         MenuItem {
-            text: bluetoothContextMenu.currentDevice && bluetoothContextMenu.currentDevice.connected ? "Disconnect" : "Connect"
+            text: bluetoothContextMenu.currentDevice && bluetoothContextMenu.currentDevice.connected ? "Отключить" : "Подключить"
             height: 32
             
             contentItem: StyledText {

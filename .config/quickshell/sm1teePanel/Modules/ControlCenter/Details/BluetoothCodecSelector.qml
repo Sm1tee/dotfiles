@@ -186,7 +186,7 @@ Item {
             }
 
             StyledText {
-                text: isLoading ? "Loading codecs..." : `Current: ${currentCodec}`
+                text: isLoading ? "Загрузка кодеков..." : `Текущий: ${currentCodec}`
                 font.pixelSize: Theme.fontSizeSmall
                 color: isLoading ? Theme.primary : Theme.surfaceTextMedium
                 font.weight: Font.Medium

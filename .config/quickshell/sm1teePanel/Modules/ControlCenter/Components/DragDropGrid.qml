@@ -259,31 +259,31 @@ Column {
                 case "wifi":
                 {
                     if (NetworkService.wifiToggling)
-                        return NetworkService.wifiEnabled ? "Disabling WiFi..." : "Enabling WiFi..."
+                        return NetworkService.wifiEnabled ? "Отключение WiFi..." : "Включение WiFi..."
                     if (NetworkService.networkStatus === "ethernet")
                         return "Ethernet"
                     if (NetworkService.networkStatus === "wifi" && NetworkService.currentWifiSSID)
                         return NetworkService.currentWifiSSID
                     if (NetworkService.wifiEnabled)
-                        return "Not connected"
-                    return "WiFi off"
+                        return "Не подключено"
+                    return "WiFi выключен"
                 }
                 case "bluetooth":
                 {
                     if (!BluetoothService.available)
                         return "Bluetooth"
                     if (!BluetoothService.adapter)
-                        return "No adapter"
+                        return "Нет адаптера"
                     if (!BluetoothService.adapter.enabled)
-                        return "Disabled"
-                    return "Enabled"
+                        return "Выключен"
+                    return "Включен"
                 }
                 case "audioOutput":
-                    return AudioService.sink?.description || "No output device"
+                    return AudioService.sink?.description || "Нет устройства вывода"
                 case "audioInput":
-                    return AudioService.source?.description || "No input device"
+                    return AudioService.source?.description || "Нет устройства ввода"
                 default:
-                    return widgetDef?.text || "Unknown"
+                    return widgetDef?.text || "Неизвестно"
                 }
             }
             secondaryText: {
@@ -291,21 +291,21 @@ Column {
                 case "wifi":
                 {
                     if (NetworkService.wifiToggling)
-                        return "Please wait..."
+                        return "Подождите..."
                     if (NetworkService.networkStatus === "ethernet")
-                        return "Connected"
+                        return "Подключено"
                     if (NetworkService.networkStatus === "wifi")
-                        return NetworkService.wifiSignalStrength > 0 ? NetworkService.wifiSignalStrength + "%" : "Connected"
+                        return NetworkService.wifiSignalStrength > 0 ? NetworkService.wifiSignalStrength + "%" : "Подключено"
                     if (NetworkService.wifiEnabled)
-                        return "Select network"
+                        return "Выберите сеть"
                     return ""
                 }
                 case "bluetooth":
                 {
                     if (!BluetoothService.available)
-                        return "No adapters"
+                        return "Нет адаптеров"
                     if (!BluetoothService.adapter || !BluetoothService.adapter.enabled)
-                        return "Off"
+                        return "Выкл"
                     const primaryDevice = (() => {
                                                if (!BluetoothService.adapter || !BluetoothService.adapter.devices)
                                                return null
@@ -317,8 +317,8 @@ Column {
                                                return null
                                            })()
                     if (primaryDevice)
-                        return primaryDevice.name || primaryDevice.alias || primaryDevice.deviceName || "Connected Device"
-                    return "No devices"
+                        return primaryDevice.name || primaryDevice.alias || primaryDevice.deviceName || "Подключенное устройство"
+                    return "Нет устройств"
                 }
                 case "audioOutput":
                 {
