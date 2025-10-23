@@ -144,16 +144,19 @@ fi
 # Главная функция установки
 main() {
     # Проверка и временная установка русской локали для корректного отображения текста
-    if ! locale -a 2>/dev/null | grep -q "ru_RU.utf8"; then
+    if ! locale -a 2>/dev/null | grep -qi "ru_RU"; then
         echo "Russian locale not found. Installing for correct text display..."
         sudo sed -i 's/#ru_RU.UTF-8/ru_RU.UTF-8/' /etc/locale.gen 2>/dev/null
-        sudo locale-gen >/dev/null 2>&1
+        sudo locale-gen 2>&1
         echo "Locale installed successfully!"
+        echo "Please wait while locale is being applied..."
+        sleep 2
     fi
 
     # Устанавливаем русскую локаль для текущей сессии скрипта
     export LANG=ru_RU.UTF-8
     export LC_ALL=ru_RU.UTF-8
+    export LC_CTYPE=ru_RU.UTF-8
 
     print_header
 
