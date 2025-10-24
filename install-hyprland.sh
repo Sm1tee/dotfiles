@@ -27,6 +27,7 @@ PACKAGE="📦"
 FIRE="🔥"
 WARNING="⚠️"
 QUESTION="❓"
+INFO="ℹ️"
 
 # Массивы для отслеживания выполненных действий
 COMPLETED_ACTIONS=()
@@ -111,7 +112,7 @@ execute_command() {
 
     echo -e "${CYAN}${ARROW} Выполняется: $command${NC}"
 
-    if eval "$command"; then
+    if bash -c "$command"; then
         echo -e "${GREEN}${CHECKMARK} $success_msg${NC}"
         COMPLETED_ACTIONS+=("$success_msg")
         return 0
@@ -143,6 +144,10 @@ fi
 
 # Главная функция установки
 main() {
+    # Сохраняем директорию откуда запущен скрипт и переходим в неё
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    cd "$SCRIPT_DIR"
+
     # Проверка и временная установка русской локали для корректного отображения текста
     if ! locale -a 2>/dev/null | grep -qi "ru_RU"; then
         echo "Russian locale not found. Installing for correct text display..."
@@ -327,15 +332,13 @@ install_aur_helpers() {
                 "Ошибка при клонировании yay!"
         fi
 
-        execute_command "cd yay && makepkg -si --noconfirm" \
+        execute_command "(cd yay && makepkg -si --noconfirm)" \
             "YAY успешно установлен!" \
             "Ошибка при установке yay!"
 
         execute_command "yay -S --needed paru --noconfirm" \
             "PARU успешно установлен!" \
             "Ошибка при установке paru!"
-
-        cd ..
 
         # Удаление временной папки yay после установки
         if [ -d "yay" ]; then
