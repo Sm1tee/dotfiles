@@ -59,7 +59,7 @@ Rectangle {
             return "transparent"
         }
 
-        const baseColor = Theme.widgetBaseBackgroundColor
+        const baseColor = diskArea.containsMouse ? Theme.widgetBaseHoverColor : Theme.widgetBaseBackgroundColor
         return Qt.rgba(baseColor.r, baseColor.g, baseColor.b, baseColor.a * Theme.widgetTransparency)
     }
     Component.onCompleted: {
@@ -160,6 +160,9 @@ Rectangle {
             name: "storage"
             size: Theme.barIconSize(barThickness)
             color: {
+                if (diskArea.containsMouse) {
+                    return Theme.primary
+                }
                 if (root.diskUsagePercent > 90) {
                     return Theme.tempDanger
                 }
@@ -180,7 +183,7 @@ Rectangle {
             }
             font.pixelSize: Theme.barTextSize(barThickness)
             font.weight: Font.Medium
-            color: Theme.surfaceText
+            color: diskArea.containsMouse ? Theme.primary : Theme.surfaceText
             anchors.verticalCenter: parent.verticalCenter
             horizontalAlignment: Text.AlignLeft
             elide: Text.ElideNone

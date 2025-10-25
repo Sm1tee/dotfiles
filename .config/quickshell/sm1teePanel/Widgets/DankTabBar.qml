@@ -8,7 +8,7 @@ Item {
     property alias model: tabRepeater.model
     property int currentIndex: 0
     property int spacing: Theme.spacingL
-    property int tabHeight: 56
+    property int tabHeight: Math.round(56 * SettingsData.fontScale)
     property bool showIcons: true
     property bool equalWidthTabs: true
 

@@ -306,7 +306,7 @@ Column {
                                      || modelData.id === "memUsage"
                                      || modelData.id === "cpuTemp"
                             iconName: "straighten"
-                            iconSize: 16
+                            iconSize: Theme.iconSizeSmall
                             iconColor: (modelData.minimumWidth !== undefined ? modelData.minimumWidth : true) ? Theme.primary : Theme.outline
                             onClicked: {
                                 var currentEnabled = modelData.minimumWidth !== undefined ? modelData.minimumWidth : true
@@ -341,7 +341,7 @@ Column {
                                 buttonSize: 28
                                 visible: modelData.id === "music"
                                 iconName: "photo_size_select_small"
-                                iconSize: 16
+                                iconSize: Theme.iconSizeSmall
                                 iconColor: SettingsData.mediaSize
                                            === 0 ? Theme.primary : Theme.outline
                                 onClicked: {
@@ -367,7 +367,7 @@ Column {
                                 buttonSize: 28
                                 visible: modelData.id === "music"
                                 iconName: "photo_size_select_actual"
-                                iconSize: 16
+                                iconSize: Theme.iconSizeSmall
                                 iconColor: SettingsData.mediaSize
                                            === 1 ? Theme.primary : Theme.outline
                                 onClicked: {
@@ -393,7 +393,7 @@ Column {
                                 buttonSize: 28
                                 visible: modelData.id === "music"
                                 iconName: "photo_size_select_large"
-                                iconSize: 16
+                                iconSize: Theme.iconSizeSmall
                                 iconColor: SettingsData.mediaSize
                                            === 2 ? Theme.primary : Theme.outline
                                 onClicked: {
@@ -429,7 +429,7 @@ Column {
                                         return SettingsData.runningAppsCompactMode ? "zoom_out" : "zoom_in"
                                     return "zoom_in"
                                 }
-                                iconSize: 16
+                                iconSize: Theme.iconSizeSmall
                                 iconColor: {
                                     if (modelData.id === "clock")
                                         return SettingsData.clockCompactMode ? Theme.primary : Theme.outline
@@ -482,7 +482,7 @@ Column {
                                 buttonSize: 28
                                 visible: modelData.id === "clock"
                                 iconName: "swap_horiz"
-                                iconSize: 16
+                                iconSize: Theme.iconSizeSmall
                                 iconColor: SettingsData.clockDateFirst ? Theme.primary : Theme.outline
                                 onClicked: {
                                     SettingsData.clockDateFirst = !SettingsData.clockDateFirst
@@ -539,7 +539,7 @@ Column {
                             visible: modelData.id === "controlCenterButton"
                             buttonSize: 32
                             iconName: "more_vert"
-                            iconSize: 18
+                            iconSize: Theme.iconSizeSmall + 2
                             iconColor: Theme.outline
                             onClicked: {
                                 controlCenterContextMenu.widgetData = modelData
@@ -557,7 +557,7 @@ Column {
                             visible: modelData.id === "keyboard_layout_name"
                             buttonSize: 32
                             iconName: "more_vert"
-                            iconSize: 18
+                            iconSize: Theme.iconSizeSmall + 2
                             iconColor: Theme.outline
                             onClicked: {
                                 keyboardLayoutContextMenu.widgetData = modelData
@@ -575,7 +575,7 @@ Column {
                             visible: modelData.id !== "spacer"
                             buttonSize: 32
                             iconName: modelData.enabled ? "visibility" : "visibility_off"
-                            iconSize: 18
+                            iconSize: Theme.iconSizeSmall + 2
                             iconColor: modelData.enabled ? Theme.primary : Theme.outline
                             onClicked: {
                                 root.itemEnabledChanged(root.sectionId,
@@ -606,7 +606,7 @@ Column {
                             DankActionButton {
                                 buttonSize: 24
                                 iconName: "remove"
-                                iconSize: 14
+                                iconSize: Theme.iconSizeSmall - 2
                                 iconColor: Theme.outline
                                 onClicked: {
                                     var currentSize = modelData.size || 20
@@ -627,7 +627,7 @@ Column {
                             DankActionButton {
                                 buttonSize: 24
                                 iconName: "add"
-                                iconSize: 14
+                                iconSize: Theme.iconSizeSmall - 2
                                 iconColor: Theme.outline
                                 onClicked: {
                                     var currentSize = modelData.size || 20
@@ -643,7 +643,7 @@ Column {
                         DankActionButton {
                             buttonSize: 32
                             iconName: "close"
-                            iconSize: 18
+                            iconSize: Theme.iconSizeSmall + 2
                             iconColor: Theme.error
                             onClicked: {
                                 root.removeWidget(root.sectionId, index)

@@ -63,7 +63,7 @@ Item {
         id: dropdown
 
         width: root.popupWidth === -1 ? undefined : (root.popupWidth > 0 ? root.popupWidth : root.dropdownWidth)
-        height: 40
+        height: Math.round(40 * SettingsData.fontScale)
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
         radius: Theme.cornerRadius

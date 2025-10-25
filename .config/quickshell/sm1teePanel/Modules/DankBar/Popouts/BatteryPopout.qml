@@ -375,6 +375,10 @@ DankPopout {
                     }
 
                     width: parent.width
+                    fillWidth: true
+                    buttonPadding: Theme.spacingXS
+                    spacing: 2
+                    checkEnabled: false
                     model: profileModel.map(profile => Theme.getPowerProfileLabel(profile))
                     currentIndex: currentProfileIndex
                     selectionMode: "single"

@@ -15,7 +15,7 @@ Rectangle {
     signal iconSelected(string iconName, string iconType)
 
     width: 240
-    height: 32
+    height: Math.round(32 * SettingsData.fontScale)
     radius: Theme.cornerRadius
     color: Theme.surfaceContainer
     border.color: dropdownLoader.active ? Theme.primary : Theme.outline

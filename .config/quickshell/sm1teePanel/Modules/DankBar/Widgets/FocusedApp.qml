@@ -149,7 +149,7 @@ Rectangle {
             }
             return activeWindow.appId.charAt(0).toUpperCase()
         }
-        font.pixelSize: 10
+        font.pixelSize: Theme.fontSizeSmall
         color: Theme.surfaceText
         font.weight: Font.Medium
     }

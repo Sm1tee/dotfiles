@@ -18,23 +18,10 @@ FocusScope {
         color: "transparent"
 
         Loader {
-            id: timeWeatherLoader
-
-            anchors.fill: parent
-            active: root.currentIndex === 0
-            visible: active
-            asynchronous: true
-
-            sourceComponent: TimeWeatherTab {
-            }
-
-        }
-
-        Loader {
             id: personalizationLoader
 
             anchors.fill: parent
-            active: root.currentIndex === 1
+            active: root.currentIndex === 0
             visible: active
             asynchronous: true
 
@@ -43,6 +30,19 @@ FocusScope {
                     parentModal: root.parentModal
                 }
 
+            }
+
+        }
+
+        Loader {
+            id: timeWeatherLoader
+
+            anchors.fill: parent
+            active: root.currentIndex === 1
+            visible: active
+            asynchronous: true
+
+            sourceComponent: TimeWeatherTab {
             }
 
         }

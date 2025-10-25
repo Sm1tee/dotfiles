@@ -12,14 +12,26 @@ Flow {
     property var initialSelection: []
     property var currentSelection: initialSelection
     property bool checkEnabled: true
-    property int buttonHeight: 40
-    property int minButtonWidth: 64
+    property int buttonHeight: Math.round(40 * SettingsData.fontScale)
+    property int minButtonWidth: Math.round(64 * SettingsData.fontScale)
     property int buttonPadding: Theme.spacingL
     property int checkIconSize: Theme.iconSizeSmall
     property int textSize: Theme.fontSizeMedium
+    property bool fillWidth: true
+    
+    // Internal property to track fontScale changes
+    property real _fontScaleTracker: SettingsData.fontScale
 
     signal selectionChanged(int index, bool selected)
     signal animationCompleted()
+    
+    // Force recalculation when fontScale changes
+    on_FontScaleTrackerChanged: {
+        // Trigger width recalculation by temporarily changing fillWidth
+        const oldFillWidth = fillWidth
+        fillWidth = !fillWidth
+        Qt.callLater(() => { fillWidth = oldFillWidth })
+    }
 
     spacing: Theme.spacingXS
 
@@ -76,8 +88,21 @@ Flow {
             property bool isLast: index === repeater.count - 1
             property bool prevSelected: index > 0 ? root.isSelected(index - 1) : false
             property bool nextSelected: index < repeater.count - 1 ? root.isSelected(index + 1) : false
+            property real calculatedWidth: {
+                // Force recalculation when fontScale changes
+                root._fontScaleTracker
+                
+                if (root.fillWidth) {
+                    const totalSpacing = root.spacing * (repeater.count - 1)
+                    const availableWidth = root.width - totalSpacing
+                    const buttonWidth = availableWidth / repeater.count
+                    const minWidth = Math.max(contentItem.implicitWidth + root.buttonPadding * 2, root.minButtonWidth)
+                    return Math.max(buttonWidth, minWidth)
+                }
+                return Math.max(contentItem.implicitWidth + root.buttonPadding * 2, root.minButtonWidth)
+            }
 
-            width: Math.max(contentItem.implicitWidth + root.buttonPadding * 2, root.minButtonWidth) + (selected ? 4 : 0)
+            width: calculatedWidth
             height: root.buttonHeight
 
             color: selected ? Theme.primary : Theme.surfaceVariant
@@ -88,13 +113,6 @@ Flow {
             bottomLeftRadius: isFirst ? Theme.cornerRadius : 4
             topRightRadius: isLast ? Theme.cornerRadius : 4
             bottomRightRadius: isLast ? Theme.cornerRadius : 4
-
-            Behavior on width {
-                NumberAnimation {
-                    duration: Theme.shortDuration
-                    easing.type: Theme.standardEasing
-                }
-            }
 
             Behavior on color {
                 ColorAnimation {

@@ -18,6 +18,15 @@ DankModal {
 
     signal widgetSelected(string widgetId, string targetSection)
 
+    function getSectionName(section) {
+        switch(section.toLowerCase()) {
+            case "left": return "левую"
+            case "center": return "центральную"
+            case "right": return "правую"
+            default: return section
+        }
+    }
+
     function updateFilteredWidgets() {
         if (!searchQuery || searchQuery.length === 0) {
             filteredWidgets = allWidgets.slice()
@@ -200,7 +209,7 @@ DankModal {
                 }
 
                 StyledText {
-                    text: "Добавить виджет в " + root.targetSection + " секцию"
+                    text: "Добавить виджет в " + root.getSectionName(root.targetSection) + " секцию"
                     font.pixelSize: Theme.fontSizeLarge
                     font.weight: Font.Medium
                     color: Theme.surfaceText
@@ -209,7 +218,7 @@ DankModal {
             }
 
             StyledText {
-                text: "Выберите виджет для добавления в " + root.targetSection.toLowerCase() + " секцию верхней панели. Вы можете добавить несколько экземпляров одного виджета при необходимости."
+                text: "Выберите виджет для добавления в " + root.getSectionName(root.targetSection) + " секцию панели."
                 font.pixelSize: Theme.fontSizeSmall
                 color: Theme.outline
                 width: parent.width

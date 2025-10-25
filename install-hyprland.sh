@@ -405,7 +405,7 @@ install_hyprland_core() {
     print_step_info "6.2" "HYPRLAND И ЭКОСИСТЕМА" \
         "Установка самого Hyprland, его компонентов, quickshell и инструментов для работы."
 
-    local hyprland_packages="aquamarine cliphist grim hyprland hyprland-qtutils hyprcursor hyprgraphics hyprlang hyprpolkitagent hyprutils hyprwayland-scanner matugen-bin quickshell-git satty slurp wl-clip-persist wl-clipboard xdg-desktop-portal-hyprland"
+    local hyprland_packages="aquamarine cliphist grim hyprland hyprland-qtutils hyprcursor hyprgraphics hyprlang hyprpolkitagent hyprutils hyprwayland-scanner matugen-bin gammastep quickshell-git satty slurp wl-clip-persist wl-clipboard xdg-desktop-portal-hyprland"
 
     print_command "yay -S --needed $hyprland_packages"
 
@@ -586,7 +586,7 @@ install_fonts_and_themes() {
         execute_command "yay -S --needed $font_packages --noconfirm" \
             "Шрифты успешно установлены!" \
             "Ошибка при установке шрифтов!"
-        
+
         echo -e "${CYAN}${ARROW} Установка Material Symbols Rounded...${NC}"
         execute_command "sudo curl -L \"https://github.com/google/material-design-icons/raw/master/variablefont/MaterialSymbolsRounded%5BFILL%2CGRAD%2Copsz%2Cwght%5D.ttf\" -o /usr/share/fonts/MaterialSymbolsRounded.ttf" \
             "Material Symbols Rounded успешно установлен!" \
@@ -785,13 +785,12 @@ install_bluetooth() {
     print_step_info "13" "НАСТРОЙКА BLUETOOTH" \
         "Установка пакетов для работы с Bluetooth устройствами."
 
-    local bluetooth_packages="bluez blueman bluez-utils"
+    local bluetooth_packages="bluez bluez-utils"
 
     print_command "yay -S --needed $bluetooth_packages"
 
     echo -e "${CYAN}${ARROW} Что будет установлено:${NC}"
     echo -e "  • ${WHITE}bluez${NC} - основной стек Bluetooth для Linux"
-    echo -e "  • ${WHITE}blueman${NC} - графический менеджер Bluetooth"
     echo -e "  • ${WHITE}bluez-utils${NC} - утилиты для работы с Bluetooth"
     echo ""
 

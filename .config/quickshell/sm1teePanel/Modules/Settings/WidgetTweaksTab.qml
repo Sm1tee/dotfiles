@@ -88,15 +88,14 @@ Item {
                         }
                     }
 
-                    Item {
+                    DankButtonGroup {
+                        id: logoModeGroup
                         width: parent.width
-                        height: logoModeGroup.height
-
-                        DankButtonGroup {
-                            id: logoModeGroup
-                            x: (parent.width - width) / 2
-                            minButtonWidth: Math.floor((parent.width - spacing) / 2)
-                            model: ["Иконка приложений", "Свой"]
+                        fillWidth: true
+                        buttonPadding: Theme.spacingXS
+                        spacing: 2
+                        checkEnabled: false
+                        model: ["Иконка приложений", "Свой"]
                             currentIndex: {
                                 if (SettingsData.launcherLogoMode === "apps") return 0
                                 if (SettingsData.launcherLogoMode === "custom") return 1
@@ -111,7 +110,6 @@ Item {
                                 }
                             }
                         }
-                    }
 
                     Row {
                         width: parent.width
@@ -190,8 +188,11 @@ Item {
 
                                     DankButtonGroup {
                                         id: colorModeGroup
-                                        x: (parent.width - width) / 2
-                                        buttonPadding: Theme.spacingM
+                                        width: parent.width
+                                        fillWidth: true
+                                        buttonPadding: Theme.spacingXS
+                                        spacing: 2
+                                        checkEnabled: false
                                         model: ["По умолчанию", "Основной", "Поверхность", "Свой"]
                                     currentIndex: {
                                         const override = SettingsData.launcherLogoColorOverride
@@ -410,7 +411,7 @@ Item {
 
                         StyledText {
                             width: parent.width
-                            text: "Добавить пользовательский префикс ко всем запускам приложений. Это можно использовать для таких вещей, как 'uwsm-app', 'systemd-run' или других оболочек команд."
+                            text: "Добавить пользовательский префикс ко всем запускам приложений."
                             font.pixelSize: Theme.fontSizeSmall
                             color: Theme.surfaceVariantText
                             wrapMode: Text.WordWrap
@@ -603,7 +604,7 @@ Item {
                                     anchors.verticalCenter: parent.verticalCenter
                                     circular: true
                                     iconName: "close"
-                                    iconSize: 16
+                                    iconSize: Theme.iconSizeSmall
                                     iconColor: Theme.error
                                     onClicked: {
                                         var currentRanking = Object.assign(
@@ -670,8 +671,8 @@ Item {
                     DankToggle {
                         id: workspaceIndexToggle
                         width: parent.width
-                        text: "Номера рабочих столов"
-                        description: "Показывать номера рабочих столов в переключателе на верхней панели"
+                        text: "Показывать номера рабочих столов"
+                        description: "Номера в переключателях рабочих столов."
                         
                         Component.onCompleted: checked = SettingsData.showWorkspaceIndex
                         
@@ -693,8 +694,8 @@ Item {
                     DankToggle {
                         id: workspaceAppsToggle
                         width: parent.width
-                        text: "Показывать приложения рабочих столов"
-                        description: "Отображать иконки приложений в индикаторах рабочих столов"
+                        text: "Показывать иконки приложений"
+                        description: "Иконки открытых приложений в переключателях рабочих столов."
                         
                         Component.onCompleted: checked = SettingsData.showWorkspaceApps
                         
@@ -757,8 +758,8 @@ Item {
 
                     DankToggle {
                         width: parent.width
-                        text: "Рабочие столы для каждого монитора"
-                        description: "Показывать только рабочие столы, принадлежащие конкретному монитору"
+                        text: "Рабочие столы по мониторам"
+                        description: "Отдельные рабочие столы для каждого монитора."
                         checked: SettingsData.workspacesPerMonitor
                         onToggled: checked => {
                             return SettingsData.setWorkspacesPerMonitor(checked);
@@ -776,16 +777,15 @@ Item {
                             color: Theme.surfaceText
                         }
 
-                        Item {
+                        DankButtonGroup {
+                            id: paddingButtonGroup
                             width: parent.width
-                            height: paddingButtonGroup.height
-
-                            DankButtonGroup {
-                                id: paddingButtonGroup
-                                x: (parent.width - width) / 2
-                                model: ["Выкл", "3", "6", "9"]
-                                selectionMode: "single"
-                                minButtonWidth: Math.floor((parent.width - spacing * 3) / 4)
+                            fillWidth: true
+                            buttonPadding: Theme.spacingXS
+                            spacing: 2
+                            checkEnabled: false
+                            model: ["Выкл", "3", "6", "9"]
+                            selectionMode: "single"
                                 currentIndex: {
                                     if (SettingsData.workspacePaddingCount === 0) return 0
                                     if (SettingsData.workspacePaddingCount === 3) return 1
@@ -803,7 +803,6 @@ Item {
                         }
                     }
                 }
-            }
 
             StyledRect {
                 width: parent.width

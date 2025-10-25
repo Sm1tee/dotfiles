@@ -72,7 +72,7 @@ StyledRect {
     }
 
     width: 200
-    height: 48
+    height: Math.round(48 * SettingsData.fontScale)
     radius: cornerRadius
     color: backgroundColor
     border.color: textInput.activeFocus ? focusedBorderColor : normalBorderColor

@@ -758,9 +758,9 @@ Singleton {
         property string processType: "automation"
 
         onExited: function (exitCode) {
-            if (nightModeEnabled && SessionData.nightModeAutoEnabled && exitCode !== 0 && exitCode !== 15) {
+            // Only log errors for location mode, as time mode uses direct application
+            if (nightModeEnabled && SessionData.nightModeAutoEnabled && SessionData.nightModeAutoMode === "location" && exitCode !== 0 && exitCode !== 15) {
                 console.warn("DisplayService: Night mode automation failed:", exitCode)
-                // Location mode failed
                 console.warn("DisplayService: Location-based night mode failed")
             }
         }

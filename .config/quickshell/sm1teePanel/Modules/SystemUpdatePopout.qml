@@ -118,7 +118,7 @@ DankPopout {
                             id: checkForUpdatesButton
                             buttonSize: 28
                             iconName: "refresh"
-                            iconSize: 18
+                            iconSize: Theme.iconSizeSmall + 2
                             z: 15
                             iconColor: Theme.surfaceText
                             enabled: !SystemUpdateService.isChecking

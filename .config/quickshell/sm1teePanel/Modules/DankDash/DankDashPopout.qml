@@ -124,7 +124,6 @@ DankPopout {
                     id: tabBar
 
                     width: parent.width
-                    height: 48
                     currentIndex: root.currentTabIndex
                     spacing: Theme.spacingS
                     equalWidthTabs: true

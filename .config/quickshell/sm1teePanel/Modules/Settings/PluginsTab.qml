@@ -820,7 +820,7 @@ FocusScope {
                             DankActionButton {
                                 id: refreshButton
                                 iconName: "refresh"
-                                iconSize: 18
+                                iconSize: Theme.iconSizeSmall + 2
                                 iconColor: Theme.primary
                                 visible: !pluginBrowserModal.isLoading
                                 onClicked: pluginBrowserModal.refreshPlugins()

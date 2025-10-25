@@ -165,7 +165,7 @@ Rectangle {
                     anchors.centerIn: parent
                     text: (notificationGroup?.count || 0) > 99 ? "99+" : (notificationGroup?.count || 0).toString()
                     color: Theme.primaryText
-                    font.pixelSize: 9
+                    font.pixelSize: Theme.fontSizeSmall * 0.75
                     font.weight: Font.Bold
                 }
             }
@@ -309,7 +309,7 @@ Rectangle {
                         anchors.centerIn: parent
                         text: (notificationGroup?.count || 0) > 99 ? "99+" : (notificationGroup?.count || 0).toString()
                         color: Theme.primaryText
-                        font.pixelSize: 9
+                        font.pixelSize: Theme.fontSizeSmall * 0.75
                         font.weight: Font.Bold
                     }
                 }
@@ -671,7 +671,7 @@ Rectangle {
             anchors.top: parent.top
             visible: (notificationGroup?.count || 0) > 1
             iconName: expanded ? "expand_less" : "expand_more"
-            iconSize: 18
+            iconSize: Theme.iconSizeSmall + 2
             buttonSize: 28
             onClicked: {
                 root.userInitiatedExpansion = true
@@ -683,7 +683,7 @@ Rectangle {
             anchors.right: parent.right
             anchors.top: parent.top
             iconName: "close"
-            iconSize: 18
+            iconSize: Theme.iconSizeSmall + 2
             buttonSize: 28
             onClicked: NotificationService.dismissGroup(notificationGroup?.key || "")
         }

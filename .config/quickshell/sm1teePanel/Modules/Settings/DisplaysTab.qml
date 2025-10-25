@@ -116,7 +116,7 @@ Item {
 
                         width: parent.width
                         text: "Ночной режим"
-                        description: "Применить теплую цветовую температуру для снижения нагрузки на глаза. Используйте настройки автоматизации ниже для управления активацией."
+                        description: "Применить теплую цветовую температуру для снижения нагрузки на глаза."
                         checked: DisplayService.nightModeEnabled
                         onToggled: checked => {
                                        DisplayService.toggleNightMode()
@@ -159,8 +159,8 @@ Item {
                     DankToggle {
                         id: automaticToggle
                         width: parent.width
-                        text: "Автоматическое управление"
-                        description: "Настраивать гамму только на основе правил времени или местоположения."
+                        text: "Автонастройка гаммы"
+                        description: "Включать и выключать ночной режим по рассписанию"
                         checked: SessionData.nightModeAutoEnabled
                         onToggled: checked => {
                                        if (checked && !DisplayService.nightModeEnabled) {
@@ -192,38 +192,31 @@ Item {
                             }
                         }
 
-                        Item {
-                            width: 200
-                            height: 45 + Theme.spacingM
+                        DankButtonGroup {
+                            id: modeButtonGroup
+                            width: 300
+                            model: ["Время", "Местоположение"]
+                            currentIndex: SessionData.nightModeAutoMode === "location" ? 1 : 0
+                            checkEnabled: false
+                            fillWidth: false
 
-                            DankTabBar {
-                                id: modeTabBarNight
-                                width: 200
-                                height: 45
-                                model: [{
-                                        "text": "Время",
-                                        "icon": "access_time"
-                                    }, {
-                                        "text": "Местоположение",
-                                        "icon": "place"
-                                    }]
+                            Component.onCompleted: {
+                                currentIndex = SessionData.nightModeAutoMode === "location" ? 1 : 0
+                            }
 
-                                Component.onCompleted: {
-                                    currentIndex = SessionData.nightModeAutoMode === "location" ? 1 : 0
-                                    Qt.callLater(updateIndicator)
-                                }
-
-                                onTabClicked: index => {
-                                                  DisplayService.setNightModeAutomationMode(index === 1 ? "location" : "time")
-                                                  currentIndex = index
-                                              }
-
-                                Connections {
-                                    target: SessionData
-                                    function onNightModeAutoModeChanged() {
-                                        modeTabBarNight.currentIndex = SessionData.nightModeAutoMode === "location" ? 1 : 0
-                                        Qt.callLater(modeTabBarNight.updateIndicator)
+                            onSelectionChanged: (index, selected) => {
+                                if (selected) {
+                                    const newMode = index === 1 ? "location" : "time"
+                                    if (SessionData.nightModeAutoMode !== newMode) {
+                                        DisplayService.setNightModeAutomationMode(newMode)
                                     }
+                                }
+                            }
+
+                            Connections {
+                                target: SessionData
+                                function onNightModeAutoModeChanged() {
+                                    modeButtonGroup.currentIndex = SessionData.nightModeAutoMode === "location" ? 1 : 0
                                 }
                             }
                         }

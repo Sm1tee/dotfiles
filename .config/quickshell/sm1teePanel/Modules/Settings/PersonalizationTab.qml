@@ -76,6 +76,129 @@ Item {
             width: parent.width
             spacing: Theme.spacingXL
 
+            // Interface Scale
+            StyledRect {
+                width: parent.width
+                height: scaleSection.implicitHeight + Theme.spacingL * 2
+                radius: Theme.cornerRadius
+                color: Theme.surfaceContainerHigh
+                border.color: Qt.rgba(Theme.outline.r, Theme.outline.g, Theme.outline.b, 0.2)
+                border.width: 0
+
+                Column {
+                    id: scaleSection
+
+                    anchors.fill: parent
+                    anchors.margins: Theme.spacingL
+                    spacing: Theme.spacingM
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingM
+
+                        DankIcon {
+                            name: "zoom_in"
+                            size: Theme.iconSize
+                            color: Theme.primary
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        StyledText {
+                            text: "Масштаб интерфейса"
+                            font.pixelSize: Theme.fontSizeLarge
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+
+                    Column {
+                        width: parent.width
+                        spacing: Theme.spacingS
+
+                        Timer {
+                            id: scaleApplyTimer
+                            interval: 300
+                            repeat: false
+                            onTriggered: {
+                                SettingsData.setFontScale(scaleSlider.value / 100)
+                            }
+                        }
+
+                        Row {
+                            width: parent.width
+                            spacing: Theme.spacingS
+
+                            StyledText {
+                                text: "Масштаб интерфейса"
+                                font.pixelSize: Theme.fontSizeSmall
+                                color: Theme.surfaceText
+                                font.weight: Font.Medium
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+
+                            Item {
+                                width: parent.width - scaleText.implicitWidth - resetScaleBtn.width - Theme.spacingS - Theme.spacingM
+                                height: 1
+
+                                StyledText {
+                                    id: scaleText
+                                    visible: false
+                                    text: "Масштаб интерфейса"
+                                    font.pixelSize: Theme.fontSizeSmall
+                                }
+                            }
+
+                            DankActionButton {
+                                id: resetScaleBtn
+                                buttonSize: 20
+                                iconName: "refresh"
+                                iconSize: Theme.fontSizeSmall
+                                backgroundColor: Theme.surfaceContainerHigh
+                                iconColor: Theme.surfaceText
+                                anchors.verticalCenter: parent.verticalCenter
+                                onClicked: {
+                                    scaleSlider.value = 100
+                                    SettingsData.setFontScale(1.0)
+                                }
+                            }
+
+                            Item {
+                                width: Theme.spacingS
+                                height: 1
+                            }
+                        }
+
+                        DankSlider {
+                            id: scaleSlider
+                            width: parent.width
+                            height: 24
+                            value: Math.round((SettingsData.fontScale * 100) / 5) * 5
+                            minimum: 100
+                            maximum: 150
+                            unit: "%"
+                            showValue: true
+                            wheelEnabled: false
+                            thumbOutlineColor: Theme.surfaceContainerHigh
+                            onSliderValueChanged: newValue => {
+                                const roundedValue = Math.round(newValue / 5) * 5
+                                if (scaleSlider.value !== roundedValue) {
+                                    scaleSlider.value = roundedValue
+                                }
+                                scaleApplyTimer.restart()
+                            }
+
+                            Binding {
+                                target: scaleSlider
+                                property: "value"
+                                value: Math.round((SettingsData.fontScale * 100) / 5) * 5
+                                restoreMode: Binding.RestoreBinding
+                            }
+                        }
+                    }
+                }
+            }
+
             // Animation Settings
             StyledRect {
                 width: parent.width
@@ -112,16 +235,15 @@ Item {
                         }
                     }
 
-                    Item {
+                    DankButtonGroup {
+                        id: animationSpeedGroup
                         width: parent.width
-                        height: childrenRect.height
-
-                        DankButtonGroup {
-                            id: animationSpeedGroup
-                            x: (parent.width - width) / 2
-                            model: ["Нет", "Быстро", "Средне", "Медленно"]
-                            selectionMode: "single"
-                            minButtonWidth: Math.floor((parent.width - spacing * 3) / 4)
+                        model: ["Нет", "Быстро", "Средне", "Медленно"]
+                        selectionMode: "single"
+                        fillWidth: true
+                        buttonPadding: Theme.spacingXS
+                        spacing: 2
+                        checkEnabled: false
                             currentIndex: {
                                 // Маппинг старых значений на новые
                                 if (SettingsData.animationSpeed === 0) return 0 // Нет
@@ -140,7 +262,6 @@ Item {
                         }
                     }
                 }
-            }
 
             StyledRect {
                 width: parent.width
@@ -258,10 +379,10 @@ Item {
                                 model: ["Стандартный", "Темнее"]
                                 currentIndex: currentSurfaceIndex
                                 selectionMode: "single"
+                                checkEnabled: false
 
                                 buttonHeight: 32
                                 buttonPadding: Theme.spacingM
-                                checkIconSize: Theme.iconSizeSmall
                                 textSize: Theme.fontSizeSmall
                                 spacing: 2
 
@@ -274,46 +395,9 @@ Item {
                         }
                     }
 
-                    Column {
+                    Item {
                         width: parent.width
-                        spacing: Theme.spacingS
-
-                        StyledText {
-                            text: {
-                                if (Theme.currentTheme === Theme.dynamic) {
-                                    return "Текущая тема: Динамическая"
-                                } else if (Theme.currentThemeCategory === "catppuccin") {
-                                    return "Текущая тема: Catppuccin " + Theme.getThemeColors(Theme.currentThemeName).name
-                                } else {
-                                    return "Текущая тема: " + Theme.getThemeColors(Theme.currentThemeName).name
-                                }
-                            }
-                            font.pixelSize: Theme.fontSizeMedium
-                            color: Theme.surfaceText
-                            font.weight: Font.Medium
-                            anchors.horizontalCenter: parent.horizontalCenter
-                        }
-
-                        StyledText {
-                            text: {
-                                if (Theme.currentTheme === Theme.dynamic) {
-                                    return "Material цвета, сгенерированные из обоев"
-                                }
-                                if (Theme.currentThemeCategory === "catppuccin") {
-                                    return "Успокаивающая пастельная тема на основе Catppuccin"
-                                }
-                                if (Theme.currentTheme === Theme.custom) {
-                                    return "Пользовательская тема загружена из JSON файла"
-                                }
-                                return "Готовые цветовые схемы"
-                            }
-                            font.pixelSize: Theme.fontSizeSmall
-                            color: Theme.surfaceVariantText
-                            anchors.horizontalCenter: parent.horizontalCenter
-                            wrapMode: Text.WordWrap
-                            width: Math.min(parent.width, 400)
-                            horizontalAlignment: Text.AlignHCenter
-                        }
+                        height: Theme.spacingM
                     }
 
                     Item {
@@ -322,6 +406,7 @@ Item {
 
                         DankButtonGroup {
                             id: themeButtonGroup
+                            checkEnabled: false
                             
                             property int currentThemeIndex: {
                                 if (Theme.currentTheme === Theme.dynamic) return 2
@@ -347,11 +432,13 @@ Item {
                                 }
                             }
 
-                            x: (parent.width - width) / 2
+                            width: parent.width
                             model: ["Готовые", "Catppuccin", "Из обоев", "Своя"]
                             currentIndex: currentThemeIndex
                             selectionMode: "single"
-                            minButtonWidth: Math.floor((parent.width - spacing * 3) / 4)
+                            fillWidth: true
+                            buttonPadding: Theme.spacingXS
+                            spacing: 2
                             onSelectionChanged: (index, selected) => {
                                 if (!selected) return
                                 pendingThemeIndex = index
@@ -1264,7 +1351,7 @@ Item {
                                 anchors.verticalCenter: parent.verticalCenter
 
                                 StyledText {
-                                    text: "Обои для режимов"
+                                    text: "Менять обои под тему"
                                     font.pixelSize: Theme.fontSizeLarge
                                     font.weight: Font.Medium
                                     color: Theme.surfaceText
@@ -1321,7 +1408,7 @@ Item {
                                 anchors.verticalCenter: parent.verticalCenter
 
                                 StyledText {
-                                    text: "Обои для мониторов"
+                                    text: "Обои для разных мониторов"
                                     font.pixelSize: Theme.fontSizeLarge
                                     font.weight: Font.Medium
                                     color: Theme.surfaceText
@@ -1472,18 +1559,15 @@ Item {
                                     width: 200
                                     height: 45 + Theme.spacingM
                                     
-                                    DankTabBar {
+                                    DankButtonGroup {
                                         id: modeTabBar
 
                                         width: 200
-                                        height: 45
-                                        model: [{
-                                                "text": "Интервал",
-                                                "icon": "schedule"
-                                            }, {
-                                                "text": "Время",
-                                                "icon": "access_time"
-                                            }]
+                                        fillWidth: true
+                                        buttonPadding: Theme.spacingXS
+                                        spacing: 2
+                                        checkEnabled: false
+                                        model: ["Интервал", "Время"]
                                         currentIndex: {
                                             if (SessionData.perMonitorWallpaper) {
                                                 return SessionData.getMonitorCyclingSettings(selectedMonitorName).mode === "time" ? 1 : 0
@@ -1491,13 +1575,14 @@ Item {
                                                 return SessionData.wallpaperCyclingMode === "time" ? 1 : 0
                                             }
                                         }
-                                        onTabClicked: index => {
-                                                          if (SessionData.perMonitorWallpaper) {
-                                                              SessionData.setMonitorCyclingMode(selectedMonitorName, index === 1 ? "time" : "interval")
-                                                          } else {
-                                                              SessionData.setWallpaperCyclingMode(index === 1 ? "time" : "interval")
-                                                          }
-                                                      }
+                                        onSelectionChanged: (index, selected) => {
+                                            if (!selected) return
+                                            if (SessionData.perMonitorWallpaper) {
+                                                SessionData.setMonitorCyclingMode(selectedMonitorName, index === 1 ? "time" : "interval")
+                                            } else {
+                                                SessionData.setWallpaperCyclingMode(index === 1 ? "time" : "interval")
+                                            }
+                                        }
 
                                         Connections {
                                             target: personalizationTab
@@ -1509,7 +1594,6 @@ Item {
                                                         return SessionData.wallpaperCyclingMode === "time" ? 1 : 0
                                                     }
                                                 })
-                                                Qt.callLater(modeTabBar.updateIndicator)
                                             }
                                         }
                                     }
@@ -1761,6 +1845,7 @@ Item {
                             id: transitionGroup
                             width: parent.width
                             selectionMode: "multi"
+                            checkEnabled: false
                             model: SessionData.availableWallpaperTransitions.filter(t => t !== "none")
                             initialSelection: SessionData.includedTransitions
                             currentSelection: SessionData.includedTransitions
@@ -2078,86 +2163,7 @@ Item {
                         }
                     }
 
-                    Rectangle {
-                        width: parent.width
-                        height: 60
-                        radius: Theme.cornerRadius
-                        color: "transparent"
 
-                        Column {
-                            anchors.left: parent.left
-                            anchors.right: fontScaleControls.left
-                            anchors.verticalCenter: parent.verticalCenter
-                            spacing: Theme.spacingXS
-
-                            StyledText {
-                                text: "Масштаб интерфейса"
-                                font.pixelSize: Theme.fontSizeMedium
-                                font.weight: Font.Medium
-                                color: Theme.surfaceText
-                            }
-
-                            StyledText {
-                                text: "Масштабировать размеры шрифтов и окон"
-                                font.pixelSize: Theme.fontSizeSmall
-                                color: Theme.surfaceVariantText
-                                width: parent.width
-                            }
-                        }
-
-                        Row {
-                            id: fontScaleControls
-                            width: 180
-                            height: 36
-                            anchors.right: parent.right
-                            anchors.rightMargin: 0
-                            anchors.verticalCenter: parent.verticalCenter
-                            spacing: Theme.spacingS
-
-                            DankActionButton {
-                                buttonSize: 32
-                                iconName: "remove"
-                                iconSize: Theme.iconSizeSmall
-                                enabled: SettingsData.fontScale > 1.0
-                                backgroundColor: Theme.surfaceContainerHigh
-                                iconColor: Theme.surfaceText
-                                onClicked: {
-                                    var newScale = Math.max(1.0, SettingsData.fontScale - 0.05)
-                                    SettingsData.setFontScale(newScale)
-                                }
-                            }
-
-                            StyledRect {
-                                width: 60
-                                height: 32
-                                radius: Theme.cornerRadius
-                                color: Theme.surfaceContainerHigh
-                                border.color: Qt.rgba(Theme.outline.r, Theme.outline.g, Theme.outline.b, 0.2)
-                                border.width: 0
-
-                                StyledText {
-                                    anchors.centerIn: parent
-                                    text: (SettingsData.fontScale * 100).toFixed(0) + "%"
-                                    font.pixelSize: Theme.fontSizeSmall
-                                    font.weight: Font.Medium
-                                    color: Theme.surfaceText
-                                }
-                            }
-
-                            DankActionButton {
-                                buttonSize: 32
-                                iconName: "add"
-                                iconSize: Theme.iconSizeSmall
-                                enabled: SettingsData.fontScale < 1.5
-                                backgroundColor: Theme.surfaceContainerHigh
-                                iconColor: Theme.surfaceText
-                                onClicked: {
-                                    var newScale = Math.min(1.5, SettingsData.fontScale + 0.05)
-                                    SettingsData.setFontScale(newScale)
-                                }
-                            }
-                        }
-                    }
                 }
             }
 

@@ -13,12 +13,12 @@ Rectangle {
     property bool pressed: mouseArea.pressed
     property color backgroundColor: Theme.primary
     property color textColor: Theme.primaryText
-    property int buttonHeight: 40
+    property int buttonHeight: Math.round(40 * SettingsData.fontScale)
     property int horizontalPadding: Theme.spacingL
 
     signal clicked()
 
-    width: Math.max(contentRow.implicitWidth + horizontalPadding * 2, 64)
+    width: Math.max(contentRow.implicitWidth + horizontalPadding * 2, Math.round(64 * SettingsData.fontScale))
     height: buttonHeight
     radius: Theme.cornerRadius
     color: backgroundColor

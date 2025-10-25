@@ -51,7 +51,7 @@ Rectangle {
                     }
                 }
                 font.pixelSize: Theme.barTextSize(barThickness)
-                color: Theme.surfaceText
+                color: clockMouseArea.containsMouse ? Theme.primary : Theme.surfaceText
                 font.weight: Font.Normal
                 width: 9
                 horizontalAlignment: Text.AlignHCenter
@@ -68,7 +68,7 @@ Rectangle {
                     }
                 }
                 font.pixelSize: Theme.barTextSize(barThickness)
-                color: Theme.surfaceText
+                color: clockMouseArea.containsMouse ? Theme.primary : Theme.surfaceText
                 font.weight: Font.Normal
                 width: 9
                 horizontalAlignment: Text.AlignHCenter
@@ -82,7 +82,7 @@ Rectangle {
             StyledText {
                 text: String(systemClock?.date?.getMinutes()).padStart(2, '0').charAt(0)
                 font.pixelSize: Theme.barTextSize(barThickness)
-                color: Theme.surfaceText
+                color: clockMouseArea.containsMouse ? Theme.primary : Theme.surfaceText
                 font.weight: Font.Normal
                 width: 9
                 horizontalAlignment: Text.AlignHCenter
@@ -91,7 +91,7 @@ Rectangle {
             StyledText {
                 text: String(systemClock?.date?.getMinutes()).padStart(2, '0').charAt(1)
                 font.pixelSize: Theme.barTextSize(barThickness)
-                color: Theme.surfaceText
+                color: clockMouseArea.containsMouse ? Theme.primary : Theme.surfaceText
                 font.weight: Font.Normal
                 width: 9
                 horizontalAlignment: Text.AlignHCenter
@@ -196,14 +196,14 @@ Rectangle {
                 return systemClock?.date?.toLocaleTimeString(Qt.locale(), format)
             }
             font.pixelSize: Theme.barTextSize(barThickness)
-            color: Theme.surfaceText
+            color: clockMouseArea.containsMouse ? Theme.primary : Theme.surfaceText
             anchors.verticalCenter: parent.verticalCenter
         }
 
         StyledText {
             text: "•"
             font.pixelSize: Theme.fontSizeSmall
-            color: Theme.outlineButton
+            color: clockMouseArea.containsMouse ? Theme.primary : Theme.outlineButton
             anchors.verticalCenter: parent.verticalCenter
             visible: !SettingsData.clockCompactMode
         }
@@ -217,7 +217,7 @@ Rectangle {
                 return systemClock?.date?.toLocaleDateString(Qt.locale(), "ddd d")
             }
             font.pixelSize: Theme.barTextSize(barThickness)
-            color: Theme.surfaceText
+            color: clockMouseArea.containsMouse ? Theme.primary : Theme.surfaceText
             anchors.verticalCenter: parent.verticalCenter
             visible: !SettingsData.clockCompactMode
         }

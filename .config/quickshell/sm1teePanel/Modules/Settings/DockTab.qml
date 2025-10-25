@@ -57,15 +57,14 @@ Item {
                         }
                     }
 
-                    Item {
+                    DankButtonGroup {
+                        id: positionButtonGroup
                         width: parent.width
-                        height: childrenRect.height
-
-                        DankButtonGroup {
-                            id: positionButtonGroup
-                            x: (parent.width - width) / 2
-                            minButtonWidth: Math.floor((parent.width - spacing * 3) / 4)
-                            model: ["Сверху", "Снизу", "Слева", "Справа"]
+                        fillWidth: true
+                        buttonPadding: Theme.spacingXS
+                        spacing: 2
+                        checkEnabled: false
+                        model: ["Сверху", "Снизу", "Слева", "Справа"]
                             currentIndex: {
                                 switch (SettingsData.dockPosition) {
                                     case SettingsData.Position.Top: return 0
@@ -88,7 +87,6 @@ Item {
                         }
                     }
                 }
-            }
 
             // Dock Visibility Section
             StyledRect {
@@ -183,7 +181,7 @@ Item {
                             }
 
                             StyledText {
-                                text: "Отображать док с закрепленными и запущенными приложениями, который можно расположить сверху, снизу, слева или справа экрана"
+                                text: "Отображать док с закрепленными и запущенными приложениями."
                                 font.pixelSize: Theme.fontSizeSmall
                                 color: Theme.surfaceVariantText
                                 wrapMode: Text.WordWrap

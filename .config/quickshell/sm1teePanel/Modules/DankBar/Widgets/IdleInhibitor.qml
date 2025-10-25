@@ -33,8 +33,8 @@ Rectangle {
 
         anchors.centerIn: parent
         name: SessionService.idleInhibited ? "motion_sensor_active" : "motion_sensor_idle"
-        size: Theme.barIconSize(barThickness, -4)
-        color: Theme.surfaceText
+        size: Theme.barIconSize(widgetThickness, -4)
+        color: mouseArea.containsMouse ? Theme.primary : Theme.surfaceText
     }
 
     MouseArea {

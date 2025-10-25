@@ -184,7 +184,7 @@ Rectangle {
             DankIcon {
                 anchors.centerIn: parent
                 name: activePlayer && activePlayer.playbackState === 1 ? "pause" : "play_arrow"
-                size: 14
+                size: Theme.iconSizeSmall
                 color: activePlayer && activePlayer.playbackState === 1 ? Theme.background : Theme.primary
             }
 
@@ -348,7 +348,7 @@ Rectangle {
                 DankIcon {
                     anchors.centerIn: parent
                     name: "skip_previous"
-                    size: 12
+                    size: Theme.fontSizeSmall
                     color: Theme.surfaceText
                 }
 
@@ -380,7 +380,7 @@ Rectangle {
                 DankIcon {
                     anchors.centerIn: parent
                     name: activePlayer && activePlayer.playbackState === 1 ? "pause" : "play_arrow"
-                    size: 14
+                    size: Theme.iconSizeSmall
                     color: activePlayer && activePlayer.playbackState === 1 ? Theme.background : Theme.primary
                 }
 
@@ -410,7 +410,7 @@ Rectangle {
                 DankIcon {
                     anchors.centerIn: parent
                     name: "skip_next"
-                    size: 12
+                    size: Theme.fontSizeSmall
                     color: Theme.surfaceText
                 }
 

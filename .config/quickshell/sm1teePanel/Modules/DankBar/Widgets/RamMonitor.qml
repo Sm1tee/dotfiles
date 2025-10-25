@@ -71,6 +71,10 @@ Rectangle {
             name: "developer_board"
             size: Theme.barIconSize(barThickness)
             color: {
+                if (ramArea.containsMouse) {
+                    return Theme.primary;
+                }
+                
                 if (DgopService.memoryUsage > 90) {
                     return Theme.tempDanger;
                 }
@@ -109,6 +113,10 @@ Rectangle {
             name: "developer_board"
             size: Theme.barIconSize(barThickness)
             color: {
+                if (ramArea.containsMouse) {
+                    return Theme.primary;
+                }
+                
                 if (DgopService.memoryUsage > 90) {
                     return Theme.tempDanger;
                 }

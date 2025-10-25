@@ -26,7 +26,7 @@ Item {
     signal sliderValueChanged(int newValue)
     signal sliderDragFinished(int finalValue)
 
-    height: 48
+    height: Math.round(48 * SettingsData.fontScale)
 
     function updateValueFromPosition(x) {
         let ratio = Math.max(0, Math.min(1, (x - sliderHandle.width / 2) / (sliderTrack.width - sliderHandle.width)))

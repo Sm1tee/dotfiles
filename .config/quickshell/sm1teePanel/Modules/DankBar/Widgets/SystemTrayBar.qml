@@ -17,8 +17,8 @@ Rectangle {
     property real widgetThickness: 30
     property bool isAtBottom: false
     readonly property real horizontalPadding: SettingsData.dankBarNoBackground ? 2 : Theme.spacingS
-    readonly property int trayItemSize: Math.round(24 * SettingsData.dankBarIconScale)
-    readonly property int trayIconSize: Math.round(16 * SettingsData.dankBarIconScale)
+    readonly property int trayIconSize: Theme.barIconSize(widgetThickness, 2)
+    readonly property int trayItemSize: trayIconSize + Theme.spacingS
     readonly property int calculatedSize: SystemTray.items.values.length > 0 ? SystemTray.items.values.length * trayItemSize + horizontalPadding * 2 : 0
 
     width: isVertical ? widgetThickness : calculatedSize
@@ -444,7 +444,7 @@ Rectangle {
 
                                 DankIcon {
                                     name: "arrow_back"
-                                    size: 16
+                                    size: Theme.iconSizeSmall
                                     color: Theme.surfaceText
                                     anchors.verticalCenter: parent.verticalCenter
                                 }
@@ -546,7 +546,7 @@ Rectangle {
                                         DankIcon {
                                             anchors.centerIn: parent
                                             name: "check"
-                                            size: 10
+                                            size: Theme.fontSizeSmall
                                             color: Theme.primaryText
                                             visible: menuEntry?.buttonType === 1 && menuEntry?.checkState === 2
                                         }
@@ -586,7 +586,7 @@ Rectangle {
                                         DankIcon {
                                             anchors.centerIn: parent
                                             name: "chevron_right"
-                                            size: 14
+                                            size: Theme.iconSizeSmall
                                             color: Theme.surfaceText
                                             visible: menuEntry?.hasChildren ?? false
                                         }

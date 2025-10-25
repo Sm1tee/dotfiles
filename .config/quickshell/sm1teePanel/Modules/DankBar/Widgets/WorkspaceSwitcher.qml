@@ -509,7 +509,7 @@ Rectangle {
                                             Text {
                                                 anchors.fill: parent
                                                 text: modelData.firstLetter
-                                                font.pixelSize: Math.round(11 * SettingsData.dankBarIconScale)
+                                                font.pixelSize: Math.round(Theme.fontSizeSmall * 0.9 * SettingsData.dankBarIconScale)
                                                 font.weight: Font.Bold
                                                 font.family: SettingsData.fontFamily
                                                 color: Theme.primary

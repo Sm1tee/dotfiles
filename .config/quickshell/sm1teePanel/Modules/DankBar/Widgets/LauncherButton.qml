@@ -68,7 +68,7 @@ Item {
             anchors.centerIn: parent
             name: "apps"
             size: Theme.barIconSize(barThickness, -4)
-            color: Theme.surfaceText
+            color: launcherArea.containsMouse ? Theme.primary : Theme.surfaceText
         }
 
         IconImage {

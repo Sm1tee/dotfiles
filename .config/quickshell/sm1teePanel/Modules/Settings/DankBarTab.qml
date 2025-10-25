@@ -683,15 +683,14 @@ Item {
                         }
                     }
 
-                    Item {
+                    DankButtonGroup {
+                        id: positionButtonGroup
                         width: parent.width
-                        height: childrenRect.height
-
-                        DankButtonGroup {
-                            id: positionButtonGroup
-                            x: (parent.width - width) / 2
-                            minButtonWidth: Math.floor((parent.width - spacing * 3) / 4)
-                            model: ["Сверху", "Снизу", "Слева", "Справа"]
+                        fillWidth: true
+                        buttonPadding: Theme.spacingXS
+                        spacing: 2
+                        checkEnabled: false
+                        model: ["Сверху", "Снизу", "Слева", "Справа"]
                             currentIndex: {
                                 switch (SettingsData.dankBarPosition) {
                                     case SettingsData.Position.Top: return 0
@@ -714,7 +713,6 @@ Item {
                         }
                     }
                 }
-            }
 
             // DankBar Auto-hide Section
             StyledRect {
@@ -904,7 +902,7 @@ Item {
                                 id: resetEdgeSpacingBtn
                                 buttonSize: 20
                                 iconName: "refresh"
-                                iconSize: 12
+                                iconSize: Theme.fontSizeSmall
                                 backgroundColor: Theme.surfaceContainerHigh
                                 iconColor: Theme.surfaceText
                                 anchors.verticalCenter: parent.verticalCenter
@@ -977,7 +975,7 @@ Item {
                                 id: resetExclusiveZoneBtn
                                 buttonSize: 20
                                 iconName: "refresh"
-                                iconSize: 12
+                                iconSize: Theme.fontSizeSmall
                                 backgroundColor: Theme.surfaceContainerHigh
                                 iconColor: Theme.surfaceText
                                 anchors.verticalCenter: parent.verticalCenter
@@ -1052,12 +1050,12 @@ Item {
                                 id: resetSizeBtn
                                 buttonSize: 20
                                 iconName: "refresh"
-                                iconSize: 12
+                                iconSize: Theme.fontSizeSmall
                                 backgroundColor: Theme.surfaceContainerHigh
                                 iconColor: Theme.surfaceText
                                 anchors.verticalCenter: parent.verticalCenter
                                 onClicked: {
-                                    SettingsData.setDankBarInnerPadding(4)
+                                    SettingsData.setDankBarInnerPadding(12)
                                 }
                             }
 
@@ -1095,8 +1093,8 @@ Item {
 
                     DankToggle {
                         width: parent.width
-                        text: "Квадратные углы"
-                        description: "Убирает закругленные углы у контейнера панели."
+                        text: "Острые углы"
+                        description: "Панель с прямыми углами вместо скругленных."
                         checked: SettingsData.dankBarSquareCorners
                         onToggled: checked => {
                                        SettingsData.setDankBarSquareCorners(
@@ -1106,8 +1104,8 @@ Item {
 
                     DankToggle {
                         width: parent.width
-                        text: "Без фона"
-                        description: "Убирает фон виджетов для минималистичного вида с меньшими отступами."
+                        text: "Прозрачные виджеты"
+                        description: "Виджеты без фона и с минимальными отступами."
                         checked: SettingsData.dankBarNoBackground
                         onToggled: checked => {
                                        SettingsData.setDankBarNoBackground(
@@ -1117,8 +1115,8 @@ Item {
 
                     DankToggle {
                         width: parent.width
-                        text: "Готические углы"
-                        description: "Добавляет изогнутые кончики внизу панели."
+                        text: "Изогнутые края"
+                        description: "Декоративные изогнутые выступы по краям панели."
                         checked: SettingsData.dankBarGothCornersEnabled
                         onToggled: checked => {
                                        SettingsData.setDankBarGothCornersEnabled(
@@ -1126,236 +1124,7 @@ Item {
                                    }
                     }
 
-                    Column {
-                        width: parent.width
-                        spacing: Theme.spacingM
 
-                        DankToggle {
-                            width: parent.width
-                            text: "Граница"
-                            description: "Добавляет границу 1px к панели. Умное определение краев показывает границу только на открытых сторонах."
-                            checked: SettingsData.dankBarBorderEnabled
-                            onToggled: checked => {
-                                           SettingsData.setDankBarBorderEnabled(checked)
-                                       }
-                        }
-
-                        Column {
-                            width: parent.width
-                            leftPadding: Theme.spacingM
-                            spacing: Theme.spacingM
-                            visible: SettingsData.dankBarBorderEnabled
-
-                            Rectangle {
-                                width: parent.width - parent.leftPadding
-                                height: 1
-                                color: Theme.outline
-                                opacity: 0.2
-                            }
-
-                            Column {
-                                width: parent.width - parent.leftPadding
-                                spacing: Theme.spacingS
-
-                                StyledText {
-                                    text: "Цвет границы"
-                                    font.pixelSize: Theme.fontSizeSmall
-                                    color: Theme.surfaceText
-                                    font.weight: Font.Medium
-                                }
-
-                                StyledText {
-                                    text: "Выберите акцентный цвет границы"
-                                    font.pixelSize: Theme.fontSizeSmall
-                                    color: Theme.surfaceVariantText
-                                    width: parent.width
-                                }
-
-                                Item {
-                                    width: parent.width
-                                    height: borderColorGroup.height
-                                    
-                                    DankButtonGroup {
-                                        id: borderColorGroup
-                                        x: (parent.width - width) / 2
-                                        minButtonWidth: Math.floor((parent.width - spacing * 2) / 3)
-                                        model: ["Текст", "Вторичный", "Основной"]
-                                        currentIndex: {
-                                            const colorOption = SettingsData.dankBarBorderColor || "surfaceText"
-                                            switch (colorOption) {
-                                                case "surfaceText": return 0
-                                                case "secondary": return 1
-                                                case "primary": return 2
-                                                default: return 0
-                                            }
-                                        }
-                                        onSelectionChanged: (index, selected) => {
-                                            if (selected) {
-                                                let newColor = "surfaceText"
-                                                switch (index) {
-                                                    case 0: newColor = "surfaceText"; break
-                                                    case 1: newColor = "secondary"; break
-                                                    case 2: newColor = "primary"; break
-                                                }
-                                                if (SettingsData.dankBarBorderColor !== newColor) {
-                                                    SettingsData.dankBarBorderColor = newColor
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            Column {
-                                width: parent.width - parent.leftPadding
-                                spacing: Theme.spacingS
-
-                                Row {
-                                    width: parent.width
-                                    spacing: Theme.spacingS
-
-                                    StyledText {
-                                        text: "Прозрачность границы"
-                                        font.pixelSize: Theme.fontSizeSmall
-                                        color: Theme.surfaceText
-                                        font.weight: Font.Medium
-                                        anchors.verticalCenter: parent.verticalCenter
-                                    }
-
-                                    Item {
-                                        width: parent.width - borderOpacityText.implicitWidth - resetBorderOpacityBtn.width - Theme.spacingS - Theme.spacingM
-                                        height: 1
-
-                                        StyledText {
-                                            id: borderOpacityText
-                                            visible: false
-                                            text: "Прозрачность границы"
-                                            font.pixelSize: Theme.fontSizeSmall
-                                        }
-                                    }
-
-                                    DankActionButton {
-                                        id: resetBorderOpacityBtn
-                                        buttonSize: 20
-                                        iconName: "refresh"
-                                        iconSize: 12
-                                        backgroundColor: Theme.surfaceContainerHigh
-                                        iconColor: Theme.surfaceText
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        onClicked: {
-                                            SettingsData.dankBarBorderOpacity = 1.0
-                                        }
-                                    }
-
-                                    Item {
-                                        width: Theme.spacingS
-                                        height: 1
-                                    }
-                                }
-
-                                DankSlider {
-                                    id: borderOpacitySlider
-                                    width: parent.width
-                                    height: 24
-                                    value: (SettingsData.dankBarBorderOpacity ?? 1.0) * 100
-                                    minimum: 0
-                                    maximum: 100
-                                    unit: "%"
-                                    showValue: true
-                                    wheelEnabled: false
-                                    thumbOutlineColor: Theme.surfaceContainerHigh
-                                    onSliderValueChanged: newValue => {
-                                        SettingsData.dankBarBorderOpacity = newValue / 100
-                                    }
-
-                                    Binding {
-                                        target: borderOpacitySlider
-                                        property: "value"
-                                        value: (SettingsData.dankBarBorderOpacity ?? 1.0) * 100
-                                        restoreMode: Binding.RestoreBinding
-                                    }
-                                }
-                            }
-
-                            Column {
-                                width: parent.width - parent.leftPadding
-                                spacing: Theme.spacingS
-
-                                Row {
-                                    width: parent.width
-                                    spacing: Theme.spacingS
-
-                                    StyledText {
-                                        text: "Толщина границы"
-                                        font.pixelSize: Theme.fontSizeSmall
-                                        color: Theme.surfaceText
-                                        font.weight: Font.Medium
-                                        anchors.verticalCenter: parent.verticalCenter
-                                    }
-
-                                    Item {
-                                        width: parent.width - borderThicknessText.implicitWidth - resetBorderThicknessBtn.width - Theme.spacingS - Theme.spacingM
-                                        height: 1
-
-                                        StyledText {
-                                            id: borderThicknessText
-                                            visible: false
-                                            text: "Толщина границы"
-                                            font.pixelSize: Theme.fontSizeSmall
-                                        }
-                                    }
-
-                                    DankActionButton {
-                                        id: resetBorderThicknessBtn
-                                        buttonSize: 20
-                                        iconName: "refresh"
-                                        iconSize: 12
-                                        backgroundColor: Theme.surfaceContainerHigh
-                                        iconColor: Theme.surfaceText
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        onClicked: {
-                                            SettingsData.dankBarBorderThickness = 1
-                                        }
-                                    }
-
-                                    Item {
-                                        width: Theme.spacingS
-                                        height: 1
-                                    }
-                                }
-
-                                DankSlider {
-                                    id: borderThicknessSlider
-                                    width: parent.width
-                                    height: 24
-                                    value: SettingsData.dankBarBorderThickness ?? 1
-                                    minimum: 1
-                                    maximum: 10
-                                    unit: "px"
-                                    showValue: true
-                                    wheelEnabled: false
-                                    thumbOutlineColor: Theme.surfaceContainerHigh
-                                    onSliderValueChanged: newValue => {
-                                        SettingsData.dankBarBorderThickness = newValue
-                                    }
-
-                                    Binding {
-                                        target: borderThicknessSlider
-                                        property: "value"
-                                        value: SettingsData.dankBarBorderThickness ?? 1
-                                        restoreMode: Binding.RestoreBinding
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    Rectangle {
-                        width: parent.width
-                        height: 1
-                        color: Theme.outline
-                        opacity: 0.2
-                    }
 
                     Rectangle {
                         width: parent.width
@@ -1638,7 +1407,7 @@ Item {
 
                     StyledText {
                         width: parent.width
-                        text: "Перетаскивайте виджеты для изменения порядка в секциях. Используйте иконку глаза чтобы скрыть/показать виджеты (сохраняет отступы), или X чтобы удалить их полностью."
+                        text: "Перетаскивайте виджеты для изменения порядка в секциях."
                         font.pixelSize: Theme.fontSizeSmall
                         color: Theme.surfaceVariantText
                         wrapMode: Text.WordWrap

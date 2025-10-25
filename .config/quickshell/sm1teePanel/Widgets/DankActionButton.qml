@@ -10,7 +10,7 @@ StyledRect {
     property color iconColor: Theme.surfaceText
     property color backgroundColor: "transparent"
     property bool circular: true
-    property int buttonSize: 32
+    property int buttonSize: Math.round(32 * SettingsData.fontScale)
 
     signal clicked
     signal entered

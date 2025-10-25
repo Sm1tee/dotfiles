@@ -193,11 +193,11 @@ Rectangle {
                 return profileModel.findIndex(profile => isActiveProfile(profile))
             }
 
-            width: Math.min(parent.width - Theme.spacingL * 2, 450)
+            width: parent.width
+            fillWidth: true
             model: profileModel.map(profile => Theme.getPowerProfileLabel(profile))
             currentIndex: currentProfileIndex
             selectionMode: "single"
-            anchors.horizontalCenter: parent.horizontalCenter
             onSelectionChanged: (index, selected) => {
                 if (!selected) return
                 setProfile(profileModel[index])

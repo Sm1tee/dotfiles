@@ -298,7 +298,7 @@ DankPopout {
                             buttonSize: 36
                             circular: false
                             iconName: "visibility_off"
-                            iconSize: 20
+                            iconSize: Theme.fontSizeXLarge
                             iconColor: appLauncher.showHidden ? Theme.primary : Theme.surfaceText
                             backgroundColor: appLauncher.showHidden ? Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.12) : "transparent"
                             anchors.verticalCenter: parent.verticalCenter
@@ -320,7 +320,7 @@ DankPopout {
                                 buttonSize: 36
                                 circular: false
                                 iconName: "view_list"
-                                iconSize: 20
+                                iconSize: Theme.fontSizeXLarge
                                 iconColor: appLauncher.viewMode === "list" ? Theme.primary : Theme.surfaceText
                                 backgroundColor: appLauncher.viewMode === "list" ? Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.12) : "transparent"
                                 onClicked: {
@@ -332,7 +332,7 @@ DankPopout {
                                 buttonSize: 36
                                 circular: false
                                 iconName: "grid_view"
-                                iconSize: 20
+                                iconSize: Theme.fontSizeXLarge
                                 iconColor: appLauncher.viewMode === "grid" ? Theme.primary : Theme.surfaceText
                                 backgroundColor: appLauncher.viewMode === "grid" ? Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.12) : "transparent"
                                 onClicked: {
@@ -757,56 +757,6 @@ DankPopout {
                 width: parent.width
                 height: 32
                 radius: Theme.cornerRadius
-                color: pinMouseArea.containsMouse ? Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.12) : "transparent"
-
-                Row {
-                    anchors.left: parent.left
-                    anchors.leftMargin: Theme.spacingS
-                    anchors.verticalCenter: parent.verticalCenter
-                    spacing: Theme.spacingS
-
-                    DankIcon {
-                        name: contextMenu.isPinned ? "keep_off" : "push_pin"
-                        size: Theme.iconSize - 2
-                        color: Theme.surfaceText
-                        opacity: 0.7
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-
-                    StyledText {
-                        text: contextMenu.isPinned ? "Открепить от дока" : "Закрепить в доке"
-                        font.pixelSize: Theme.fontSizeSmall
-                        color: Theme.surfaceText
-                        font.weight: Font.Normal
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-                }
-
-                MouseArea {
-                    id: pinMouseArea
-
-                    anchors.fill: parent
-                    hoverEnabled: true
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: {
-                        if (!contextMenu.currentApp || !contextMenu.currentApp.desktopEntry) {
-                            return
-                        }
-
-                        if (contextMenu.isPinned) {
-                            SessionData.removePinnedApp(contextMenu.appId)
-                        } else {
-                            SessionData.addPinnedApp(contextMenu.appId)
-                        }
-                        contextMenu.hide()
-                    }
-                }
-            }
-
-            Rectangle {
-                width: parent.width
-                height: 32
-                radius: Theme.cornerRadius
                 color: pinTopMouseArea.containsMouse ? Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.12) : "transparent"
 
                 Row {
@@ -1087,6 +1037,56 @@ DankPopout {
                         if (contextMenu.currentApp && contextMenu.currentApp.desktopEntry) {
                             SessionService.launchDesktopEntry(contextMenu.currentApp.desktopEntry, true)
                             appLauncher.appLaunched(contextMenu.currentApp)
+                        }
+                        contextMenu.hide()
+                    }
+                }
+            }
+
+            Rectangle {
+                width: parent.width
+                height: 32
+                radius: Theme.cornerRadius
+                color: pinMouseArea.containsMouse ? Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.12) : "transparent"
+
+                Row {
+                    anchors.left: parent.left
+                    anchors.leftMargin: Theme.spacingS
+                    anchors.verticalCenter: parent.verticalCenter
+                    spacing: Theme.spacingS
+
+                    DankIcon {
+                        name: contextMenu.isPinned ? "keep_off" : "push_pin"
+                        size: Theme.iconSize - 2
+                        color: Theme.surfaceText
+                        opacity: 0.7
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+
+                    StyledText {
+                        text: contextMenu.isPinned ? "Открепить от дока" : "Закрепить в доке"
+                        font.pixelSize: Theme.fontSizeSmall
+                        color: Theme.surfaceText
+                        font.weight: Font.Normal
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+                }
+
+                MouseArea {
+                    id: pinMouseArea
+
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: {
+                        if (!contextMenu.currentApp || !contextMenu.currentApp.desktopEntry) {
+                            return
+                        }
+
+                        if (contextMenu.isPinned) {
+                            SessionData.removePinnedApp(contextMenu.appId)
+                        } else {
+                            SessionData.addPinnedApp(contextMenu.appId)
                         }
                         contextMenu.hide()
                     }

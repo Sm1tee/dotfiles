@@ -70,6 +70,10 @@ Rectangle {
             name: "memory"
             size: Theme.barIconSize(barThickness)
             color: {
+                if (cpuArea.containsMouse) {
+                    return Theme.primary;
+                }
+                
                 if (DgopService.cpuUsage > 80) {
                     return Theme.tempDanger;
                 }
@@ -108,6 +112,10 @@ Rectangle {
             name: "memory"
             size: Theme.barIconSize(barThickness)
             color: {
+                if (cpuArea.containsMouse) {
+                    return Theme.primary;
+                }
+                
                 if (DgopService.cpuUsage > 80) {
                     return Theme.tempDanger;
                 }

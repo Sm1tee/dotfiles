@@ -9,11 +9,11 @@ Rectangle {
     property int currentIndex: 0
     property var parentModal: null
     readonly property var sidebarItems: [{
-        "text": "Время и Погода",
-        "icon": "schedule"
-    }, {
         "text": "Персонализация",
         "icon": "person"
+    }, {
+        "text": "Время и Погода",
+        "icon": "schedule"
     }, {
         "text": "Дисплеи",
         "icon": "monitor"
