@@ -71,21 +71,23 @@ Item {
             color: launcherArea.containsMouse ? Theme.primary : Theme.surfaceText
         }
 
-        IconImage {
-            visible: SettingsData.launcherLogoMode === "custom" && SettingsData.launcherLogoCustomPath !== ""
+        Loader {
             anchors.centerIn: parent
-            width: Theme.barIconSize(barThickness, SettingsData.launcherLogoSizeOffset)
-            height: Theme.barIconSize(barThickness, SettingsData.launcherLogoSizeOffset)
-            smooth: true
-            asynchronous: true
-            source: SettingsData.launcherLogoCustomPath ? "file://" + SettingsData.launcherLogoCustomPath.replace("file://", "") : ""
-            layer.enabled: Theme.effectiveLogoColor !== ""
-            layer.effect: MultiEffect {
-                saturation: 0
-                colorization: 1
-                colorizationColor: Theme.effectiveLogoColor
-                brightness: SettingsData.launcherLogoBrightness
-                contrast: SettingsData.launcherLogoContrast
+            active: SettingsData.launcherLogoMode === "custom" && SettingsData.launcherLogoCustomPath !== ""
+            sourceComponent: IconImage {
+                width: Theme.barIconSize(barThickness, SettingsData.launcherLogoSizeOffset)
+                height: Theme.barIconSize(barThickness, SettingsData.launcherLogoSizeOffset)
+                smooth: true
+                asynchronous: true
+                source: SettingsData.launcherLogoCustomPath ? "file://" + SettingsData.launcherLogoCustomPath.replace("file://", "") : ""
+                layer.enabled: Theme.effectiveLogoColor !== ""
+                layer.effect: MultiEffect {
+                    saturation: 0
+                    colorization: 1
+                    colorizationColor: Theme.effectiveLogoColor
+                    brightness: SettingsData.launcherLogoBrightness
+                    contrast: SettingsData.launcherLogoContrast
+                }
             }
         }
     }

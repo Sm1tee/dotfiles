@@ -70,8 +70,6 @@ Singleton {
     }
 
     property bool matugenAvailable: false
-    property bool gtkThemingEnabled: typeof SettingsData !== "undefined" ? SettingsData.gtkAvailable : false
-    property bool qtThemingEnabled: typeof SettingsData !== "undefined" ? (SettingsData.qt5ctAvailable || SettingsData.qt6ctAvailable) : false
     property var workerRunning: false
     property var matugenColors: ({})
     property var customThemeData: null
@@ -139,11 +137,14 @@ Singleton {
     }
 
     readonly property var availableMatugenSchemes: [
-        ({ "value": "scheme-tonal-spot", "label": "Акцент", "description": "Берет главный цвет с обоев и создает гармоничную палитру. Стандартный вариант." }),
-        ({ "value": "scheme-content", "label": "Контент", "description": "Точно копирует все цвета с обоев. Интерфейс максимально близок к картинке." }),
-        ({ "value": "scheme-expressive", "label": "Яркая", "description": "Усиливает насыщенность и контраст. Цвета становятся ярче чем на обоях." }),
-        ({ "value": "scheme-monochrome", "label": "Монохром", "description": "Использует один цвет с обоев в разных оттенках. Минималистичная палитра." }),
-        ({ "value": "scheme-neutral", "label": "Нейтральная", "description": "Приглушает яркость цветов. Спокойная палитра для длительной работы." })
+        ({ "value": "scheme-tonal-spot", "label": "Тональная", "description": "Создает гармоничную палитру с плавными тональными переходами. Стандартный вариант Material Design." }),
+        ({ "value": "scheme-content", "label": "Контентная", "description": "Строит палитру вокруг основного цвета изображения. Сохраняет связь с исходным контентом." }),
+        ({ "value": "scheme-expressive", "label": "Выразительная", "description": "Усиливает насыщенность и яркость цветов. Создает более драматичный и контрастный интерфейс." }),
+        ({ "value": "scheme-monochrome", "label": "Монохромная", "description": "Использует оттенки серого с минимальным добавлением цвета. Минималистичная палитра." }),
+        ({ "value": "scheme-neutral", "label": "Нейтральная", "description": "Создает сдержанную палитру с низкой насыщенностью. Спокойная схема для работы." }),
+        ({ "value": "scheme-fruit-salad", "label": "Многоцветная", "description": "Использует несколько ярких цветов из изображения. Создает живую разнообразную палитру." }),
+        ({ "value": "scheme-rainbow", "label": "Радужная", "description": "Генерирует полный спектр цветов на основе исходного оттенка. Яркая красочная схема." }),
+        ({ "value": "scheme-fidelity", "label": "Точная", "description": "Максимально сохраняет исходные цвета без тональных корректировок. Высокая цветовая точность." })
     ]
 
     function getMatugenScheme(value) {
@@ -628,7 +629,6 @@ Singleton {
             return
 
         const isLight = (typeof SessionData !== "undefined" && SessionData.isLightMode)
-        const iconTheme = (typeof SettingsData !== "undefined" && SettingsData.iconTheme) ? SettingsData.iconTheme : "System Default"
 
         if (currentTheme === dynamic) {
             if (!wallpaperPath) {
@@ -636,9 +636,9 @@ Singleton {
             }
             const selectedMatugenType = (typeof SettingsData !== "undefined" && SettingsData.matugenScheme) ? SettingsData.matugenScheme : "scheme-tonal-spot"
             if (wallpaperPath.startsWith("#")) {
-                setDesiredTheme("hex", wallpaperPath, isLight, iconTheme, selectedMatugenType)
+                setDesiredTheme("hex", wallpaperPath, isLight, "System Default", selectedMatugenType)
             } else {
-                setDesiredTheme("image", wallpaperPath, isLight, iconTheme, selectedMatugenType)
+                setDesiredTheme("image", wallpaperPath, isLight, "System Default", selectedMatugenType)
             }
         } else {
             let primaryColor
@@ -659,34 +659,11 @@ Singleton {
                 console.warn("No primary color available for theme:", currentTheme)
                 return
             }
-            setDesiredTheme("hex", primaryColor, isLight, iconTheme, matugenType)
+            setDesiredTheme("hex", primaryColor, isLight, "System Default", matugenType)
         }
     }
 
-    function applyGtkColors() {
-        if (!matugenAvailable) {
-            if (typeof ToastService !== "undefined") {
-                ToastService.showError("matugen not available or disabled - cannot apply GTK colors")
-            }
-            return
-        }
 
-        const isLight = (typeof SessionData !== "undefined" && SessionData.isLightMode) ? "true" : "false"
-        gtkApplier.command = [shellDir + "/scripts/gtk.sh", configDir, isLight, shellDir]
-        gtkApplier.running = true
-    }
-
-    function applyQtColors() {
-        if (!matugenAvailable) {
-            if (typeof ToastService !== "undefined") {
-                ToastService.showError("matugen not available or disabled - cannot apply Qt colors")
-            }
-            return
-        }
-
-        qtApplier.command = [shellDir + "/scripts/qt.sh", configDir]
-        qtApplier.running = true
-    }
 
     function withAlpha(c, a) { return Qt.rgba(c.r, c.g, c.b, a); }
 
@@ -765,16 +742,15 @@ Singleton {
             }
 
             const isLight = (typeof SessionData !== "undefined" && SessionData.isLightMode)
-            const iconTheme = (typeof SettingsData !== "undefined" && SettingsData.iconTheme) ? SettingsData.iconTheme : "System Default"
 
             if (currentTheme === dynamic) {
                 if (wallpaperPath) {
                     Quickshell.execDetached(["rm", "-f", stateDir + "/matugen.key"])
                     const selectedMatugenType = (typeof SettingsData !== "undefined" && SettingsData.matugenScheme) ? SettingsData.matugenScheme : "scheme-tonal-spot"
                     if (wallpaperPath.startsWith("#")) {
-                        setDesiredTheme("hex", wallpaperPath, isLight, iconTheme, selectedMatugenType)
+                        setDesiredTheme("hex", wallpaperPath, isLight, "System Default", selectedMatugenType)
                     } else {
-                        setDesiredTheme("image", wallpaperPath, isLight, iconTheme, selectedMatugenType)
+                        setDesiredTheme("image", wallpaperPath, isLight, "System Default", selectedMatugenType)
                     }
                 }
             } else {
@@ -792,7 +768,7 @@ Singleton {
 
                 if (primaryColor) {
                     Quickshell.execDetached(["rm", "-f", stateDir + "/matugen.key"])
-                    setDesiredTheme("hex", primaryColor, isLight, iconTheme, matugenType)
+                    setDesiredTheme("hex", primaryColor, isLight, "System Default", matugenType)
                 }
             }
         }
@@ -820,55 +796,7 @@ Singleton {
         }
     }
 
-    Process {
-        id: gtkApplier
-        running: false
 
-        stdout: StdioCollector {
-            id: gtkStdout
-        }
-
-        stderr: StdioCollector {
-            id: gtkStderr
-        }
-
-        onExited: exitCode => {
-            if (exitCode === 0) {
-                if (typeof ToastService !== "undefined" && typeof NiriService !== "undefined" && !NiriService.matugenSuppression) {
-                    ToastService.showInfo("GTK colors applied successfully")
-                }
-            } else {
-                if (typeof ToastService !== "undefined") {
-                    ToastService.showError("Failed to apply GTK colors: " + gtkStderr.text)
-                }
-            }
-        }
-    }
-
-    Process {
-        id: qtApplier
-        running: false
-
-        stdout: StdioCollector {
-            id: qtStdout
-        }
-
-        stderr: StdioCollector {
-            id: qtStderr
-        }
-
-        onExited: exitCode => {
-            if (exitCode === 0) {
-                if (typeof ToastService !== "undefined") {
-                    ToastService.showInfo("Qt colors applied successfully")
-                }
-            } else {
-                if (typeof ToastService !== "undefined") {
-                    ToastService.showError("Failed to apply Qt colors: " + qtStderr.text)
-                }
-            }
-        }
-    }
 
     FileView {
         id: customThemeFileView

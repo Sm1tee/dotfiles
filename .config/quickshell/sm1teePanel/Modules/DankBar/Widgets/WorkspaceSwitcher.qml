@@ -521,6 +521,59 @@ Rectangle {
                                 }
                             }
                         }
+
+                        Component {
+                            id: columnLayout
+                            Column {
+                                spacing: 4
+                                visible: loadedIcons.length > 0
+
+                                Repeater {
+                                    model: loadedIcons.slice(0, SettingsData.maxWorkspaceIcons)
+                                    delegate: Item {
+                                        width: Math.round(18 * SettingsData.dankBarIconScale)
+                                        height: Math.round(18 * SettingsData.dankBarIconScale)
+
+                                        IconImage {
+                                            id: appIcon
+                                            anchors.fill: parent
+                                            source: modelData.icon
+                                            opacity: 1.0
+                                            visible: !modelData.isSteamApp && modelData.hasIcon
+                                        }
+
+                                        DankIcon {
+                                            anchors.centerIn: parent
+                                            size: Math.round(18 * SettingsData.dankBarIconScale)
+                                            name: "sports_esports"
+                                            color: Theme.surfaceText
+                                            opacity: 1.0
+                                            visible: modelData.isSteamApp
+                                        }
+
+                                        Rectangle {
+                                            anchors.fill: parent
+                                            radius: Math.round(9 * SettingsData.dankBarIconScale)
+                                            color: Theme.surfaceContainer
+                                            border.color: Theme.outline
+                                            border.width: 1
+                                            visible: !modelData.isSteamApp && !modelData.hasIcon
+
+                                            Text {
+                                                anchors.fill: parent
+                                                text: modelData.firstLetter
+                                                font.pixelSize: Math.round(Theme.fontSizeSmall * 0.9 * SettingsData.dankBarIconScale)
+                                                font.weight: Font.Bold
+                                                font.family: SettingsData.fontFamily
+                                                color: Theme.primary
+                                                horizontalAlignment: Text.AlignHCenter
+                                                verticalAlignment: Text.AlignVCenter
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
 

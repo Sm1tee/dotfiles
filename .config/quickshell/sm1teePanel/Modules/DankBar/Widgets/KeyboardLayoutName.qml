@@ -62,18 +62,35 @@ Rectangle {
             size: Theme.barIconSize(barThickness)
             color: Theme.surfaceText
             anchors.horizontalCenter: parent.horizontalCenter
+            visible: !SettingsData.keyboardLayoutShowFlag
         }
 
         StyledText {
             text: {
                 if (!currentLayout) return ""
+                
+                if (SettingsData.keyboardLayoutShowFlag) {
+                    // Показываем флаг (эмодзи)
+                    const layoutLower = currentLayout.toLowerCase()
+                    if (layoutLower.includes("russian")) return "🇷🇺"
+                    if (layoutLower.includes("english") || layoutLower.includes("us")) return "🇺🇸"
+                    if (layoutLower.includes("german")) return "🇩🇪"
+                    if (layoutLower.includes("french")) return "🇫🇷"
+                    if (layoutLower.includes("spanish")) return "🇪🇸"
+                    if (layoutLower.includes("italian")) return "🇮🇹"
+                    if (layoutLower.includes("chinese")) return "🇨🇳"
+                    if (layoutLower.includes("japanese")) return "🇯🇵"
+                    if (layoutLower.includes("korean")) return "🇰🇷"
+                }
+                
+                // Показываем первые 2 буквы
                 const parts = currentLayout.split(" ")
                 if (parts.length > 0) {
                     return parts[0].substring(0, 2).toUpperCase()
                 }
                 return currentLayout.substring(0, 2).toUpperCase()
             }
-            font.pixelSize: Theme.barTextSize(barThickness)
+            font.pixelSize: SettingsData.keyboardLayoutShowFlag ? Theme.barTextSize(barThickness) + 2 : Theme.barTextSize(barThickness)
             font.weight: Font.Medium
             color: Theme.surfaceText
             anchors.horizontalCenter: parent.horizontalCenter

@@ -764,16 +764,19 @@ Item {
                                         text: "Палитра"
                                         description: ""
                                         width: parent.width - infoButton.width - parent.spacing
-                                        options: ["Акцент", "Контент", "Яркая", "Монохром", "Нейтральная"]
+                                        options: ["Тональная", "Контентная", "Выразительная", "Монохромная", "Нейтральная", "Многоцветная", "Радужная", "Точная"]
                                         currentValue: Theme.getMatugenScheme(SettingsData.matugenScheme).label
                                         enabled: Theme.matugenAvailable
                                         onValueChanged: value => {
                                             const schemeMap = {
-                                                "Акцент": "scheme-tonal-spot",
-                                                "Контент": "scheme-content",
-                                                "Яркая": "scheme-expressive",
-                                                "Монохром": "scheme-monochrome",
-                                                "Нейтральная": "scheme-neutral"
+                                                "Тональная": "scheme-tonal-spot",
+                                                "Контентная": "scheme-content",
+                                                "Выразительная": "scheme-expressive",
+                                                "Монохромная": "scheme-monochrome",
+                                                "Нейтральная": "scheme-neutral",
+                                                "Многоцветная": "scheme-fruit-salad",
+                                                "Радужная": "scheme-rainbow",
+                                                "Точная": "scheme-fidelity"
                                             }
                                             SettingsData.setMatugenScheme(schemeMap[value])
                                         }
@@ -2167,225 +2170,7 @@ Item {
                 }
             }
 
-            // System Configuration Warning
-            Rectangle {
-                width: parent.width
-                height: warningText.implicitHeight + Theme.spacingM * 2
-                radius: Theme.cornerRadius
-                color: Qt.rgba(Theme.warning.r, Theme.warning.g, Theme.warning.b, 0.12)
-                border.color: Qt.rgba(Theme.warning.r, Theme.warning.g, Theme.warning.b, 0.3)
-                border.width: 0
 
-                Row {
-                    anchors.fill: parent
-                    anchors.margins: Theme.spacingM
-                    spacing: Theme.spacingM
-
-                    DankIcon {
-                        name: "info"
-                        size: Theme.iconSizeSmall
-                        color: Theme.warning
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-
-                    StyledText {
-                        id: warningText
-                        font.pixelSize: Theme.fontSizeSmall
-                        text: "Приведенные ниже настройки изменят ваши настройки GTK и Qt. Если вы хотите сохранить текущие конфигурации, пожалуйста, сделайте их резервную копию (qt5ct.conf|qt6ct.conf и ~/.config/gtk-3.0|gtk-4.0)."
-                        wrapMode: Text.WordWrap
-                        width: parent.width - Theme.iconSizeSmall - Theme.spacingM
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-                }
-            }
-
-            // Icon Theme Section
-            StyledRect {
-                width: parent.width
-                height: iconThemeSection.implicitHeight + Theme.spacingL * 2
-                radius: Theme.cornerRadius
-                color: Theme.surfaceContainerHigh
-                border.color: Qt.rgba(Theme.outline.r, Theme.outline.g, Theme.outline.b, 0.2)
-                border.width: 0
-
-                Column {
-                    id: iconThemeSection
-
-                    anchors.fill: parent
-                    anchors.margins: Theme.spacingL
-                    spacing: Theme.spacingM
-
-                    Row {
-                        width: parent.width
-                        spacing: Theme.spacingXS
-
-                        DankIcon {
-                            name: "image"
-                            size: Theme.iconSize
-                            color: Theme.primary
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-
-                        DankDropdown {
-                            width: parent.width - Theme.iconSize - Theme.spacingXS
-                            anchors.verticalCenter: parent.verticalCenter
-                            text: "Тема иконок"
-                            description: "Иконки DankShell и системы\n(требуется перезапуск)"
-                            currentValue: SettingsData.iconTheme
-                            enableFuzzySearch: true
-                            popupWidthOffset: 100
-                            maxPopupHeight: 236
-                            options: {
-                                SettingsData.detectAvailableIconThemes()
-                                return SettingsData.availableIconThemes
-                            }
-                            onValueChanged: value => {
-                                SettingsData.setIconTheme(value)
-                                if (Quickshell.env("QT_QPA_PLATFORMTHEME") != "gtk3" &&
-                                    Quickshell.env("QT_QPA_PLATFORMTHEME") != "qt6ct" &&
-                                    Quickshell.env("QT_QPA_PLATFORMTHEME_QT6") != "qt6ct") {
-                                    ToastService.showError("Missing Environment Variables", "You need to set either:\nQT_QPA_PLATFORMTHEME=gtk3 OR\nQT_QPA_PLATFORMTHEME=qt6ct\nas environment variables, and then restart the shell.\n\nqt6ct requires qt6ct-kde to be installed.")
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-
-            // System App Theming Section
-            StyledRect {
-                width: parent.width
-                height: systemThemingSection.implicitHeight + Theme.spacingL * 2
-                radius: Theme.cornerRadius
-                color: Theme.surfaceContainerHigh
-                border.color: Qt.rgba(Theme.outline.r, Theme.outline.g, Theme.outline.b, 0.2)
-                border.width: 0
-                visible: Theme.matugenAvailable
-
-                Column {
-                    id: systemThemingSection
-
-                    anchors.fill: parent
-                    anchors.margins: Theme.spacingL
-                    spacing: Theme.spacingM
-
-                    Row {
-                        width: parent.width
-                        spacing: Theme.spacingM
-
-                        DankIcon {
-                            name: "extension"
-                            size: Theme.iconSize
-                            color: Theme.primary
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-
-                        StyledText {
-                            text: "Темизация системных приложений"
-                            font.pixelSize: Theme.fontSizeLarge
-                            font.weight: Font.Medium
-                            color: Theme.surfaceText
-                            anchors.verticalCenter: parent.verticalCenter
-                        }
-                    }
-
-                    Row {
-                        width: parent.width
-                        spacing: Theme.spacingM
-
-                        Rectangle {
-                            width: (parent.width - Theme.spacingM) / 2
-                            height: 48
-                            radius: Theme.cornerRadius
-                            color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.12)
-                            border.color: Theme.primary
-                            border.width: 0
-
-                            Row {
-                                anchors.centerIn: parent
-                                spacing: Theme.spacingS
-
-                                DankIcon {
-                                    name: "folder"
-                                    size: 16
-                                    color: Theme.primary
-                                    anchors.verticalCenter: parent.verticalCenter
-                                }
-
-                                StyledText {
-                                    text: "Применить цвета GTK"
-                                    font.pixelSize: Theme.fontSizeMedium
-                                    color: Theme.primary
-                                    font.weight: Font.Medium
-                                    anchors.verticalCenter: parent.verticalCenter
-                                }
-                            }
-
-                            MouseArea {
-                                anchors.fill: parent
-                                hoverEnabled: true
-                                cursorShape: Qt.PointingHandCursor
-                                onClicked: Theme.applyGtkColors()
-                            }
-                        }
-
-                        Rectangle {
-                            width: (parent.width - Theme.spacingM) / 2
-                            height: 48
-                            radius: Theme.cornerRadius
-                            color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.12)
-                            border.color: Theme.primary
-                            border.width: 0
-
-                            Row {
-                                anchors.centerIn: parent
-                                spacing: Theme.spacingS
-
-                                DankIcon {
-                                    name: "settings"
-                                    size: 16
-                                    color: Theme.primary
-                                    anchors.verticalCenter: parent.verticalCenter
-                                }
-
-                                StyledText {
-                                    text: "Применить цвета Qt"
-                                    font.pixelSize: Theme.fontSizeMedium
-                                    color: Theme.primary
-                                    font.weight: Font.Medium
-                                    anchors.verticalCenter: parent.verticalCenter
-                                }
-                            }
-
-                            MouseArea {
-                                anchors.fill: parent
-                                hoverEnabled: true
-                                cursorShape: Qt.PointingHandCursor
-                                onClicked: Theme.applyQtColors()
-                            }
-                        }
-                    }
-
-                    StyledText {
-                        text: `Создать базовые конфигурации GTK3/4 или QT5/QT6 (требуется qt6ct-kde) для следования цветам панели. Нужно только один раз.<br /><br />Рекомендуется установить GTK тему Colloid перед применением GTK тем.`
-                        textFormat: Text.RichText
-                        linkColor: Theme.primary
-                        onLinkActivated: url => Qt.openUrlExternally(url)
-                        font.pixelSize: Theme.fontSizeSmall
-                        color: Theme.surfaceVariantText
-                        wrapMode: Text.WordWrap
-                        width: parent.width
-                        horizontalAlignment: Text.AlignHCenter
-
-                        MouseArea {
-                            anchors.fill: parent
-                            cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
-                            acceptedButtons: Qt.NoButton
-                            propagateComposedEvents: true
-                        }
-                    }
-                }
-            }
         }
     }
 

@@ -19,6 +19,8 @@ Item {
 
     Loader {
         id: layoutLoader
+        width: parent.width
+        height: parent.height
         sourceComponent: root.isVertical ? columnComp : rowComp
     }
 
@@ -53,7 +55,7 @@ Item {
     Component {
         id: columnComp
         Column {
-            width: Math.max(parent.width, 200)
+            width: parent ? parent.width : 0
             spacing: noBackground ? 2 : Theme.spacingXS
             Repeater {
                 model: root.widgetsModel

@@ -105,16 +105,6 @@ EOF
     echo "" >> "$TMP_CFG"
   fi
 
-  if command -v qt5ct >/dev/null 2>&1; then
-    cat "$SHELL_DIR/matugen/configs/qt5ct.toml" >> "$TMP_CFG"
-    echo "" >> "$TMP_CFG"
-  fi
-
-  if command -v qt6ct >/dev/null 2>&1; then
-    cat "$SHELL_DIR/matugen/configs/qt6ct.toml" >> "$TMP_CFG"
-    echo "" >> "$TMP_CFG"
-  fi
-
   if command -v firefox >/dev/null 2>&1; then
     cat "$SHELL_DIR/matugen/configs/firefox.toml" >> "$TMP_CFG"
     echo "" >> "$TMP_CFG"
@@ -141,10 +131,6 @@ EOF
     echo "" >> "$TMP_CFG"
   done
   
-  # GTK3 colors based on colloid
-  COLLOID_TEMPLATE="$SHELL_DIR/matugen/templates/gtk3-colors.css"
-  
-  sed -i "/\[templates\.gtk3\]/,/^$/ s|input_path = './matugen/templates/gtk-colors.css'|input_path = '$COLLOID_TEMPLATE'|" "$TMP_CFG"
   sed -i "s|input_path = './matugen/templates/|input_path = '$SHELL_DIR/matugen/templates/|g" "$TMP_CFG"
 
   # Handle surface shifting if needed
@@ -170,11 +156,6 @@ EOF
     # Update config to use shifted templates
     sed -i "s|input_path = '$SHELL_DIR/matugen/templates/|input_path = '$TMP_TEMPLATES_DIR/|g" "$TMP_CFG"
     sed -i "s|input_path = '$USER_MATUGEN_DIR/templates/|input_path = '$TMP_TEMPLATES_DIR/|g" "$TMP_CFG"
-
-    # Handle the special colloid template path
-    if [[ -f "$TMP_TEMPLATES_DIR/gtk3-colors.css" ]]; then
-      sed -i "/\[templates\.gtk3\]/,/^$/ s|input_path = '$COLLOID_TEMPLATE'|input_path = '$TMP_TEMPLATES_DIR/gtk3-colors.css'|" "$TMP_CFG"
-    fi
   fi
 
   pushd "$SHELL_DIR" >/dev/null

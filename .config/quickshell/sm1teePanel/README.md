@@ -157,8 +157,6 @@ sm1teePanel/
 
 #### Рекомендуемые
 - `matugen` — для динамической тематизации
-- `qt5ct` / `qt6ct` — для тематизации Qt-приложений
-- `gtk3` / `gtk4` — для тематизации GTK-приложений
 - `NetworkManager` — для управления сетью
 - `BlueZ` — для Bluetooth
 - `PipeWire` / `PulseAudio` — для звука
@@ -446,19 +444,9 @@ Theme.switchTheme("custom")
 ### Тематизация системы
 
 sm1teePanel может автоматически применять темы к:
-- GTK 3/4 приложениям
-- Qt 5/6 приложениям (через qt5ct/qt6ct)
 - KDE приложениям (через KColorScheme)
 - Терминалам (Ghostty)
 - Композитору (Niri)
-
-Включите в настройках:
-```json
-{
-  "gtkThemingEnabled": true,
-  "qtThemingEnabled": true
-}
-```
 
 ---
 

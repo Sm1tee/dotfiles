@@ -99,12 +99,6 @@ Singleton {
     property string appLauncherViewMode: "list"
     property string spotlightModalViewMode: "list"
     property string networkPreference: "auto"
-    property string iconTheme: "System Default"
-    property var availableIconThemes: ["System Default"]
-    property string systemDefaultIconTheme: ""
-    property bool qt5ctAvailable: false
-    property bool qt6ctAvailable: false
-    property bool gtkAvailable: false
     property string launcherLogoMode: "apps"
     property string launcherLogoCustomPath: ""
     property string launcherLogoColorOverride: ""
@@ -137,8 +131,6 @@ Singleton {
         saveSettings()
     }
     onNotepadLastCustomTransparencyChanged: saveSettings()
-    property bool gtkThemingEnabled: false
-    property bool qtThemingEnabled: false
     property bool showDock: false
     property bool dockAutoHide: false
     property bool dockGroupByApp: false
@@ -364,7 +356,6 @@ Singleton {
                 appLauncherViewMode = settings.appLauncherViewMode !== undefined ? settings.appLauncherViewMode : "list"
                 spotlightModalViewMode = settings.spotlightModalViewMode !== undefined ? settings.spotlightModalViewMode : "list"
                 networkPreference = settings.networkPreference !== undefined ? settings.networkPreference : "auto"
-                iconTheme = settings.iconTheme !== undefined ? settings.iconTheme : "System Default"
                 if (settings.useOSLogo !== undefined) {
                     launcherLogoMode = settings.useOSLogo ? "os" : "apps"
                     launcherLogoColorOverride = settings.osLogoColorOverride !== undefined ? settings.osLogoColorOverride : ""
@@ -391,8 +382,6 @@ Singleton {
                 notepadShowLineNumbers = settings.notepadShowLineNumbers !== undefined ? settings.notepadShowLineNumbers : false
                 notepadTransparencyOverride = settings.notepadTransparencyOverride !== undefined ? settings.notepadTransparencyOverride : -1
                 notepadLastCustomTransparency = settings.notepadLastCustomTransparency !== undefined ? settings.notepadLastCustomTransparency : 0.95
-                gtkThemingEnabled = settings.gtkThemingEnabled !== undefined ? settings.gtkThemingEnabled : false
-                qtThemingEnabled = settings.qtThemingEnabled !== undefined ? settings.qtThemingEnabled : false
                 showDock = settings.showDock !== undefined ? settings.showDock : false
                 dockAutoHide = settings.dockAutoHide !== undefined ? settings.dockAutoHide : false
                 dockGroupByApp = settings.dockGroupByApp !== undefined ? settings.dockGroupByApp : false
@@ -424,10 +413,7 @@ Singleton {
                 screenPreferences = settings.screenPreferences !== undefined ? settings.screenPreferences : ({})
                 animationSpeed = settings.animationSpeed !== undefined ? settings.animationSpeed : SettingsData.AnimationSpeed.Short
                 applyStoredTheme()
-                detectAvailableIconThemes()
                 detectQtTools()
-                updateGtkIconTheme(iconTheme)
-                applyStoredIconTheme()
             } else {
                 applyStoredTheme()
             }
@@ -503,7 +489,6 @@ Singleton {
                                                 "appLauncherViewMode": appLauncherViewMode,
                                                 "spotlightModalViewMode": spotlightModalViewMode,
                                                 "networkPreference": networkPreference,
-                                                "iconTheme": iconTheme,
                                                 "launcherLogoMode": launcherLogoMode,
                                                 "launcherLogoCustomPath": launcherLogoCustomPath,
                                                 "launcherLogoColorOverride": launcherLogoColorOverride,
@@ -523,8 +508,6 @@ Singleton {
                                                 "notepadShowLineNumbers": notepadShowLineNumbers,
                                                 "notepadTransparencyOverride": notepadTransparencyOverride,
                                                 "notepadLastCustomTransparency": notepadLastCustomTransparency,
-                                                "gtkThemingEnabled": gtkThemingEnabled,
-                                                "qtThemingEnabled": qtThemingEnabled,
                                                 "showDock": showDock,
                                                 "dockAutoHide": dockAutoHide,
                                                 "dockGroupByApp": dockGroupByApp,
@@ -977,58 +960,7 @@ Singleton {
         saveSettings()
     }
 
-    function detectAvailableIconThemes() {
-        // First detect system default, then available themes
-        systemDefaultDetectionProcess.running = true
-    }
 
-    function detectQtTools() {
-        qtToolsDetectionProcess.running = true
-    }
-
-    function setIconTheme(themeName) {
-        iconTheme = themeName
-        updateGtkIconTheme(themeName)
-        updateQtIconTheme(themeName)
-        saveSettings()
-        if (typeof Theme !== "undefined" && Theme.currentTheme === Theme.dynamic)
-            Theme.generateSystemThemesFromCurrentTheme()
-    }
-
-    function updateGtkIconTheme(themeName) {
-        var gtkThemeName = (themeName === "System Default") ? systemDefaultIconTheme : themeName
-        if (gtkThemeName !== "System Default" && gtkThemeName !== "") {
-            var script = "if command -v gsettings >/dev/null 2>&1 && gsettings list-schemas | grep -q org.gnome.desktop.interface; then\n"
-                    + "    gsettings set org.gnome.desktop.interface icon-theme '" + gtkThemeName + "'\n" + "    echo 'Updated via gsettings'\n" + "elif command -v dconf >/dev/null 2>&1; then\n" + "    dconf write /org/gnome/desktop/interface/icon-theme \\\"" + gtkThemeName + "\\\"\n"
-                    + "    echo 'Updated via dconf'\n" + "fi\n" + "\n" + "# Ensure config directories exist\n" + "mkdir -p " + _configDir + "/gtk-3.0 " + _configDir
-                    + "/gtk-4.0\n" + "\n" + "# Update settings.ini files (keep existing gtk-theme-name)\n" + "for config_dir in " + _configDir + "/gtk-3.0 " + _configDir + "/gtk-4.0; do\n"
-                    + "    settings_file=\"$config_dir/settings.ini\"\n" + "    if [ -f \"$settings_file\" ]; then\n" + "        # Update existing icon-theme-name line or add it\n" + "        if grep -q '^gtk-icon-theme-name=' \"$settings_file\"; then\n" + "            sed -i 's/^gtk-icon-theme-name=.*/gtk-icon-theme-name=" + gtkThemeName + "/' \"$settings_file\"\n" + "        else\n"
-                    + "            # Add icon theme setting to [Settings] section or create it\n" + "            if grep -q '\\[Settings\\]' \"$settings_file\"; then\n" + "                sed -i '/\\[Settings\\]/a gtk-icon-theme-name=" + gtkThemeName + "' \"$settings_file\"\n" + "            else\n" + "                echo -e '\\n[Settings]\\ngtk-icon-theme-name=" + gtkThemeName
-                    + "' >> \"$settings_file\"\n" + "            fi\n" + "        fi\n" + "    else\n" + "        # Create new settings.ini file\n" + "        echo -e '[Settings]\\ngtk-icon-theme-name=" + gtkThemeName + "' > \"$settings_file\"\n"
-                    + "    fi\n" + "    echo \"Updated $settings_file\"\n" + "done\n" + "\n" + "# Clear icon cache and force refresh\n" + "rm -rf ~/.cache/icon-cache ~/.cache/thumbnails 2>/dev/null || true\n" + "# Send SIGHUP to running GTK applications to reload themes (Fedora-specific)\n" + "pkill -HUP -f 'gtk' 2>/dev/null || true\n"
-            Quickshell.execDetached(["sh", "-lc", script])
-        }
-    }
-
-    function updateQtIconTheme(themeName) {
-        var qtThemeName = (themeName === "System Default") ? "" : themeName
-        var home = _shq(Paths.strip(root._homeUrl))
-        if (!qtThemeName) {
-            // When "System Default" is selected, don't modify the config files at all
-            // This preserves the user's existing qt6ct configuration
-            return
-        }
-        var script = "mkdir -p " + _configDir + "/qt5ct " + _configDir + "/qt6ct " + _configDir + "/environment.d 2>/dev/null || true\n" + "update_qt_icon_theme() {\n" + "  local config_file=\"$1\"\n"
-                + "  local theme_name=\"$2\"\n" + "  if [ -f \"$config_file\" ]; then\n" + "    if grep -q '^\\[Appearance\\]' \"$config_file\"; then\n" + "      if grep -q '^icon_theme=' \"$config_file\"; then\n" + "        sed -i \"s/^icon_theme=.*/icon_theme=$theme_name/\" \"$config_file\"\n" + "      else\n" + "        sed -i \"/^\\[Appearance\\]/a icon_theme=$theme_name\" \"$config_file\"\n" + "      fi\n"
-                + "    else\n" + "      printf '\\n[Appearance]\\nicon_theme=%s\\n' \"$theme_name\" >> \"$config_file\"\n" + "    fi\n" + "  else\n" + "    printf '[Appearance]\\nicon_theme=%s\\n' \"$theme_name\" > \"$config_file\"\n" + "  fi\n" + "}\n" + "update_qt_icon_theme " + _configDir + "/qt5ct/qt5ct.conf " + _shq(
-                    qtThemeName) + "\n" + "update_qt_icon_theme " + _configDir + "/qt6ct/qt6ct.conf " + _shq(qtThemeName) + "\n" + "rm -rf " + home + "/.cache/icon-cache " + home + "/.cache/thumbnails 2>/dev/null || true\n"
-        Quickshell.execDetached(["sh", "-lc", script])
-    }
-
-    function applyStoredIconTheme() {
-        updateGtkIconTheme(iconTheme)
-        updateQtIconTheme(iconTheme)
-    }
 
     function setLauncherLogoMode(mode) {
         launcherLogoMode = mode
@@ -1093,22 +1025,6 @@ Singleton {
     function setDankBarIconScale(scale) {
         dankBarIconScale = scale
         saveSettings()
-    }
-
-    function setGtkThemingEnabled(enabled) {
-        gtkThemingEnabled = enabled
-        saveSettings()
-        if (enabled && typeof Theme !== "undefined") {
-            Theme.generateSystemThemesFromCurrentTheme()
-        }
-    }
-
-    function setQtThemingEnabled(enabled) {
-        qtThemingEnabled = enabled
-        saveSettings()
-        if (enabled && typeof Theme !== "undefined") {
-            Theme.generateSystemThemesFromCurrentTheme()
-        }
     }
 
     function setShowDock(enabled) {
@@ -1519,65 +1435,7 @@ Singleton {
         }
     }
 
-    Process {
-        id: systemDefaultDetectionProcess
 
-        command: ["sh", "-c", "gsettings get org.gnome.desktop.interface icon-theme 2>/dev/null | sed \"s/'//g\" || echo ''"]
-        running: false
-        onExited: exitCode => {
-            if (exitCode === 0 && stdout && stdout.length > 0)
-            systemDefaultIconTheme = stdout.trim()
-            else
-            systemDefaultIconTheme = ""
-            iconThemeDetectionProcess.running = true
-        }
-    }
-
-    Process {
-        id: iconThemeDetectionProcess
-
-        command: ["sh", "-c", "find /usr/share/icons ~/.local/share/icons ~/.icons -maxdepth 1 -type d 2>/dev/null | sed 's|.*/||' | grep -v '^icons$' | sort -u"]
-        running: false
-
-        stdout: StdioCollector {
-            onStreamFinished: {
-                var detectedThemes = ["System Default"]
-                if (text && text.trim()) {
-                    var themes = text.trim().split('\n')
-                    for (var i = 0; i < themes.length; i++) {
-                        var theme = themes[i].trim()
-                        if (theme && theme !== "" && theme !== "default" && theme !== "hicolor" && theme !== "locolor")
-                        detectedThemes.push(theme)
-                    }
-                }
-                availableIconThemes = detectedThemes
-            }
-        }
-    }
-
-    Process {
-        id: qtToolsDetectionProcess
-
-        command: ["sh", "-c", "echo -n 'qt5ct:'; command -v qt5ct >/dev/null && echo 'true' || echo 'false'; echo -n 'qt6ct:'; command -v qt6ct >/dev/null && echo 'true' || echo 'false'; echo -n 'gtk:'; (command -v gsettings >/dev/null || command -v dconf >/dev/null) && echo 'true' || echo 'false'"]
-        running: false
-
-        stdout: StdioCollector {
-            onStreamFinished: {
-                if (text && text.trim()) {
-                    var lines = text.trim().split('\n')
-                    for (var i = 0; i < lines.length; i++) {
-                        var line = lines[i]
-                        if (line.startsWith('qt5ct:'))
-                        qt5ctAvailable = line.split(':')[1] === 'true'
-                        else if (line.startsWith('qt6ct:'))
-                        qt6ctAvailable = line.split(':')[1] === 'true'
-                        else if (line.startsWith('gtk:'))
-                        gtkAvailable = line.split(':')[1] === 'true'
-                    }
-                }
-            }
-        }
-    }
 
     Process {
         id: defaultSettingsCheckProcess

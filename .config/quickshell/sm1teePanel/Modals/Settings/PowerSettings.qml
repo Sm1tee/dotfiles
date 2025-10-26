@@ -68,7 +68,7 @@ Item {
                     }
 
                     StyledText {
-                        text: "Дополнительная интеграция недоступна (требуется DMS сервер). Блокировка экрана работает и без этого."
+                        text: "Требуется DMS сервер для интеграции с системой. Блокировка работает и без него."
                         font.pixelSize: Theme.fontSizeSmall
                         color: Theme.warning
                         visible: !SessionService.loginctlAvailable
@@ -79,7 +79,7 @@ Item {
                     DankToggle {
                         width: parent.width
                         text: "Интеграция с системой (loginctl)"
-                        description: "Автоматическая блокировка при засыпании и статус 'Отошел' в программах. Отключите если используете другой экран блокировки (hyprlock и т.д.)."
+                        description: "Автоблокировка при засыпании и статус 'Отошёл' в приложениях."
                         checked: SessionService.loginctlAvailable && SessionData.loginctlLockIntegration
                         enabled: SessionService.loginctlAvailable
                         onToggled: checked => {
