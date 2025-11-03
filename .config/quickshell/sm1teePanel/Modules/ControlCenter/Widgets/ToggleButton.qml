@@ -61,7 +61,7 @@ Rectangle {
         anchors.rightMargin: Theme.spacingM
         spacing: Theme.spacingM
 
-        DankIcon {
+        Icon {
             name: root.iconName
             size: Theme.iconSize
             color: isActive ? Theme.primaryText : Theme.primary

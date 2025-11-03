@@ -69,7 +69,7 @@ Rectangle {
                 anchors.centerIn: parent
                 spacing: Theme.spacingXS
                 
-                DankIcon {
+                Icon {
                     name: BluetoothService.adapter && BluetoothService.adapter.discovering ? "stop" : "bluetooth_searching"
                     size: 18
                     color: BluetoothService.adapter && BluetoothService.adapter.enabled ? Theme.primary : Theme.surfaceVariantText
@@ -99,7 +99,7 @@ Rectangle {
         }
     }
     
-    DankFlickable {
+    Flickable {
         id: bluetoothContent
         anchors.top: headerRow.bottom
         anchors.left: parent.left
@@ -169,7 +169,7 @@ Rectangle {
                         anchors.leftMargin: Theme.spacingM
                         spacing: Theme.spacingS
                         
-                        DankIcon {
+                        Icon {
                             name: BluetoothService.getDeviceIcon(modelData)
                             size: Theme.iconSize - 4
                             color: {
@@ -180,6 +180,15 @@ Rectangle {
                                 return Theme.surfaceText
                             }
                             anchors.verticalCenter: parent.verticalCenter
+                            opacity: modelData.state === BluetoothDeviceState.Connecting ? 0.6 : 1.0
+                            
+                            RotationAnimation on rotation {
+                                running: modelData.state === BluetoothDeviceState.Connecting
+                                loops: Animation.Infinite
+                                from: 0
+                                to: 360
+                                duration: 1500
+                            }
                         }
                         
                         Column {
@@ -246,7 +255,7 @@ Rectangle {
                         }
                     }
                     
-                    DankActionButton {
+                    ActionButton {
                         id: pairedOptionsButton
                         anchors.right: parent.right
                         anchors.rightMargin: Theme.spacingS
@@ -293,7 +302,7 @@ Rectangle {
                 height: 80
                 visible: BluetoothService.adapter && BluetoothService.adapter.discovering && availableRepeater.count === 0
                 
-                DankIcon {
+                Icon {
                     anchors.centerIn: parent
                     name: "sync"
                     size: 24
@@ -343,7 +352,7 @@ Rectangle {
                         anchors.leftMargin: Theme.spacingM
                         spacing: Theme.spacingS
                         
-                        DankIcon {
+                        Icon {
                             name: BluetoothService.getDeviceIcon(modelData)
                             size: Theme.iconSize - 4
                             color: Theme.surfaceText

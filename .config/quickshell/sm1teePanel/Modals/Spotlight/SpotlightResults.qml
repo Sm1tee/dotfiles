@@ -21,7 +21,7 @@ Rectangle {
     color: "transparent"
     clip: true
 
-    DankListView {
+    ListView {
         id: resultsList
 
         property int itemHeight: 60
@@ -172,7 +172,7 @@ Rectangle {
         }
     }
 
-    DankGridView {
+    GridView {
         id: resultsGrid
 
         property int currentIndex: appLauncher ? appLauncher.selectedIndex : -1

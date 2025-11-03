@@ -250,7 +250,7 @@ PanelWindow {
                         radius: 10
                         color: closeMouseArea.containsMouse ? Qt.rgba(Theme.error.r, Theme.error.g, Theme.error.b, 0.2) : "transparent"
 
-                        DankIcon {
+                        Icon {
                             anchors.centerIn: parent
                             name: "close"
                             size: 12

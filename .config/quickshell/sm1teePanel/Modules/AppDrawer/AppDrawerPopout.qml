@@ -10,7 +10,7 @@ import qs.Modules.AppDrawer
 import qs.Services
 import qs.Widgets
 
-DankPopout {
+Popout {
     id: appDrawerPopout
 
     property var triggerScreen: null
@@ -33,7 +33,7 @@ DankPopout {
     popupWidth: Math.max(520, Math.min(700, 520 * SettingsData.fontScale))
     popupHeight: Math.max(600, Math.min(800, 600 * SettingsData.fontScale))
     triggerX: Theme.spacingL
-    triggerY: Math.max(26 + SettingsData.dankBarInnerPadding + 4, Theme.barHeight - 4 - (8 - SettingsData.dankBarInnerPadding)) + SettingsData.dankBarSpacing + SettingsData.dankBarBottomGap - 2
+    triggerY: Math.max(26 + SettingsData.barInnerPadding + 4, Theme.barHeight - 4 - (8 - SettingsData.barInnerPadding)) + SettingsData.barSpacing + SettingsData.barBottomGap - 2
     triggerWidth: 40
     positioning: ""
     screen: triggerScreen
@@ -207,7 +207,7 @@ DankPopout {
                         }
                     }
 
-                    DankTextField {
+                    TextField {
                         id: searchField
 
                         width: parent.width - Theme.spacingS * 2
@@ -281,7 +281,7 @@ DankPopout {
                             radius: Theme.cornerRadius
                             color: "transparent"
 
-                            DankDropdown {
+                            Dropdown {
                                 anchors.fill: parent
                                 text: ""
                                 dropdownWidth: 180
@@ -294,7 +294,7 @@ DankPopout {
                             }
                         }
 
-                        DankActionButton {
+                        ActionButton {
                             buttonSize: 36
                             circular: false
                             iconName: "visibility_off"
@@ -316,7 +316,7 @@ DankPopout {
                             spacing: 4
                             anchors.verticalCenter: parent.verticalCenter
 
-                            DankActionButton {
+                            ActionButton {
                                 buttonSize: 36
                                 circular: false
                                 iconName: "view_list"
@@ -328,7 +328,7 @@ DankPopout {
                                 }
                             }
 
-                            DankActionButton {
+                            ActionButton {
                                 buttonSize: 36
                                 circular: false
                                 iconName: "grid_view"
@@ -353,7 +353,7 @@ DankPopout {
                         radius: Theme.cornerRadius
                         color: "transparent"
 
-                        DankListView {
+                        ListView {
                             id: appList
 
                             property int itemHeight: 72
@@ -513,7 +513,7 @@ DankPopout {
                             }
                         }
 
-                        DankGridView {
+                        GridView {
                             id: appGrid
 
                             property int currentIndex: appLauncher.selectedIndex
@@ -765,7 +765,7 @@ DankPopout {
                     anchors.verticalCenter: parent.verticalCenter
                     spacing: Theme.spacingS
 
-                    DankIcon {
+                    Icon {
                         name: contextMenu.isPinnedTop ? "vertical_align_top" : "vertical_align_top"
                         size: Theme.iconSize - 2
                         color: contextMenu.isPinnedTop ? Theme.primary : Theme.surfaceText
@@ -815,7 +815,7 @@ DankPopout {
                     anchors.verticalCenter: parent.verticalCenter
                     spacing: Theme.spacingS
 
-                    DankIcon {
+                    Icon {
                         name: contextMenu.isHidden ? "visibility" : "visibility_off"
                         size: Theme.iconSize - 2
                         color: contextMenu.isHidden ? Theme.primary : Theme.surfaceText
@@ -950,7 +950,7 @@ DankPopout {
                     anchors.verticalCenter: parent.verticalCenter
                     spacing: Theme.spacingS
 
-                    DankIcon {
+                    Icon {
                         name: "launch"
                         size: Theme.iconSize - 2
                         color: Theme.surfaceText
@@ -1010,7 +1010,7 @@ DankPopout {
                     anchors.verticalCenter: parent.verticalCenter
                     spacing: Theme.spacingS
 
-                    DankIcon {
+                    Icon {
                         name: "memory"
                         size: Theme.iconSize - 2
                         color: Theme.surfaceText
@@ -1055,7 +1055,7 @@ DankPopout {
                     anchors.verticalCenter: parent.verticalCenter
                     spacing: Theme.spacingS
 
-                    DankIcon {
+                    Icon {
                         name: contextMenu.isPinned ? "keep_off" : "push_pin"
                         size: Theme.iconSize - 2
                         color: Theme.surfaceText

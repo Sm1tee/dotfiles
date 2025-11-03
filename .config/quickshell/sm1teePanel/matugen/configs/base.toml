@@ -2,4 +2,4 @@
 
 [templates.kcolorscheme]
 input_path = './matugen/templates/matugen-kcolorscheme.colors'
-output_path = '~/.local/share/color-schemes/DankMatugen.colors'
+output_path = '~/.local/share/color-schemes/Matugen.colors'

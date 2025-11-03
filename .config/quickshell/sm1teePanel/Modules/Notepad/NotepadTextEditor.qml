@@ -201,7 +201,7 @@ Column {
             spacing: Theme.spacingS
 
             // Search icon
-            DankIcon {
+            Icon {
                 Layout.alignment: Qt.AlignVCenter
                 name: "search"
                 size: Theme.iconSize - 2
@@ -283,7 +283,7 @@ Column {
             }
 
             // Navigation buttons
-            DankActionButton {
+            ActionButton {
                 id: prevButton
                 Layout.alignment: Qt.AlignVCenter
                 iconName: "keyboard_arrow_up"
@@ -293,7 +293,7 @@ Column {
                 onClicked: root.findPrevious()
             }
 
-            DankActionButton {
+            ActionButton {
                 id: nextButton
                 Layout.alignment: Qt.AlignVCenter
                 iconName: "keyboard_arrow_down"
@@ -304,7 +304,7 @@ Column {
             }
 
             // Close button
-            DankActionButton {
+            ActionButton {
                 id: closeSearchButton
                 Layout.alignment: Qt.AlignVCenter
                 iconName: "close"
@@ -323,7 +323,7 @@ Column {
         border.width: 1
         radius: Theme.cornerRadius
 
-        DankFlickable {
+        Flickable {
             id: flickable
             anchors.fill: parent
             anchors.margins: 1
@@ -499,7 +499,7 @@ Column {
 
                 Row {
                     spacing: Theme.spacingS
-                    DankActionButton {
+                    ActionButton {
                         iconName: "save"
                         iconSize: Theme.iconSize - 2
                         iconColor: Theme.primary
@@ -516,7 +516,7 @@ Column {
 
                 Row {
                     spacing: Theme.spacingS
-                    DankActionButton {
+                    ActionButton {
                         iconName: "folder_open"
                         iconSize: Theme.iconSize - 2
                         iconColor: Theme.secondary
@@ -532,7 +532,7 @@ Column {
 
                 Row {
                     spacing: Theme.spacingS
-                    DankActionButton {
+                    ActionButton {
                         iconName: "note_add"
                         iconSize: Theme.iconSize - 2
                         iconColor: Theme.surfaceText
@@ -547,7 +547,7 @@ Column {
                 }
             }
 
-            DankActionButton {
+            ActionButton {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
                 iconName: "more_horiz"

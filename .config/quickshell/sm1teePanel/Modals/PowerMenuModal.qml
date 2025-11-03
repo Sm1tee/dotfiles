@@ -4,7 +4,7 @@ import qs.Modals.Common
 import qs.Services
 import qs.Widgets
 
-DankModal {
+Modal {
     id: root
 
     property int selectedIndex: 0
@@ -150,7 +150,7 @@ DankModal {
                         height: 1
                     }
 
-                    DankActionButton {
+                    ActionButton {
                         iconName: "close"
                         iconSize: Theme.iconSize - 4
                         iconColor: Theme.surfaceText
@@ -187,7 +187,7 @@ DankModal {
                             anchors.verticalCenter: parent.verticalCenter
                             spacing: Theme.spacingM
 
-                            DankIcon {
+                            Icon {
                                 name: "logout"
                                 size: Theme.iconSize
                                 color: Theme.surfaceText
@@ -240,7 +240,7 @@ DankModal {
                             anchors.verticalCenter: parent.verticalCenter
                             spacing: Theme.spacingM
 
-                            DankIcon {
+                            Icon {
                                 name: "restart_alt"
                                 size: Theme.iconSize
                                 color: rebootArea.containsMouse ? Theme.warning : Theme.surfaceText
@@ -293,7 +293,7 @@ DankModal {
                             anchors.verticalCenter: parent.verticalCenter
                             spacing: Theme.spacingM
 
-                            DankIcon {
+                            Icon {
                                 name: "power_settings_new"
                                 size: Theme.iconSize
                                 color: powerOffArea.containsMouse ? Theme.error : Theme.surfaceText

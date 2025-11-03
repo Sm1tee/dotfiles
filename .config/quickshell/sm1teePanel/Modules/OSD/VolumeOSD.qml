@@ -3,7 +3,7 @@ import qs.Common
 import qs.Services
 import qs.Widgets
 
-DankOSD {
+OSD {
     id: root
 
     osdWidth: Math.min(260, Screen.width - Theme.spacingM * 2)
@@ -55,7 +55,7 @@ DankOSD {
                 x: parent.gap
                 anchors.verticalCenter: parent.verticalCenter
 
-                DankIcon {
+                Icon {
                     anchors.centerIn: parent
                     name: AudioService.sink && AudioService.sink.audio && AudioService.sink.audio.muted ? "volume_off" : "volume_up"
                     size: Theme.iconSize
@@ -77,7 +77,7 @@ DankOSD {
                 }
             }
 
-            DankSlider {
+            Slider {
                 id: volumeSlider
 
                 readonly property real actualVolumePercent: AudioService.sink && AudioService.sink.audio ? Math.round(AudioService.sink.audio.volume * 100) : 0

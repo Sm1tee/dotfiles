@@ -5,5 +5,5 @@ import QtQuick
 import Quickshell
 
 ShellRoot {
-    DMSShell {}
+    Main {}
 }

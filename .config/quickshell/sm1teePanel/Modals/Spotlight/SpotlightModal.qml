@@ -9,7 +9,7 @@ import qs.Modules.AppDrawer
 import qs.Services
 import qs.Widgets
 
-DankModal {
+Modal {
     id: spotlightModal
 
     property bool spotlightOpen: false

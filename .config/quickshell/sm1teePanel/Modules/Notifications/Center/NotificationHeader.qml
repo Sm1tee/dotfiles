@@ -26,7 +26,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
         }
 
-        DankActionButton {
+        ActionButton {
             id: doNotDisturbButton
 
             iconName: SessionData.doNotDisturb ? "notifications_off" : "notifications"
@@ -76,7 +76,7 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         spacing: Theme.spacingXS
 
-        DankActionButton {
+        ActionButton {
             id: helpButton
             iconName: "info"
             iconColor: (keyboardController && keyboardController.showKeyboardHints) ? Theme.primary : Theme.surfaceText
@@ -90,7 +90,7 @@ Item {
             }
         }
 
-        DankActionButton {
+        ActionButton {
             id: settingsButton
             iconName: "settings"
             iconColor: root.showSettings ? Theme.primary : Theme.surfaceText
@@ -112,7 +112,7 @@ Item {
                 anchors.centerIn: parent
                 spacing: Theme.spacingXS
 
-                DankIcon {
+                Icon {
                     name: "delete_sweep"
                     size: Theme.iconSizeSmall
                     color: clearArea.containsMouse ? Theme.primary : Theme.surfaceText

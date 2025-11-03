@@ -3,7 +3,7 @@ import qs.Common
 import qs.Services
 import qs.Widgets
 
-DankListView {
+ListView {
     id: listView
 
     property var keyboardController: null

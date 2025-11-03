@@ -8,7 +8,7 @@ import qs.Common
 import qs.Services
 import qs.Widgets
 
-DankPopout {
+Popout {
     id: systemUpdatePopout
 
     property var parentWidget: null
@@ -25,7 +25,7 @@ DankPopout {
     popupWidth: Math.max(400, Math.min(550, 400 * SettingsData.fontScale))
     popupHeight: Math.max(500, Math.min(700, 500 * SettingsData.fontScale))
     triggerX: Screen.width - 600 - Theme.spacingL
-    triggerY: Math.max(26 + SettingsData.dankBarInnerPadding + 4, Theme.barHeight - 4 - (8 - SettingsData.dankBarInnerPadding)) + SettingsData.dankBarSpacing + SettingsData.dankBarBottomGap - 2
+    triggerY: Math.max(26 + SettingsData.barInnerPadding + 4, Theme.barHeight - 4 - (8 - SettingsData.barInnerPadding)) + SettingsData.barSpacing + SettingsData.barBottomGap - 2
     triggerWidth: 55
     positioning: ""
     screen: triggerScreen
@@ -114,7 +114,7 @@ DankPopout {
                             }
                         }
 
-                        DankActionButton {
+                        ActionButton {
                             id: checkForUpdatesButton
                             buttonSize: 28
                             iconName: "refresh"
@@ -190,7 +190,7 @@ DankPopout {
                             visible: SystemUpdateService.updateCount === 0 || SystemUpdateService.hasError || SystemUpdateService.isChecking
                         }
 
-                        DankListView {
+                        ListView {
                             id: packagesList
 
                             width: parent.width
@@ -274,7 +274,7 @@ DankPopout {
                             anchors.centerIn: parent
                             spacing: Theme.spacingS
 
-                            DankIcon {
+                            Icon {
                                 name: "system_update_alt"
                                 size: Theme.iconSize
                                 color: Theme.primary
@@ -318,7 +318,7 @@ DankPopout {
                             anchors.centerIn: parent
                             spacing: Theme.spacingS
 
-                            DankIcon {
+                            Icon {
                                 name: "close"
                                 size: Theme.iconSize
                                 color: Theme.surfaceText

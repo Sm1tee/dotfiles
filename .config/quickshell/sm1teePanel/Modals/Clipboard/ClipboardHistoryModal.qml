@@ -9,7 +9,7 @@ import qs.Modals.Common
 import qs.Services
 import qs.Widgets
 
-DankModal {
+Modal {
     id: clipboardHistoryModal
 
     property int totalCount: 0

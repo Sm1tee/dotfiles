@@ -8,7 +8,7 @@ import qs.Widgets
 Item {
     id: dockTab
 
-    DankFlickable {
+    Flickable {
         anchors.fill: parent
         anchors.topMargin: Theme.spacingL
         clip: true
@@ -41,7 +41,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "swap_vert"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -57,7 +57,7 @@ Item {
                         }
                     }
 
-                    DankButtonGroup {
+                    ButtonGroup {
                         id: positionButtonGroup
                         width: parent.width
                         fillWidth: true
@@ -109,7 +109,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "visibility_off"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -138,7 +138,7 @@ Item {
                             }
                         }
 
-                        DankToggle {
+                        Toggle {
                             id: autoHideToggle
 
                             anchors.verticalCenter: parent.verticalCenter
@@ -160,7 +160,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "dock_to_bottom"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -189,7 +189,7 @@ Item {
                             }
                         }
 
-                        DankToggle {
+                        Toggle {
                             id: enableToggle
 
                             anchors.verticalCenter: parent.verticalCenter
@@ -213,7 +213,7 @@ Item {
                         spacing: Theme.spacingM
                         visible: CompositorService.isNiri
 
-                        DankIcon {
+                        Icon {
                             name: "fullscreen"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -242,7 +242,7 @@ Item {
                             }
                         }
 
-                        DankToggle {
+                        Toggle {
                             id: overviewToggle
 
                             anchors.verticalCenter: parent.verticalCenter
@@ -278,7 +278,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "apps"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -307,7 +307,7 @@ Item {
                             }
                         }
 
-                        DankToggle {
+                        Toggle {
                             id: groupByAppToggle
 
                             anchors.verticalCenter: parent.verticalCenter
@@ -350,7 +350,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "space_bar"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -377,7 +377,7 @@ Item {
                             font.weight: Font.Medium
                         }
 
-                        DankSlider {
+                        Slider {
                             width: parent.width
                             height: 24
                             value: SettingsData.dockSpacing
@@ -405,7 +405,7 @@ Item {
                             font.weight: Font.Medium
                         }
 
-                        DankSlider {
+                        Slider {
                             width: parent.width
                             height: 24
                             value: SettingsData.dockBottomGap
@@ -454,7 +454,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "opacity"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -470,7 +470,7 @@ Item {
                         }
                     }
 
-                    DankSlider {
+                    Slider {
                         width: parent.width
                         height: 32
                         value: Math.round(SettingsData.dockTransparency * 100)

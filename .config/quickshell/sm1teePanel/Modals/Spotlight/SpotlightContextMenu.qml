@@ -90,7 +90,7 @@ Popup {
                 anchors.verticalCenter: parent.verticalCenter
                 spacing: Theme.spacingS
 
-                DankIcon {
+                Icon {
                     name: "vertical_align_top"
                     size: Theme.iconSize - 2
                     color: {
@@ -159,7 +159,7 @@ Popup {
                 anchors.verticalCenter: parent.verticalCenter
                 spacing: Theme.spacingS
 
-                DankIcon {
+                Icon {
                     name: {
                         if (!contextMenu.currentApp || !contextMenu.currentApp.desktopEntry)
                             return "visibility_off"
@@ -322,7 +322,7 @@ Popup {
                 anchors.verticalCenter: parent.verticalCenter
                 spacing: Theme.spacingS
 
-                DankIcon {
+                Icon {
                     name: "launch"
                     size: Theme.iconSize - 2
                     color: Theme.surfaceText
@@ -384,7 +384,7 @@ Popup {
                 anchors.verticalCenter: parent.verticalCenter
                 spacing: Theme.spacingS
 
-                DankIcon {
+                Icon {
                     name: "memory"
                     size: Theme.iconSize - 2
                     color: Theme.surfaceText
@@ -433,7 +433,7 @@ Popup {
                 anchors.verticalCenter: parent.verticalCenter
                 spacing: Theme.spacingS
 
-                DankIcon {
+                Icon {
                     name: {
                         if (!contextMenu.currentApp || !contextMenu.currentApp.desktopEntry)
                             return "push_pin"

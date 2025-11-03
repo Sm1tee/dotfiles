@@ -39,7 +39,7 @@ Item {
         }
 
         // Search Field
-        DankTextField {
+        TextField {
             id: searchField
             width: parent.width
             placeholderText: ""
@@ -80,7 +80,7 @@ Item {
             color: "transparent"
             clip: true
 
-            DankListView {
+            ListView {
                 id: clipboardListView
                 anchors.fill: parent
                 model: filteredModel

@@ -10,7 +10,11 @@ import Quickshell.Services.UPower
 Singleton {
     id: root
 
-    readonly property string preferredBatteryOverride: Quickshell.env("DMS_PREFERRED_BATTERY")
+    readonly property string preferredBatteryOverride: Quickshell.env("SM1TEE_PREFERRED_BATTERY")
+    
+    // Для отслеживания низкого заряда
+    property bool lowBatteryWarningShown: false
+    property var lowBatteryModalCallback: null
 
     readonly property UPowerDevice device: {
         var preferredDev
@@ -153,5 +157,32 @@ Singleton {
             return "battery_2_bar"
         }
         return "battery_1_bar"
+    }
+    
+    // Функция для тестирования модального окна (для ПК без батареи)
+    function testLowBatteryWarning() {
+        if (lowBatteryModalCallback) {
+            lowBatteryModalCallback()
+        }
+    }
+    
+    // Мониторинг уровня батареи
+    onBatteryLevelChanged: {
+        if (!batteryAvailable) {
+            return
+        }
+        
+        // Показываем предупреждение при заряде <= 10% и не на зарядке
+        if (batteryLevel <= 10 && !isPluggedIn && !lowBatteryWarningShown) {
+            lowBatteryWarningShown = true
+            if (lowBatteryModalCallback) {
+                lowBatteryModalCallback()
+            }
+        }
+        
+        // Сбрасываем флаг когда батарея заряжается или уровень выше 15%
+        if ((isPluggedIn || batteryLevel > 15) && lowBatteryWarningShown) {
+            lowBatteryWarningShown = false
+        }
     }
 }

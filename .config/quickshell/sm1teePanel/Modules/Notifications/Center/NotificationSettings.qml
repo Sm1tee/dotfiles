@@ -126,7 +126,7 @@ Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
                 spacing: Theme.spacingM
 
-                DankIcon {
+                Icon {
                     name: SessionData.doNotDisturb ? "notifications_off" : "notifications"
                     size: Math.round(Theme.fontSizeMedium * 1.15 * 1.3)
                     color: SessionData.doNotDisturb ? Theme.error : Theme.surfaceText
@@ -141,7 +141,7 @@ Rectangle {
                 }
             }
 
-            DankToggle {
+            Toggle {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
                 checked: SessionData.doNotDisturb
@@ -162,7 +162,7 @@ Rectangle {
             color: Theme.surfaceVariantText
         }
 
-        DankDropdown {
+        Dropdown {
             text: "Низкий приоритет"
             description: ""
             currentValue: getTimeoutText(SettingsData.notificationTimeoutLow)
@@ -177,7 +177,7 @@ Rectangle {
                             }
         }
 
-        DankDropdown {
+        Dropdown {
             text: "Обычный приоритет"
             description: ""
             currentValue: getTimeoutText(SettingsData.notificationTimeoutNormal)
@@ -192,7 +192,7 @@ Rectangle {
                             }
         }
 
-        DankDropdown {
+        Dropdown {
             text: "Критический приоритет"
             description: ""
             currentValue: getTimeoutText(SettingsData.notificationTimeoutCritical)
@@ -222,7 +222,7 @@ Rectangle {
                 anchors.verticalCenter: parent.verticalCenter
                 spacing: Theme.spacingM
 
-                DankIcon {
+                Icon {
                     name: "notifications_active"
                     size: Math.round(Theme.fontSizeMedium * 1.15 * 1.3)
                     color: SettingsData.notificationOverlayEnabled ? Theme.primary : Theme.surfaceText
@@ -237,7 +237,7 @@ Rectangle {
                 }
             }
 
-            DankToggle {
+            Toggle {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
                 checked: SettingsData.notificationOverlayEnabled

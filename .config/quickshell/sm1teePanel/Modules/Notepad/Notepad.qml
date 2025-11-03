@@ -344,7 +344,7 @@ Item {
         }
     }
 
-    DankModal {
+    Modal {
         id: confirmationDialog
 
         width: Math.max(400, Math.min(570, 400 * SettingsData.fontScale))
@@ -402,7 +402,7 @@ Item {
                             }
                         }
 
-                        DankActionButton {
+                        ActionButton {
                             iconName: "close"
                             iconSize: Theme.iconSize - 4
                             iconColor: Theme.surfaceText

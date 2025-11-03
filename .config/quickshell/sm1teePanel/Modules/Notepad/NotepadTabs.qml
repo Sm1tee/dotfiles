@@ -108,7 +108,7 @@ Column {
                                 visible: NotepadStorageService.tabs.length > 1
                                 anchors.verticalCenter: parent.verticalCenter
 
-                                DankIcon {
+                                Icon {
                                     name: "close"
                                     size: 14
                                     color: Theme.surfaceTextMedium
@@ -140,7 +140,7 @@ Column {
             }
         }
 
-        DankActionButton {
+        ActionButton {
             id: newTabButton
             width: 32
             height: 32

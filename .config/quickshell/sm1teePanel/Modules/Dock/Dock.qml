@@ -34,21 +34,21 @@ Variants {
     property real backgroundTransparency: SettingsData.dockTransparency
     property bool groupByApp: SettingsData.dockGroupByApp
 
-    readonly property real widgetHeight: Math.max(20, 26 + SettingsData.dankBarInnerPadding * 0.6)
-    readonly property real effectiveBarHeight: Math.max(widgetHeight + SettingsData.dankBarInnerPadding + 4, Theme.barHeight - 4 - (8 - SettingsData.dankBarInnerPadding))
+    readonly property real widgetHeight: Math.max(20, 26 + SettingsData.barInnerPadding * 0.6)
+    readonly property real effectiveBarHeight: Math.max(widgetHeight + SettingsData.barInnerPadding + 4, Theme.barHeight - 4 - (8 - SettingsData.barInnerPadding))
     readonly property real barSpacing: {
-        const barIsHorizontal = (SettingsData.dankBarPosition === SettingsData.Position.Top || SettingsData.dankBarPosition === SettingsData.Position.Bottom)
-        const barIsVertical = (SettingsData.dankBarPosition === SettingsData.Position.Left || SettingsData.dankBarPosition === SettingsData.Position.Right)
-        const samePosition = (SettingsData.dockPosition === SettingsData.dankBarPosition)
+        const barIsHorizontal = (SettingsData.barPosition === SettingsData.Position.Top || SettingsData.barPosition === SettingsData.Position.Bottom)
+        const barIsVertical = (SettingsData.barPosition === SettingsData.Position.Left || SettingsData.barPosition === SettingsData.Position.Right)
+        const samePosition = (SettingsData.dockPosition === SettingsData.barPosition)
         const dockIsHorizontal = !isVertical
         const dockIsVertical = isVertical
 
-        if (!SettingsData.dankBarVisible) return 0
+        if (!SettingsData.barVisible) return 0
         if (dockIsHorizontal && barIsHorizontal && samePosition) {
-            return SettingsData.dankBarSpacing + effectiveBarHeight + SettingsData.dankBarBottomGap
+            return SettingsData.barSpacing + effectiveBarHeight + SettingsData.barBottomGap
         }
         if (dockIsVertical && barIsVertical && samePosition) {
-            return SettingsData.dankBarSpacing + effectiveBarHeight + SettingsData.dankBarBottomGap
+            return SettingsData.barSpacing + effectiveBarHeight + SettingsData.barBottomGap
         }
         return 0
     }

@@ -136,7 +136,7 @@ Singleton {
         }
     }
 
-    DankSocket {
+    Socket {
         id: eventStreamSocket
         path: root.socketPath
         connected: CompositorService.isNiri
@@ -160,7 +160,7 @@ Singleton {
         }
     }
 
-    DankSocket {
+    Socket {
         id: requestSocket
         path: root.socketPath
         connected: CompositorService.isNiri
@@ -694,7 +694,7 @@ Singleton {
         console.log("NiriService: Generating layout config...")
 
         const cornerRadius = typeof SettingsData !== "undefined" ? SettingsData.cornerRadius : 12
-        const gaps = typeof SettingsData !== "undefined" ? Math.max(4, SettingsData.dankBarSpacing) : 4
+        const gaps = typeof SettingsData !== "undefined" ? Math.max(4, SettingsData.barSpacing) : 4
 
         const configContent = `layout {
     gaps ${gaps}
@@ -716,12 +716,12 @@ window-rule {
 }`
 
         const configDir = Paths.strip(StandardPaths.writableLocation(StandardPaths.ConfigLocation))
-        const niriDmsDir = configDir + "/niri/dms"
-        const configPath = niriDmsDir + "/layout.kdl"
+        const niriDir = configDir + "/niri/sm1tee"
+        const configPath = niriDir + "/layout.kdl"
 
         writeConfigProcess.configContent = configContent
         writeConfigProcess.configPath = configPath
-        writeConfigProcess.command = ["sh", "-c", `mkdir -p "${niriDmsDir}" && cat > "${configPath}" << 'EOF'\n${configContent}\nEOF`]
+        writeConfigProcess.command = ["sh", "-c", `mkdir -p "${niriDir}" && cat > "${configPath}" << 'EOF'\n${configContent}\nEOF`]
         writeConfigProcess.running = true
         configGenerationPending = false
     }
@@ -730,12 +730,12 @@ window-rule {
         console.log("NiriService: Generating binds config...")
 
         const configDir = Paths.strip(StandardPaths.writableLocation(StandardPaths.ConfigLocation))
-        const niriDmsDir = configDir + "/niri/dms"
-        const bindsPath = niriDmsDir + "/binds.kdl"
+        const niriDir = configDir + "/niri/sm1tee"
+        const bindsPath = niriDir + "/binds.kdl"
         const sourceBindsPath = Paths.strip(Qt.resolvedUrl("niri-binds.kdl"))
 
         writeBindsProcess.bindsPath = bindsPath
-        writeBindsProcess.command = ["sh", "-c", `mkdir -p "${niriDmsDir}" && cp "${sourceBindsPath}" "${bindsPath}"`]
+        writeBindsProcess.command = ["sh", "-c", `mkdir -p "${niriDir}" && cp "${sourceBindsPath}" "${bindsPath}"`]
         writeBindsProcess.running = true
     }
 }

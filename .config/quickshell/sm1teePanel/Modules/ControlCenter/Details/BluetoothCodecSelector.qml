@@ -151,7 +151,7 @@ Item {
                 width: parent.width
                 spacing: Theme.spacingM
 
-                DankIcon {
+                Icon {
                     name: device ? BluetoothService.getDeviceIcon(device) : "headset"
                     size: Theme.iconSize + 4
                     color: Theme.primary
@@ -250,7 +250,7 @@ Item {
 
                         }
 
-                        DankIcon {
+                        Icon {
                             name: "check"
                             size: Theme.iconSize - 4
                             color: Theme.primary

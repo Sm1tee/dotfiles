@@ -124,13 +124,13 @@ PanelWindow {
 
     function getTopMargin() {
         const popupPos = SettingsData.notificationPopupPosition
-        const barPos = SettingsData.dankBarPosition
+        const barPos = SettingsData.barPosition
         const isTop = isTopCenter || popupPos === SettingsData.Position.Top || popupPos === SettingsData.Position.Left
 
         if (!isTop) return 0
 
-        const effectiveBarThickness = Math.max(26 + SettingsData.dankBarInnerPadding * 0.6 + SettingsData.dankBarInnerPadding + 4, Theme.barHeight - 4 - (8 - SettingsData.dankBarInnerPadding))
-        const exclusiveZone = effectiveBarThickness + SettingsData.dankBarSpacing + SettingsData.dankBarBottomGap
+        const effectiveBarThickness = Math.max(26 + SettingsData.barInnerPadding * 0.6 + SettingsData.barInnerPadding + 4, Theme.barHeight - 4 - (8 - SettingsData.barInnerPadding))
+        const exclusiveZone = effectiveBarThickness + SettingsData.barSpacing + SettingsData.barBottomGap
 
         let base = Theme.popupDistance
         if (barPos === SettingsData.Position.Top) {
@@ -142,13 +142,13 @@ PanelWindow {
 
     function getBottomMargin() {
         const popupPos = SettingsData.notificationPopupPosition
-        const barPos = SettingsData.dankBarPosition
+        const barPos = SettingsData.barPosition
         const isBottom = popupPos === SettingsData.Position.Bottom || popupPos === SettingsData.Position.Right
 
         if (!isBottom) return 0
 
-        const effectiveBarThickness = Math.max(26 + SettingsData.dankBarInnerPadding * 0.6 + SettingsData.dankBarInnerPadding + 4, Theme.barHeight - 4 - (8 - SettingsData.dankBarInnerPadding))
-        const exclusiveZone = effectiveBarThickness + SettingsData.dankBarSpacing + SettingsData.dankBarBottomGap
+        const effectiveBarThickness = Math.max(26 + SettingsData.barInnerPadding * 0.6 + SettingsData.barInnerPadding + 4, Theme.barHeight - 4 - (8 - SettingsData.barInnerPadding))
+        const exclusiveZone = effectiveBarThickness + SettingsData.barSpacing + SettingsData.barBottomGap
 
         let base = Theme.popupDistance
         if (barPos === SettingsData.Position.Bottom) {
@@ -164,13 +164,13 @@ PanelWindow {
         }
 
         const popupPos = SettingsData.notificationPopupPosition
-        const barPos = SettingsData.dankBarPosition
+        const barPos = SettingsData.barPosition
         const isLeft = popupPos === SettingsData.Position.Left || popupPos === SettingsData.Position.Bottom
 
         if (!isLeft) return 0
 
-        const effectiveBarThickness = Math.max(26 + SettingsData.dankBarInnerPadding * 0.6 + SettingsData.dankBarInnerPadding + 4, Theme.barHeight - 4 - (8 - SettingsData.dankBarInnerPadding))
-        const exclusiveZone = effectiveBarThickness + SettingsData.dankBarSpacing + SettingsData.dankBarBottomGap
+        const effectiveBarThickness = Math.max(26 + SettingsData.barInnerPadding * 0.6 + SettingsData.barInnerPadding + 4, Theme.barHeight - 4 - (8 - SettingsData.barInnerPadding))
+        const exclusiveZone = effectiveBarThickness + SettingsData.barSpacing + SettingsData.barBottomGap
 
         if (barPos === SettingsData.Position.Left) {
             return exclusiveZone
@@ -183,13 +183,13 @@ PanelWindow {
         if (isTopCenter) return 0
 
         const popupPos = SettingsData.notificationPopupPosition
-        const barPos = SettingsData.dankBarPosition
+        const barPos = SettingsData.barPosition
         const isRight = popupPos === SettingsData.Position.Top || popupPos === SettingsData.Position.Right
 
         if (!isRight) return 0
 
-        const effectiveBarThickness = Math.max(26 + SettingsData.dankBarInnerPadding * 0.6 + SettingsData.dankBarInnerPadding + 4, Theme.barHeight - 4 - (8 - SettingsData.dankBarInnerPadding))
-        const exclusiveZone = effectiveBarThickness + SettingsData.dankBarSpacing + SettingsData.dankBarBottomGap
+        const effectiveBarThickness = Math.max(26 + SettingsData.barInnerPadding * 0.6 + SettingsData.barInnerPadding + 4, Theme.barHeight - 4 - (8 - SettingsData.barInnerPadding))
+        const exclusiveZone = effectiveBarThickness + SettingsData.barSpacing + SettingsData.barBottomGap
 
         if (barPos === SettingsData.Position.Right) {
             return exclusiveZone
@@ -289,7 +289,7 @@ PanelWindow {
                 anchors.rightMargin: 56
                 height: 98
 
-                DankCircularImage {
+                CircularImage {
                     id: iconContainer
 
                     readonly property bool hasNotificationImage: notificationData && notificationData.image && notificationData.image !== ""

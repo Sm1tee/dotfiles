@@ -70,7 +70,7 @@ PanelWindow {
         width: shouldBeVisible ? Math.min(900, messageText.implicitWidth + statusIcon.width + Theme.spacingM + (ToastService.hasDetails ? (expandButton.width + closeButton.width + 4) : 0) + Theme.spacingL * 2 + Theme.spacingM * 2) : frozenWidth
         height: toastContent.height + Theme.spacingL * 2
         anchors.horizontalCenter: parent.horizontalCenter
-        y: Theme.barHeight - 4 + SettingsData.dankBarSpacing + 2
+        y: Theme.barHeight - 4 + SettingsData.barSpacing + 2
         color: {
             switch (ToastService.currentLevel) {
             case ToastService.levelError:
@@ -102,7 +102,7 @@ PanelWindow {
                 width: parent.width
                 height: Math.max(Theme.iconSize + 8, messageText.implicitHeight)
 
-                DankIcon {
+                Icon {
                     id: statusIcon
                     name: {
                         switch (ToastService.currentLevel) {
@@ -151,7 +151,7 @@ PanelWindow {
                     wrapMode: Text.NoWrap
                 }
 
-                DankActionButton {
+                ActionButton {
                     id: expandButton
                     iconName: toast.expanded ? "expand_less" : "expand_more"
                     iconSize: Theme.iconSize
@@ -180,7 +180,7 @@ PanelWindow {
                     }
                 }
 
-                DankActionButton {
+                ActionButton {
                     id: closeButton
                     iconName: "close"
                     iconSize: Theme.iconSize
@@ -269,7 +269,7 @@ PanelWindow {
                             wrapMode: Text.Wrap
                         }
 
-                        DankActionButton {
+                        ActionButton {
                             id: copyButton
                             iconName: "content_copy"
                             iconSize: Theme.iconSizeSmall

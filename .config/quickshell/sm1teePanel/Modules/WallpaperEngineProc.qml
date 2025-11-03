@@ -24,7 +24,7 @@ Item {
             if (pendingSceneId !== "") {
                 const cacheHome = StandardPaths.writableLocation(StandardPaths.CacheLocation).toString()
                 const baseDir = Paths.strip(cacheHome)
-                const outDir = baseDir + "/dankshell/we_screenshots" 
+                const outDir = baseDir + "/sm1tee/we_screenshots" 
                 const outPath = outDir + "/" + pendingSceneId + ".jpg"
 
                 Quickshell.execDetached(["mkdir", "-p", outDir])

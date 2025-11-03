@@ -379,7 +379,7 @@ Item {
         visible: status === Image.Ready
     }
 
-    DankIcon {
+    Icon {
         anchors.centerIn: parent
         size: 40
         name: "sports_esports"

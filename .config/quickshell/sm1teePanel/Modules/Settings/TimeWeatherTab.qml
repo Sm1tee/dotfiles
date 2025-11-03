@@ -9,7 +9,7 @@ import qs.Widgets
 Item {
     id: root
 
-    DankFlickable {
+    Flickable {
         anchors.fill: parent
         anchors.topMargin: Theme.spacingL
         clip: true
@@ -42,7 +42,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "schedule"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -62,7 +62,7 @@ Item {
                             height: 1
                         }
 
-                        DankToggle {
+                        Toggle {
                             id: toggle
 
                             anchors.verticalCenter: parent.verticalCenter
@@ -96,7 +96,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "calendar_today"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -122,7 +122,7 @@ Item {
                             color: Theme.surfaceVariantText
                         }
 
-                        DankButtonGroup {
+                        ButtonGroup {
                             id: clockFormatGroup
                             width: parent.width
                             model: ["Полный", "Без года", "Краткий", "День", "Свой"]
@@ -158,7 +158,7 @@ Item {
                             }
                         }
 
-                        DankTextField {
+                        TextField {
                             id: customFormatInput
                             width: parent.width
                             visible: false
@@ -181,7 +181,7 @@ Item {
                             color: Theme.surfaceVariantText
                         }
 
-                        DankButtonGroup {
+                        ButtonGroup {
                             id: lockFormatGroup
                             width: parent.width
                             model: ["Полный", "Без года", "Краткий", "День", "Свой"]
@@ -217,7 +217,7 @@ Item {
                             }
                         }
 
-                        DankTextField {
+                        TextField {
                             id: customLockFormatInput
                             width: parent.width
                             visible: false
@@ -352,7 +352,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "cloud"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -381,7 +381,7 @@ Item {
                             }
                         }
 
-                        DankToggle {
+                        Toggle {
                             id: enableToggle
 
                             anchors.verticalCenter: parent.verticalCenter
@@ -418,7 +418,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "thermostat"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -447,7 +447,7 @@ Item {
                             }
                         }
 
-                        DankToggle {
+                        Toggle {
                             id: temperatureToggle
 
                             anchors.verticalCenter: parent.verticalCenter
@@ -497,7 +497,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "location_on"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -526,7 +526,7 @@ Item {
                             }
                         }
 
-                        DankToggle {
+                        Toggle {
                             id: autoLocationToggle
 
                             anchors.verticalCenter: parent.verticalCenter
@@ -573,7 +573,7 @@ Item {
                                         color: Theme.surfaceVariantText
                                     }
 
-                                    DankTextField {
+                                    TextField {
                                         id: latitudeInput
                                         width: parent.width
                                         height: 48
@@ -627,7 +627,7 @@ Item {
                                         color: Theme.surfaceVariantText
                                     }
 
-                                    DankTextField {
+                                    TextField {
                                         id: longitudeInput
                                         width: parent.width
                                         height: 48
@@ -684,7 +684,7 @@ Item {
                                 font.weight: Font.Medium
                             }
 
-                            DankLocationSearch {
+                            LocationSearch {
                                 id: locationSearchInput
                                 width: parent.width
                                 currentLocation: ""
@@ -747,7 +747,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "visibility"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -764,7 +764,7 @@ Item {
                         
                         Item { Layout.fillWidth: true; width: 1 }
                         
-                        DankIcon {
+                        Icon {
                             id: refreshButton
                             name: "refresh"
                             size: Theme.iconSize
@@ -808,7 +808,7 @@ Item {
                         spacing: Theme.spacingL
                         visible: !WeatherService.weather.available
 
-                        DankIcon {
+                        Icon {
                             name: "cloud_off"
                             size: Theme.iconSize * 2
                             color: Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.5)
@@ -838,7 +838,7 @@ Item {
                                 width: weatherIcon.width + tempColumn.width + sunriseColumn.width + Theme.spacingM * 2
                                 height: 70
 
-                                DankIcon {
+                                Icon {
                                     id: weatherIcon
                                     name: WeatherService.getWeatherIcon(WeatherService.weather.wCode)
                                     size: Theme.iconSize * 1.5
@@ -924,7 +924,7 @@ Item {
                                         width: sunriseIcon.width + sunriseText.width + Theme.spacingXS
                                         height: sunriseIcon.height
 
-                                        DankIcon {
+                                        Icon {
                                             id: sunriseIcon
                                             name: "wb_twilight"
                                             size: Theme.iconSize - 6
@@ -948,7 +948,7 @@ Item {
                                         width: sunsetIcon.width + sunsetText.width + Theme.spacingXS
                                         height: sunsetIcon.height
 
-                                        DankIcon {
+                                        Icon {
                                             id: sunsetIcon
                                             name: "bedtime"
                                             size: Theme.iconSize - 6
@@ -1000,7 +1000,7 @@ Item {
                                         color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.1)
                                         anchors.horizontalCenter: parent.horizontalCenter
 
-                                        DankIcon {
+                                        Icon {
                                             anchors.centerIn: parent
                                             name: "device_thermostat"
                                             size: Theme.iconSize
@@ -1047,7 +1047,7 @@ Item {
                                         color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.1)
                                         anchors.horizontalCenter: parent.horizontalCenter
 
-                                        DankIcon {
+                                        Icon {
                                             anchors.centerIn: parent
                                             name: "humidity_low"
                                             size: Theme.iconSize
@@ -1094,7 +1094,7 @@ Item {
                                         color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.1)
                                         anchors.horizontalCenter: parent.horizontalCenter
 
-                                        DankIcon {
+                                        Icon {
                                             anchors.centerIn: parent
                                             name: "air"
                                             size: Theme.iconSize
@@ -1141,7 +1141,7 @@ Item {
                                         color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.1)
                                         anchors.horizontalCenter: parent.horizontalCenter
 
-                                        DankIcon {
+                                        Icon {
                                             anchors.centerIn: parent
                                             name: "speed"
                                             size: Theme.iconSize
@@ -1188,7 +1188,7 @@ Item {
                                         color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.1)
                                         anchors.horizontalCenter: parent.horizontalCenter
 
-                                        DankIcon {
+                                        Icon {
                                             anchors.centerIn: parent
                                             name: "rainy"
                                             size: Theme.iconSize
@@ -1235,7 +1235,7 @@ Item {
                                         color: Qt.rgba(Theme.primary.r, Theme.primary.g, Theme.primary.b, 0.1)
                                         anchors.horizontalCenter: parent.horizontalCenter
 
-                                        DankIcon {
+                                        Icon {
                                             anchors.centerIn: parent
                                             name: "wb_sunny"
                                             size: Theme.iconSize

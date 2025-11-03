@@ -78,7 +78,7 @@ Column {
         return null
     }
 
-    DankDropdown {
+    Dropdown {
         width: parent.width
         text: root.label
         description: root.description

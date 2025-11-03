@@ -46,7 +46,7 @@ Column {
             topPadding: Theme.spacingS
             bottomPadding: Theme.spacingS
 
-            DankIcon {
+            Icon {
                 name: root.collapsible ? (root.expanded ? "expand_less" : "expand_more") : root.iconName
                 size: Theme.iconSize - 2
                 color: Theme.primary
@@ -61,7 +61,7 @@ Column {
                 }
             }
 
-            DankIcon {
+            Icon {
                 name: root.iconName
                 size: Theme.iconSize - 4
                 color: Theme.primary

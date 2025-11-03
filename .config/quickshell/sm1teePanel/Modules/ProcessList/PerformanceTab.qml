@@ -93,7 +93,7 @@ Column {
 
             }
 
-            DankFlickable {
+            Flickable {
                 clip: true
                 width: parent.width
                 height: parent.height - 40

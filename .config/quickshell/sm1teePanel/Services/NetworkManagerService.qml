@@ -76,20 +76,60 @@ Singleton {
     signal networksUpdated
     signal connectionChanged
 
-    readonly property string socketPath: Quickshell.env("DMS_SOCKET")
+    readonly property string socketPath: Quickshell.env("SM1TEE_SOCKET")
 
     Component.onCompleted: {
         root.userPreference = SettingsData.networkPreference
         if (socketPath && socketPath.length > 0) {
-            checkDMSCapabilities()
+            checkServerCapabilities()
+        }
+    }
+    
+    // Обновляем состояние после пробуждения системы
+    Connections {
+        target: SessionService
+        function onPrepareForSleep(sleeping) {
+            if (!sleeping) {
+                // Система проснулась - даем время восстановить соединения
+                console.log("NetworkManagerService: System woke up, refreshing state")
+                wakeUpRefreshTimer.restart()
+            }
+        }
+    }
+    
+    Timer {
+        id: wakeUpRefreshTimer
+        interval: 2000
+        repeat: false
+        onTriggered: {
+            if (networkAvailable) {
+                console.log("NetworkManagerService: Refreshing state after wake up")
+                getState()
+                // Повторяем через 3 секунды для надежности
+                Qt.callLater(() => {
+                    wakeUpSecondRefreshTimer.restart()
+                })
+            }
+        }
+    }
+    
+    Timer {
+        id: wakeUpSecondRefreshTimer
+        interval: 3000
+        repeat: false
+        onTriggered: {
+            if (networkAvailable) {
+                console.log("NetworkManagerService: Second refresh after wake up")
+                getState()
+            }
         }
     }
 
     Connections {
-        target: DMSService
+        target: PluginManagerService
 
         function onNetworkStateUpdate(data) {
-            if (DMSService.verboseLogs) {
+            if (PluginManagerService.verboseLogs) {
                 const networksCount = data.wifiNetworks?.length ?? "null"
                 console.log("NetworkManagerService: Subscription update received, networks:", networksCount)
             }
@@ -98,36 +138,36 @@ Singleton {
     }
 
     Connections {
-        target: DMSService
+        target: PluginManagerService
 
         function onConnectionStateChanged() {
-            if (DMSService.isConnected) {
-                checkDMSCapabilities()
+            if (PluginManagerService.isConnected) {
+                checkServerCapabilities()
             }
         }
     }
 
     Connections {
-        target: DMSService
-        enabled: DMSService.isConnected
+        target: PluginManagerService
+        enabled: PluginManagerService.isConnected
 
         function onCapabilitiesChanged() {
-            checkDMSCapabilities()
+            checkServerCapabilities()
         }
     }
 
-    function checkDMSCapabilities() {
-        if (!DMSService.isConnected) {
+    function checkServerCapabilities() {
+        if (!PluginManagerService.isConnected) {
             return
         }
 
-        if (DMSService.capabilities.length === 0) {
+        if (PluginManagerService.capabilities.length === 0) {
             return
         }
 
-        networkAvailable = DMSService.capabilities.includes("network")
+        networkAvailable = PluginManagerService.capabilities.includes("network")
 
-        if (DMSService.verboseLogs) {
+        if (PluginManagerService.verboseLogs) {
             console.log("NetworkManagerService: Network available:", networkAvailable)
         }
 
@@ -140,6 +180,7 @@ Singleton {
     function addRef() {
         refCount++
         if (refCount === 1 && networkAvailable) {
+            getState() // Обновляем состояние при открытии виджета
             startAutoScan()
         }
     }
@@ -156,11 +197,11 @@ Singleton {
     function getState() {
         if (!networkAvailable) return
 
-        DMSService.sendRequest("network.getState", null, response => {
+        PluginManagerService.sendRequest("network.getState", null, response => {
             if (response.result) {
                 updateState(response.result)
                 if (!initialStateFetched && response.result.wifiEnabled && (!response.result.wifiNetworks || response.result.wifiNetworks.length === 0)) {
-                    if (DMSService.verboseLogs) {
+                    if (PluginManagerService.verboseLogs) {
                         console.log("NetworkManagerService: Initial state has no networks, triggering scan")
                     }
                     initialStateFetched = true
@@ -223,16 +264,16 @@ Singleton {
     function scanWifi() {
         if (!networkAvailable || isScanning || !wifiEnabled) return
 
-        if (DMSService.verboseLogs) {
+        if (PluginManagerService.verboseLogs) {
             console.log("NetworkManagerService: Starting WiFi scan...")
         }
         isScanning = true
-        DMSService.sendRequest("network.wifi.scan", null, response => {
+        PluginManagerService.sendRequest("network.wifi.scan", null, response => {
             isScanning = false
             if (response.error) {
                 console.warn("NetworkManagerService: WiFi scan failed:", response.error)
             } else {
-                if (DMSService.verboseLogs) {
+                if (PluginManagerService.verboseLogs) {
                     console.log("NetworkManagerService: Scan completed")
                 }
                 Qt.callLater(() => getState())
@@ -256,7 +297,7 @@ Singleton {
         if (password) params.password = password
         if (username) params.username = username
 
-        DMSService.sendRequest("network.wifi.connect", params, response => {
+        PluginManagerService.sendRequest("network.wifi.connect", params, response => {
             if (response.error) {
                 connectionError = response.error
                 lastConnectionError = response.error
@@ -288,7 +329,7 @@ Singleton {
     function disconnectWifi() {
         if (!networkAvailable || !wifiInterface) return
 
-        DMSService.sendRequest("network.wifi.disconnect", null, response => {
+        PluginManagerService.sendRequest("network.wifi.disconnect", null, response => {
             if (response.error) {
                 ToastService.showError("Failed to disconnect WiFi")
             } else {
@@ -303,7 +344,7 @@ Singleton {
         if (!networkAvailable) return
 
         forgetSSID = ssid
-        DMSService.sendRequest("network.wifi.forget", { ssid: ssid }, response => {
+        PluginManagerService.sendRequest("network.wifi.forget", { ssid: ssid }, response => {
             if (response.error) {
                 console.warn("Failed to forget network:", response.error)
             } else {
@@ -333,7 +374,7 @@ Singleton {
         if (!networkAvailable || wifiToggling) return
 
         wifiToggling = true
-        DMSService.sendRequest("network.wifi.toggle", null, response => {
+        PluginManagerService.sendRequest("network.wifi.toggle", null, response => {
             wifiToggling = false
 
             if (response.error) {
@@ -348,7 +389,7 @@ Singleton {
     function enableWifiDevice() {
         if (!networkAvailable) return
 
-        DMSService.sendRequest("network.wifi.enable", null, response => {
+        PluginManagerService.sendRequest("network.wifi.enable", null, response => {
             if (response.error) {
                 ToastService.showError("Failed to enable WiFi")
             } else {
@@ -365,7 +406,7 @@ Singleton {
         targetPreference = preference
         SettingsData.setNetworkPreference(preference)
 
-        DMSService.sendRequest("network.preference.set", { preference: preference }, response => {
+        PluginManagerService.sendRequest("network.preference.set", { preference: preference }, response => {
             changingPreference = false
             targetPreference = ""
 
@@ -403,7 +444,7 @@ Singleton {
         if (password) params.password = password
         if (username) params.username = username
 
-        DMSService.sendRequest("network.wifi.connect", params, response => {
+        PluginManagerService.sendRequest("network.wifi.connect", params, response => {
             if (response.error) {
                 connectionError = response.error
                 lastConnectionError = response.error
@@ -438,9 +479,9 @@ Singleton {
 
         if (type === "ethernet") {
             if (networkStatus === "ethernet") {
-                DMSService.sendRequest("network.ethernet.disconnect", null, null)
+                PluginManagerService.sendRequest("network.ethernet.disconnect", null, null)
             } else {
-                DMSService.sendRequest("network.ethernet.connect", null, null)
+                PluginManagerService.sendRequest("network.ethernet.connect", null, null)
             }
         }
     }
@@ -465,7 +506,7 @@ Singleton {
         networkInfoLoading = true
         networkInfoDetails = "Loading network information..."
 
-        DMSService.sendRequest("network.info", { ssid: ssid }, response => {
+        PluginManagerService.sendRequest("network.info", { ssid: ssid }, response => {
             networkInfoLoading = false
 
             if (response.error) {

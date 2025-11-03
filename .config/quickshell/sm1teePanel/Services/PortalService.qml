@@ -17,7 +17,7 @@ Singleton {
 
     property bool freedeskAvailable: false
 
-    readonly property string socketPath: Quickshell.env("DMS_SOCKET")
+    readonly property string socketPath: Quickshell.env("SM1TEE_SOCKET")
     property string watchedIconPath: ""
     
     signal profileImageUpdateCompleted()
@@ -40,7 +40,7 @@ Singleton {
         const username = Quickshell.env("USER")
         if (!username) return
 
-        DMSService.sendRequest("freedesktop.accounts.getUserIconFile", { username: username }, response => {
+        PluginManagerService.sendRequest("freedesktop.accounts.getUserIconFile", { username: username }, response => {
             if (response.result && response.result.success) {
                 const iconFile = response.result.value || ""
                 if (iconFile && iconFile !== "" && iconFile !== "/var/lib/AccountsService/icons/") {
@@ -92,7 +92,7 @@ Singleton {
             profileImage = ""
             return
         }
-        if (Quickshell.env("DMS_RUN_GREETER") === "1" || Quickshell.env("DMS_RUN_GREETER") === "true") {
+        if (Quickshell.env("SM1TEE_RUN_GREETER") === "1" || Quickshell.env("SM1TEE_RUN_GREETER") === "true") {
             profileImage = ""
             return
         }
@@ -102,7 +102,7 @@ Singleton {
             return
         }
 
-        DMSService.sendRequest("freedesktop.accounts.getUserIconFile", { username: username }, response => {
+        PluginManagerService.sendRequest("freedesktop.accounts.getUserIconFile", { username: username }, response => {
             if (response.result && response.result.success) {
                 const icon = response.result.value || ""
                 if (icon && icon !== "" && icon !== "/var/lib/AccountsService/icons/") {
@@ -130,7 +130,7 @@ Singleton {
     function getSystemColorScheme() {
         if (!freedeskAvailable) return
 
-        DMSService.sendRequest("freedesktop.settings.getColorScheme", null, response => {
+        PluginManagerService.sendRequest("freedesktop.settings.getColorScheme", null, response => {
             if (response.result) {
                 systemColorScheme = response.result.value || 0
 
@@ -156,7 +156,7 @@ Singleton {
     function setSystemColorScheme(isLightMode) {
         if (!settingsPortalAvailable || !freedeskAvailable) return
 
-        DMSService.sendRequest("freedesktop.settings.setColorScheme", { preferDark: !isLightMode }, response => {
+        PluginManagerService.sendRequest("freedesktop.settings.setColorScheme", { preferDark: !isLightMode }, response => {
             if (!response.error) {
                 Qt.callLater(() => getSystemColorScheme())
             }
@@ -177,10 +177,10 @@ Singleton {
             // Копируем в системную папку с сохранением имени
             // Пробуем несколько методов в порядке приоритета
             if (accountsServiceAvailable && freedeskAvailable) {
-                // Метод 1: Через DMSService (если доступен)
-                DMSService.sendRequest("freedesktop.accounts.setIconFile", { path: imagePath }, response => {
+                // Метод 1: Через PluginManagerService (если доступен)
+                PluginManagerService.sendRequest("freedesktop.accounts.setIconFile", { path: imagePath }, response => {
                     if (response.error) {
-                        console.warn("PortalService: DMSService failed, trying direct copy:", response.error)
+                        console.warn("PortalService: PluginManagerService failed, trying direct copy:", response.error)
                         copyToSystemIconDirect(imagePath, systemIconPath)
                     } else {
                         Qt.callLater(() => root.getSystemProfileImage())
@@ -244,39 +244,39 @@ Singleton {
     Component.onCompleted: {
         init()
         if (socketPath && socketPath.length > 0) {
-            checkDMSCapabilities()
+            checkServerCapabilities()
         }
     }
 
     Connections {
-        target: DMSService
+        target: PluginManagerService
 
         function onConnectionStateChanged() {
-            if (DMSService.isConnected) {
-                checkDMSCapabilities()
+            if (PluginManagerService.isConnected) {
+                checkServerCapabilities()
             }
         }
     }
 
     Connections {
-        target: DMSService
-        enabled: DMSService.isConnected
+        target: PluginManagerService
+        enabled: PluginManagerService.isConnected
 
         function onCapabilitiesChanged() {
-            checkDMSCapabilities()
+            checkServerCapabilities()
         }
     }
 
-    function checkDMSCapabilities() {
-        if (!DMSService.isConnected) {
+    function checkServerCapabilities() {
+        if (!PluginManagerService.isConnected) {
             return
         }
 
-        if (DMSService.capabilities.length === 0) {
+        if (PluginManagerService.capabilities.length === 0) {
             return
         }
 
-        freedeskAvailable = DMSService.capabilities.includes("freedesktop")
+        freedeskAvailable = PluginManagerService.capabilities.includes("freedesktop")
         if (freedeskAvailable) {
             checkAccountsService()
             checkSettingsPortal()
@@ -286,7 +286,7 @@ Singleton {
     function checkAccountsService() {
         if (!freedeskAvailable) return
 
-        DMSService.sendRequest("freedesktop.getState", null, response => {
+        PluginManagerService.sendRequest("freedesktop.getState", null, response => {
             if (response.result && response.result.accounts) {
                 accountsServiceAvailable = response.result.accounts.available || false
                 if (accountsServiceAvailable) {
@@ -299,7 +299,7 @@ Singleton {
     function checkSettingsPortal() {
         if (!freedeskAvailable) return
 
-        DMSService.sendRequest("freedesktop.getState", null, response => {
+        PluginManagerService.sendRequest("freedesktop.getState", null, response => {
             if (response.result && response.result.settings) {
                 settingsPortalAvailable = response.result.settings.available || false
                 if (settingsPortalAvailable) {

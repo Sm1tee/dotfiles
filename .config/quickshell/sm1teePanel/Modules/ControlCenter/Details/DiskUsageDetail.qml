@@ -82,7 +82,7 @@ Rectangle {
         }
     }
 
-    DankFlickable {
+    Flickable {
         id: diskContent
         anchors.top: parent.top
         anchors.left: parent.left
@@ -107,7 +107,7 @@ Rectangle {
                     anchors.centerIn: parent
                     spacing: Theme.spacingM
 
-                    DankIcon {
+                    Icon {
                         anchors.horizontalCenter: parent.horizontalCenter
                         name: "storage"
                         size: 32
@@ -147,7 +147,7 @@ Rectangle {
                             anchors.verticalCenter: parent.verticalCenter
                             spacing: 2
 
-                            DankIcon {
+                            Icon {
                                 name: "storage"
                                 size: Theme.iconSize
                                 color: {

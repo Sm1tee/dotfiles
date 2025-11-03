@@ -82,7 +82,7 @@ Rectangle {
                     anchors.verticalCenter: parent.verticalCenter
                     spacing: Theme.spacingM
 
-                    DankIcon {
+                    Icon {
                         name: modelData.icon || ""
                         size: Theme.iconSize - 2
                         color: parent.parent.isActive ? Theme.primaryText : Theme.surfaceText

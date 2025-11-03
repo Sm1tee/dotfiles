@@ -5,7 +5,7 @@ import qs.Modals.Common
 import qs.Services
 import qs.Widgets
 
-DankModal {
+Modal {
     id: root
 
     property bool networkInfoModalVisible: false
@@ -72,7 +72,7 @@ DankModal {
 
                     }
 
-                    DankActionButton {
+                    ActionButton {
                         iconName: "close"
                         iconSize: Theme.iconSize - 4
                         iconColor: Theme.surfaceText
@@ -92,7 +92,7 @@ DankModal {
                     border.width: 1
                     clip: true
 
-                    DankFlickable {
+                    Flickable {
                         anchors.fill: parent
                         anchors.margins: Theme.spacingM
                         contentHeight: detailsText.contentHeight

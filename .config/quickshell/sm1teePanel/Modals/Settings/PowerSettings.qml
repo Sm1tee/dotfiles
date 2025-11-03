@@ -6,7 +6,7 @@ import qs.Widgets
 Item {
     id: powerTab
 
-    DankFlickable {
+    Flickable {
         anchors.fill: parent
         anchors.topMargin: Theme.spacingL
         clip: true
@@ -43,7 +43,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "lock"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -59,7 +59,7 @@ Item {
                         }
                     }
 
-                    DankToggle {
+                    Toggle {
                         width: parent.width
                         text: "Показывать действия питания"
                         description: "Показывать кнопки выключения, перезагрузки и выхода на экране блокировки"
@@ -68,7 +68,7 @@ Item {
                     }
 
                     StyledText {
-                        text: "Требуется DMS сервер для интеграции с системой. Блокировка работает и без него."
+                        text: "Требуется сервер для интеграции с системой. Блокировка работает и без него."
                         font.pixelSize: Theme.fontSizeSmall
                         color: Theme.warning
                         visible: !SessionService.loginctlAvailable
@@ -76,7 +76,7 @@ Item {
                         wrapMode: Text.Wrap
                     }
 
-                    DankToggle {
+                    Toggle {
                         width: parent.width
                         text: "Интеграция с системой (loginctl)"
                         description: "Автоблокировка при засыпании и статус 'Отошёл' в приложениях."
@@ -89,7 +89,7 @@ Item {
                         }
                     }
 
-                    DankToggle {
+                    Toggle {
                         width: parent.width
                         text: "Блокировать перед приостановкой"
                         description: "Автоматически блокировать экран когда система готовится к приостановке"
@@ -118,7 +118,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "schedule"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -138,7 +138,7 @@ Item {
                             height: parent.height
                         }
 
-                        DankButtonGroup {
+                        ButtonGroup {
                             id: powerCategory
                             anchors.verticalCenter: parent.verticalCenter
                             visible: BatteryService.batteryAvailable
@@ -149,7 +149,7 @@ Item {
                         }
                     }
 
-                    DankDropdown {
+                    Dropdown {
                         id: lockDropdown
                         property var timeoutOptions: ["Никогда", "1 минута", "2 минуты", "3 минуты", "5 минут", "10 минут", "15 минут", "20 минут", "30 минут", "1 час", "1 час 30 минут", "2 часа", "3 часа"]
                         property var timeoutValues: [0, 60, 120, 180, 300, 600, 900, 1200, 1800, 3600, 5400, 7200, 10800]
@@ -185,7 +185,7 @@ Item {
                         }
                     }
 
-                    DankDropdown {
+                    Dropdown {
                         id: monitorDropdown
                         property var timeoutOptions: ["Никогда", "1 минута", "2 минуты", "3 минуты", "5 минут", "10 минут", "15 минут", "20 минут", "30 минут", "1 час", "1 час 30 минут", "2 часа", "3 часа"]
                         property var timeoutValues: [0, 60, 120, 180, 300, 600, 900, 1200, 1800, 3600, 5400, 7200, 10800]
@@ -221,7 +221,7 @@ Item {
                         }
                     }
 
-                    DankDropdown {
+                    Dropdown {
                         id: suspendDropdown
                         property var timeoutOptions: ["Никогда", "1 минута", "2 минуты", "3 минуты", "5 минут", "10 минут", "15 минут", "20 минут", "30 минут", "1 час", "1 час 30 минут", "2 часа", "3 часа"]
                         property var timeoutValues: [0, 60, 120, 180, 300, 600, 900, 1200, 1800, 3600, 5400, 7200, 10800]
@@ -257,7 +257,7 @@ Item {
                         }
                     }
 
-                    DankDropdown {
+                    Dropdown {
                         id: hibernateDropdown
                         property var timeoutOptions: ["Никогда", "1 минута", "2 минуты", "3 минуты", "5 минут", "10 минут", "15 минут", "20 минут", "30 минут", "1 час", "1 час 30 минут", "2 часа", "3 часа"]
                         property var timeoutValues: [0, 60, 120, 180, 300, 600, 900, 1200, 1800, 3600, 5400, 7200, 10800]

@@ -14,7 +14,7 @@ import "StockThemes.js" as StockThemes
 Singleton {
     id: root
 
-    readonly property bool envDisableMatugen: Quickshell.env("DMS_DISABLE_MATUGEN") === "1" || Quickshell.env("DMS_DISABLE_MATUGEN") === "true"
+    readonly property bool envDisableMatugen: Quickshell.env("SM1TEE_DISABLE_MATUGEN") === "1" || Quickshell.env("SM1TEE_DISABLE_MATUGEN") === "true"
 
     // ! TODO - Synchronize with niri/hyprland gaps?
     readonly property real popupDistance: 2
@@ -74,7 +74,7 @@ Singleton {
     property var matugenColors: ({})
     property var customThemeData: null
 
-    readonly property string stateDir: Paths.strip(StandardPaths.writableLocation(StandardPaths.CacheLocation).toString()) + "/dankshell"
+    readonly property string stateDir: Paths.strip(StandardPaths.writableLocation(StandardPaths.CacheLocation).toString()) + "/sm1tee"
 
     Component.onCompleted: {
         Quickshell.execDetached(["mkdir", "-p", stateDir])
@@ -264,22 +264,44 @@ Singleton {
     property int emphasizedEasing: Easing.OutQuart
 
     property real cornerRadius: typeof SettingsData !== "undefined" ? SettingsData.cornerRadius : 12
-    property real spacingXS: 4
-    property real spacingS: 8
-    property real spacingM: 12
-    property real spacingL: 16
-    property real spacingXL: 24
-    property real fontSizeSmall: (typeof SettingsData !== "undefined" ? SettingsData.fontScale : 1.0) * 12
-    property real fontSizeMedium: (typeof SettingsData !== "undefined" ? SettingsData.fontScale : 1.0) * 14
-    property real fontSizeLarge: (typeof SettingsData !== "undefined" ? SettingsData.fontScale : 1.0) * 16
-    property real fontSizeXLarge: (typeof SettingsData !== "undefined" ? SettingsData.fontScale : 1.0) * 20
+    
+    // Base spacing (without fontScale, used for bar)
+    readonly property real baseSpacingXS: 4
+    readonly property real baseSpacingS: 8
+    readonly property real baseSpacingM: 12
+    readonly property real baseSpacingL: 16
+    readonly property real baseSpacingXL: 24
+    
+    // Scaled spacing (with fontScale, used for UI elements)
+    property real spacingXS: (typeof SettingsData !== "undefined" ? SettingsData.fontScale : 1.0) * baseSpacingXS
+    property real spacingS: (typeof SettingsData !== "undefined" ? SettingsData.fontScale : 1.0) * baseSpacingS
+    property real spacingM: (typeof SettingsData !== "undefined" ? SettingsData.fontScale : 1.0) * baseSpacingM
+    property real spacingL: (typeof SettingsData !== "undefined" ? SettingsData.fontScale : 1.0) * baseSpacingL
+    property real spacingXL: (typeof SettingsData !== "undefined" ? SettingsData.fontScale : 1.0) * baseSpacingXL
+    
+    // Base font sizes (without fontScale, used for bar)
+    readonly property real baseFontSizeSmall: 12
+    readonly property real baseFontSizeMedium: 14
+    readonly property real baseFontSizeLarge: 16
+    readonly property real baseFontSizeXLarge: 20
+    
+    // Scaled font sizes (with fontScale, used for UI elements)
+    property real fontSizeSmall: (typeof SettingsData !== "undefined" ? SettingsData.fontScale : 1.0) * baseFontSizeSmall
+    property real fontSizeMedium: (typeof SettingsData !== "undefined" ? SettingsData.fontScale : 1.0) * baseFontSizeMedium
+    property real fontSizeLarge: (typeof SettingsData !== "undefined" ? SettingsData.fontScale : 1.0) * baseFontSizeLarge
+    property real fontSizeXLarge: (typeof SettingsData !== "undefined" ? SettingsData.fontScale : 1.0) * baseFontSizeXLarge
+    
     property real barHeight: 48
     property real iconSize: 24
     property real iconSizeSmall: 16
     property real iconSizeLarge: 32
+    
+    // Trigger property to force re-evaluation of barTextSize function
+    readonly property real barFontScaleTrigger: typeof SettingsData !== "undefined" ? SettingsData.barFontScale : 1.0
+    readonly property real barIconScaleTrigger: typeof SettingsData !== "undefined" ? SettingsData.barIconScale : 1.0
 
     property real panelTransparency: 0.85
-    property real widgetTransparency: typeof SettingsData !== "undefined" && SettingsData.dankBarWidgetTransparency !== undefined ? SettingsData.dankBarWidgetTransparency : 1.0
+    property real widgetTransparency: typeof SettingsData !== "undefined" && SettingsData.barWidgetTransparency !== undefined ? SettingsData.barWidgetTransparency : 1.0
     property real popupTransparency: typeof SettingsData !== "undefined" && SettingsData.popupTransparency !== undefined ? SettingsData.popupTransparency : 1.0
 
     function screenTransition() {
@@ -477,17 +499,21 @@ Singleton {
     }
 
     function barIconSize(barThickness, offset) {
+        // Use barIconScaleTrigger to force re-evaluation when scale changes
+        const triggerValue = barIconScaleTrigger
         const defaultOffset = offset !== undefined ? offset : -6
-        const dankBarIconScale = (typeof SettingsData !== "undefined" ? SettingsData.dankBarIconScale : 1.0)
-        return Math.round((barThickness / 48) * (iconSize + defaultOffset) * dankBarIconScale)
+        const barIconScale = triggerValue
+        return Math.round((barThickness / 48) * (iconSize + defaultOffset) * barIconScale)
     }
 
     function barTextSize(barThickness) {
+        // Use barFontScaleTrigger to force re-evaluation when scale changes
+        const triggerValue = barFontScaleTrigger
         const scale = barThickness / 48
-        const dankBarScale = (typeof SettingsData !== "undefined" ? SettingsData.dankBarFontScale : 1.0)
-        if (scale <= 0.75) return fontSizeSmall * 0.9 * dankBarScale
-        if (scale >= 1.25) return fontSizeMedium * dankBarScale
-        return fontSizeSmall * dankBarScale
+        const barScale = triggerValue
+        if (scale <= 0.75) return Math.round(baseFontSizeSmall * 0.9 * barScale * 10) / 10
+        if (scale >= 1.25) return Math.round(baseFontSizeMedium * barScale * 10) / 10
+        return Math.round(baseFontSizeSmall * barScale * 10) / 10
     }
 
     function getBatteryIcon(level, isCharging, batteryAvailable) {
@@ -829,10 +855,10 @@ Singleton {
     FileView {
         id: dynamicColorsFileView
         path: {
-            const greetCfgDir = Quickshell.env("DMS_GREET_CFG_DIR") || "/etc/greetd/.dms"
+            const greetCfgDir = Quickshell.env("SM1TEE_GREET_CFG_DIR") || "/etc/greetd/.sm1tee"
             const colorsPath = SessionData.isGreeterMode
                 ? greetCfgDir + "/colors.json"
-                : stateDir + "/dms-colors.json"
+                : stateDir + "/sm1tee-colors.json"
             return colorsPath
         }
         watchChanges: currentTheme === dynamic && !SessionData.isGreeterMode

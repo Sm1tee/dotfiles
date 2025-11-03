@@ -1,0 +1,536 @@
+import QtQuick
+import Quickshell
+import Quickshell.Io
+import qs.Common
+import qs.Modals
+import qs.Modals.Clipboard
+import qs.Modals.Common
+import qs.Modals.Settings
+import qs.Modals.Spotlight
+import qs.Modules
+import qs.Modules.AppDrawer
+import qs.Modules.Dash
+import qs.Modules.ControlCenter
+import qs.Modules.Dock
+import qs.Modules.Lock
+import qs.Modules.Notepad
+import qs.Modules.Notifications.Center
+import qs.Widgets
+import qs.Modules.Notifications.Popup
+import qs.Modules.OSD
+import qs.Modules.ProcessList
+import qs.Modules.Settings
+import qs.Modules.Bar
+import qs.Modules.Bar.Popouts
+import qs.Modules.Plugins
+import qs.Services
+
+
+Item {
+  id: root
+
+  Instantiator {
+      id: daemonPluginInstantiator
+      asynchronous: true
+      model: Object.keys(PluginService.pluginDaemonComponents)
+
+      delegate: Loader {
+          id: daemonLoader
+          property string pluginId: modelData
+          sourceComponent: PluginService.pluginDaemonComponents[pluginId]
+
+          onLoaded: {
+              if (item) {
+                  item.pluginService = PluginService
+                  if (item.popoutService !== undefined) {
+                      item.popoutService = PopoutService
+                  }
+                  item.pluginId = pluginId
+
+              }
+          }
+      }
+  }
+
+  WallpaperBackground {}
+
+  LazyLoader {
+      id: lockLoader
+      active: false
+
+      Lock {
+          id: lock
+          anchors.fill: parent
+
+          Component.onCompleted: {
+              IdleService.lockComponent = lock
+          }
+      }
+  }
+
+  Timer {
+      id: lockInitTimer
+      interval: 100
+      running: true
+      repeat: false
+      onTriggered: lockLoader.active = true
+  }
+
+  Loader {
+      id: barLoader
+      asynchronous: true  // Асинхронная загрузка для ускорения старта
+
+      property var currentPosition: SettingsData.barPosition
+      property bool initialized: false
+
+      sourceComponent: Bar {
+          onColorPickerRequested: colorPickerModal.show()
+      }
+
+      Component.onCompleted: {
+          initialized = true
+      }
+
+      onCurrentPositionChanged: {
+          if (!initialized) return
+
+          const component = sourceComponent
+          sourceComponent = null
+          sourceComponent = component
+      }
+  }
+
+  Loader {
+      id: dockLoader
+      active: SettingsData.showDock  // Загружается только если включен в настройках
+      asynchronous: false
+
+      property var currentPosition: SettingsData.dockPosition
+      property bool initialized: false
+
+      sourceComponent: Dock {
+          contextMenu: dockContextMenuLoader.item ? dockContextMenuLoader.item : null
+      }
+
+      onLoaded: {
+          if (item) {
+              dockContextMenuLoader.active = true
+          }
+      }
+
+      Component.onCompleted: {
+          initialized = true
+      }
+
+      onCurrentPositionChanged: {
+          if (!initialized) return
+
+          const comp = sourceComponent
+          sourceComponent = null
+          sourceComponent = comp
+      }
+  }
+
+  Loader {
+      id: dashPopoutLoader
+
+      active: false
+      asynchronous: true
+
+      sourceComponent: Component {
+          DashPopout {
+              id: dashPopout
+
+              Component.onCompleted: {
+                  PopoutService.dashPopout = dashPopout
+              }
+          }
+      }
+  }
+
+  LazyLoader {
+      id: dockContextMenuLoader
+
+      active: false
+
+      DockContextMenu {
+          id: dockContextMenu
+      }
+  }
+
+  LazyLoader {
+      id: notificationCenterLoader
+
+      active: false
+
+      NotificationCenterPopout {
+          id: notificationCenter
+
+          Component.onCompleted: {
+              PopoutService.notificationCenterPopout = notificationCenter
+          }
+      }
+  }
+
+  Variants {
+      model: SettingsData.getFilteredScreens("notifications")
+
+      delegate: NotificationPopupManager {
+          modelData: item
+      }
+  }
+
+  LazyLoader {
+      id: controlCenterLoader
+
+      active: false
+
+      property var modalRef: colorPickerModal
+      property LazyLoader powerModalLoaderRef: powerMenuModalLoader
+
+      ControlCenterPopout {
+          id: controlCenterPopout
+          colorPickerModal: controlCenterLoader.modalRef
+          powerMenuModalLoader: controlCenterLoader.powerModalLoaderRef
+
+          onLockRequested: {
+              lockLoader.item.activate()
+          }
+
+          Component.onCompleted: {
+              PopoutService.controlCenterPopout = controlCenterPopout
+          }
+      }
+  }
+
+  LazyLoader {
+      id: wifiPasswordModalLoader
+
+      active: false
+
+      WifiPasswordModal {
+          id: wifiPasswordModal
+
+          Component.onCompleted: {
+              PopoutService.wifiPasswordModal = wifiPasswordModal
+          }
+      }
+  }
+
+  LazyLoader {
+      id: networkInfoModalLoader
+
+      active: false
+
+      NetworkInfoModal {
+          id: networkInfoModal
+
+          Component.onCompleted: {
+              PopoutService.networkInfoModal = networkInfoModal
+          }
+      }
+  }
+
+  LazyLoader {
+      id: batteryPopoutLoader
+
+      active: false
+
+      BatteryPopout {
+          id: batteryPopout
+
+          Component.onCompleted: {
+              PopoutService.batteryPopout = batteryPopout
+          }
+      }
+  }
+
+  LazyLoader {
+      id: powerMenuLoader
+
+      active: false
+
+      PowerMenu {
+          id: powerMenu
+
+          onPowerActionRequested: (action, title, message) => {
+                                      powerConfirmModalLoader.active = true
+                                      if (powerConfirmModalLoader.item) {
+                                          powerConfirmModalLoader.item.confirmButtonColor = action === "poweroff" ? Theme.error : action === "reboot" ? Theme.warning : Theme.primary
+                                          powerConfirmModalLoader.item.show(title, message, function () {
+                                              switch (action) {
+                                              case "logout":
+                                                  SessionService.logout()
+                                                  break
+                                              case "suspend":
+                                                  SessionService.suspend()
+                                                  break
+                                              case "hibernate":
+                                                  SessionService.hibernate()
+                                                  break
+                                              case "reboot":
+                                                  SessionService.reboot()
+                                                  break
+                                              case "poweroff":
+                                                  SessionService.poweroff()
+                                                  break
+                                              }
+                                          }, function () {})
+                                      }
+                                  }
+      }
+  }
+
+  LazyLoader {
+      id: powerConfirmModalLoader
+
+      active: false
+
+      ConfirmModal {
+          id: powerConfirmModal
+      }
+  }
+
+  LazyLoader {
+      id: processListPopoutLoader
+
+      active: false
+
+      ProcessListPopout {
+          id: processListPopout
+
+          Component.onCompleted: {
+              PopoutService.processListPopout = processListPopout
+          }
+      }
+  }
+
+  SettingsModal {
+      id: settingsModal
+
+      Component.onCompleted: {
+          PopoutService.settingsModal = settingsModal
+      }
+  }
+
+  LazyLoader {
+      id: appDrawerLoader
+
+      active: false
+
+      AppDrawerPopout {
+          id: appDrawerPopout
+
+          Component.onCompleted: {
+              PopoutService.appDrawerPopout = appDrawerPopout
+          }
+      }
+  }
+
+  SpotlightModal {
+      id: spotlightModal
+
+      Component.onCompleted: {
+          PopoutService.spotlightModal = spotlightModal
+      }
+  }
+
+  ClipboardHistoryModal {
+      id: clipboardHistoryModalPopup
+
+      Component.onCompleted: {
+          PopoutService.clipboardHistoryModal = clipboardHistoryModalPopup
+      }
+  }
+
+  NotificationModal {
+      id: notificationModal
+
+      Component.onCompleted: {
+          PopoutService.notificationModal = notificationModal
+      }
+  }
+
+  ColorPickerModal {
+      id: colorPickerModal
+
+      Component.onCompleted: {
+          PopoutService.colorPickerModal = colorPickerModal
+      }
+  }
+
+  LazyLoader {
+      id: processListModalLoader
+
+      active: false
+
+      ProcessListModal {
+          id: processListModal
+
+          Component.onCompleted: {
+              PopoutService.processListModal = processListModal
+          }
+      }
+  }
+
+  LazyLoader {
+      id: systemUpdateLoader
+
+      active: false
+
+      SystemUpdatePopout {
+          id: systemUpdatePopout
+
+          Component.onCompleted: {
+              PopoutService.systemUpdatePopout = systemUpdatePopout
+          }
+      }
+  }
+
+  Variants {
+      id: notepadSlideoutVariants
+      model: SettingsData.getFilteredScreens("notepad")
+
+      delegate: Slideout {
+          id: notepadSlideout
+          modelData: item
+          title: "Блокнот"
+          slideoutWidth: Math.max(480, Math.min(640, 480 * SettingsData.fontScale))
+          expandable: true
+          expandedWidthValue: Math.max(960, Math.min(1280, 960 * SettingsData.fontScale))
+          customTransparency: SettingsData.notepadTransparencyOverride
+
+          content: Component {
+              Notepad {
+                  onHideRequested: {
+                      notepadSlideout.hide()
+                  }
+              }
+          }
+
+          function toggle() {
+              if (isVisible) {
+                  hide()
+              } else {
+                  show()
+              }
+          }
+      }
+  }
+
+  LazyLoader {
+      id: powerMenuModalLoader
+
+      active: false
+
+      PowerMenuModal {
+          id: powerMenuModal
+
+          onPowerActionRequested: (action, title, message) => {
+                                      powerConfirmModalLoader.active = true
+                                      if (powerConfirmModalLoader.item) {
+                                          powerConfirmModalLoader.item.confirmButtonColor = action === "poweroff" ? Theme.error : action === "reboot" ? Theme.warning : Theme.primary
+                                          powerConfirmModalLoader.item.show(title, message, function () {
+                                              switch (action) {
+                                              case "logout":
+                                                  SessionService.logout()
+                                                  break
+                                              case "suspend":
+                                                  SessionService.suspend()
+                                                  break
+                                              case "hibernate":
+                                                  SessionService.hibernate()
+                                                  break
+                                              case "reboot":
+                                                  SessionService.reboot()
+                                                  break
+                                              case "poweroff":
+                                                  SessionService.poweroff()
+                                                  break
+                                              }
+                                          }, function () {})
+                                      }
+                                  }
+
+          Component.onCompleted: {
+              PopoutService.powerMenuModal = powerMenuModal
+          }
+      }
+  }
+
+  ShellIPC {
+      powerMenuModalLoader: powerMenuModalLoader
+      processListModalLoader: processListModalLoader
+      controlCenterLoader: controlCenterLoader
+      dashPopoutLoader: dashPopoutLoader
+      notepadSlideoutVariants: notepadSlideoutVariants
+      appDrawerLoader: appDrawerLoader
+  }
+
+  Variants {
+      model: SettingsData.getFilteredScreens("toast")
+
+      delegate: Toast {
+          modelData: item
+          visible: ToastService.toastVisible
+      }
+  }
+
+  Variants {
+      model: SettingsData.getFilteredScreens("osd")
+
+      delegate: VolumeOSD {
+          modelData: item
+      }
+  }
+
+  Variants {
+      model: SettingsData.getFilteredScreens("osd")
+
+      delegate: MicMuteOSD {
+          modelData: item
+      }
+  }
+
+  Variants {
+      model: SettingsData.getFilteredScreens("osd")
+
+      delegate: BrightnessOSD {
+          modelData: item
+      }
+  }
+
+  Variants {
+      model: SettingsData.getFilteredScreens("osd")
+
+      delegate: IdleInhibitorOSD {
+          modelData: item
+      }
+  }
+
+  LazyLoader {
+      id: lowBatteryModalLoader
+      active: false
+
+      Variants {
+          model: SettingsData.getFilteredScreens("toast")
+
+          delegate: LowBatteryModal {
+              modelData: item
+          }
+      }
+
+      Component.onCompleted: {
+          BatteryService.lowBatteryModalCallback = function() {
+              lowBatteryModalLoader.active = true
+              Qt.callLater(() => {
+                  if (lowBatteryModalLoader.item) {
+                      for (var i = 0; i < lowBatteryModalLoader.item.instances.length; i++) {
+                          lowBatteryModalLoader.item.instances[i].show()
+                      }
+                  }
+              })
+          }
+      }
+  }
+}

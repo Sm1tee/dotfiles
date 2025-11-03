@@ -1,0 +1,17 @@
+[config]
+
+[templates.kcolorscheme]
+input_path = './templates/matugen-kcolorscheme.colors'
+output_path = '~/.local/share/color-schemes/Matugen.colors'
+
+[templates.dgop]
+input_path = './templates/dgop.json'
+output_path = '~/.config/dgop/colors.json'
+
+[templates.niri]
+input_path = './templates/niri-colors.kdl'
+output_path = '~/.config/niri/shell-colors.kdl'
+
+[templates.ghostty]
+input_path = './templates/ghostty-colors.conf'
+output_path = '~/.config/ghostty/config-colors'

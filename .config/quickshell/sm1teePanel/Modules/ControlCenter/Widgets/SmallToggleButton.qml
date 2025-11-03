@@ -53,7 +53,7 @@ Rectangle {
         Behavior on opacity { NumberAnimation { duration: Theme.shortDuration } }
     }
 
-    DankIcon {
+    Icon {
         anchors.centerIn: parent
         name: iconName
         size: Theme.iconSize

@@ -63,7 +63,7 @@ Item {
         fontEnumerationTimer.start()
     }
 
-    DankFlickable {
+    Flickable {
         anchors.fill: parent
         anchors.topMargin: Theme.spacingL
         clip: true
@@ -96,7 +96,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "zoom_in"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -149,7 +149,7 @@ Item {
                                 }
                             }
 
-                            DankActionButton {
+                            ActionButton {
                                 id: resetScaleBtn
                                 buttonSize: 20
                                 iconName: "refresh"
@@ -169,7 +169,7 @@ Item {
                             }
                         }
 
-                        DankSlider {
+                        Slider {
                             id: scaleSlider
                             width: parent.width
                             height: 24
@@ -219,7 +219,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "animation"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -235,7 +235,7 @@ Item {
                         }
                     }
 
-                    DankButtonGroup {
+                    ButtonGroup {
                         id: animationSpeedGroup
                         width: parent.width
                         model: ["Нет", "Быстро", "Средне", "Медленно"]
@@ -278,7 +278,7 @@ Item {
                     anchors.margins: Theme.spacingL
                     spacing: Theme.spacingM
 
-                    DankIcon {
+                    Icon {
                         name: "contrast"
                         size: Theme.iconSize
                         color: Theme.primary
@@ -307,7 +307,7 @@ Item {
                         }
                     }
 
-                    DankToggle {
+                    Toggle {
                         id: lightModeToggle
 
                         anchors.verticalCenter: parent.verticalCenter
@@ -342,7 +342,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "palette"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -366,7 +366,7 @@ Item {
                             anchors.verticalCenter: parent.verticalCenter
                             spacing: 2
 
-                            DankButtonGroup {
+                            ButtonGroup {
                                 id: surfaceBaseGroup
                                 property int currentSurfaceIndex: {
                                     switch (SettingsData.surfaceBase) {
@@ -404,7 +404,7 @@ Item {
                         width: parent.width
                         height: childrenRect.height
 
-                        DankButtonGroup {
+                        ButtonGroup {
                             id: themeButtonGroup
                             checkEnabled: false
                             
@@ -759,7 +759,7 @@ Item {
                                     width: parent.width
                                     spacing: Theme.spacingXS
 
-                                    DankDropdown {
+                                    Dropdown {
                                         id: matugenPaletteDropdown
                                         text: "Палитра"
                                         description: ""
@@ -782,7 +782,7 @@ Item {
                                         }
                                     }
 
-                                    DankActionButton {
+                                    ActionButton {
                                         id: infoButton
                                         iconName: showSchemeInfo ? "expand_less" : "info"
                                         iconColor: showSchemeInfo ? Theme.primary : Theme.surfaceText
@@ -893,7 +893,7 @@ Item {
                                 width: parent.width
                                 spacing: Theme.spacingM
 
-                                DankIcon {
+                                Icon {
                                     name: "code"
                                     size: Theme.iconSize
                                     color: SettingsData.runUserMatugenTemplates ? Theme.primary : Theme.surfaceVariantText
@@ -923,7 +923,7 @@ Item {
                                     }
                                 }
 
-                                DankToggle {
+                                Toggle {
                                     id: runUserTemplatesToggle
 
                                     anchors.verticalCenter: parent.verticalCenter
@@ -954,7 +954,7 @@ Item {
                                 width: parent.width
                                 spacing: Theme.spacingM
 
-                                DankActionButton {
+                                ActionButton {
                                     buttonSize: 48
                                     iconName: "folder_open"
                                     iconSize: Theme.iconSize
@@ -1012,7 +1012,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "wallpaper"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -1110,7 +1110,7 @@ Item {
                                 layer.enabled: true
                             }
 
-                            DankIcon {
+                            Icon {
                                 anchors.centerIn: parent
                                 name: "image"
                                 size: Theme.iconSizeLarge + 8
@@ -1138,7 +1138,7 @@ Item {
                                         radius: 16
                                         color: Qt.rgba(255, 255, 255, 0.9)
 
-                                        DankIcon {
+                                        Icon {
                                             anchors.centerIn: parent
                                             name: "folder_open"
                                             size: 18
@@ -1161,7 +1161,7 @@ Item {
                                         radius: 16
                                         color: Qt.rgba(255, 255, 255, 0.9)
 
-                                        DankIcon {
+                                        Icon {
                                             anchors.centerIn: parent
                                             name: "palette"
                                             size: 18
@@ -1199,7 +1199,7 @@ Item {
                                             return currentWallpaper !== ""
                                         }
 
-                                        DankIcon {
+                                        Icon {
                                             anchors.centerIn: parent
                                             name: "clear"
                                             size: 18
@@ -1274,7 +1274,7 @@ Item {
                                     return currentWallpaper !== ""
                                 }
 
-                                DankActionButton {
+                                ActionButton {
                                     buttonSize: 32
                                     iconName: "skip_previous"
                                     iconSize: Theme.iconSizeSmall
@@ -1297,7 +1297,7 @@ Item {
                                     }
                                 }
 
-                                DankActionButton {
+                                ActionButton {
                                     buttonSize: 32
                                     iconName: "skip_next"
                                     iconSize: Theme.iconSizeSmall
@@ -1341,7 +1341,7 @@ Item {
                             width: parent.width
                             spacing: Theme.spacingM
 
-                            DankIcon {
+                            Icon {
                                 name: "brightness_6"
                                 size: Theme.iconSize
                                 color: SessionData.perModeWallpaper ? Theme.primary : Theme.surfaceVariantText
@@ -1368,7 +1368,7 @@ Item {
                                 }
                             }
 
-                            DankToggle {
+                            Toggle {
                                 id: perModeToggle
 
                                 anchors.verticalCenter: parent.verticalCenter
@@ -1398,7 +1398,7 @@ Item {
                             width: parent.width
                             spacing: Theme.spacingM
 
-                            DankIcon {
+                            Icon {
                                 name: "monitor"
                                 size: Theme.iconSize
                                 color: SessionData.perMonitorWallpaper ? Theme.primary : Theme.surfaceVariantText
@@ -1425,7 +1425,7 @@ Item {
                                 }
                             }
 
-                            DankToggle {
+                            Toggle {
                                 id: perMonitorToggle
 
                                 anchors.verticalCenter: parent.verticalCenter
@@ -1450,7 +1450,7 @@ Item {
                                 font.weight: Font.Medium
                             }
 
-                            DankDropdown {
+                            Dropdown {
                                 id: monitorDropdown
 
                                 width: parent.width - parent.leftPadding - parent.rightPadding
@@ -1490,7 +1490,7 @@ Item {
                             width: parent.width
                             spacing: Theme.spacingM
 
-                            DankIcon {
+                            Icon {
                                 name: "schedule"
                                 size: Theme.iconSize
                                 color: SessionData.wallpaperCyclingEnabled ? Theme.primary : Theme.surfaceVariantText
@@ -1517,7 +1517,7 @@ Item {
                                 }
                             }
 
-                            DankToggle {
+                            Toggle {
                                 id: cyclingToggle
 
                                 anchors.verticalCenter: parent.verticalCenter
@@ -1562,7 +1562,7 @@ Item {
                                     width: 200
                                     height: 45 + Theme.spacingM
                                     
-                                    DankButtonGroup {
+                                    ButtonGroup {
                                         id: modeTabBar
 
                                         width: 200
@@ -1604,7 +1604,7 @@ Item {
                             }
 
                             // Interval settings
-                            DankDropdown {
+                            Dropdown {
                                 id: intervalDropdown
                                 width: parent.width - parent.leftPadding
                                 property var intervalOptions: ["1 минута", "5 минут", "15 минут", "30 минут", "1 час", "1.5 часа", "2 часа", "3 часа", "4 часа", "6 часов", "8 часов", "12 часов"]
@@ -1679,7 +1679,7 @@ Item {
                                     anchors.verticalCenter: parent.verticalCenter
                                 }
 
-                                DankTextField {
+                                TextField {
                                     id: timeTextField
                                     width: 100
                                     height: 40
@@ -1764,7 +1764,7 @@ Item {
                         opacity: 0.2
                     }
 
-                    DankDropdown {
+                    Dropdown {
                         text: "Эффект перехода"
                         description: "Визуальный эффект при смене обоев"
                         property var transitionNames: {
@@ -1844,7 +1844,7 @@ Item {
                             width: parent.width
                         }
 
-                        DankButtonGroup {
+                        ButtonGroup {
                             id: transitionGroup
                             width: parent.width
                             selectionMode: "multi"
@@ -1890,7 +1890,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "opacity"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -1917,10 +1917,10 @@ Item {
                             font.weight: Font.Medium
                         }
 
-                        DankSlider {
+                        Slider {
                             width: parent.width
                             height: 24
-                            value: Math.round(SettingsData.dankBarTransparency * 100)
+                            value: Math.round(SettingsData.barTransparency * 100)
                             minimum: 0
                             maximum: 100
                             unit: ""
@@ -1928,7 +1928,7 @@ Item {
                             wheelEnabled: false
                             thumbOutlineColor: Theme.surfaceContainerHigh
                             onSliderValueChanged: newValue => {
-                                SettingsData.setDankBarTransparency(newValue / 100)
+                                SettingsData.setBarTransparency(newValue / 100)
                             }
                         }
                     }
@@ -1944,10 +1944,10 @@ Item {
                             font.weight: Font.Medium
                         }
 
-                        DankSlider {
+                        Slider {
                             width: parent.width
                             height: 24
-                            value: Math.round(SettingsData.dankBarWidgetTransparency * 100)
+                            value: Math.round(SettingsData.barWidgetTransparency * 100)
                             minimum: 0
                             maximum: 100
                             unit: ""
@@ -1955,7 +1955,7 @@ Item {
                             wheelEnabled: false
                             thumbOutlineColor: Theme.surfaceContainerHigh
                             onSliderValueChanged: newValue => {
-                                SettingsData.setDankBarWidgetTransparency(newValue / 100)
+                                SettingsData.setBarWidgetTransparency(newValue / 100)
                             }
                         }
                     }
@@ -1964,7 +1964,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingS
 
-                        DankDropdown {
+                        Dropdown {
                             id: widgetColorDropdown
                             text: "Яркость фона виджетов"
                             description: "Выберите оттенок из палитры темы"
@@ -2001,7 +2001,7 @@ Item {
                             font.weight: Font.Medium
                         }
 
-                        DankSlider {
+                        Slider {
                             width: parent.width
                             height: 24
                             value: Math.round(SettingsData.popupTransparency * 100)
@@ -2035,7 +2035,7 @@ Item {
                             font.weight: Font.Medium
                         }
 
-                        DankSlider {
+                        Slider {
                             width: parent.width
                             height: 24
                             value: SettingsData.cornerRadius
@@ -2073,7 +2073,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "font_download"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -2089,7 +2089,7 @@ Item {
                         }
                     }
 
-                    DankDropdown {
+                    Dropdown {
                         text: "Семейство шрифтов"
                         description: "Выберите системное семейство шрифтов"
                         currentValue: {
@@ -2110,7 +2110,7 @@ Item {
                         }
                     }
 
-                    DankDropdown {
+                    Dropdown {
                         text: "Насыщенность шрифта"
                         description: "Выберите насыщенность шрифта"
                         currentValue: {
@@ -2146,7 +2146,7 @@ Item {
                         }
                     }
 
-                    DankDropdown {
+                    Dropdown {
                         text: "Моноширинный шрифт"
                         description: "Выберите моноширинный шрифт для списка процессов и технических дисплеев"
                         currentValue: {

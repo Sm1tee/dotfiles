@@ -68,7 +68,7 @@ FocusScope {
             visible: active
             asynchronous: true
 
-            sourceComponent: DankBarTab {
+            sourceComponent: BarTab {
                 parentModal: root.parentModal
             }
 

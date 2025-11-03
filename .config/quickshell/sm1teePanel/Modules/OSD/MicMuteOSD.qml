@@ -3,7 +3,7 @@ import qs.Common
 import qs.Services
 import qs.Widgets
 
-DankOSD {
+OSD {
     id: root
 
     osdWidth: Theme.iconSize + Theme.spacingS * 2
@@ -18,7 +18,7 @@ DankOSD {
         }
     }
 
-    content: DankIcon {
+    content: Icon {
         anchors.centerIn: parent
         name: AudioService.source && AudioService.source.audio && AudioService.source.audio.muted ? "mic_off" : "mic"
         size: Theme.iconSize

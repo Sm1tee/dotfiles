@@ -15,15 +15,15 @@ Rectangle {
     property bool isVerticalOrientation: false
     property alias content: contentLoader.sourceComponent
 
-    readonly property real horizontalPadding: SettingsData.dankBarNoBackground ? 0 : Math.max(Theme.spacingXS, Theme.spacingS * (widgetThickness / 30))
+    readonly property real horizontalPadding: SettingsData.barNoBackground ? 0 : Math.max(Theme.spacingXS, Theme.spacingS * (widgetThickness / 30))
 
     signal clicked()
 
     width: isVerticalOrientation ? widgetThickness : contentLoader.item ? (contentLoader.item.implicitWidth + horizontalPadding * 2) : 0
     height: isVerticalOrientation ? (contentLoader.item ? (contentLoader.item.implicitHeight + horizontalPadding * 2) : 0) : widgetThickness
-    radius: SettingsData.dankBarNoBackground ? 0 : Theme.cornerRadius
+    radius: SettingsData.barNoBackground ? 0 : Theme.cornerRadius
     color: {
-        if (SettingsData.dankBarNoBackground) {
+        if (SettingsData.barNoBackground) {
             return "transparent"
         }
 

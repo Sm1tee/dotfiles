@@ -43,12 +43,12 @@ Singleton {
 
     signal sessionLocked()
     signal sessionUnlocked()
-    signal prepareForSleep()
+    signal prepareForSleep(bool sleeping)
     signal loginctlStateChanged()
 
     property bool stateInitialized: false
 
-    readonly property string socketPath: Quickshell.env("DMS_SOCKET")
+    readonly property string socketPath: Quickshell.env("SM1TEE_SOCKET")
 
     Timer {
         id: sessionInitTimer
@@ -59,13 +59,14 @@ Singleton {
             detectElogindProcess.running = true
             detectHibernateProcess.running = true
             detectPrimeRunProcess.running = true
+            sleepMonitor.running = true
             console.log("SessionService: Native inhibitor available:", nativeInhibitorAvailable)
             if (!SessionData.loginctlLockIntegration) {
                 console.log("SessionService: loginctl lock integration disabled by user")
                 return
             }
             if (socketPath && socketPath.length > 0) {
-                checkDMSCapabilities()
+                checkServerCapabilities()
             }
         }
     }
@@ -109,6 +110,41 @@ Singleton {
         onExited: function (exitCode) {
             hasPrimeRun = (exitCode === 0)
         }
+    }
+
+    // Монитор пробуждения системы
+    Process {
+        id: sleepMonitor
+        command: ["gdbus", "monitor", "--system", "--dest", "org.freedesktop.login1"]
+        running: false
+
+        stdout: SplitParser {
+            splitMarker: "\n"
+            onRead: line => {
+                // PrepareForSleep(true) - готовится ко сну, PrepareForSleep(false) - проснулась
+                if (line.includes("PrepareForSleep")) {
+                    const sleeping = line.includes("true")
+                    if (!sleeping) {
+                        console.log("SessionService: System woke up")
+                    }
+                    prepareForSleep(sleeping)
+                }
+            }
+        }
+
+        onExited: exitCode => {
+            if (exitCode !== 0 && !sleepRestartTimer.running) {
+                console.warn("SessionService: Sleep monitor failed, restarting in 5s")
+                sleepRestartTimer.start()
+            }
+        }
+    }
+
+    Timer {
+        id: sleepRestartTimer
+        interval: 5000
+        running: false
+        onTriggered: sleepMonitor.running = true
     }
 
     Process {
@@ -268,21 +304,21 @@ Singleton {
     }
 
     Connections {
-        target: DMSService
+        target: PluginManagerService
 
         function onConnectionStateChanged() {
-            if (DMSService.isConnected) {
-                checkDMSCapabilities()
+            if (PluginManagerService.isConnected) {
+                checkServerCapabilities()
             }
         }
     }
 
     Connections {
-        target: DMSService
-        enabled: DMSService.isConnected
+        target: PluginManagerService
+        enabled: PluginManagerService.isConnected
 
         function onCapabilitiesChanged() {
-            checkDMSCapabilities()
+            checkServerCapabilities()
         }
     }
 
@@ -311,7 +347,7 @@ Singleton {
     }
 
     Connections {
-        target: DMSService
+        target: PluginManagerService
         enabled: SessionData.loginctlLockIntegration
 
         function onLoginctlStateUpdate(data) {
@@ -323,16 +359,16 @@ Singleton {
         }
     }
 
-    function checkDMSCapabilities() {
-        if (!DMSService.isConnected) {
+    function checkServerCapabilities() {
+        if (!PluginManagerService.isConnected) {
             return
         }
 
-        if (DMSService.capabilities.length === 0) {
+        if (PluginManagerService.capabilities.length === 0) {
             return
         }
 
-        if (DMSService.capabilities.includes("loginctl")) {
+        if (PluginManagerService.capabilities.includes("loginctl")) {
             loginctlAvailable = true
             if (SessionData.loginctlLockIntegration && !stateInitialized) {
                 stateInitialized = true
@@ -347,7 +383,7 @@ Singleton {
     function getLoginctlState() {
         if (!loginctlAvailable) return
 
-        DMSService.sendRequest("loginctl.getState", null, response => {
+        PluginManagerService.sendRequest("loginctl.getState", null, response => {
             if (response.result) {
                 updateLoginctlState(response.result)
             }
@@ -357,7 +393,7 @@ Singleton {
     function syncLockBeforeSuspend() {
         if (!loginctlAvailable) return
 
-        DMSService.sendRequest("loginctl.setLockBeforeSuspend", {
+        PluginManagerService.sendRequest("loginctl.setLockBeforeSuspend", {
             enabled: SessionData.lockBeforeSuspend
         }, response => {
             if (response.error) {

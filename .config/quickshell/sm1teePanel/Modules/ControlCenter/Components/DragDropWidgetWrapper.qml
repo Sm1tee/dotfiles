@@ -213,7 +213,7 @@ Item {
         visible: editMode
         z: 10
 
-        DankIcon {
+        Icon {
             anchors.centerIn: parent
             name: "close"
             size: 12

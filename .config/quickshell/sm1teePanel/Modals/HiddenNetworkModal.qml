@@ -4,7 +4,7 @@ import qs.Modals.Common
 import qs.Services
 import qs.Widgets
 
-DankModal {
+Modal {
     id: root
 
     property string networkSSID: ""
@@ -88,7 +88,7 @@ DankModal {
                         }
                     }
 
-                    DankActionButton {
+                    ActionButton {
                         iconName: "close"
                         iconSize: Theme.iconSize - 4
                         iconColor: Theme.surfaceText
@@ -116,7 +116,7 @@ DankModal {
                         }
                     }
 
-                    DankTextField {
+                    TextField {
                         id: ssidInput
 
                         anchors.fill: parent
@@ -153,7 +153,7 @@ DankModal {
                         }
                     }
 
-                    DankTextField {
+                    TextField {
                         id: passwordInput
 
                         anchors.fill: parent
@@ -196,7 +196,7 @@ DankModal {
                         border.color: checked ? Theme.primary : Theme.outlineButton
                         border.width: 2
 
-                        DankIcon {
+                        Icon {
                             anchors.centerIn: parent
                             name: "check"
                             size: 12

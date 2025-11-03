@@ -1,0 +1,52 @@
+import QtQuick
+import QtQuick.Controls
+import Quickshell
+import qs.Common
+import qs.Services
+import qs.Widgets
+
+Rectangle {
+    id: root
+
+    property bool isVertical: axis?.isVertical ?? false
+    property var axis: null
+    property string section: "right"
+    property var popupTarget: null
+    property var parentScreen: null
+    property real widgetThickness: 30
+    readonly property real horizontalPadding: SettingsData.barNoBackground ? 0 : Math.max(Theme.baseSpacingXS, Theme.baseSpacingS * (widgetThickness / 30))
+
+    width: isVertical ? widgetThickness : (idleIcon.width + horizontalPadding * 2)
+    height: isVertical ? (idleIcon.height + horizontalPadding * 2) : widgetThickness
+    radius: SettingsData.barNoBackground ? 0 : Theme.cornerRadius
+    color: {
+        if (SettingsData.barNoBackground) {
+            return "transparent";
+        }
+
+        const baseColor = mouseArea.containsMouse ? Theme.widgetBaseHoverColor : Theme.widgetBaseBackgroundColor;
+        return Qt.rgba(baseColor.r, baseColor.g, baseColor.b, baseColor.a * Theme.widgetTransparency);
+    }
+
+    Icon {
+        id: idleIcon
+
+        anchors.centerIn: parent
+        name: SessionService.idleInhibited ? "motion_sensor_active" : "motion_sensor_idle"
+        size: Theme.barIconSize(widgetThickness, -4)
+        color: mouseArea.containsMouse ? Theme.primary : Theme.surfaceText
+    }
+
+    MouseArea {
+        id: mouseArea
+
+        anchors.fill: parent
+        hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
+        onClicked: {
+            SessionService.toggleIdleInhibit();
+        }
+    }
+
+
+}

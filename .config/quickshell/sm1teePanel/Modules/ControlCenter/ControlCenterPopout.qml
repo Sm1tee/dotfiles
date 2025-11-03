@@ -10,14 +10,14 @@ import qs.Common
 import qs.Modules.ControlCenter
 import qs.Modules.ControlCenter.Widgets
 import qs.Modules.ControlCenter.Details
-import qs.Modules.DankBar
+import qs.Modules.Bar
 import qs.Services
 import qs.Widgets
 import qs.Modules.ControlCenter.Components
 import qs.Modules.ControlCenter.Models
 import "./utils/state.js" as StateUtils
 
-DankPopout {
+Popout {
     id: root
 
     property string expandedSection: ""
@@ -63,7 +63,7 @@ DankPopout {
     popupWidth: Math.max(550, Math.min(750, 550 * SettingsData.fontScale))
     popupHeight: Math.min((triggerScreen?.height ?? 1080) - 100, contentLoader.item && contentLoader.item.implicitHeight > 0 ? contentLoader.item.implicitHeight + 20 : Math.max(400, Math.min(550, 400 * SettingsData.fontScale)))
     triggerX: (triggerScreen?.width ?? 1920) - 600 - Theme.spacingL
-    triggerY: Theme.barHeight - 4 + SettingsData.dankBarSpacing
+    triggerY: Theme.barHeight - 4 + SettingsData.barSpacing
     triggerWidth: 80
     positioning: ""
     screen: triggerScreen

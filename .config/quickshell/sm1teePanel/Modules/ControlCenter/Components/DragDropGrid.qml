@@ -178,12 +178,12 @@ Column {
             width: parent.width
             height: 60
             primaryMessage: {
-                if (!DMSService.dmsAvailable) {
-                    return "DMS_SOCKET недоступен"
+                if (!PluginManagerService.serverAvailable) {
+                    return "SM1TEE_SOCKET недоступен"
                 }
                 return "NM не поддерживается"
             }
-            secondaryMessage: "обновите dms для интеграции NM."
+            secondaryMessage: "обновите сервер для интеграции NM."
         }
     }
 

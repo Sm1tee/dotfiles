@@ -132,7 +132,7 @@ Item {
                 color: Qt.rgba(Theme.outline.r, Theme.outline.g, Theme.outline.b, 0.2)
             }
 
-            DankToggle {
+            Toggle {
                 anchors.left: parent.left
                 anchors.leftMargin: -Theme.spacingM
                 width: parent.width + Theme.spacingM
@@ -144,7 +144,7 @@ Item {
                 }
             }
 
-            DankToggle {
+            Toggle {
                 anchors.left: parent.left
                 anchors.leftMargin: -Theme.spacingM
                 width: parent.width + Theme.spacingM
@@ -179,7 +179,7 @@ Item {
                     anchors.verticalCenter: parent.verticalCenter
                     spacing: Theme.spacingM
 
-                    DankIcon {
+                    Icon {
                         name: "search"
                         size: Theme.iconSize - 2
                         color: Theme.primary
@@ -212,7 +212,7 @@ Item {
                 color: "transparent"
                 visible: !SettingsData.notepadUseMonospace
 
-                DankDropdown {
+                Dropdown {
                     id: fontDropdown
                     anchors.left: parent.left 
                     anchors.leftMargin: -Theme.spacingM
@@ -270,7 +270,7 @@ Item {
                         spacing: Theme.spacingS
                         anchors.verticalCenter: parent.verticalCenter
 
-                        DankActionButton {
+                        ActionButton {
                             buttonSize: 32
                             iconName: "remove"
                             iconSize: Theme.iconSizeSmall
@@ -300,7 +300,7 @@ Item {
                             }
                         }
 
-                        DankActionButton {
+                        ActionButton {
                             buttonSize: 32
                             iconName: "add"
                             iconSize: Theme.iconSizeSmall
@@ -326,7 +326,7 @@ Item {
                     width: parent.width
                     spacing: Theme.spacingS
 
-                    DankToggle {
+                    Toggle {
                         anchors.left: parent.left
                         anchors.leftMargin: -Theme.spacingM
                         width: parent.width + Theme.spacingM
@@ -342,7 +342,7 @@ Item {
                         }
                     }
 
-                    DankSlider {
+                    Slider {
                         anchors.left: parent.left
                         anchors.leftMargin: -Theme.spacingM
                         width: parent.width + Theme.spacingM

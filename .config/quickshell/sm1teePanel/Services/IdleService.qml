@@ -138,8 +138,8 @@ Singleton {
 
     Connections {
         target: SessionService
-        function onPrepareForSleep() {
-            if (SessionData.lockBeforeSuspend) {
+        function onPrepareForSleep(sleeping) {
+            if (sleeping && SessionData.lockBeforeSuspend) {
                 root.lockRequested()
             }
         }

@@ -174,7 +174,7 @@ Rectangle {
                             anchors.verticalCenter: parent.verticalCenter
                             spacing: Theme.spacingM
 
-                            DankIcon {
+                            Icon {
                                 name: "logout"
                                 size: Theme.iconSize
                                 color: Theme.surfaceText
@@ -225,7 +225,7 @@ Rectangle {
                             anchors.verticalCenter: parent.verticalCenter
                             spacing: Theme.spacingM
 
-                            DankIcon {
+                            Icon {
                                 name: "restart_alt"
                                 size: Theme.iconSize
                                 color: rebootArea.containsMouse ? Theme.warning : Theme.surfaceText
@@ -276,7 +276,7 @@ Rectangle {
                             anchors.verticalCenter: parent.verticalCenter
                             spacing: Theme.spacingM
 
-                            DankIcon {
+                            Icon {
                                 name: "power_settings_new"
                                 size: Theme.iconSize
                                 color: powerOffArea.containsMouse ? Theme.error : Theme.surfaceText

@@ -15,7 +15,7 @@ FocusScope {
     focus: true
 
 
-    DankFlickable {
+    Flickable {
         anchors.fill: parent
         anchors.topMargin: Theme.spacingL
         clip: true
@@ -46,7 +46,7 @@ FocusScope {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "extension"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -65,7 +65,7 @@ FocusScope {
                             }
 
                             StyledText {
-                                text: "Управление и настройка плагинов для расширения функциональности DMS"
+                                text: "Управление и настройка плагинов для расширения функциональности"
                                 font.pixelSize: Theme.fontSizeSmall
                                 color: Theme.surfaceVariantText
                             }
@@ -74,15 +74,15 @@ FocusScope {
 
                     StyledRect {
                         width: parent.width
-                        height: dmsWarningColumn.implicitHeight + Theme.spacingM * 2
+                        height: warningColumn.implicitHeight + Theme.spacingM * 2
                         radius: Theme.cornerRadius
                         color: Qt.rgba(Theme.warning.r, Theme.warning.g, Theme.warning.b, 0.1)
                         border.color: Theme.warning
                         border.width: 1
-                        visible: !DMSService.dmsAvailable
+                        visible: !PluginManagerService.serverAvailable
 
                         Column {
-                            id: dmsWarningColumn
+                            id: warningColumn
                             anchors.fill: parent
                             anchors.margins: Theme.spacingM
                             spacing: Theme.spacingXS
@@ -90,7 +90,7 @@ FocusScope {
                             Row {
                                 spacing: Theme.spacingXS
 
-                                DankIcon {
+                                Icon {
                                     name: "warning"
                                     size: 16
                                     color: Theme.warning
@@ -98,7 +98,7 @@ FocusScope {
                                 }
 
                                 StyledText {
-                                    text: "Менеджер плагинов DMS недоступен"
+                                    text: "Менеджер плагинов недоступен"
                                     font.pixelSize: Theme.fontSizeSmall
                                     color: Theme.warning
                                     font.weight: Font.Medium
@@ -107,7 +107,7 @@ FocusScope {
                             }
 
                             StyledText {
-                                text: "Переменная окружения DMS_SOCKET не установлена или сокет недоступен. Автоматическое управление плагинами требует DMS_SOCKET."
+                                text: "Переменная окружения SM1TEE_SOCKET не установлена или сокет недоступен. Автоматическое управление плагинами требует SM1TEE_SOCKET."
                                 font.pixelSize: Theme.fontSizeSmall - 1
                                 color: Theme.surfaceVariantText
                                 wrapMode: Text.WordWrap
@@ -120,29 +120,29 @@ FocusScope {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankButton {
+                        Button {
                             text: "Обзор"
                             iconName: "store"
-                            enabled: DMSService.dmsAvailable
+                            enabled: PluginManagerService.serverAvailable
                             onClicked: {
                                 pluginBrowserModal.show()
                             }
                         }
 
-                        DankButton {
+                        Button {
                             text: "Сканировать"
                             iconName: "refresh"
                             onClicked: {
                                 pluginsTab.isRefreshingPlugins = true
                                 PluginService.scanPlugins()
-                                if (DMSService.dmsAvailable) {
-                                    DMSService.listInstalled()
+                                if (PluginManagerService.serverAvailable) {
+                                    PluginManagerService.listInstalled()
                                 }
                                 pluginsTab.refreshPluginList()
                             }
                         }
 
-                        DankButton {
+                        Button {
                             text: "Создать папку"
                             iconName: "create_new_folder"
                             onClicked: {
@@ -275,7 +275,7 @@ FocusScope {
                                         width: parent.width
                                         spacing: Theme.spacingM
 
-                                        DankIcon {
+                                        Icon {
                                             name: pluginDelegate.pluginIcon
                                             size: Theme.iconSize
                                             color: PluginService.isPluginLoaded(pluginDelegate.pluginId) ? Theme.primary : Theme.surfaceVariantText
@@ -299,7 +299,7 @@ FocusScope {
                                                     anchors.verticalCenter: parent.verticalCenter
                                                 }
 
-                                                DankIcon {
+                                                Icon {
                                                     name: pluginDelegate.hasSettings ? (pluginDelegate.isExpanded ? "expand_less" : "expand_more") : ""
                                                     size: 16
                                                     color: pluginDelegate.hasSettings ? Theme.primary : "transparent"
@@ -326,9 +326,9 @@ FocusScope {
                                                 height: 28
                                                 radius: 14
                                                 color: updateArea.containsMouse ? Theme.surfaceContainerHighest : "transparent"
-                                                visible: DMSService.dmsAvailable && PluginService.isPluginLoaded(pluginDelegate.pluginId)
+                                                visible: PluginManagerService.serverAvailable && PluginService.isPluginLoaded(pluginDelegate.pluginId)
 
-                                                DankIcon {
+                                                Icon {
                                                     anchors.centerIn: parent
                                                     name: "download"
                                                     size: 16
@@ -343,7 +343,7 @@ FocusScope {
                                                     onClicked: {
                                                         const currentPluginDirName = pluginDelegate.pluginDirectoryName
                                                         const currentPluginName = pluginDelegate.pluginName
-                                                        DMSService.update(currentPluginDirName, response => {
+                                                        PluginManagerService.update(currentPluginDirName, response => {
                                                             if (response.error) {
                                                                 ToastService.showError("Update failed: " + response.error)
                                                             } else {
@@ -360,9 +360,9 @@ FocusScope {
                                                 height: 28
                                                 radius: 14
                                                 color: uninstallArea.containsMouse ? Theme.surfaceContainerHighest : "transparent"
-                                                visible: DMSService.dmsAvailable
+                                                visible: PluginManagerService.serverAvailable
 
-                                                DankIcon {
+                                                Icon {
                                                     anchors.centerIn: parent
                                                     name: "delete"
                                                     size: 16
@@ -377,7 +377,7 @@ FocusScope {
                                                     onClicked: {
                                                         const currentPluginDirName = pluginDelegate.pluginDirectoryName
                                                         const currentPluginName = pluginDelegate.pluginName
-                                                        DMSService.uninstall(currentPluginDirName, response => {
+                                                        PluginManagerService.uninstall(currentPluginDirName, response => {
                                                             if (response.error) {
                                                                 ToastService.showError("Uninstall failed: " + response.error)
                                                             } else {
@@ -399,7 +399,7 @@ FocusScope {
                                                 color: reloadArea.containsMouse ? Theme.surfaceContainerHighest : "transparent"
                                                 visible: PluginService.isPluginLoaded(pluginDelegate.pluginId)
 
-                                                DankIcon {
+                                                Icon {
                                                     anchors.centerIn: parent
                                                     name: "refresh"
                                                     size: 16
@@ -425,7 +425,7 @@ FocusScope {
                                                 }
                                             }
 
-                                            DankToggle {
+                                            Toggle {
                                                 id: pluginToggle
                                                 anchors.verticalCenter: parent.verticalCenter
                                                 checked: PluginService.isPluginLoaded(pluginDelegate.pluginId)
@@ -609,7 +609,7 @@ FocusScope {
     }
 
     Connections {
-        target: DMSService
+        target: PluginManagerService
         function onPluginsListReceived(plugins) {
             pluginBrowserModal.isLoading = false
             pluginBrowserModal.allPlugins = plugins
@@ -627,7 +627,7 @@ FocusScope {
         pluginBrowserModal.parentModal = pluginsTab.parentModal
     }
 
-    DankModal {
+    Modal {
         id: pluginBrowserModal
 
         property var allPlugins: []
@@ -687,7 +687,7 @@ FocusScope {
 
         function installPlugin(pluginName) {
             ToastService.showInfo("Installing plugin: " + pluginName)
-            DMSService.install(pluginName, response => {
+            PluginManagerService.install(pluginName, response => {
                 if (response.error) {
                     ToastService.showError("Install failed: " + response.error)
                 } else {
@@ -700,7 +700,7 @@ FocusScope {
 
         function refreshPlugins() {
             isLoading = true
-            DMSService.listPlugins()
+            PluginManagerService.listPlugins()
         }
 
         function show() {
@@ -777,7 +777,7 @@ FocusScope {
                         width: parent.width
                         height: Math.max(headerIcon.height, headerText.height, refreshButton.height, closeButton.height)
 
-                        DankIcon {
+                        Icon {
                             id: headerIcon
                             name: "store"
                             size: Theme.iconSize
@@ -802,7 +802,7 @@ FocusScope {
                             anchors.verticalCenter: parent.verticalCenter
                             spacing: Theme.spacingXS
 
-                            DankButton {
+                            Button {
                                 id: thirdPartyButton
                                 text: SessionData.showThirdPartyPlugins ? "Hide 3rd Party" : "Show 3rd Party"
                                 iconName: SessionData.showThirdPartyPlugins ? "visibility_off" : "visibility"
@@ -817,7 +817,7 @@ FocusScope {
                                 }
                             }
 
-                            DankActionButton {
+                            ActionButton {
                                 id: refreshButton
                                 iconName: "refresh"
                                 iconSize: Theme.iconSizeSmall + 2
@@ -826,7 +826,7 @@ FocusScope {
                                 onClicked: pluginBrowserModal.refreshPlugins()
                             }
 
-                            DankActionButton {
+                            ActionButton {
                                 id: closeButton
                                 iconName: "close"
                                 iconSize: Theme.iconSize - 2
@@ -837,14 +837,14 @@ FocusScope {
                     }
 
                     StyledText {
-                        text: "Установка плагинов из реестра плагинов DMS"
+                        text: "Установка плагинов из реестра"
                         font.pixelSize: Theme.fontSizeSmall
                         color: Theme.outline
                         width: parent.width
                         wrapMode: Text.WordWrap
                     }
 
-                    DankTextField {
+                    TextField {
                         id: browserSearchField
                         width: parent.width
                         height: 48
@@ -879,7 +879,7 @@ FocusScope {
                             anchors.centerIn: parent
                             spacing: Theme.spacingM
 
-                            DankIcon {
+                            Icon {
                                 name: "sync"
                                 size: 48
                                 color: Theme.primary
@@ -903,7 +903,7 @@ FocusScope {
                         }
                     }
 
-                    DankListView {
+                    ListView {
                         id: pluginBrowserList
 
                         width: parent.width
@@ -939,7 +939,7 @@ FocusScope {
                                     width: parent.width
                                     spacing: Theme.spacingM
 
-                                    DankIcon {
+                                    Icon {
                                         name: modelData.icon || "extension"
                                         size: Theme.iconSize
                                         color: Theme.primary
@@ -1048,7 +1048,7 @@ FocusScope {
                                             anchors.centerIn: parent
                                             spacing: Theme.spacingXS
 
-                                            DankIcon {
+                                            Icon {
                                                 name: isInstalled ? "check" : "download"
                                                 size: 14
                                                 color: isInstalled ? Theme.surfaceText : Theme.surface
@@ -1130,7 +1130,7 @@ FocusScope {
         }
     }
 
-    DankModal {
+    Modal {
         id: thirdPartyConfirmModal
 
         width: Math.max(500, Math.min(700, 500 * SettingsData.fontScale))
@@ -1160,7 +1160,7 @@ FocusScope {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "warning"
                             size: Theme.iconSize
                             color: Theme.warning
@@ -1216,13 +1216,13 @@ FocusScope {
                         anchors.right: parent.right
                         spacing: Theme.spacingM
 
-                        DankButton {
+                        Button {
                             text: "Отмена"
                             iconName: "close"
                             onClicked: thirdPartyConfirmModal.close()
                         }
 
-                        DankButton {
+                        Button {
                             text: "Я понимаю"
                             iconName: "check"
                             onClicked: {

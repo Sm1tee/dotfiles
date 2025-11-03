@@ -24,7 +24,7 @@ Singleton {
         }
         return configDirStr + "/sm1teePanel/plugins"
     }
-    property string systemPluginDirectory: "/etc/xdg/quickshell/dms-plugins"
+    property string systemPluginDirectory: "/etc/xdg/quickshell/sm1tee-plugins"
 
     property var knownManifests: ({})
     property var pathToPluginId: ({})
@@ -404,33 +404,33 @@ Singleton {
         SettingsData.setPluginSetting(pluginId, "variants", newVariants)
 
         const fullId = pluginId + ":" + variantId
-        removeWidgetFromDankBar(fullId)
+        removeWidgetFromBar(fullId)
 
         pluginDataChanged(pluginId)
     }
 
-    function removeWidgetFromDankBar(widgetId) {
+    function removeWidgetFromBar(widgetId) {
         function filterWidget(widget) {
             const id = typeof widget === "string" ? widget : widget.id
             return id !== widgetId
         }
 
-        const leftWidgets = SettingsData.dankBarLeftWidgets
-        const centerWidgets = SettingsData.dankBarCenterWidgets
-        const rightWidgets = SettingsData.dankBarRightWidgets
+        const leftWidgets = SettingsData.barLeftWidgets
+        const centerWidgets = SettingsData.barCenterWidgets
+        const rightWidgets = SettingsData.barRightWidgets
 
         const newLeft = leftWidgets.filter(filterWidget)
         const newCenter = centerWidgets.filter(filterWidget)
         const newRight = rightWidgets.filter(filterWidget)
 
         if (newLeft.length !== leftWidgets.length) {
-            SettingsData.setDankBarLeftWidgets(newLeft)
+            SettingsData.setBarLeftWidgets(newLeft)
         }
         if (newCenter.length !== centerWidgets.length) {
-            SettingsData.setDankBarCenterWidgets(newCenter)
+            SettingsData.setBarCenterWidgets(newCenter)
         }
         if (newRight.length !== rightWidgets.length) {
-            SettingsData.setDankBarRightWidgets(newRight)
+            SettingsData.setBarRightWidgets(newRight)
         }
     }
 

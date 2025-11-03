@@ -7,7 +7,7 @@ import qs.Common
 import qs.Modals.Common
 import qs.Widgets
 
-DankModal {
+Modal {
     id: fileBrowserModal
 
     property string homeDir: StandardPaths.writableLocation(StandardPaths.HomeLocation)
@@ -494,7 +494,7 @@ DankModal {
                         spacing: Theme.spacingM
                         anchors.verticalCenter: parent.verticalCenter
 
-                        DankIcon {
+                        Icon {
                             name: browserIcon
                             size: Theme.iconSizeLarge
                             color: Theme.primary
@@ -515,7 +515,7 @@ DankModal {
                         anchors.verticalCenter: parent.verticalCenter
                         spacing: Theme.spacingS
 
-                        DankActionButton {
+                        ActionButton {
                             circular: false
                             iconName: "movie"
                             iconSize: Theme.iconSize - 4
@@ -531,7 +531,7 @@ DankModal {
                             }
                         }
                         
-                        DankActionButton {
+                        ActionButton {
                             circular: false
                             iconName: "info"
                             iconSize: Theme.iconSize - 4
@@ -539,7 +539,7 @@ DankModal {
                             onClicked: fileBrowserModal.showKeyboardHints = !fileBrowserModal.showKeyboardHints
                         }
 
-                        DankActionButton {
+                        ActionButton {
                             circular: false
                             iconName: "close"
                             iconSize: Theme.iconSize - 4
@@ -560,7 +560,7 @@ DankModal {
                         color: (backButtonMouseArea.containsMouse || (backButtonFocused && keyboardNavigationActive)) && currentPath !== homeDir ? Theme.surfaceVariant : "transparent"
                         opacity: currentPath !== homeDir ? 1 : 0
 
-                        DankIcon {
+                        Icon {
                             anchors.centerIn: parent
                             name: "arrow_back"
                             size: Theme.iconSizeSmall
@@ -591,7 +591,7 @@ DankModal {
                     }
                 }
 
-                DankGridView {
+                GridView {
                     id: fileGrid
 
                     width: parent.width
@@ -684,7 +684,7 @@ DankModal {
                                     maxCacheSize: weMode ? 225 : 80
                                 }
 
-                                DankIcon {
+                                Icon {
                                     anchors.centerIn: parent
                                     name: "description"
                                     size: Theme.iconSizeLarge
@@ -692,7 +692,7 @@ DankModal {
                                     visible: !delegateRoot.fileIsDir && !isImageFile(delegateRoot.fileName)
                                 }
 
-                                DankIcon {
+                                Icon {
                                     anchors.centerIn: parent
                                     name: "folder"
                                     size: Theme.iconSizeLarge
@@ -774,7 +774,7 @@ DankModal {
                 visible: saveMode
                 spacing: Theme.spacingM
 
-                DankTextField {
+                TextField {
                     id: fileNameInput
 
                     width: parent.width - saveButton.width - Theme.spacingM

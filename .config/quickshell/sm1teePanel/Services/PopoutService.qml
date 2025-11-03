@@ -10,7 +10,7 @@ Singleton {
     property var notificationCenterPopout: null
     property var appDrawerPopout: null
     property var processListPopout: null
-    property var dankDashPopout: null
+    property var dashPopout: null
     property var batteryPopout: null
     property var systemUpdatePopout: null
 
@@ -104,32 +104,32 @@ Singleton {
         }
     }
 
-    function openDankDash(tabIndex, x, y, width, section, screen) {
-        if (dankDashPopout) {
+    function openDash(tabIndex, x, y, width, section, screen) {
+        if (dashPopout) {
             if (arguments.length >= 6) {
-                setPosition(dankDashPopout, x, y, width, section, screen)
+                setPosition(dashPopout, x, y, width, section, screen)
             }
-            dankDashPopout.currentTabIndex = tabIndex || 0
-            dankDashPopout.dashVisible = true
+            dashPopout.currentTabIndex = tabIndex || 0
+            dashPopout.dashVisible = true
         }
     }
 
-    function closeDankDash() {
-        if (dankDashPopout) {
-            dankDashPopout.dashVisible = false
+    function closeDash() {
+        if (dashPopout) {
+            dashPopout.dashVisible = false
         }
     }
 
-    function toggleDankDash(tabIndex, x, y, width, section, screen) {
-        if (dankDashPopout) {
+    function toggleDash(tabIndex, x, y, width, section, screen) {
+        if (dashPopout) {
             if (arguments.length >= 6) {
-                setPosition(dankDashPopout, x, y, width, section, screen)
+                setPosition(dashPopout, x, y, width, section, screen)
             }
-            if (dankDashPopout.dashVisible) {
-                dankDashPopout.dashVisible = false
+            if (dashPopout.dashVisible) {
+                dashPopout.dashVisible = false
             } else {
-                dankDashPopout.currentTabIndex = tabIndex || 0
-                dankDashPopout.dashVisible = true
+                dashPopout.currentTabIndex = tabIndex || 0
+                dashPopout.dashVisible = true
             }
         }
     }

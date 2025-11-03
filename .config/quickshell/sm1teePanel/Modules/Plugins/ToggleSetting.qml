@@ -61,7 +61,7 @@ Row {
         }
     }
 
-    DankToggle {
+    Toggle {
         id: toggle
         anchors.verticalCenter: parent.verticalCenter
         checked: root.value

@@ -37,7 +37,7 @@ Row {
             }
         }
 
-        DankIcon {
+        Icon {
             anchors.centerIn: parent
             name: {
                 if (!defaultSink) return "volume_off"
@@ -55,7 +55,7 @@ Row {
         }
     }
 
-    DankSlider {
+    Slider {
         readonly property real actualVolumePercent: defaultSink ? Math.round(defaultSink.audio.volume * 100) : 0
 
         anchors.verticalCenter: parent.verticalCenter

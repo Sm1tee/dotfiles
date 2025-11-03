@@ -18,12 +18,16 @@ Singleton {
 
     signal micMuteChanged
 
-    Connections {
-        target: source?.audio
-        function onMutedChanged() {
-            if (!suppressOSD && source?.audio && source.audio.muted !== lastMicMuted) {
+    Timer {
+        interval: 100
+        running: true
+        repeat: true
+        onTriggered: {
+            if (source?.audio && source.audio.muted !== lastMicMuted) {
+                if (!suppressOSD) {
+                    micMuteChanged()
+                }
                 lastMicMuted = source.audio.muted
-                micMuteChanged()
             }
         }
     }

@@ -19,7 +19,7 @@ Item {
         }
     }
 
-    DankFlickable {
+    Flickable {
         anchors.fill: parent
         anchors.topMargin: Theme.spacingL
         clip: true
@@ -51,7 +51,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "apps"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -88,7 +88,7 @@ Item {
                         }
                     }
 
-                    DankButtonGroup {
+                    ButtonGroup {
                         id: logoModeGroup
                         width: parent.width
                         fillWidth: true
@@ -144,7 +144,7 @@ Item {
                             }
                         }
 
-                        DankActionButton {
+                        ActionButton {
                             id: selectButton
                             iconName: "folder_open"
                             width: 36
@@ -186,7 +186,7 @@ Item {
                                     width: parent.width
                                     height: colorModeGroup.height
 
-                                    DankButtonGroup {
+                                    ButtonGroup {
                                         id: colorModeGroup
                                         width: parent.width
                                         fillWidth: true
@@ -274,7 +274,7 @@ Item {
                                     anchors.horizontalCenter: parent.horizontalCenter
                                 }
 
-                                DankSlider {
+                                Slider {
                                     width: 100
                                     height: 20
                                     minimum: -12
@@ -325,7 +325,7 @@ Item {
                                         anchors.horizontalCenter: parent.horizontalCenter
                                     }
 
-                                    DankSlider {
+                                    Slider {
                                         width: 100
                                         height: 20
                                         minimum: 0
@@ -354,7 +354,7 @@ Item {
                                         anchors.horizontalCenter: parent.horizontalCenter
                                     }
 
-                                    DankSlider {
+                                    Slider {
                                         width: 100
                                         height: 20
                                         minimum: 0
@@ -383,7 +383,7 @@ Item {
                                         anchors.horizontalCenter: parent.horizontalCenter
                                     }
 
-                                    DankToggle {
+                                    Toggle {
                                         width: 32
                                         height: 18
                                         checked: SettingsData.launcherLogoColorInvertOnMode
@@ -418,7 +418,7 @@ Item {
                         }
                     }
 
-                    DankTextField {
+                    TextField {
                         width: parent.width
                         text: SessionData.launchPrefix
                         placeholderText: "Введите префикс запуска (например, 'uwsm-app')"
@@ -476,7 +476,7 @@ Item {
                                 height: 1
                             }
 
-                            DankActionButton {
+                            ActionButton {
                                 id: clearAllButton
 
                                 iconName: "delete_sweep"
@@ -598,7 +598,7 @@ Item {
                                     }
                                 }
 
-                                DankActionButton {
+                                ActionButton {
                                     anchors.right: parent.right
                                     anchors.rightMargin: Theme.spacingM
                                     anchors.verticalCenter: parent.verticalCenter
@@ -652,7 +652,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "view_module"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -668,7 +668,7 @@ Item {
                         }
                     }
 
-                    DankToggle {
+                    Toggle {
                         id: workspaceIndexToggle
                         width: parent.width
                         text: "Показывать номера рабочих столов"
@@ -691,7 +691,7 @@ Item {
                         }
                     }
 
-                    DankToggle {
+                    Toggle {
                         id: workspaceAppsToggle
                         width: parent.width
                         text: "Показывать иконки приложений"
@@ -733,7 +733,7 @@ Item {
                                 font.weight: Font.Medium
                             }
 
-                            DankTextField {
+                            TextField {
                                 width: 100
                                 height: 28
                                 placeholderText: "#ffffff"
@@ -756,7 +756,7 @@ Item {
                         }
                     }
 
-                    DankToggle {
+                    Toggle {
                         width: parent.width
                         text: "Рабочие столы по мониторам"
                         description: "Отдельные рабочие столы для каждого монитора."
@@ -777,7 +777,7 @@ Item {
                             color: Theme.surfaceText
                         }
 
-                        DankButtonGroup {
+                        ButtonGroup {
                             id: paddingButtonGroup
                             width: parent.width
                             fillWidth: true
@@ -824,7 +824,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "music_note"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -840,7 +840,7 @@ Item {
                         }
                     }
 
-                    DankToggle {
+                    Toggle {
                         width: parent.width
                         text: "Волновые индикаторы прогресса"
                         description: "Использовать анимированные волновые индикаторы для воспроизведения медиа"
@@ -872,7 +872,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "apps"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -888,7 +888,7 @@ Item {
                         }
                     }
 
-                    DankToggle {
+                    Toggle {
                         width: parent.width
                         text: "Только приложения текущего рабочего стола"
                         description: "Показывать только приложения, запущенные на текущем рабочем столе"
@@ -922,7 +922,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "label"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -981,7 +981,7 @@ Item {
                                     elide: Text.ElideRight
                                 }
 
-                                DankIconPicker {
+                                IconPicker {
                                     id: iconPicker
                                     anchors.verticalCenter: parent.verticalCenter
 
@@ -1029,7 +1029,7 @@ Item {
                                     border.width: 0
                                     anchors.verticalCenter: parent.verticalCenter
 
-                                    DankIcon {
+                                    Icon {
                                         name: "close"
                                         size: 16
                                         color: clearMouseArea.containsMouse ? Theme.error : Theme.outline
@@ -1079,7 +1079,7 @@ Item {
                         width: parent.width
                         spacing: Theme.spacingM
 
-                        DankIcon {
+                        Icon {
                             name: "notifications"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -1101,7 +1101,7 @@ Item {
                         leftPadding: Theme.spacingM
                         rightPadding: Theme.spacingM
 
-                        DankDropdown {
+                        Dropdown {
                             width: parent.width - parent.leftPadding - parent.rightPadding
                             text: "Позиция всплывающих окон"
                             description: "Выберите, где будут появляться всплывающие уведомления на экране"
@@ -1164,7 +1164,7 @@ Item {
                     anchors.margins: Theme.spacingL
                     spacing: Theme.spacingM
 
-                    DankIcon {
+                    Icon {
                         name: "tune"
                         size: Theme.iconSize
                         color: Theme.primary
@@ -1192,7 +1192,7 @@ Item {
                         }
                     }
 
-                    DankToggle {
+                    Toggle {
                         id: osdToggle
 
                         anchors.verticalCenter: parent.verticalCenter

@@ -8,7 +8,7 @@ QtObject {
 
     property var modelData
     property int topMargin: 0
-    property int baseNotificationHeight: 120
+    property int baseNotificationHeight: Math.max(122, Math.min(170, 122 * SettingsData.fontScale))
     property int maxTargetNotifications: 4
     property var popupWindows: [] // strong refs to windows (live until exitFinished)
     property var destroyingWindows: new Set()

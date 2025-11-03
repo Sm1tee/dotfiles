@@ -9,7 +9,7 @@ import qs.Services
 import qs.Widgets
 import qs.Modules.Notifications.Center
 
-DankPopout {
+Popout {
     id: root
 
     property bool notificationHistoryVisible: false

@@ -4,7 +4,7 @@ import qs.Common
 import qs.Services
 import qs.Widgets
 
-DankFlickable {
+Flickable {
     anchors.fill: parent
     contentHeight: systemColumn.implicitHeight
     clip: true
@@ -119,7 +119,7 @@ DankFlickable {
                                 width: parent.width
                                 spacing: Theme.spacingS
 
-                                DankIcon {
+                                Icon {
                                     name: "memory"
                                     size: Theme.iconSizeSmall
                                     color: Theme.primary
@@ -260,7 +260,7 @@ DankFlickable {
                                 width: parent.width
                                 spacing: Theme.spacingS
 
-                                DankIcon {
+                                Icon {
                                     name: "auto_awesome_mosaic"
                                     size: Theme.iconSizeSmall
                                     color: Theme.secondary
@@ -403,7 +403,7 @@ DankFlickable {
                     width: parent.width
                     spacing: Theme.spacingS
 
-                    DankIcon {
+                    Icon {
                         name: "storage"
                         size: Theme.iconSize
                         color: Theme.surfaceText

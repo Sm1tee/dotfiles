@@ -238,7 +238,7 @@ Column {
 
     }
 
-    DankListView {
+    ListView {
         id: processListView
 
         property string keyRoleName: "pid"

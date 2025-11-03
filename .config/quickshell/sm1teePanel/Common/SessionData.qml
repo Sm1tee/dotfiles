@@ -12,7 +12,7 @@ Singleton {
 
     id: root
 
-    readonly property bool isGreeterMode: Quickshell.env("DMS_RUN_GREETER") === "1" || Quickshell.env("DMS_RUN_GREETER") === "true"
+    readonly property bool isGreeterMode: Quickshell.env("SM1TEE_RUN_GREETER") === "1" || Quickshell.env("SM1TEE_RUN_GREETER") === "true"
 
     property bool isLightMode: false
     property string wallpaperPath: ""
@@ -715,7 +715,7 @@ Singleton {
         id: greeterSessionFile
 
         path: {
-            const greetCfgDir = Quickshell.env("DMS_GREET_CFG_DIR") || "/etc/greetd/.dms"
+            const greetCfgDir = Quickshell.env("SM1TEE_GREET_CFG_DIR") || "/etc/greetd/.sm1tee"
             return greetCfgDir + "/session.json"
         }
         preload: isGreeterMode
