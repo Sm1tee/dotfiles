@@ -7,6 +7,23 @@
 # конфигурации Hyprland на Arch Linux с полной прозрачностью процесса
 # ============================================================================
 
+# Проверка и установка русской локали в самом начале
+if [ -z "$LOCALE_FIXED" ]; then
+    if ! locale -a 2>/dev/null | grep -qi "ru_RU.UTF-8"; then
+        echo "Installing Russian locale for correct text display..."
+        sudo sed -i 's/#ru_RU.UTF-8/ru_RU.UTF-8/' /etc/locale.gen 2>/dev/null
+        sudo locale-gen >/dev/null 2>&1
+        echo "Locale installed. Restarting script..."
+        sleep 1
+    fi
+    # Устанавливаем локаль и перезапускаем скрипт
+    export LANG=ru_RU.UTF-8
+    export LC_ALL=ru_RU.UTF-8
+    export LC_CTYPE=ru_RU.UTF-8
+    export LOCALE_FIXED=1
+    exec "$0" "$@"
+fi
+
 # Цвета для красивого вывода
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -147,21 +164,6 @@ main() {
     # Сохраняем директорию откуда запущен скрипт и переходим в неё
     SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
     cd "$SCRIPT_DIR"
-
-    # Проверка и временная установка русской локали для корректного отображения текста
-    if ! locale -a 2>/dev/null | grep -qi "ru_RU"; then
-        echo "Russian locale not found. Installing for correct text display..."
-        sudo sed -i 's/#ru_RU.UTF-8/ru_RU.UTF-8/' /etc/locale.gen 2>/dev/null
-        sudo locale-gen 2>&1
-        echo "Locale installed successfully!"
-        echo "Please wait while locale is being applied..."
-        sleep 2
-    fi
-
-    # Устанавливаем русскую локаль для текущей сессии скрипта
-    export LANG=ru_RU.UTF-8
-    export LC_ALL=ru_RU.UTF-8
-    export LC_CTYPE=ru_RU.UTF-8
 
     print_header
 
@@ -405,7 +407,7 @@ install_hyprland_core() {
     print_step_info "6.2" "HYPRLAND И ЭКОСИСТЕМА" \
         "Установка самого Hyprland, его компонентов, quickshell и инструментов для работы."
 
-    local hyprland_packages="aquamarine cliphist grim hyprland hyprland-qtutils hyprcursor hyprgraphics hyprlang hyprpolkitagent hyprutils hyprwayland-scanner matugen-bin gammastep quickshell-git satty slurp wl-clip-persist wl-clipboard xdg-desktop-portal-hyprland"
+    local hyprland_packages="aquamarine cliphist grim hyprland hyprland-qtutils hyprcursor hyprgraphics hyprlang hyprpolkitagent hyprutils hyprwayland-scanner matugen-bin ddcutil gammastep quickshell-git satty slurp wl-clip-persist wl-clipboard xdg-desktop-portal-hyprland"
 
     print_command "yay -S --needed $hyprland_packages"
 
