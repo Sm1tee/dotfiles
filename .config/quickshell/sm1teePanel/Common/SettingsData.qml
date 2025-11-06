@@ -34,6 +34,7 @@ Singleton {
     property string customThemeFile: ""
     property string matugenScheme: "scheme-tonal-spot"
     property bool runUserMatugenTemplates: true
+    property bool hyprlandBorderSync: false
     property real barTransparency: 1.0
     property real barWidgetTransparency: 1.0
     property real popupTransparency: 1.0
@@ -271,6 +272,7 @@ Singleton {
                 customThemeFile = settings.customThemeFile !== undefined ? settings.customThemeFile : ""
                 matugenScheme = settings.matugenScheme !== undefined ? settings.matugenScheme : "scheme-tonal-spot"
                 runUserMatugenTemplates = settings.runUserMatugenTemplates !== undefined ? settings.runUserMatugenTemplates : true
+                hyprlandBorderSync = settings.hyprlandBorderSync !== undefined ? settings.hyprlandBorderSync : false
                 barTransparency = settings.barTransparency !== undefined ? (settings.barTransparency > 1 ? settings.barTransparency / 100 : settings.barTransparency) : (settings.topBarTransparency !== undefined ? (settings.topBarTransparency > 1 ? settings.topBarTransparency / 100 : settings.topBarTransparency) : 1.0)
                 barWidgetTransparency = settings.barWidgetTransparency !== undefined ? (settings.barWidgetTransparency > 1 ? settings.barWidgetTransparency / 100 : settings.barWidgetTransparency) : (settings.topBarWidgetTransparency !== undefined ? (settings.topBarWidgetTransparency > 1 ? settings.topBarWidgetTransparency / 100 : settings.topBarWidgetTransparency) : 1.0)
                 popupTransparency = settings.popupTransparency !== undefined ? (settings.popupTransparency > 1 ? settings.popupTransparency / 100 : settings.popupTransparency) : 1.0
@@ -437,6 +439,7 @@ Singleton {
                                                 "customThemeFile": customThemeFile,
                                                 "matugenScheme": matugenScheme,
                                                 "runUserMatugenTemplates": runUserMatugenTemplates,
+                                                "hyprlandBorderSync": hyprlandBorderSync,
                                                 "barTransparency": barTransparency,
                                                 "barWidgetTransparency": barWidgetTransparency,
                                                 "popupTransparency": popupTransparency,
@@ -700,6 +703,14 @@ Singleton {
             return
 
         runUserMatugenTemplates = enabled
+        saveSettings()
+    }
+
+    function setHyprlandBorderSync(enabled) {
+        if (hyprlandBorderSync === enabled)
+            return
+
+        hyprlandBorderSync = enabled
         saveSettings()
 
         if (typeof Theme !== "undefined") {

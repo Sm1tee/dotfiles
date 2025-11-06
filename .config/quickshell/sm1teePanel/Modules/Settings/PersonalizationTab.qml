@@ -894,6 +894,87 @@ Item {
                                 spacing: Theme.spacingM
 
                                 Icon {
+                                    name: "border_color"
+                                    size: Theme.iconSize
+                                    color: SettingsData.hyprlandBorderSync ? Theme.primary : Theme.surfaceVariantText
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+
+                                Column {
+                                    width: parent.width - Theme.iconSize - Theme.spacingM - hyprlandBorderToggle.width - Theme.spacingM
+                                    spacing: Theme.spacingXS
+                                    anchors.verticalCenter: parent.verticalCenter
+
+                                    StyledText {
+                                        text: "Использовать для рамки Hyprland"
+                                        font.pixelSize: Theme.fontSizeMedium
+                                        font.weight: Font.Medium
+                                        color: Theme.surfaceText
+                                    }
+
+                                    StyledText {
+                                        text: "Автоматически менять цвет рамок окон в Hyprland"
+                                        font.pixelSize: Theme.fontSizeSmall
+                                        color: Theme.surfaceVariantText
+                                        width: parent.width
+                                        wrapMode: Text.WordWrap
+                                        maximumLineCount: 2
+                                        elide: Text.ElideRight
+                                    }
+                                }
+
+                                Toggle {
+                                    id: hyprlandBorderToggle
+
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    checked: SettingsData.hyprlandBorderSync
+                                    enabled: Theme.matugenAvailable
+                                    onToggleCompleted: checked => {
+                                        SettingsData.setHyprlandBorderSync(checked)
+                                        
+                                        if (checked) {
+                                            // Создаем файл с текущими цветами сразу
+                                            const primary = Theme.primary.toString().replace("#", "")
+                                            const outline = Theme.outline.toString().replace("#", "")
+                                            const content = `# Автоматически сгенерировано matugen\n# Цвета синхронизированы с темой Quickshell\n\ngeneral {\n    col.active_border = rgba(${primary}ee)\n    col.inactive_border = rgba(${outline}aa)\n}\n`
+                                            
+                                            Quickshell.execDetached(["sh", "-c", `mkdir -p ~/.config/hypr && cat > ~/.config/hypr/sm1tee-colors.conf << 'EOF'\n${content}EOF`])
+                                            
+                                            // Добавляем source в конец hyprland.conf если его там нет
+                                            Quickshell.execDetached(["sh", "-c", `grep -q 'source.*sm1tee-colors.conf' ~/.config/hypr/hyprland.conf || echo '\n# Цвета из Quickshell\nsource = ~/.config/hypr/sm1tee-colors.conf' >> ~/.config/hypr/hyprland.conf`])
+                                            
+                                            // Перезагружаем Hyprland
+                                            Quickshell.execDetached(["hyprctl", "reload"])
+                                            
+                                            ToastService.showSuccess("Синхронизация рамок Hyprland включена")
+                                        } else {
+                                            // Удаляем строки с source из hyprland.conf
+                                            Quickshell.execDetached(["sh", "-c", `sed -i '/# Цвета из Quickshell/d; /source.*sm1tee-colors.conf/d' ~/.config/hypr/hyprland.conf`])
+                                            
+                                            // Удаляем файл с цветами
+                                            Quickshell.execDetached(["rm", "-f", `${Theme.homeDir}/.config/hypr/sm1tee-colors.conf`])
+                                            
+                                            // Перезагружаем Hyprland
+                                            Quickshell.execDetached(["hyprctl", "reload"])
+                                            
+                                            ToastService.showInfo("Синхронизация рамок Hyprland отключена")
+                                        }
+                                    }
+                                }
+                            }
+
+                            Rectangle {
+                                width: parent.width
+                                height: 1
+                                color: Theme.outline
+                                opacity: 0.2
+                            }
+
+                            Row {
+                                width: parent.width
+                                spacing: Theme.spacingM
+
+                                Icon {
                                     name: "code"
                                     size: Theme.iconSize
                                     color: SettingsData.runUserMatugenTemplates ? Theme.primary : Theme.surfaceVariantText
@@ -906,14 +987,14 @@ Item {
                                     anchors.verticalCenter: parent.verticalCenter
 
                                     StyledText {
-                                        text: "Запускать пользовательские шаблоны"
+                                        text: "Пользовательские шаблоны matugen"
                                         font.pixelSize: Theme.fontSizeMedium
                                         font.weight: Font.Medium
                                         color: Theme.surfaceText
                                     }
 
                                     StyledText {
-                                        text: "Выполнять шаблоны из ~/.config/matugen/config.toml"
+                                        text: "Применять цвета к твоим программам через ~/.config/matugen/config.toml"
                                         font.pixelSize: Theme.fontSizeSmall
                                         color: Theme.surfaceVariantText
                                         width: parent.width

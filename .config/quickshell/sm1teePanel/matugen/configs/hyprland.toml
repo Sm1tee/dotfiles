@@ -1,0 +1,3 @@
+[templates.hyprland]
+input_path = './matugen/templates/hyprland-colors.conf'
+output_path = '~/.config/hypr/sm1tee-colors.conf'

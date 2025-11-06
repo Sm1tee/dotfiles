@@ -180,7 +180,7 @@ Rectangle {
                             }
                             
                             StyledText {
-                                text: modelData === AudioService.sink ? "Active" : "Available"
+                                text: modelData === AudioService.sink ? "Активно" : "Доступно"
                                 font.pixelSize: Theme.fontSizeSmall
                                 color: Theme.surfaceVariantText
                                 elide: Text.ElideRight

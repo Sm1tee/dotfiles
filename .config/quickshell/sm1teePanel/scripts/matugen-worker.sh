@@ -105,6 +105,11 @@ EOF
     echo "" >> "$TMP_CFG"
   fi
 
+  if command -v hyprctl >/dev/null 2>&1; then
+    cat "$SHELL_DIR/matugen/configs/hyprland.toml" >> "$TMP_CFG"
+    echo "" >> "$TMP_CFG"
+  fi
+
   if command -v firefox >/dev/null 2>&1; then
     cat "$SHELL_DIR/matugen/configs/firefox.toml" >> "$TMP_CFG"
     echo "" >> "$TMP_CFG"
@@ -245,13 +250,17 @@ EOF
     fi
   fi
 
-  if command -v kitty >/dev/null 2>&1 && [[ -f "$CONFIG_DIR/kitty/theme.conf" ]]; then
-    OUT=$("$SHELL_DIR/matugen/colors16.py" "$PRIMARY" $([[ "$mode" == "light" ]] && echo --light) ${HONOR:+--honor-primary "$HONOR"} ${SURFACE:+--background "$SURFACE"} --kitty 2>/dev/null || true)
-    if [[ -n "${OUT:-}" ]]; then
-      TMP="$(mktemp)"
-      printf "%s\n\n" "$OUT" > "$TMP"
-      cat "$CONFIG_DIR/kitty/theme.conf" >> "$TMP"
-      mv "$TMP" "$CONFIG_DIR/kitty/theme.conf"
+  if command -v kitty >/dev/null 2>&1; then
+    # Ждем пока matugen создаст файл
+    sleep 0.1
+    if [[ -f "$CONFIG_DIR/kitty/theme.conf" ]]; then
+      OUT=$("$SHELL_DIR/matugen/colors16.py" "$PRIMARY" $([[ "$mode" == "light" ]] && echo --light) ${HONOR:+--honor-primary "$HONOR"} ${SURFACE:+--background "$SURFACE"} --kitty 2>/dev/null || true)
+      if [[ -n "${OUT:-}" ]]; then
+        TMP="$(mktemp)"
+        printf "%s\n\n" "$OUT" > "$TMP"
+        cat "$CONFIG_DIR/kitty/theme.conf" >> "$TMP"
+        mv "$TMP" "$CONFIG_DIR/kitty/theme.conf"
+      fi
     fi
   fi
   COLOR_SCHEME=$([[ "$mode" == "light" ]] && echo default || echo prefer-dark)
@@ -261,6 +270,10 @@ EOF
   elif command -v gsettings >/dev/null 2>&1; then
     gsettings set org.gnome.desktop.interface color-scheme "$COLOR_SCHEME" 2>/dev/null || true
     [[ "$icon" != "System Default" && -n "$icon" ]] && gsettings set org.gnome.desktop.interface icon-theme "$icon" 2>/dev/null || true
+  fi
+
+  if command -v hyprctl >/dev/null 2>&1; then
+    hyprctl reload >/dev/null 2>&1 || true
   fi
 }
 
