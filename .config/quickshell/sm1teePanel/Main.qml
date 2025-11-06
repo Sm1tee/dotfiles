@@ -78,7 +78,7 @@ Item {
 
   Loader {
       id: barLoader
-      asynchronous: true  // Асинхронная загрузка для ускорения старта
+      asynchronous: false  // Асинхронная загрузка для ускорения старта
 
       property var currentPosition: SettingsData.barPosition
       property bool initialized: false
