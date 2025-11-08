@@ -20,13 +20,19 @@ Singleton {
     property bool ddcAvailable: false
     property var ddcInitQueue: []
     property bool skipDdcRead: false
+    property int _lastKnownBrightness: 50
     property int brightnessLevel: {
         const deviceToUse = lastIpcDevice === "" ? getDefaultDevice() : (lastIpcDevice || currentDevice)
         if (!deviceToUse) {
-            return 50
+            return _lastKnownBrightness
         }
 
-        return getDeviceBrightness(deviceToUse)
+        const brightness = getDeviceBrightness(deviceToUse)
+        // Сохраняем последнее валидное значение
+        if (brightness > 0 && brightness <= 100) {
+            _lastKnownBrightness = brightness
+        }
+        return brightness
     }
     property int maxBrightness: 100
     property bool brightnessInitialized: false
@@ -54,6 +60,8 @@ Singleton {
             const newBrightness = Object.assign({}, deviceBrightness)
             newBrightness[actualDevice] = clampedValue
             deviceBrightness = newBrightness
+            // Обновляем последнее известное значение при установке яркости
+            _lastKnownBrightness = clampedValue
         }
 
         const deviceInfo = getCurrentDeviceInfoByName(actualDevice)
@@ -92,6 +100,11 @@ Singleton {
 
         const deviceInfo = getCurrentDeviceInfoByName(deviceName)
         if (deviceInfo && deviceInfo.class === "ddc") {
+            // Для DDC устройств читаем яркость через ddcutil, если устройство не в процессе инициализации
+            if (!ddcPendingInit[deviceName] && deviceInfo.ddcDisplay) {
+                ddcBrightnessGetProcess.command = ["ddcutil", "getvcp", "-d", String(deviceInfo.ddcDisplay), "10", "--brief"]
+                ddcBrightnessGetProcess.running = true
+            }
             return
         } else {
             brightnessGetProcess.command = ["brightnessctl", "-m", "-d", deviceName, "get"]
@@ -140,19 +153,25 @@ Singleton {
 
     function getDeviceBrightness(deviceName) {
         if (!deviceName) {
-            return
-        } 50
+            return _lastKnownBrightness
+        }
 
         const deviceInfo = getCurrentDeviceInfoByName(deviceName)
+        
+        // Если устройство в процессе инициализации, возвращаем последнее известное значение
+        if (ddcPendingInit[deviceName]) {
+            return _lastKnownBrightness
+        }
+        
         if (!deviceInfo) {
-            return 50
+            return _lastKnownBrightness
         }
 
         if (deviceInfo.class === "ddc") {
-            return deviceBrightness[deviceName] || 50
+            return deviceBrightness[deviceName] || _lastKnownBrightness
         }
 
-        return deviceBrightness[deviceName] || deviceInfo.percentage || 50
+        return deviceBrightness[deviceName] || deviceInfo.percentage || _lastKnownBrightness
     }
 
     function getDefaultDevice() {
@@ -448,11 +467,15 @@ Singleton {
 
                     for (const device of parsedDevices) {
                         if (device.display && device.class === "ddc") {
+                            const deviceName = device.name
+                            // Используем последнее известное значение или текущее _lastKnownBrightness
+                            const initialBrightness = deviceBrightness[deviceName] || _lastKnownBrightness
+                            
                             newDdcDevices.push({
-                                                   "name": device.name,
+                                                   "name": deviceName,
                                                    "class": "ddc",
-                                                   "current": 50,
-                                                   "percentage": 50,
+                                                   "current": initialBrightness,
+                                                   "percentage": initialBrightness,
                                                    "max": 100,
                                                    "ddcDisplay": device.display
                                                })
@@ -587,24 +610,41 @@ Singleton {
 
                 const parts = text.trim().split(" ")
                 if (parts.length >= 5) {
-                    const current = parseInt(parts[3]) || 50
-                    const max = parseInt(parts[4]) || 100
-                    const brightness = Math.round((current / max) * 100)
+                    const current = parseInt(parts[3])
+                    const max = parseInt(parts[4])
+                    
+                    if (!isNaN(current) && !isNaN(max) && max > 0) {
+                        const brightness = Math.round((current / max) * 100)
 
-                    const commandParts = ddcInitialBrightnessProcess.command
-                    if (commandParts && commandParts.length >= 4) {
-                        const displayId = commandParts[3]
-                        const deviceName = "ddc-" + displayId
+                        const commandParts = ddcInitialBrightnessProcess.command
+                        if (commandParts && commandParts.length >= 4) {
+                            const displayId = commandParts[3]
+                            const deviceName = "ddc-" + displayId
 
-                        var newBrightness = Object.assign({}, deviceBrightness)
-                        newBrightness[deviceName] = brightness
-                        deviceBrightness = newBrightness
+                            var newBrightness = Object.assign({}, deviceBrightness)
+                            newBrightness[deviceName] = brightness
+                            deviceBrightness = newBrightness
 
-                        var newPending = Object.assign({}, ddcPendingInit)
-                        delete newPending[deviceName]
-                        ddcPendingInit = newPending
+                            // Обновляем _lastKnownBrightness - это устройство станет текущим
+                            _lastKnownBrightness = brightness
 
-                        console.log("DisplayService: Initial DDC Device", deviceName, "brightness:", brightness + "%")
+                            var newPending = Object.assign({}, ddcPendingInit)
+                            delete newPending[deviceName]
+                            ddcPendingInit = newPending
+
+                            console.log("DisplayService: Initial DDC Device", deviceName, "brightness:", brightness + "%")
+                        }
+                    } else {
+                        console.warn("DisplayService: Invalid initial DDC brightness values - current:", current, "max:", max)
+                        // Все равно убираем из pending, чтобы не блокировать UI
+                        const commandParts = ddcInitialBrightnessProcess.command
+                        if (commandParts && commandParts.length >= 4) {
+                            const displayId = commandParts[3]
+                            const deviceName = "ddc-" + displayId
+                            var newPending = Object.assign({}, ddcPendingInit)
+                            delete newPending[deviceName]
+                            ddcPendingInit = newPending
+                        }
                     }
                 }
             }
@@ -638,6 +678,8 @@ Singleton {
                         var newBrightness = Object.assign({}, deviceBrightness)
                         newBrightness[currentDevice] = brightness
                         deviceBrightness = newBrightness
+                        // Обновляем _lastKnownBrightness
+                        _lastKnownBrightness = brightness
                     }
 
                     brightnessInitialized = true
@@ -666,21 +708,28 @@ Singleton {
                 // Parse ddcutil getvcp output format: "VCP 10 C 50 100"
                 const parts = text.trim().split(" ")
                 if (parts.length >= 5) {
-                    const current = parseInt(parts[3]) || 50
-                    const max = parseInt(parts[4]) || 100
-                    maxBrightness = max
-                    const brightness = Math.round((current / max) * 100)
+                    const current = parseInt(parts[3])
+                    const max = parseInt(parts[4])
+                    
+                    if (!isNaN(current) && !isNaN(max) && max > 0) {
+                        maxBrightness = max
+                        const brightness = Math.round((current / max) * 100)
 
-                    // Update the device brightness cache
-                    if (currentDevice) {
-                        var newBrightness = Object.assign({}, deviceBrightness)
-                        newBrightness[currentDevice] = brightness
-                        deviceBrightness = newBrightness
+                        // Update the device brightness cache
+                        if (currentDevice) {
+                            var newBrightness = Object.assign({}, deviceBrightness)
+                            newBrightness[currentDevice] = brightness
+                            deviceBrightness = newBrightness
+                            // Обновляем _lastKnownBrightness
+                            _lastKnownBrightness = brightness
+                        }
+
+                        brightnessInitialized = true
+                        console.log("DisplayService: DDC Device", currentDevice, "brightness:", brightness + "%")
+                        brightnessChanged()
+                    } else {
+                        console.warn("DisplayService: Invalid DDC brightness values - current:", current, "max:", max)
                     }
-
-                    brightnessInitialized = true
-                    console.log("DisplayService: DDC Device", currentDevice, "brightness:", brightness + "%")
-                    brightnessChanged()
                 }
             }
         }

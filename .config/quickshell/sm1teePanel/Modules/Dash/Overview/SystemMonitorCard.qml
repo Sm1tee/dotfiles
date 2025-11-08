@@ -14,6 +14,20 @@ Card {
         DgopService.removeRef(["cpu", "memory", "system"])
     }
 
+    MouseArea {
+        anchors.fill: parent
+        hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
+        onClicked: {
+            // Активируем loader если еще не активен
+            if (PopoutService.processListModalLoader && !PopoutService.processListModalLoader.active) {
+                PopoutService.processListModalLoader.active = true
+            }
+            // Вызываем через callLater чтобы модал успел создаться
+            Qt.callLater(() => PopoutService.showProcessListModal())
+        }
+    }
+
     Row {
         anchors.fill: parent
         anchors.margins: Theme.spacingS

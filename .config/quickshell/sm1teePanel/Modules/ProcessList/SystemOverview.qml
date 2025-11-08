@@ -322,39 +322,71 @@ Row {
                 opacity: 0.8
             }
 
-            StyledText {
-                text: {
-                    if (!DgopService.availableGpus || DgopService.availableGpus.length === 0) {
-                        return "No GPU";
-                    }
-                    const gpu = DgopService.availableGpus[Math.min(SessionData.selectedGpuIndex, DgopService.availableGpus.length - 1)];
-                    // Check if temperature monitoring is enabled for this GPU
-                    const tempEnabled = SessionData.enabledGpuPciIds && SessionData.enabledGpuPciIds.indexOf(gpu.pciId) !== -1;
-                    const temp = gpu.temperature;
-                    const hasTemp = tempEnabled && temp !== undefined && temp !== null && temp !== 0;
-                    if (hasTemp) {
-                        return Math.round(temp) + "°";
-                    } else {
+            Row {
+                spacing: Theme.spacingS
+
+                StyledText {
+                    text: {
+                        if (!DgopService.availableGpus || DgopService.availableGpus.length === 0) {
+                            return "No GPU";
+                        }
+                        const gpu = DgopService.availableGpus[Math.min(SessionData.selectedGpuIndex, DgopService.availableGpus.length - 1)];
+                        const usage = gpu.usage;
+                        if (usage !== undefined && usage !== null) {
+                            return usage + "%";
+                        }
                         return gpu.vendor;
                     }
+                    font.pixelSize: Theme.fontSizeLarge
+                    font.family: SettingsData.monoFontFamily
+                    font.weight: Font.Bold
+                    color: Theme.surfaceText
+                    anchors.verticalCenter: parent.verticalCenter
                 }
-                font.pixelSize: Theme.fontSizeLarge
-                font.family: SettingsData.monoFontFamily
-                font.weight: Font.Bold
-                color: {
-                    if (!DgopService.availableGpus || DgopService.availableGpus.length === 0) {
+
+                Rectangle {
+                    width: 1
+                    height: 20
+                    color: Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.3)
+                    anchors.verticalCenter: parent.verticalCenter
+                    visible: {
+                        if (!DgopService.availableGpus || DgopService.availableGpus.length === 0) return false;
+                        const gpu = DgopService.availableGpus[Math.min(SessionData.selectedGpuIndex, DgopService.availableGpus.length - 1)];
+                        return gpu.temperature !== undefined && gpu.temperature !== null && gpu.temperature > 0;
+                    }
+                }
+
+                StyledText {
+                    text: {
+                        if (!DgopService.availableGpus || DgopService.availableGpus.length === 0) {
+                            return "";
+                        }
+                        const gpu = DgopService.availableGpus[Math.min(SessionData.selectedGpuIndex, DgopService.availableGpus.length - 1)];
+                        const temp = gpu.temperature;
+                        if (temp !== undefined && temp !== null && temp > 0) {
+                            return Math.round(temp) + "°";
+                        }
+                        return "";
+                    }
+                    font.pixelSize: Theme.fontSizeMedium
+                    font.family: SettingsData.monoFontFamily
+                    font.weight: Font.Medium
+                    color: {
+                        if (!DgopService.availableGpus || DgopService.availableGpus.length === 0) {
+                            return Theme.surfaceText;
+                        }
+                        const gpu = DgopService.availableGpus[Math.min(SessionData.selectedGpuIndex, DgopService.availableGpus.length - 1)];
+                        const temp = gpu.temperature || 0;
+                        if (temp > 80) {
+                            return Theme.error;
+                        }
+                        if (temp > 60) {
+                            return Theme.warning;
+                        }
                         return Theme.surfaceText;
                     }
-                    const gpu = DgopService.availableGpus[Math.min(SessionData.selectedGpuIndex, DgopService.availableGpus.length - 1)];
-                    const tempEnabled = SessionData.enabledGpuPciIds && SessionData.enabledGpuPciIds.indexOf(gpu.pciId) !== -1;
-                    const temp = gpu.temperature || 0;
-                    if (tempEnabled && temp > 80) {
-                        return Theme.error;
-                    }
-                    if (tempEnabled && temp > 60) {
-                        return Theme.warning;
-                    }
-                    return Theme.surfaceText;
+                    anchors.verticalCenter: parent.verticalCenter
+                    visible: text !== ""
                 }
             }
 

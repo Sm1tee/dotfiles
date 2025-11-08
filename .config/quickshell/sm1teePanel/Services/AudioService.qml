@@ -14,27 +14,14 @@ Singleton {
     readonly property PwNode source: Pipewire.defaultAudioSource
 
     property bool suppressOSD: true
-    property bool lastMicMuted: false
 
     signal micMuteChanged
 
-    Timer {
-        interval: 100
-        running: true
-        repeat: true
-        onTriggered: {
-            if (source?.audio && source.audio.muted !== lastMicMuted) {
-                if (!suppressOSD) {
-                    micMuteChanged()
-                }
-                lastMicMuted = source.audio.muted
-            }
-        }
-    }
-
-    onSourceChanged: {
-        if (source?.audio) {
-            lastMicMuted = source.audio.muted
+    Connections {
+        target: source?.audio
+        enabled: !suppressOSD
+        function onMutedChanged() {
+            micMuteChanged()
         }
     }
 

@@ -157,6 +157,7 @@ sm1teePanel/
 
 #### Рекомендуемые
 - `matugen` — для динамической тематизации
+- `socat` — для отслеживания событий Hyprland (раскладка клавиатуры)
 - `NetworkManager` — для управления сетью
 - `BlueZ` — для Bluetooth
 - `PipeWire` / `PulseAudio` — для звука

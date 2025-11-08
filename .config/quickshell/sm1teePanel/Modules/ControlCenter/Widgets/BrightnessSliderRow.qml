@@ -85,17 +85,7 @@ Row {
         enabled: DisplayService.brightnessAvailable
         minimum: 1
         maximum: 100
-        value: {
-            let level = DisplayService.brightnessLevel
-            if (level > 100) {
-                let deviceInfo = DisplayService.getCurrentDeviceInfo()
-                if (deviceInfo && deviceInfo.max > 0) {
-                    return Math.round((level / deviceInfo.max) * 100)
-                }
-                return 50
-            }
-            return level
-        }
+        value: DisplayService.brightnessLevel
         onSliderValueChanged: function(newValue) {
             if (DisplayService.brightnessAvailable) {
                 DisplayService.setBrightness(newValue)

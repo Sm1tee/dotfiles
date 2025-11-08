@@ -16,7 +16,6 @@ Rectangle {
     property real barThickness: 48
     readonly property real horizontalPadding: SettingsData.barNoBackground ? 0 : Math.max(Theme.baseSpacingXS, Theme.baseSpacingS * (widgetThickness / 30))
     property string currentLayout: ""
-    property string hyprlandKeyboard: ""
 
     width: isVertical ? widgetThickness : (contentRow.implicitWidth + horizontalPadding * 2)
     height: isVertical ? (contentColumn.implicitHeight + horizontalPadding * 2) : widgetThickness
@@ -43,7 +42,7 @@ Rectangle {
                 Quickshell.execDetached([
                     "hyprctl",
                     "switchxkblayout",
-                    root.hyprlandKeyboard,
+                    HyprlandService.mainKeyboardName,
                     "next"
                 ])
             }
@@ -146,48 +145,37 @@ Rectangle {
     }
 
 
-    Process {
-        id: hyprlandLayoutProcess
-        running: false
-        command: ["hyprctl", "-j", "devices"]
-        stdout: StdioCollector {
-            onStreamFinished: {
-                try {
-                    const data = JSON.parse(text)
-                    // Find the main keyboard and get its active keymap
-                    const mainKeyboard = data.keyboards.find(kb => kb.main === true)
-                    root.hyprlandKeyboard = mainKeyboard.name
-                    if (mainKeyboard && mainKeyboard.active_keymap) {
-                        root.currentLayout = mainKeyboard.active_keymap
-                    } else {
-                        root.currentLayout = "Unknown"
-                    }
-                } catch (e) {
-                    root.currentLayout = "Unknown"
-                }
+
+
+    Connections {
+        target: HyprlandService
+        enabled: CompositorService.isHyprland
+        function onKeyboardLayoutChanged(layout) {
+            root.currentLayout = layout
+        }
+        function onCurrentKeyboardLayoutChanged() {
+            if (CompositorService.isHyprland) {
+                root.currentLayout = HyprlandService.currentKeyboardLayout
             }
         }
     }
 
     Timer {
-        id: updateTimer
-        interval: 100
-        running: true
+        interval: 1000
+        running: CompositorService.isNiri
         repeat: true
         onTriggered: {
-            updateLayout()
+            if (CompositorService.isNiri) {
+                root.currentLayout = NiriService.getCurrentKeyboardLayoutName()
+            }
         }
     }
 
     Component.onCompleted: {
-        updateLayout()
-    }
-
-    function updateLayout() {
         if (CompositorService.isNiri) {
             root.currentLayout = NiriService.getCurrentKeyboardLayoutName()
         } else if (CompositorService.isHyprland) {
-            hyprlandLayoutProcess.running = true
+            root.currentLayout = HyprlandService.currentKeyboardLayout
         }
     }
 }

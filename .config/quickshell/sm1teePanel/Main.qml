@@ -364,6 +364,10 @@ Item {
 
       active: false
 
+      Component.onCompleted: {
+          PopoutService.processListModalLoader = processListModalLoader
+      }
+
       ProcessListModal {
           id: processListModal
 

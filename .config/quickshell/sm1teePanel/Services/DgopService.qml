@@ -158,7 +158,10 @@ Singleton {
             if (enabledModules.includes("network") || enabledModules.includes("all")) networkProcess.running = true
             if (enabledModules.includes("processes") || enabledModules.includes("all")) processProcess.running = true
             if (enabledModules.includes("diskmounts") || enabledModules.includes("all")) diskMountsProcess.running = true
-            // GPU detection runs only once at startup, not every update
+            // Update AMD GPU stats if system module is enabled
+            if ((enabledModules.includes("system") || enabledModules.includes("all")) && availableGpus.length > 0) {
+                amdGpuStatsProcess.running = true
+            }
         } else { isUpdating = false }
     }
 
@@ -407,6 +410,23 @@ Singleton {
         if (gpus.length > 0) availableGpus = gpus
     }
 
+    function parseAmdGpuStats(text) {
+        if (!text || !text.trim()) return
+        
+        const lines = text.trim().split('\n')
+        if (lines.length < 2) return
+        
+        const usage = parseInt(lines[0])
+        const tempMillidegrees = parseInt(lines[1])
+        
+        if (availableGpus.length > 0 && !isNaN(usage) && !isNaN(tempMillidegrees)) {
+            const updatedGpus = availableGpus.slice()
+            updatedGpus[0].usage = usage
+            updatedGpus[0].temperature = tempMillidegrees / 1000
+            availableGpus = updatedGpus
+        }
+    }
+
     function parseDiskMounts(text) {
         const lines = text.trim().split('\n')
         const mounts = []
@@ -478,6 +498,7 @@ Singleton {
     Process { id: networkProcess; command: ["cat", "/proc/net/dev"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) parseNetworkStats(text) } } }
     Process { id: processProcess; command: ["ps", "-eo", "pid,pcpu,pmem,rss,comm", "--sort=-%cpu", "--no-headers"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) parseProcessStats(text) } } }
     Process { id: gpuDetectProcess; command: ["lspci"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) parseGpuDetect(text) } } }
+    Process { id: amdGpuStatsProcess; command: ["sh", "-c", "cat /sys/class/drm/card1/device/gpu_busy_percent 2>/dev/null && cat /sys/class/drm/card1/device/hwmon/hwmon*/temp1_input 2>/dev/null | head -1"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) parseAmdGpuStats(text) } } }
     Process { id: diskMountsProcess; command: ["df", "-h", "--output=source,target,size,used,avail,pcent"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) parseDiskMounts(text) } } }
     Process { id: osReleaseProcess; command: ["cat", "/etc/os-release"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) { const lines = text.trim().split('\n'); let prettyName = "", name = ""; for (const line of lines) { const t = line.trim(); if (t.startsWith('PRETTY_NAME=')) prettyName = t.substring(12).replace(/^["']|["']$/g, ''); else if (t.startsWith('NAME=')) name = t.substring(5).replace(/^["']|["']$/g, '') } distribution = prettyName || name || "Linux" } } } }
     Component.onCompleted: { 

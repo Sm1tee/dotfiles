@@ -10,7 +10,7 @@ Modal {
     id: processListModal
 
     property int currentTab: 0
-    property var tabNames: ["Processes", "Performance", "System"]
+    property var tabNames: ["Процессы", "Производительность", "Система"]
 
     function show() {
         if (!DgopService.dgopAvailable) {
@@ -19,6 +19,11 @@ Modal {
         }
         open();
         UserInfoService.getUptime();
+    }
+
+    function showPerformance() {
+        currentTab = 1;
+        show();
     }
 
     function hide() {
