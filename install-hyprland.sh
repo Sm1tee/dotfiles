@@ -407,7 +407,7 @@ install_hyprland_core() {
     print_step_info "6.2" "HYPRLAND И ЭКОСИСТЕМА" \
         "Установка самого Hyprland, его компонентов, quickshell и инструментов для работы."
 
-    local hyprland_packages="aquamarine cliphist grim hyprland hyprland-qtutils hyprcursor hyprgraphics hyprlang hyprpolkitagent hyprutils hyprwayland-scanner matugen-bin ddcutil gammastep quickshell-git satty slurp wl-clip-persist wl-clipboard xdg-desktop-portal-hyprland"
+    local hyprland_packages="aquamarine sosat cliphist grim hyprland hyprland-qtutils hyprcursor hyprgraphics hyprlang hyprpolkitagent hyprutils hyprwayland-scanner matugen-bin ddcutil gammastep quickshell-git satty slurp wl-clip-persist wl-clipboard xdg-desktop-portal-hyprland"
 
     print_command "yay -S --needed $hyprland_packages"
 
