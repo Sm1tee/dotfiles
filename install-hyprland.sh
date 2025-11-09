@@ -907,7 +907,7 @@ install_gaming_packages() {
     print_step_info "15.1" "ИГРОВЫЕ ПАКЕТЫ" \
         "Установка драйверов, библиотек и инструментов для комфортной игры на Linux с AMD видеокартой."
 
-    local gaming_packages="mesa lib32-mesa vkd3d lib32-vkd3d xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau vulkan-mesa-layers ttf-liberation goverlay mangohud gamemode glfw protontricks gamescope dxvk-bin"
+    local gaming_packages="mesa lib32-mesa vkd3d lib32-vkd3d xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau vulkan-mesa-layers ttf-liberation goverlay mangohud gamemode proton-cachyos proton-cachyos-slr umu-launcher glfw protontricks gamescope dxvk-bin"
 
     print_command "yay -S --needed $gaming_packages"
 

@@ -11,7 +11,7 @@ Singleton {
     id: root
 
     property int refCount: 0
-    property int updateInterval: refCount > 0 ? 5000 : 30000  // Увеличено с 3 до 5 секунд
+    property int updateInterval: 2000
     property bool isUpdating: false
     property bool dgopAvailable: true // Always available with native commands
 
@@ -71,9 +71,14 @@ Singleton {
     property string loadAverage: ""
     property int processCount: 0
     property int threadCount: 0
+    property int autostartCount: 0
+    property var autostartServices: []
     property string bootTime: ""
     property string motherboard: ""
     property string biosVersion: ""
+    property string displayInfo: ""
+    property string wmInfo: ""
+    property string mesaVersion: ""
 
     // History
     property int historySize: 60
@@ -156,8 +161,10 @@ Singleton {
             if (enabledModules.includes("cpu") || enabledModules.includes("all")) cpuProcess.running = true
             if (enabledModules.includes("memory") || enabledModules.includes("all")) memoryProcess.running = true
             if (enabledModules.includes("network") || enabledModules.includes("all")) networkProcess.running = true
+            if (enabledModules.includes("disk") || enabledModules.includes("all")) diskStatsProcess.running = true
             if (enabledModules.includes("processes") || enabledModules.includes("all")) processProcess.running = true
             if (enabledModules.includes("diskmounts") || enabledModules.includes("all")) diskMountsProcess.running = true
+            if (enabledModules.includes("system") || enabledModules.includes("all") || enabledModules.includes("hardware")) systemStatsProcess.running = true
             // Update AMD GPU stats if system module is enabled
             if ((enabledModules.includes("system") || enabledModules.includes("all")) && availableGpus.length > 0) {
                 amdGpuStatsProcess.running = true
@@ -169,13 +176,52 @@ Singleton {
         const lines = text.trim().split('\n')
         if (lines.length === 0) return
         
-        // Count CPU cores (lines starting with "cpu" followed by number)
-        let coreCount = 0
-        for (const line of lines) {
-            if (line.match(/^cpu\d+/)) coreCount++
-        }
-        if (coreCount > 0) cpuCores = coreCount
+        // Parse per-core CPU usage
+        const coreUsages = []
+        const newCoreStats = []
         
+        for (let i = 1; i < lines.length; i++) {
+            const line = lines[i]
+            if (!line.match(/^cpu\d+/)) continue
+            
+            const parts = line.split(/\s+/)
+            if (parts.length < 5) continue
+            
+            const user = parseInt(parts[1]) || 0
+            const nice = parseInt(parts[2]) || 0
+            const system = parseInt(parts[3]) || 0
+            const idle = parseInt(parts[4]) || 0
+            const iowait = parseInt(parts[5]) || 0
+            const irq = parseInt(parts[6]) || 0
+            const softirq = parseInt(parts[7]) || 0
+            const steal = parseInt(parts[8]) || 0
+            
+            const total = user + nice + system + idle + iowait + irq + softirq + steal
+            const idleTime = idle + iowait
+            const active = total - idleTime
+            
+            newCoreStats.push({ total, active })
+            
+            if (lastCpuStats && lastCpuStats.cores && lastCpuStats.cores[coreUsages.length]) {
+                const prevCore = lastCpuStats.cores[coreUsages.length]
+                const totalDiff = total - prevCore.total
+                const activeDiff = active - prevCore.active
+                if (totalDiff > 0) {
+                    coreUsages.push((activeDiff / totalDiff) * 100)
+                } else {
+                    coreUsages.push(0)
+                }
+            } else {
+                coreUsages.push(0)
+            }
+        }
+        
+        if (newCoreStats.length > 0) {
+            cpuCores = newCoreStats.length
+            perCoreCpuUsage = coreUsages
+        }
+        
+        // Parse total CPU usage
         const parts = lines[0].split(/\s+/)
         if (parts.length < 5) return
         const user = parseInt(parts[1]) || 0, nice = parseInt(parts[2]) || 0
@@ -183,7 +229,6 @@ Singleton {
         const iowait = parseInt(parts[5]) || 0, irq = parseInt(parts[6]) || 0, softirq = parseInt(parts[7]) || 0
         const steal = parseInt(parts[8]) || 0
         
-        // Total = all time, Idle = idle + iowait
         const total = user + nice + system + idle + iowait + irq + softirq + steal
         const idleTime = idle + iowait
         const active = total - idleTime
@@ -196,9 +241,8 @@ Singleton {
                 addToHistory(cpuHistory, cpuUsage) 
             }
         }
-        lastCpuStats = { total, active }
+        lastCpuStats = { total, active, cores: newCoreStats }
         
-        // Try to read CPU temperature
         cpuTempProcess.running = true
     }
     
@@ -387,13 +431,21 @@ Singleton {
                     name = name.replace(/^AMD\s*/gi, '')
                     name = name.replace(/^NVIDIA\s+Corporation\s*/gi, '')
                     name = name.replace(/^Intel\s+Corporation\s*/gi, '')
-                    // Remove ALL brackets and parentheses content
+                    
+                    // Extract name from brackets if exists: "Navi 32 [Radeon RX 7700 XT]" -> "Radeon RX 7700 XT"
+                    const bracketMatch = name.match(/\[([^\]]+)\]/)
+                    if (bracketMatch) {
+                        name = bracketMatch[1]
+                    } else {
+                        // Remove codenames only if no brackets found
+                        name = name.replace(/\s+(Navi|Polaris|Vega|Ellesmere|Baffin|Tonga|Fiji|Hawaii|Tahiti|Pitcairn|Cape Verde|Oland|Bonaire|Turks|Caicos|Cayman|Barts|Redwood|Cedar|Juniper|Cypress|RV\d+|R\d+)\s+\d+/gi, '')
+                        name = name.replace(/\s+(Turing|Ampere|Ada|Pascal|Maxwell|Kepler|Fermi|Tesla|Volta|Hopper|Lovelace|GK\d+|GP\d+|GM\d+|TU\d+|GA\d+|AD\d+)/gi, '')
+                        name = name.replace(/\s+(Alder Lake|Rocket Lake|Tiger Lake|Ice Lake|Comet Lake|Coffee Lake|Kaby Lake|Skylake|Broadwell|Haswell|Ivy Bridge|Sandy Bridge|Gen\d+)/gi, '')
+                    }
+                    
+                    // Remove remaining brackets and parentheses
                     name = name.replace(/\s*\[.*?\]/g, '')
                     name = name.replace(/\s*\(.*?\)/g, '')
-                    // Remove codenames like "Navi 32", "Polaris 20", "Turing", etc
-                    name = name.replace(/\s+(Navi|Polaris|Vega|Ellesmere|Baffin|Tonga|Fiji|Hawaii|Tahiti|Pitcairn|Cape Verde|Oland|Bonaire|Turks|Caicos|Cayman|Barts|Redwood|Cedar|Juniper|Cypress|RV\d+|R\d+)\s+\d+/gi, '')
-                    name = name.replace(/\s+(Turing|Ampere|Ada|Pascal|Maxwell|Kepler|Fermi|Tesla|Volta|Hopper|Lovelace|GK\d+|GP\d+|GM\d+|TU\d+|GA\d+|AD\d+)/gi, '')
-                    name = name.replace(/\s+(Alder Lake|Rocket Lake|Tiger Lake|Ice Lake|Comet Lake|Coffee Lake|Kaby Lake|Skylake|Broadwell|Haswell|Ivy Bridge|Sandy Bridge|Gen\d+)/gi, '')
                     name = name.trim()
                 }
                 
@@ -425,6 +477,65 @@ Singleton {
             updatedGpus[0].temperature = tempMillidegrees / 1000
             availableGpus = updatedGpus
         }
+    }
+
+    function parseDiskStats(text) {
+        const lines = text.trim().split('\n')
+        const newDiskDevices = []
+        let totalRead = 0
+        let totalWrite = 0
+        
+        for (const line of lines) {
+            const parts = line.trim().split(/\s+/)
+            if (parts.length < 14) continue
+            
+            const deviceName = parts[2]
+            if (!deviceName.match(/^(nvme\d+n\d+|sd[a-z]+|vd[a-z]+)$/)) continue
+            
+            const readsCompleted = parseInt(parts[3]) || 0
+            const sectorsRead = parseInt(parts[5]) || 0
+            const writesCompleted = parseInt(parts[7]) || 0
+            const sectorsWritten = parseInt(parts[9]) || 0
+            
+            totalRead += sectorsRead * 512
+            totalWrite += sectorsWritten * 512
+            
+            newDiskDevices.push({
+                name: deviceName,
+                readsCompleted: readsCompleted,
+                sectorsRead: sectorsRead,
+                writesCompleted: writesCompleted,
+                sectorsWritten: sectorsWritten,
+                readRate: 0,
+                writeRate: 0
+            })
+        }
+        
+        if (lastDiskStats) {
+            const timeDiff = updateInterval / 1000
+            const totalReadDiff = totalRead - lastDiskStats.totalRead
+            const totalWriteDiff = totalWrite - lastDiskStats.totalWrite
+            diskReadRate = Math.max(0, totalReadDiff / timeDiff)
+            diskWriteRate = Math.max(0, totalWriteDiff / timeDiff)
+            
+            for (let i = 0; i < newDiskDevices.length; i++) {
+                const device = newDiskDevices[i]
+                const prevDevice = lastDiskStats.devices.find(d => d.name === device.name)
+                if (prevDevice) {
+                    const readDiff = (device.sectorsRead - prevDevice.sectorsRead) * 512
+                    const writeDiff = (device.sectorsWritten - prevDevice.sectorsWritten) * 512
+                    device.readRate = Math.max(0, readDiff / timeDiff)
+                    device.writeRate = Math.max(0, writeDiff / timeDiff)
+                }
+            }
+        }
+        
+        lastDiskStats = {
+            totalRead: totalRead,
+            totalWrite: totalWrite,
+            devices: newDiskDevices
+        }
+        diskDevices = newDiskDevices
     }
 
     function parseDiskMounts(text) {
@@ -493,18 +604,101 @@ Singleton {
 
     Timer { id: updateTimer; interval: root.updateInterval; running: root.refCount > 0 && root.enabledModules.length > 0; repeat: true; triggeredOnStart: true; onTriggered: root.updateAllStats() }
     Process { id: cpuProcess; command: ["cat", "/proc/stat"]; running: false; onExited: () => { isUpdating = false }; stdout: StdioCollector { onStreamFinished: { if (text.trim()) parseCpuStats(text) } } }
+    Process { id: cpuInfoProcess; command: ["cat", "/proc/cpuinfo"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) { const lines = text.trim().split('\n'); for (const line of lines) { if (line.startsWith('model name')) { cpuModel = line.split(':')[1].trim(); break } } } } } }
     Process { id: cpuTempProcess; command: ["sh", "-c", "grep -l 'k10temp\\|coretemp\\|zenpower\\|cpu_thermal\\|soc_thermal' /sys/class/hwmon/hwmon*/name 2>/dev/null | head -1 | xargs -I {} sh -c 'name=$(cat {}); dir=$(dirname {}); temp=$(cat $dir/temp*_input 2>/dev/null | head -1); echo \"$name:$temp\"'"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) parseCpuTemp(text) } } }
     Process { id: memoryProcess; command: ["cat", "/proc/meminfo"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) parseMemoryStats(text) } } }
     Process { id: networkProcess; command: ["cat", "/proc/net/dev"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) parseNetworkStats(text) } } }
+    Process { id: diskStatsProcess; command: ["cat", "/proc/diskstats"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) parseDiskStats(text) } } }
     Process { id: processProcess; command: ["ps", "-eo", "pid,pcpu,pmem,rss,comm", "--sort=-%cpu", "--no-headers"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) parseProcessStats(text) } } }
     Process { id: gpuDetectProcess; command: ["lspci"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) parseGpuDetect(text) } } }
     Process { id: amdGpuStatsProcess; command: ["sh", "-c", "cat /sys/class/drm/card1/device/gpu_busy_percent 2>/dev/null && cat /sys/class/drm/card1/device/hwmon/hwmon*/temp1_input 2>/dev/null | head -1"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) parseAmdGpuStats(text) } } }
     Process { id: diskMountsProcess; command: ["df", "-h", "--output=source,target,size,used,avail,pcent"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) parseDiskMounts(text) } } }
+    Process { id: unameProcess; command: ["uname", "-srm"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) { const parts = text.trim().split(' '); if (parts.length >= 3) { kernelVersion = parts[1]; architecture = parts[2] } } } } }
+    Process { id: hostnameProcess; command: ["hostname"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) hostname = text.trim() } } }
+    Process { id: dmiProcess; command: ["sh", "-c", "cat /sys/class/dmi/id/board_name 2>/dev/null; cat /sys/class/dmi/id/bios_version 2>/dev/null"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) { const lines = text.trim().split('\n'); if (lines.length >= 1) motherboard = lines[0]; if (lines.length >= 2) biosVersion = lines[1] } } } }
+    Process { id: systemStatsProcess; command: ["sh", "-c", "cat /proc/loadavg; ps -e --no-headers | wc -l; ps -eL --no-headers | wc -l; uptime -s"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) { const lines = text.trim().split('\n'); if (lines.length >= 1) { const loadParts = lines[0].split(' '); if (loadParts.length >= 3) loadAverage = `${loadParts[0]} ${loadParts[1]} ${loadParts[2]}` } if (lines.length >= 2) processCount = parseInt(lines[1]) || 0; if (lines.length >= 3) threadCount = parseInt(lines[2]) || 0; if (lines.length >= 4) bootTime = lines[3] } } } }
+    Process { id: autostartProcess; command: ["systemctl", "list-unit-files", "--state=enabled", "--type=service", "--no-pager", "--no-legend"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) { const lines = text.trim().split('\n'); const services = []; for (const line of lines) { const parts = line.trim().split(/\s+/); if (parts.length >= 1 && parts[0].endsWith('.service')) { const name = parts[0].replace('.service', ''); services.push({ name: name, state: parts[1] || 'enabled' }) } } autostartServices = services; autostartCount = services.length } } } }
     Process { id: osReleaseProcess; command: ["cat", "/etc/os-release"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) { const lines = text.trim().split('\n'); let prettyName = "", name = ""; for (const line of lines) { const t = line.trim(); if (t.startsWith('PRETTY_NAME=')) prettyName = t.substring(12).replace(/^["']|["']$/g, ''); else if (t.startsWith('NAME=')) name = t.substring(5).replace(/^["']|["']$/g, '') } distribution = prettyName || name || "Linux" } } } }
+    Process { id: displayInfoProcess; command: ["sh", "-c", "hyprctl monitors -j 2>/dev/null || swaymsg -t get_outputs -r 2>/dev/null || xrandr --current 2>/dev/null | grep ' connected' | head -1"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) parseDisplayInfo(text) } } }
+    Process { id: wmInfoProcess; command: ["sh", "-c", "echo \"$XDG_CURRENT_DESKTOP $XDG_SESSION_TYPE\"; hyprctl version 2>/dev/null | head -1 || swaymsg -v 2>/dev/null"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) parseWmInfo(text) } } }
+    Process { id: mesaVersionProcess; command: ["sh", "-c", "glxinfo 2>/dev/null | grep -i 'OpenGL version' | grep -oP 'Mesa [0-9.\\-a-z]+' | head -1"]; running: false; stdout: StdioCollector { onStreamFinished: { if (text.trim()) mesaVersion = text.trim() } } }
+    function parseDisplayInfo(text) {
+        try {
+            // Try Hyprland JSON format first
+            const monitors = JSON.parse(text)
+            if (Array.isArray(monitors) && monitors.length > 0) {
+                const m = monitors[0]
+                displayInfo = `${m.width}x${m.height}@${Math.round(m.refreshRate)}Hz`
+                return
+            }
+        } catch (e) {
+            // Not JSON, try other formats
+        }
+        
+        // Try xrandr format: "1920x1080+0+0 *60.00"
+        const xrandrMatch = text.match(/(\d+x\d+).*?(\d+\.\d+)\*/)
+        if (xrandrMatch) {
+            displayInfo = `${xrandrMatch[1]}@${Math.round(parseFloat(xrandrMatch[2]))}Hz`
+            return
+        }
+        
+        displayInfo = "Unknown"
+    }
+    
+    function parseWmInfo(text) {
+        const lines = text.trim().split('\n')
+        const firstLine = lines[0].toLowerCase()
+        let wm = "Unknown"
+        let version = ""
+        let session = ""
+        
+        if (firstLine.includes("hyprland")) {
+            wm = "Hyprland"
+            session = "Wayland"
+            // Parse version from second line: "Hyprland 0.51.1 built from..."
+            if (lines.length > 1) {
+                const versionMatch = lines[1].match(/Hyprland\s+([\d.]+)/)
+                if (versionMatch) version = versionMatch[1]
+            }
+        } else if (firstLine.includes("sway")) {
+            wm = "Sway"
+            session = "Wayland"
+            // Parse version from second line
+            if (lines.length > 1) {
+                const versionMatch = lines[1].match(/sway version\s+([\d.]+)/)
+                if (versionMatch) version = versionMatch[1]
+            }
+        } else if (firstLine.includes("kde") || firstLine.includes("plasma")) {
+            wm = "KDE Plasma"
+            session = firstLine.includes("wayland") ? "Wayland" : "X11"
+        } else if (firstLine.includes("gnome")) {
+            wm = "GNOME"
+            session = firstLine.includes("wayland") ? "Wayland" : "X11"
+        } else if (firstLine.includes("xfce")) {
+            wm = "Xfce"
+            session = "X11"
+        } else if (firstLine.includes("wayland")) {
+            session = "Wayland"
+        } else if (firstLine.includes("x11")) {
+            session = "X11"
+        }
+        
+        wmInfo = wm + (version ? ` ${version}` : "") + (session ? ` (${session})` : "")
+    }
+
     Component.onCompleted: { 
         osReleaseProcess.running = true
-        gpuDetectProcess.running = true // Detect GPU once at startup
-        diskMountsProcess.running = true // Detect disk mounts once at startup
+        cpuInfoProcess.running = true
+        unameProcess.running = true
+        hostnameProcess.running = true
+        dmiProcess.running = true
+        systemStatsProcess.running = true
+        autostartProcess.running = true
+        gpuDetectProcess.running = true
+        diskMountsProcess.running = true
+        displayInfoProcess.running = true
+        wmInfoProcess.running = true
+        mesaVersionProcess.running = true
         dgopAvailable = true 
     }
 }

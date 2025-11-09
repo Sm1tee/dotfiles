@@ -6,11 +6,7 @@ import qs.Widgets
 
 Column {
     function formatNetworkSpeed(bytesPerSec) {
-        if (bytesPerSec < 1024) {
-            return bytesPerSec.toFixed(0) + " B/s";
-        } else if (bytesPerSec < 1024 * 1024) {
-            return (bytesPerSec / 1024).toFixed(1) + " KB/s";
-        } else if (bytesPerSec < 1024 * 1024 * 1024) {
+        if (bytesPerSec < 1024 * 1024 * 1024) {
             return (bytesPerSec / (1024 * 1024)).toFixed(1) + " MB/s";
         } else {
             return (bytesPerSec / (1024 * 1024 * 1024)).toFixed(1) + " GB/s";
@@ -18,9 +14,7 @@ Column {
     }
 
     function formatDiskSpeed(bytesPerSec) {
-        if (bytesPerSec < 1024 * 1024) {
-            return (bytesPerSec / 1024).toFixed(1) + " KB/s";
-        } else if (bytesPerSec < 1024 * 1024 * 1024) {
+        if (bytesPerSec < 1024 * 1024 * 1024) {
             return (bytesPerSec / (1024 * 1024)).toFixed(1) + " MB/s";
         } else {
             return (bytesPerSec / (1024 * 1024 * 1024)).toFixed(1) + " GB/s";
@@ -93,45 +87,41 @@ Column {
 
             }
 
-            Flickable {
-                clip: true
+            Flow {
                 width: parent.width
                 height: parent.height - 40
-                contentHeight: coreUsageColumn.implicitHeight
+                spacing: Theme.spacingS
 
-                Column {
-                    id: coreUsageColumn
+                Repeater {
+                    model: DgopService.perCoreCpuUsage
 
-                    width: parent.width
-                    spacing: 6
+                    Column {
+                        width: {
+                            const coreCount = DgopService.perCoreCpuUsage.length || 1
+                            const spacing = Theme.spacingS
+                            return Math.floor((parent.width - spacing * (coreCount - 1)) / coreCount)
+                        }
+                        height: parent.height
+                        spacing: 4
 
-                    Repeater {
-                        model: DgopService.perCoreCpuUsage
-
-                        Row {
+                        Item {
                             width: parent.width
-                            height: 20
-                            spacing: Theme.spacingS
-
-                            StyledText {
-                                text: `C${index}`
-                                font.pixelSize: Theme.fontSizeSmall
-                                color: Theme.surfaceVariantText
-                                width: 24
-                                anchors.verticalCenter: parent.verticalCenter
-                            }
+                            height: parent.height - 36
 
                             Rectangle {
-                                width: parent.width - 80
-                                height: 6
-                                radius: 3
+                                width: 8
+                                height: parent.height
+                                radius: 4
                                 color: Qt.rgba(Theme.outline.r, Theme.outline.g, Theme.outline.b, 0.2)
-                                anchors.verticalCenter: parent.verticalCenter
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                anchors.bottom: parent.bottom
 
                                 Rectangle {
-                                    width: parent.width * Math.min(1, modelData / 100)
-                                    height: parent.height
+                                    width: parent.width
+                                    height: parent.height * Math.min(1, modelData / 100)
                                     radius: parent.radius
+                                    anchors.bottom: parent.bottom
+                                    anchors.horizontalCenter: parent.horizontalCenter
                                     color: {
                                         const usage = modelData;
                                         if (usage > 80) {
@@ -143,7 +133,7 @@ Column {
                                         return Theme.primary;
                                     }
 
-                                    Behavior on width {
+                                    Behavior on height {
                                         NumberAnimation {
                                             duration: Theme.shortDuration
                                         }
@@ -154,16 +144,23 @@ Column {
 
                             }
 
-                            StyledText {
-                                text: modelData ? `${modelData.toFixed(0)}%` : "0%"
-                                font.pixelSize: Theme.fontSizeSmall
-                                font.weight: Font.Medium
-                                color: Theme.surfaceText
-                                width: 32
-                                horizontalAlignment: Text.AlignRight
-                                anchors.verticalCenter: parent.verticalCenter
-                            }
+                        }
 
+                        StyledText {
+                            text: `C${index}`
+                            font.pixelSize: Theme.fontSizeSmall
+                            color: Theme.surfaceVariantText
+                            width: parent.width
+                            horizontalAlignment: Text.AlignHCenter
+                        }
+
+                        StyledText {
+                            text: modelData ? `${modelData.toFixed(0)}%` : "0%"
+                            font.pixelSize: Theme.fontSizeSmall
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
+                            width: parent.width
+                            horizontalAlignment: Text.AlignHCenter
                         }
 
                     }
@@ -251,7 +248,7 @@ Column {
                 }
 
                 StyledText {
-                    text: DgopService.totalMemoryKB > 0 ? `${((DgopService.usedMemoryKB / DgopService.totalMemoryKB) * 100).toFixed(1)}% used` : "No data"
+                    text: DgopService.totalMemoryKB > 0 ? `${((DgopService.usedMemoryKB / DgopService.totalMemoryKB) * 100).toFixed(1)}% занято` : "Нет данных"
                     font.pixelSize: Theme.fontSizeSmall
                     font.weight: Font.Bold
                     color: Theme.surfaceText
@@ -329,7 +326,7 @@ Column {
                 }
 
                 StyledText {
-                    text: DgopService.totalSwapKB > 0 ? `${((DgopService.usedSwapKB / DgopService.totalSwapKB) * 100).toFixed(1)}% used` : "Not available"
+                    text: DgopService.totalSwapKB > 0 ? `${((DgopService.usedSwapKB / DgopService.totalSwapKB) * 100).toFixed(1)}% занято` : "Недоступно"
                     font.pixelSize: Theme.fontSizeSmall
                     font.weight: Font.Bold
                     color: Theme.surfaceText
@@ -425,7 +422,7 @@ Column {
                 spacing: Theme.spacingXS
 
                 StyledText {
-                    text: "Диск"
+                    text: "Все диски"
                     font.pixelSize: Theme.fontSizeMedium
                     font.weight: Font.Bold
                     color: Theme.surfaceText
@@ -468,6 +465,105 @@ Column {
                             font.pixelSize: Theme.fontSizeSmall
                             font.weight: Font.Bold
                             color: Theme.surfaceText
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    Rectangle {
+        width: parent.width
+        height: diskColumn.implicitHeight + Theme.spacingL * 2
+        radius: Theme.cornerRadius
+        color: Theme.surfaceContainerHigh
+        border.color: Qt.rgba(Theme.outline.r, Theme.outline.g, Theme.outline.b, 0.06)
+        border.width: 1
+        visible: DgopService.diskDevices.length > 0
+
+        Column {
+            id: diskColumn
+
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.margins: Theme.spacingL
+            spacing: Theme.spacingM
+
+            StyledText {
+                text: "Диски"
+                font.pixelSize: Theme.fontSizeLarge
+                font.weight: Font.Bold
+                color: Theme.surfaceText
+            }
+
+            Column {
+                width: parent.width
+                spacing: Theme.spacingS
+
+                Repeater {
+                    model: DgopService.diskDevices
+
+                    Row {
+                        width: parent.width
+                        height: 32
+                        spacing: Theme.spacingM
+
+                        StyledText {
+                            text: modelData.name
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.weight: Font.Medium
+                            font.family: SettingsData.monoFontFamily
+                            color: Theme.surfaceText
+                            width: 100
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        Row {
+                            spacing: 4
+                            anchors.verticalCenter: parent.verticalCenter
+
+                            StyledText {
+                                text: "R"
+                                font.pixelSize: Theme.fontSizeSmall
+                                color: Theme.primary
+                            }
+
+                            StyledText {
+                                text: formatDiskSpeed(modelData.readRate)
+                                font.pixelSize: Theme.fontSizeSmall
+                                font.weight: Font.Medium
+                                font.family: SettingsData.monoFontFamily
+                                color: Theme.surfaceText
+                                width: 80
+                            }
+
+                        }
+
+                        Row {
+                            spacing: 4
+                            anchors.verticalCenter: parent.verticalCenter
+
+                            StyledText {
+                                text: "W"
+                                font.pixelSize: Theme.fontSizeSmall
+                                color: Theme.warning
+                            }
+
+                            StyledText {
+                                text: formatDiskSpeed(modelData.writeRate)
+                                font.pixelSize: Theme.fontSizeSmall
+                                font.weight: Font.Medium
+                                font.family: SettingsData.monoFontFamily
+                                color: Theme.surfaceText
+                                width: 80
+                            }
+
                         }
 
                     }

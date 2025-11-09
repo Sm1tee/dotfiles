@@ -1,5 +1,7 @@
 import QtQuick
 import QtQuick.Controls
+import Quickshell
+import Quickshell.Io
 import qs.Common
 import qs.Services
 import qs.Widgets
@@ -19,17 +21,18 @@ Flickable {
         id: systemColumn
 
         width: parent.width
-        spacing: Theme.spacingM
+        spacing: Theme.spacingL
 
+        // Header
         Rectangle {
             width: parent.width
-            height: systemInfoColumn.implicitHeight + 2 * Theme.spacingL
+            height: headerColumn.implicitHeight + Theme.spacingL * 2
             radius: Theme.cornerRadius
             color: Theme.surfaceContainerHigh
             border.width: 0
 
             Column {
-                id: systemInfoColumn
+                id: headerColumn
 
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -51,13 +54,65 @@ Flickable {
                         anchors.verticalCenter: parent.verticalCenter
                         spacing: Theme.spacingS
 
+                        Row {
+                            width: parent.width
+                            spacing: Theme.spacingM
+
+                            StyledText {
+                                text: DgopService.hostname
+                                font.pixelSize: Theme.fontSizeXLarge
+                                font.family: SettingsData.monoFontFamily
+                                font.weight: Font.Light
+                                color: Theme.surfaceText
+                            }
+
+                            Item {
+                                width: parent.width - hostnameText.width - copyButton.width - Theme.spacingM * 2
+                                height: 1
+                            }
+
+                            ActionButton {
+                                id: copyButton
+
+                                circular: false
+                                iconName: "content_copy"
+                                iconSize: Theme.iconSize - 4
+                                iconColor: Theme.surfaceText
+                                onClicked: {
+                                    let info = `Система: ${DgopService.hostname}\n`;
+                                    info += `Дистрибутив: ${DgopService.distribution}\n`;
+                                    info += `Архитектура: ${DgopService.architecture}\n`;
+                                    info += `Ядро: ${DgopService.kernelVersion}\n\n`;
+                                    if (DgopService.displayInfo) info += `Дисплей: ${DgopService.displayInfo}\n`;
+                                    if (DgopService.wmInfo) info += `WM: ${DgopService.wmInfo}\n\n`;
+                                    info += `Процессор: ${DgopService.cpuModel}\n`;
+                                    info += `Ядер: ${DgopService.cpuCores}\n\n`;
+                                    if (DgopService.availableGpus.length > 0) {
+                                        info += `Видеокарта: ${DgopService.availableGpus[0].displayName}\n`;
+                                        const driverInfo = DgopService.mesaVersion || DgopService.availableGpus[0].driver;
+                                        info += `Драйвер: ${driverInfo}\n\n`;
+                                    }
+                                    info += `Материнская плата: ${DgopService.motherboard}\n`;
+                                    info += `BIOS: ${DgopService.biosVersion}\n\n`;
+                                    info += `RAM: ${DgopService.formatSystemMemory(DgopService.totalMemoryKB)}\n\n`;
+                                    info += `Процессов: ${DgopService.processCount}\n`;
+                                    info += `Потоков: ${DgopService.threadCount}\n`;
+                                    info += `Автозагрузка: ${DgopService.autostartCount} служб`;
+                                    copyToClipboard(info);
+                                    ToastService.showInfo("Скопирована вся системная информация");
+                                }
+                                anchors.verticalCenter: parent.verticalCenter
+                            }
+
+                        }
+
                         StyledText {
+                            id: hostnameText
+
+                            visible: false
                             text: DgopService.hostname
                             font.pixelSize: Theme.fontSizeXLarge
                             font.family: SettingsData.monoFontFamily
-                            font.weight: Font.Light
-                            color: Theme.surfaceText
-                            verticalAlignment: Text.AlignVCenter
                         }
 
                         StyledText {
@@ -65,23 +120,96 @@ Flickable {
                             font.pixelSize: Theme.fontSizeMedium
                             font.family: SettingsData.monoFontFamily
                             color: Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.7)
-                            verticalAlignment: Text.AlignVCenter
                         }
 
                         StyledText {
-                            text: `${UserInfoService.uptime} • Boot: ${DgopService.bootTime}`
+                            text: {
+                                let result = "Работает " + UserInfoService.uptime;
+                                if (DgopService.bootTime) {
+                                    result += " • Начало работы: " + DgopService.bootTime;
+                                }
+                                return result;
+                            }
                             font.pixelSize: Theme.fontSizeSmall
                             font.family: SettingsData.monoFontFamily
                             color: Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.6)
-                            verticalAlignment: Text.AlignVCenter
                         }
 
                         StyledText {
-                            text: `Load: ${DgopService.loadAverage} • ${DgopService.processCount} processes, ${DgopService.threadCount} threads`
+                            text: `Процессов: ${DgopService.processCount} • Потоков: ${DgopService.threadCount}${DgopService.autostartCount > 0 ? ' • Автозагрузка: ' + DgopService.autostartCount : ''}`
                             font.pixelSize: Theme.fontSizeSmall
                             font.family: SettingsData.monoFontFamily
                             color: Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.6)
-                            verticalAlignment: Text.AlignVCenter
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        // Kernel
+        Rectangle {
+            width: parent.width
+            height: kernelColumn.implicitHeight + Theme.spacingL * 2
+            radius: Theme.cornerRadius
+            color: Theme.surfaceContainerHigh
+
+            Column {
+                id: kernelColumn
+
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.margins: Theme.spacingL
+                spacing: Theme.spacingM
+
+                StyledText {
+                    text: "Ядро системы"
+                    font.pixelSize: Theme.fontSizeLarge
+                    font.weight: Font.Bold
+                    color: Theme.surfaceText
+                }
+
+                Rectangle {
+                    width: parent.width
+                    height: 32
+                    radius: Theme.cornerRadius
+                    color: kernelMouseArea.containsMouse ? Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.04) : "transparent"
+
+                    MouseArea {
+                        id: kernelMouseArea
+
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            copyToClipboard(DgopService.kernelVersion);
+                            ToastService.showInfo("Скопировано: " + DgopService.kernelVersion);
+                        }
+                    }
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingS
+                        anchors.verticalCenter: parent.verticalCenter
+
+                        StyledText {
+                            text: "Ядро:"
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.family: SettingsData.monoFontFamily
+                            color: Theme.surfaceVariantText
+                            width: 150
+                        }
+
+                        StyledText {
+                            text: DgopService.kernelVersion || "--"
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.family: SettingsData.monoFontFamily
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
                         }
 
                     }
@@ -90,287 +218,394 @@ Flickable {
 
                 Rectangle {
                     width: parent.width
-                    height: 1
-                    color: Qt.rgba(Theme.outline.r, Theme.outline.g, Theme.outline.b, 0.2)
-                }
+                    height: 32
+                    radius: Theme.cornerRadius
+                    color: archMouseArea.containsMouse ? Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.04) : "transparent"
 
-                Row {
-                    width: parent.width
-                    spacing: Theme.spacingXL
+                    MouseArea {
+                        id: archMouseArea
 
-                    Rectangle {
-                        width: (parent.width - Theme.spacingXL) / 2
-                        height: hardwareColumn.implicitHeight + Theme.spacingL
-                        radius: Theme.cornerRadius
-                        color: Qt.rgba(Theme.surfaceContainerHigh.r, Theme.surfaceContainerHigh.g, Theme.surfaceContainerHigh.b, 0.4)
-                        border.width: 1
-                        border.color: Qt.rgba(Theme.outline.r, Theme.outline.g, Theme.outline.b, 0.1)
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            copyToClipboard(DgopService.architecture);
+                            ToastService.showInfo("Скопировано: " + DgopService.architecture);
+                        }
+                    }
 
-                        Column {
-                            id: hardwareColumn
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingS
+                        anchors.verticalCenter: parent.verticalCenter
 
-                            anchors.left: parent.left
-                            anchors.right: parent.right
-                            anchors.top: parent.top
-                            anchors.margins: Theme.spacingM
-                            spacing: Theme.spacingXS
+                        StyledText {
+                            text: "Архитектура:"
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.family: SettingsData.monoFontFamily
+                            color: Theme.surfaceVariantText
+                            width: 150
+                        }
 
-                            Row {
-                                width: parent.width
-                                spacing: Theme.spacingS
-
-                                Icon {
-                                    name: "memory"
-                                    size: Theme.iconSizeSmall
-                                    color: Theme.primary
-                                    anchors.verticalCenter: parent.verticalCenter
-                                }
-
-                                StyledText {
-                                    text: "Система"
-                                    font.pixelSize: Theme.fontSizeSmall
-                                    font.family: SettingsData.monoFontFamily
-                                    font.weight: Font.Bold
-                                    color: Theme.primary
-                                    anchors.verticalCenter: parent.verticalCenter
-                                }
-
-                            }
-
-                            StyledText {
-                                text: DgopService.cpuModel
-                                font.pixelSize: Theme.fontSizeSmall
-                                font.family: SettingsData.monoFontFamily
-                                font.weight: Font.Medium
-                                color: Theme.surfaceText
-                                width: parent.width
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                                maximumLineCount: 1
-                                verticalAlignment: Text.AlignVCenter
-                            }
-
-                            StyledText {
-                                text: DgopService.motherboard
-                                font.pixelSize: Theme.fontSizeSmall
-                                font.family: SettingsData.monoFontFamily
-                                color: Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.8)
-                                width: parent.width
-                                elide: Text.ElideRight
-                                wrapMode: Text.NoWrap
-                                maximumLineCount: 1
-                                verticalAlignment: Text.AlignVCenter
-                            }
-
-                            StyledText {
-                                text: `BIOS ${DgopService.biosVersion}`
-                                font.pixelSize: Theme.fontSizeSmall
-                                font.family: SettingsData.monoFontFamily
-                                color: Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.7)
-                                width: parent.width
-                                elide: Text.ElideRight
-                                verticalAlignment: Text.AlignVCenter
-                            }
-
-                            StyledText {
-                                text: `${DgopService.formatSystemMemory(DgopService.totalMemoryKB)} RAM`
-                                font.pixelSize: Theme.fontSizeSmall
-                                font.family: SettingsData.monoFontFamily
-                                color: Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.8)
-                                width: parent.width
-                                elide: Text.ElideRight
-                                verticalAlignment: Text.AlignVCenter
-                            }
-
+                        StyledText {
+                            text: DgopService.architecture || "--"
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.family: SettingsData.monoFontFamily
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
                         }
 
                     }
 
-                    Rectangle {
-                        width: (parent.width - Theme.spacingXL) / 2
-                        height: gpuColumn.implicitHeight + Theme.spacingL
-                        radius: Theme.cornerRadius
-                        color: {
-                            const baseColor = Qt.rgba(Theme.surfaceContainerHigh.r, Theme.surfaceContainerHigh.g, Theme.surfaceContainerHigh.b, 0.4);
-                            const hoverColor = Qt.rgba(Theme.surfaceContainerHigh.r, Theme.surfaceContainerHigh.g, Theme.surfaceContainerHigh.b, 0.6);
-                            if (!DgopService.availableGpus || DgopService.availableGpus.length === 0) {
-                                return gpuCardMouseArea.containsMouse && DgopService.availableGpus.length > 1 ? hoverColor : baseColor;
-                            }
+                }
 
-                            const gpu = DgopService.availableGpus[Math.min(SessionData.selectedGpuIndex, DgopService.availableGpus.length - 1)];
-                            const vendor = gpu.fullName.split(' ')[0].toLowerCase();
-                            let tintColor;
-                            if (vendor.includes("nvidia")) {
-                                tintColor = Theme.success;
-                            } else if (vendor.includes("amd")) {
-                                tintColor = Theme.error;
-                            } else if (vendor.includes("intel")) {
-                                tintColor = Theme.info;
-                            } else {
-                                return gpuCardMouseArea.containsMouse && DgopService.availableGpus.length > 1 ? hoverColor : baseColor;
-                            }
-                            if (gpuCardMouseArea.containsMouse && DgopService.availableGpus.length > 1) {
-                                return Qt.rgba((hoverColor.r + tintColor.r * 0.1) / 1.1, (hoverColor.g + tintColor.g * 0.1) / 1.1, (hoverColor.b + tintColor.b * 0.1) / 1.1, 0.6);
-                            } else {
-                                return Qt.rgba((baseColor.r + tintColor.r * 0.08) / 1.08, (baseColor.g + tintColor.g * 0.08) / 1.08, (baseColor.b + tintColor.b * 0.08) / 1.08, 0.4);
-                            }
+            }
+
+        }
+
+        // Display & WM
+        Rectangle {
+            width: parent.width
+            height: displayColumn.implicitHeight + Theme.spacingL * 2
+            radius: Theme.cornerRadius
+            color: Theme.surfaceContainerHigh
+
+            Column {
+                id: displayColumn
+
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.margins: Theme.spacingL
+                spacing: Theme.spacingM
+
+                StyledText {
+                    text: "Дисплей и среда"
+                    font.pixelSize: Theme.fontSizeLarge
+                    font.weight: Font.Bold
+                    color: Theme.surfaceText
+                }
+
+                Rectangle {
+                    width: parent.width
+                    height: 32
+                    radius: Theme.cornerRadius
+                    color: displayMouseArea.containsMouse ? Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.04) : "transparent"
+
+                    MouseArea {
+                        id: displayMouseArea
+
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            copyToClipboard(DgopService.displayInfo);
+                            ToastService.showInfo("Скопировано: " + DgopService.displayInfo);
                         }
-                        border.width: 1
-                        border.color: {
-                            if (!DgopService.availableGpus || DgopService.availableGpus.length === 0) {
-                                return Qt.rgba(Theme.outline.r, Theme.outline.g, Theme.outline.b, 0.1);
-                            }
+                    }
 
-                            const gpu = DgopService.availableGpus[Math.min(SessionData.selectedGpuIndex, DgopService.availableGpus.length - 1)];
-                            const vendor = gpu.fullName.split(' ')[0].toLowerCase();
-                            if (vendor.includes("nvidia")) {
-                                return Qt.rgba(Theme.success.r, Theme.success.g, Theme.success.b, 0.3);
-                            } else if (vendor.includes("amd")) {
-                                return Qt.rgba(Theme.error.r, Theme.error.g, Theme.error.b, 0.3);
-                            } else if (vendor.includes("intel")) {
-                                return Qt.rgba(Theme.info.r, Theme.info.g, Theme.info.b, 0.3);
-                            }
-                            return Qt.rgba(Theme.outline.r, Theme.outline.g, Theme.outline.b, 0.1);
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingS
+                        anchors.verticalCenter: parent.verticalCenter
+
+                        StyledText {
+                            text: "Разрешение:"
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.family: SettingsData.monoFontFamily
+                            color: Theme.surfaceVariantText
+                            width: 150
                         }
 
-                        MouseArea {
-                            id: gpuCardMouseArea
+                        StyledText {
+                            text: DgopService.displayInfo || "--"
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.family: SettingsData.monoFontFamily
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
+                        }
 
-                            anchors.fill: parent
-                            hoverEnabled: true
-                            cursorShape: DgopService.availableGpus.length > 1 ? Qt.PointingHandCursor : Qt.ArrowCursor
-                            onClicked: {
-                                if (DgopService.availableGpus.length > 1) {
-                                    const nextIndex = (SessionData.selectedGpuIndex + 1) % DgopService.availableGpus.length;
-                                    SessionData.setSelectedGpuIndex(nextIndex);
+                    }
+
+                }
+
+                Rectangle {
+                    width: parent.width
+                    height: 32
+                    radius: Theme.cornerRadius
+                    color: wmMouseArea.containsMouse ? Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.04) : "transparent"
+
+                    MouseArea {
+                        id: wmMouseArea
+
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            copyToClipboard(DgopService.wmInfo);
+                            ToastService.showInfo("Скопировано: " + DgopService.wmInfo);
+                        }
+                    }
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingS
+                        anchors.verticalCenter: parent.verticalCenter
+
+                        StyledText {
+                            text: "WM:"
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.family: SettingsData.monoFontFamily
+                            color: Theme.surfaceVariantText
+                            width: 150
+                        }
+
+                        StyledText {
+                            text: DgopService.wmInfo || "--"
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.family: SettingsData.monoFontFamily
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        // CPU
+        Rectangle {
+            width: parent.width
+            height: cpuColumn.implicitHeight + Theme.spacingL * 2
+            radius: Theme.cornerRadius
+            color: Theme.surfaceContainerHigh
+
+            Column {
+                id: cpuColumn
+
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.margins: Theme.spacingL
+                spacing: Theme.spacingM
+
+                StyledText {
+                    text: "Процессор"
+                    font.pixelSize: Theme.fontSizeLarge
+                    font.weight: Font.Bold
+                    color: Theme.surfaceText
+                }
+
+                Rectangle {
+                    width: parent.width
+                    height: 32
+                    radius: Theme.cornerRadius
+                    color: cpuModelMouseArea.containsMouse ? Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.04) : "transparent"
+
+                    MouseArea {
+                        id: cpuModelMouseArea
+
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            copyToClipboard(DgopService.cpuModel);
+                            ToastService.showInfo("Скопировано: " + DgopService.cpuModel);
+                        }
+                    }
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingS
+                        anchors.verticalCenter: parent.verticalCenter
+
+                        StyledText {
+                            text: "Модель:"
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.family: SettingsData.monoFontFamily
+                            color: Theme.surfaceVariantText
+                            width: 150
+                        }
+
+                        StyledText {
+                            text: DgopService.cpuModel || "Unknown CPU"
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.family: SettingsData.monoFontFamily
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
+                            width: parent.width - 160
+                            elide: Text.ElideRight
+                        }
+
+                    }
+
+                }
+
+                Rectangle {
+                    width: parent.width
+                    height: 32
+                    radius: Theme.cornerRadius
+                    color: cpuCoresMouseArea.containsMouse ? Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.04) : "transparent"
+
+                    MouseArea {
+                        id: cpuCoresMouseArea
+
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            copyToClipboard(DgopService.cpuCores.toString());
+                            ToastService.showInfo("Скопировано: " + DgopService.cpuCores + " ядер");
+                        }
+                    }
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingS
+                        anchors.verticalCenter: parent.verticalCenter
+
+                        StyledText {
+                            text: "Ядер:"
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.family: SettingsData.monoFontFamily
+                            color: Theme.surfaceVariantText
+                            width: 150
+                        }
+
+                        StyledText {
+                            text: `${DgopService.cpuCores}`
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.family: SettingsData.monoFontFamily
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        // GPU
+        Rectangle {
+            width: parent.width
+            height: gpuColumn.implicitHeight + Theme.spacingL * 2
+            radius: Theme.cornerRadius
+            color: Theme.surfaceContainerHigh
+
+            Column {
+                id: gpuColumn
+
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.margins: Theme.spacingL
+                spacing: Theme.spacingM
+
+                StyledText {
+                    text: "Видеокарта"
+                    font.pixelSize: Theme.fontSizeLarge
+                    font.weight: Font.Bold
+                    color: Theme.surfaceText
+                }
+
+                Repeater {
+                    model: DgopService.availableGpus
+
+                    Column {
+                        width: parent.width
+                        spacing: Theme.spacingS
+
+                        Rectangle {
+                            width: parent.width
+                            height: 32
+                            radius: Theme.cornerRadius
+                            color: gpuModelMA.containsMouse ? Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.04) : "transparent"
+
+                            MouseArea {
+                                id: gpuModelMA
+
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                cursorShape: Qt.PointingHandCursor
+                                onClicked: {
+                                    copyToClipboard(modelData.displayName);
+                                    ToastService.showInfo("Скопировано: " + modelData.displayName);
                                 }
                             }
-                        }
-
-                        Column {
-                            id: gpuColumn
-
-                            anchors.left: parent.left
-                            anchors.right: parent.right
-                            anchors.top: parent.top
-                            anchors.margins: Theme.spacingM
-                            spacing: Theme.spacingXS
 
                             Row {
                                 width: parent.width
                                 spacing: Theme.spacingS
+                                anchors.verticalCenter: parent.verticalCenter
 
-                                Icon {
-                                    name: "auto_awesome_mosaic"
-                                    size: Theme.iconSizeSmall
-                                    color: Theme.secondary
-                                    anchors.verticalCenter: parent.verticalCenter
+                                StyledText {
+                                    text: "Модель:"
+                                    font.pixelSize: Theme.fontSizeMedium
+                                    font.family: SettingsData.monoFontFamily
+                                    color: Theme.surfaceVariantText
+                                    width: 150
                                 }
 
                                 StyledText {
-                                    text: "GPU"
-                                    font.pixelSize: Theme.fontSizeSmall
+                                    text: modelData.displayName
+                                    font.pixelSize: Theme.fontSizeMedium
                                     font.family: SettingsData.monoFontFamily
-                                    font.weight: Font.Bold
-                                    color: Theme.secondary
-                                    anchors.verticalCenter: parent.verticalCenter
+                                    font.weight: Font.Medium
+                                    color: Theme.surfaceText
+                                    width: parent.width - 160
+                                    elide: Text.ElideRight
                                 }
 
-                            }
-
-                            StyledText {
-                                text: {
-                                    if (!DgopService.availableGpus || DgopService.availableGpus.length === 0) {
-                                        return "No GPUs detected";
-                                    }
-
-                                    const gpu = DgopService.availableGpus[Math.min(SessionData.selectedGpuIndex, DgopService.availableGpus.length - 1)];
-                                    return gpu.fullName;
-                                }
-                                font.pixelSize: Theme.fontSizeSmall
-                                font.family: SettingsData.monoFontFamily
-                                font.weight: Font.Medium
-                                color: Theme.surfaceText
-                                width: parent.width
-                                elide: Text.ElideRight
-                                maximumLineCount: 1
-                                verticalAlignment: Text.AlignVCenter
-                            }
-
-                            StyledText {
-                                text: {
-                                    if (!DgopService.availableGpus || DgopService.availableGpus.length === 0) {
-                                        return "Device: N/A";
-                                    }
-
-                                    const gpu = DgopService.availableGpus[Math.min(SessionData.selectedGpuIndex, DgopService.availableGpus.length - 1)];
-                                    return `Device: ${gpu.pciId}`;
-                                }
-                                font.pixelSize: Theme.fontSizeSmall
-                                font.family: SettingsData.monoFontFamily
-                                color: Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.8)
-                                width: parent.width
-                                elide: Text.ElideRight
-                                verticalAlignment: Text.AlignVCenter
-                                textFormat: Text.RichText
-                            }
-
-                            StyledText {
-                                text: {
-                                    if (!DgopService.availableGpus || DgopService.availableGpus.length === 0) {
-                                        return "Driver: N/A";
-                                    }
-
-                                    const gpu = DgopService.availableGpus[Math.min(SessionData.selectedGpuIndex, DgopService.availableGpus.length - 1)];
-                                    return `Driver: ${gpu.driver}`;
-                                }
-                                font.pixelSize: Theme.fontSizeSmall
-                                font.family: SettingsData.monoFontFamily
-                                color: Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.8)
-                                width: parent.width
-                                elide: Text.ElideRight
-                                verticalAlignment: Text.AlignVCenter
-                            }
-
-                            StyledText {
-                                text: {
-                                    if (!DgopService.availableGpus || DgopService.availableGpus.length === 0) {
-                                        return "Temp: --°";
-                                    }
-
-                                    const gpu = DgopService.availableGpus[Math.min(SessionData.selectedGpuIndex, DgopService.availableGpus.length - 1)];
-                                    const temp = gpu.temperature;
-                                    return `Temp: ${(temp === undefined || temp === null || temp === 0) ? '--°' : `${Math.round(temp)}°C`}`;
-                                }
-                                font.pixelSize: Theme.fontSizeSmall
-                                font.family: SettingsData.monoFontFamily
-                                color: {
-                                    if (!DgopService.availableGpus || DgopService.availableGpus.length === 0) {
-                                        return Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.7);
-                                    }
-
-                                    const gpu = DgopService.availableGpus[Math.min(SessionData.selectedGpuIndex, DgopService.availableGpus.length - 1)];
-                                    const temp = gpu.temperature || 0;
-                                    if (temp > 80) {
-                                        return Theme.error;
-                                    }
-
-                                    if (temp > 60) {
-                                        return Theme.warning;
-                                    }
-
-                                    return Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.7);
-                                }
-                                width: parent.width
-                                elide: Text.ElideRight
-                                verticalAlignment: Text.AlignVCenter
                             }
 
                         }
 
-                        Behavior on color {
-                            ColorAnimation {
-                                duration: Theme.shortDuration
+                        Rectangle {
+                            width: parent.width
+                            height: 32
+                            radius: Theme.cornerRadius
+                            color: gpuDriverMA.containsMouse ? Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.04) : "transparent"
+
+                            MouseArea {
+                                id: gpuDriverMA
+
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                cursorShape: Qt.PointingHandCursor
+                                onClicked: {
+                                    const driverInfo = DgopService.mesaVersion || (modelData.driver === "amd" ? "amdgpu" : modelData.driver);
+                                    copyToClipboard(driverInfo);
+                                    ToastService.showInfo("Скопировано: " + driverInfo);
+                                }
+                            }
+
+                            Row {
+                                width: parent.width
+                                spacing: Theme.spacingS
+                                anchors.verticalCenter: parent.verticalCenter
+
+                                StyledText {
+                                    text: "Драйвер:"
+                                    font.pixelSize: Theme.fontSizeMedium
+                                    font.family: SettingsData.monoFontFamily
+                                    color: Theme.surfaceVariantText
+                                    width: 150
+                                }
+
+                                StyledText {
+                                    text: DgopService.mesaVersion || (modelData.driver === "amd" ? "amdgpu" : modelData.driver)
+                                    font.pixelSize: Theme.fontSizeMedium
+                                    font.family: SettingsData.monoFontFamily
+                                    font.weight: Font.Medium
+                                    color: Theme.surfaceText
+                                }
+
                             }
 
                         }
@@ -383,12 +618,326 @@ Flickable {
 
         }
 
+        // Motherboard
         Rectangle {
             width: parent.width
-            height: storageColumn.implicitHeight + 2 * Theme.spacingL
+            height: motherboardColumn.implicitHeight + Theme.spacingL * 2
             radius: Theme.cornerRadius
             color: Theme.surfaceContainerHigh
-            border.width: 0
+
+            Column {
+                id: motherboardColumn
+
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.margins: Theme.spacingL
+                spacing: Theme.spacingM
+
+                StyledText {
+                    text: "Материнская плата"
+                    font.pixelSize: Theme.fontSizeLarge
+                    font.weight: Font.Bold
+                    color: Theme.surfaceText
+                }
+
+                Rectangle {
+                    width: parent.width
+                    height: 32
+                    radius: Theme.cornerRadius
+                    color: motherboardMouseArea.containsMouse ? Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.04) : "transparent"
+
+                    MouseArea {
+                        id: motherboardMouseArea
+
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            copyToClipboard(DgopService.motherboard);
+                            ToastService.showInfo("Скопировано: " + DgopService.motherboard);
+                        }
+                    }
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingS
+                        anchors.verticalCenter: parent.verticalCenter
+
+                        StyledText {
+                            text: "Модель:"
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.family: SettingsData.monoFontFamily
+                            color: Theme.surfaceVariantText
+                            width: 150
+                        }
+
+                        StyledText {
+                            text: DgopService.motherboard || "Unknown"
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.family: SettingsData.monoFontFamily
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
+                            width: parent.width - 160
+                            elide: Text.ElideRight
+                        }
+
+                    }
+
+                }
+
+                Rectangle {
+                    width: parent.width
+                    height: 32
+                    radius: Theme.cornerRadius
+                    color: biosMouseArea.containsMouse ? Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.04) : "transparent"
+
+                    MouseArea {
+                        id: biosMouseArea
+
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            copyToClipboard(DgopService.biosVersion);
+                            ToastService.showInfo("Скопировано: BIOS " + DgopService.biosVersion);
+                        }
+                    }
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingS
+                        anchors.verticalCenter: parent.verticalCenter
+
+                        StyledText {
+                            text: "BIOS:"
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.family: SettingsData.monoFontFamily
+                            color: Theme.surfaceVariantText
+                            width: 150
+                        }
+
+                        StyledText {
+                            text: DgopService.biosVersion || "Unknown"
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.family: SettingsData.monoFontFamily
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        // RAM
+        Rectangle {
+            width: parent.width
+            height: ramColumn.implicitHeight + Theme.spacingL * 2
+            radius: Theme.cornerRadius
+            color: Theme.surfaceContainerHigh
+
+            Column {
+                id: ramColumn
+
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.margins: Theme.spacingL
+                spacing: Theme.spacingM
+
+                StyledText {
+                    text: "Оперативная память"
+                    font.pixelSize: Theme.fontSizeLarge
+                    font.weight: Font.Bold
+                    color: Theme.surfaceText
+                }
+
+                Rectangle {
+                    width: parent.width
+                    height: 32
+                    radius: Theme.cornerRadius
+                    color: ramMouseArea.containsMouse ? Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.04) : "transparent"
+
+                    MouseArea {
+                        id: ramMouseArea
+
+                        anchors.fill: parent
+                        hoverEnabled: true
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: {
+                            copyToClipboard(DgopService.formatSystemMemory(DgopService.totalMemoryKB));
+                            ToastService.showInfo("Скопировано: " + DgopService.formatSystemMemory(DgopService.totalMemoryKB));
+                        }
+                    }
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingS
+                        anchors.verticalCenter: parent.verticalCenter
+
+                        StyledText {
+                            text: "Всего:"
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.family: SettingsData.monoFontFamily
+                            color: Theme.surfaceVariantText
+                            width: 150
+                        }
+
+                        StyledText {
+                            text: DgopService.formatSystemMemory(DgopService.totalMemoryKB)
+                            font.pixelSize: Theme.fontSizeMedium
+                            font.family: SettingsData.monoFontFamily
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        // Autostart
+        Rectangle {
+            width: parent.width
+            height: autostartColumn.implicitHeight + Theme.spacingL * 2
+            radius: Theme.cornerRadius
+            color: Theme.surfaceContainerHigh
+
+            Column {
+                id: autostartColumn
+
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.top: parent.top
+                anchors.margins: Theme.spacingL
+                spacing: Theme.spacingM
+
+                Row {
+                    width: parent.width
+                    spacing: Theme.spacingS
+
+                    StyledText {
+                        text: "Автозагрузка"
+                        font.pixelSize: Theme.fontSizeLarge
+                        font.weight: Font.Bold
+                        color: Theme.surfaceText
+                    }
+
+                    StyledText {
+                        text: `(${DgopService.autostartCount} служб)`
+                        font.pixelSize: Theme.fontSizeMedium
+                        font.family: SettingsData.monoFontFamily
+                        color: Theme.surfaceVariantText
+                    }
+
+                    Item {
+                        width: parent.width - autostartTitle.width - autostartCount.width - copyAutostartButton.width - Theme.spacingS * 3
+                        height: 1
+                    }
+
+                    ActionButton {
+                        id: copyAutostartButton
+
+                        circular: false
+                        iconName: "content_copy"
+                        iconSize: Theme.iconSize - 4
+                        iconColor: Theme.surfaceText
+                        onClicked: {
+                            let servicesList = "";
+                            for (let i = 0; i < DgopService.autostartServices.length; i++) {
+                                servicesList += DgopService.autostartServices[i].name;
+                                if (i < DgopService.autostartServices.length - 1) {
+                                    servicesList += "\n";
+                                }
+                            }
+                            copyToClipboard(servicesList);
+                            ToastService.showInfo("Скопирован список служб автозагрузки");
+                        }
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+
+                }
+
+                StyledText {
+                    id: autostartTitle
+                    visible: false
+                    text: "Автозагрузка"
+                    font.pixelSize: Theme.fontSizeLarge
+                    font.weight: Font.Bold
+                }
+
+                StyledText {
+                    id: autostartCount
+                    visible: false
+                    text: `(${DgopService.autostartCount} служб)`
+                    font.pixelSize: Theme.fontSizeMedium
+                }
+
+                Flickable {
+                    width: parent.width
+                    height: Math.min(200, autostartRepeater.count * 28)
+                    contentHeight: autostartRepeater.count * 28
+                    clip: true
+
+                    Column {
+                        width: parent.width
+                        spacing: 2
+
+                        Repeater {
+                            id: autostartRepeater
+
+                            model: DgopService.autostartServices
+
+                            Rectangle {
+                                width: parent.width
+                                height: 26
+                                radius: Theme.cornerRadius
+                                color: autostartMouseArea.containsMouse ? Qt.rgba(Theme.surfaceText.r, Theme.surfaceText.g, Theme.surfaceText.b, 0.04) : "transparent"
+
+                                MouseArea {
+                                    id: autostartMouseArea
+
+                                    anchors.fill: parent
+                                    hoverEnabled: true
+                                }
+
+                                StyledText {
+                                    text: modelData.name
+                                    font.pixelSize: Theme.fontSizeSmall
+                                    font.family: SettingsData.monoFontFamily
+                                    color: Theme.surfaceText
+                                    anchors.left: parent.left
+                                    anchors.leftMargin: Theme.spacingS
+                                    anchors.verticalCenter: parent.verticalCenter
+                                    elide: Text.ElideRight
+                                    width: parent.width - Theme.spacingS * 2
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        // Storage
+        Rectangle {
+            width: parent.width
+            height: storageColumn.implicitHeight + Theme.spacingL * 2
+            radius: Theme.cornerRadius
+            color: Theme.surfaceContainerHigh
 
             Column {
                 id: storageColumn
@@ -397,28 +946,13 @@ Flickable {
                 anchors.right: parent.right
                 anchors.top: parent.top
                 anchors.margins: Theme.spacingL
-                spacing: Theme.spacingS
+                spacing: Theme.spacingM
 
-                Row {
-                    width: parent.width
-                    spacing: Theme.spacingS
-
-                    Icon {
-                        name: "storage"
-                        size: Theme.iconSize
-                        color: Theme.surfaceText
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-
-                    StyledText {
-                        text: "Хранилище и диски"
-                        font.pixelSize: Theme.fontSizeLarge
-                        font.family: SettingsData.monoFontFamily
-                        font.weight: Font.Bold
-                        color: Theme.surfaceText
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-
+                StyledText {
+                    text: "Хранилище и диски"
+                    font.pixelSize: Theme.fontSizeLarge
+                    font.weight: Font.Bold
+                    color: Theme.surfaceText
                 }
 
                 Column {
@@ -438,7 +972,6 @@ Flickable {
                             color: Theme.surfaceText
                             width: parent.width * 0.25
                             elide: Text.ElideRight
-                            verticalAlignment: Text.AlignVCenter
                         }
 
                         StyledText {
@@ -449,7 +982,6 @@ Flickable {
                             color: Theme.surfaceText
                             width: parent.width * 0.2
                             elide: Text.ElideRight
-                            verticalAlignment: Text.AlignVCenter
                         }
 
                         StyledText {
@@ -460,7 +992,6 @@ Flickable {
                             color: Theme.surfaceText
                             width: parent.width * 0.15
                             elide: Text.ElideRight
-                            verticalAlignment: Text.AlignVCenter
                         }
 
                         StyledText {
@@ -471,7 +1002,6 @@ Flickable {
                             color: Theme.surfaceText
                             width: parent.width * 0.15
                             elide: Text.ElideRight
-                            verticalAlignment: Text.AlignVCenter
                         }
 
                         StyledText {
@@ -482,25 +1012,21 @@ Flickable {
                             color: Theme.surfaceText
                             width: parent.width * 0.15
                             elide: Text.ElideRight
-                            verticalAlignment: Text.AlignVCenter
                         }
 
                         StyledText {
-                            text: "Использ%"
+                            text: "%"
                             font.pixelSize: Theme.fontSizeSmall
                             font.family: SettingsData.monoFontFamily
                             font.weight: Font.Bold
                             color: Theme.surfaceText
                             width: parent.width * 0.1
                             elide: Text.ElideRight
-                            verticalAlignment: Text.AlignVCenter
                         }
 
                     }
 
                     Repeater {
-                        id: diskMountRepeater
-
                         model: DgopService.diskMounts
 
                         Rectangle {
@@ -528,7 +1054,6 @@ Flickable {
                                     width: parent.width * 0.25
                                     elide: Text.ElideRight
                                     anchors.verticalCenter: parent.verticalCenter
-                                    verticalAlignment: Text.AlignVCenter
                                 }
 
                                 StyledText {
@@ -539,7 +1064,6 @@ Flickable {
                                     width: parent.width * 0.2
                                     elide: Text.ElideRight
                                     anchors.verticalCenter: parent.verticalCenter
-                                    verticalAlignment: Text.AlignVCenter
                                 }
 
                                 StyledText {
@@ -550,7 +1074,6 @@ Flickable {
                                     width: parent.width * 0.15
                                     elide: Text.ElideRight
                                     anchors.verticalCenter: parent.verticalCenter
-                                    verticalAlignment: Text.AlignVCenter
                                 }
 
                                 StyledText {
@@ -561,7 +1084,6 @@ Flickable {
                                     width: parent.width * 0.15
                                     elide: Text.ElideRight
                                     anchors.verticalCenter: parent.verticalCenter
-                                    verticalAlignment: Text.AlignVCenter
                                 }
 
                                 StyledText {
@@ -572,29 +1094,16 @@ Flickable {
                                     width: parent.width * 0.15
                                     elide: Text.ElideRight
                                     anchors.verticalCenter: parent.verticalCenter
-                                    verticalAlignment: Text.AlignVCenter
                                 }
 
                                 StyledText {
                                     text: modelData.percent
                                     font.pixelSize: Theme.fontSizeSmall
                                     font.family: SettingsData.monoFontFamily
-                                    color: {
-                                        const percent = parseInt(modelData.percent);
-                                        if (percent > 90) {
-                                            return Theme.error;
-                                        }
-
-                                        if (percent > 75) {
-                                            return Theme.warning;
-                                        }
-
-                                        return Theme.surfaceText;
-                                    }
+                                    color: Theme.surfaceText
                                     width: parent.width * 0.1
                                     elide: Text.ElideRight
                                     anchors.verticalCenter: parent.verticalCenter
-                                    verticalAlignment: Text.AlignVCenter
                                 }
 
                             }
@@ -611,4 +1120,7 @@ Flickable {
 
     }
 
+    function copyToClipboard(text) {
+        Quickshell.execDetached(["sh", "-c", "echo -n '" + text + "' | wl-copy"])
+    }
 }
