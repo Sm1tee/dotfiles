@@ -10,7 +10,19 @@ import qs.Common
 Singleton {
     id: root
 
-    property var applications: DesktopEntries.applications.values.filter(app => !app.noDisplay && !app.runInTerminal)
+    property var applications: {
+        const apps = DesktopEntries.applications.values.filter(app => !app.noDisplay && !app.runInTerminal)
+        // Удаляем дубликаты по ID
+        const seen = new Set()
+        return apps.filter(app => {
+            const id = app.id || app.exec || app.name
+            if (seen.has(id)) {
+                return false
+            }
+            seen.add(id)
+            return true
+        })
+    }
 
     function searchApplications(query) {
         if (!query || query.length === 0)
