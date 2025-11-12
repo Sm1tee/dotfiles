@@ -7,6 +7,16 @@
 # конфигурации Hyprland на Arch Linux с полной прозрачностью процесса
 # ============================================================================
 
+
+# Проверка и установка консольного шрифта
+if ! grep -q "FONT=cyr-sun16" /etc/vconsole.conf 2>/dev/null; then
+    echo "Installing console font for Cyrillic support..."
+    sudo pacman -S --needed terminus-font --noconfirm >/dev/null 2>&1
+    echo 'FONT=cyr-sun16' | sudo tee /etc/vconsole.conf >/dev/null
+    sudo setfont cyr-sun16
+fi
+
+
 # Проверка и установка русской локали в самом начале
 if [ -z "$LOCALE_FIXED" ]; then
     if ! locale -a 2>/dev/null | grep -qi "ru_RU.UTF-8"; then
@@ -177,8 +187,10 @@ main() {
         exit 0
     fi
 
-    # ШАГ 1: Включение multilib
-    print_step_info "1" "ВКЛЮЧЕНИЕ MULTILIB" \
+    clear
+
+    # ШАГ 1: Включение репозитория multilib
+    print_step_info "1" "ВКЛЮЧЕНИЕ РЕПОЗИТОРИЯ MULTILIB" \
         "Включение поддержки 32-битных приложений"
 
     print_command "grep -q \"^\\[multilib\\]\" /etc/pacman.conf || sudo sed -i '/#\\[multilib\\]/,/^#Include/ { s/^#//; }' /etc/pacman.conf && sudo pacman -Sy"
@@ -200,8 +212,10 @@ main() {
         add_skipped_action "Включение репозитория multilib"
     fi
 
+    clear
+
     # ШАГ 2: Включение параллельных загрузок
-    print_step_info "2" "ПАРАЛЛЕЛЬНАЯ ЗАГРУЗКА ПАКЕТОВ" \
+    print_step_info "2" "ВКЛЮЧЕНИЕ ПАРАЛЛЕЛЬНЫХ ЗАГРУЗОК" \
         "Включение одновременной загрузки 10 пакетов для ускорения установки."
 
     print_command "sudo sed -i '/^#ParallelDownloads/s/^#//;s/^ParallelDownloads = [0-9]\\+/ParallelDownloads = 10/' /etc/pacman.conf"
@@ -223,16 +237,19 @@ main() {
         add_skipped_action "Включение параллельных загрузок"
     fi
 
-    install_mirrors_and_keys
+    clear
+
+    install_fish_and_settings
 }
 
 # Функция для установки зеркал и ключей
 install_mirrors_and_keys() {
-    # ШАГ 3: Настройка зеркал
-    print_step_info "3" "НАСТРОЙКА ЗЕРКАЛ" \
+    # ШАГ 4: Оптимизация зеркал Arch Linux
+    print_step_info "4" "ОПТИМИЗАЦИЯ ЗЕРКАЛ ARCH LINUX" \
         "Автоматический выбор самых быстрых зеркал для загрузки пакетов."
 
-    print_command "sudo pacman -S --needed reflector && sudo reflector --country Russia --protocol https --latest 20 --sort rate --save /etc/pacman.d/mirrorlist"
+    print_command "sudo reflector --country Russia --protocol https --latest 20 --sort rate --save /etc/pacman.d/mirrorlist && sudo pacman -Syy
+"
 
     echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
     echo -e "  • Arch Linux имеет серверы (зеркала) по всему миру"
@@ -247,7 +264,8 @@ install_mirrors_and_keys() {
             "Reflector установлен!" \
             "Ошибка при установке reflector!"
 
-        execute_command "sudo reflector --country Russia --protocol https --latest 20 --sort rate --save /etc/pacman.d/mirrorlist" \
+        execute_command "sudo reflector --country Russia --protocol https --latest 20 --sort rate --save /etc/pacman.d/mirrorlist && sudo pacman -Syy
+" \
             "Зеркала успешно оптимизированы!" \
             "Ошибка при оптимизации зеркал!"
         pause_for_user
@@ -255,8 +273,10 @@ install_mirrors_and_keys() {
         add_skipped_action "Оптимизация зеркал Arch Linux"
     fi
 
-    # ШАГ 4: Обновление ключей Arch
-    print_step_info "4" "ОБНОВЛЕНИЕ КЛЮЧЕЙ" \
+    clear
+
+    # ШАГ 5: Обновление ключей Arch Linux
+    print_step_info "5" "ОБНОВЛЕНИЕ КЛЮЧЕЙ ARCH LINUX" \
         "Инициализация и обновление ключей безопасности для проверки подлинности пакетов."
 
     echo -e "${CYAN}${ARROW} Команды для выполнения:${NC}"
@@ -298,13 +318,40 @@ install_mirrors_and_keys() {
         add_skipped_action "Обновление ключей Arch Linux"
     fi
 
+    clear
+
+    # ШАГ 6: Добавление пользователя в группу input
+    print_step_info "6" "НАСТРОЙКА ПРАВ ПОЛЬЗОВАТЕЛЯ" \
+        "Добавление текущего пользователя в группу input для корректной работы Hyprland."
+
+    print_command "sudo usermod -a -G input \"\$(whoami)\""
+
+    echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
+    echo -e "  • Linux использует группы для управления правами доступа"
+    echo -e "  • Группа 'input' дает доступ к устройствам ввода (клавиатура, мышь, тачпад)"
+    echo -e "  • Hyprland нужны эти права для корректной работы с периферией"
+    echo -e "  • Без этого могут быть проблемы с управлением курсором или клавиатурой"
+    echo -e "  • Это стандартная и безопасная настройка"
+    echo ""
+
+    if confirm_action "Добавить пользователя в группу input?"; then
+        execute_command "sudo usermod -a -G input \"\$(whoami)\"" \
+            "Пользователь добавлен в группу input!" \
+            "Ошибка при добавлении в группу!"
+        pause_for_user
+    else
+        add_skipped_action "Настройка прав пользователя"
+    fi
+
+    clear
+
     install_aur_helpers
 }
 
 # Функция для установки AUR-помощников
 install_aur_helpers() {
-    # ШАГ 5: Установка YAY и PARU
-    print_step_info "5" "УСТАНОВКА AUR-ПОМОЩНИКОВ" \
+    # ШАГ 7: Установка AUR-помощников
+    print_step_info "7" "УСТАНОВКА AUR-ПОМОЩНИКОВ" \
         "Установка yay и paru для работы с пользовательскими репозиториями AUR."
 
     echo -e "${CYAN}${ARROW} Команды для выполнения:${NC}"
@@ -354,358 +401,10 @@ install_aur_helpers() {
         add_skipped_action "Установка AUR-помощников"
     fi
 
-    install_hyprland_packages
-}
+    clear
 
-# Функция для установки всех пакетов Hyprland
-install_hyprland_packages() {
-    # ШАГ 6.1: Установка базовой системы и библиотек
-    print_step_info "6.1" "БАЗОВАЯ СИСТЕМА И БИБЛИОТЕКИ" \
-        "Установка системных утилит, компиляторов и всех необходимых библиотек для работы Hyprland."
-
-    local base_packages="amd-ucode brightnessctl cairo cmake cpio curl dbus fastfetch glaze inxi libdisplay-info libinput libliftoff libnotify libx11 libxcb libxcomposite libxcursor libxfixes libxkbcommon libxrender linux-headers meson nano net-tools networkmanager ninja pacman-contrib pango pixman polkit re2 rsync sudo tomlplusplus unzip upower wayland-protocols wget qt6-multimedia xcb-proto xcb-util xcb-util-errors xcb-util-keysyms xcb-util-wm go xdg-desktop-portal xdg-user-dirs xdg-utils xorg-xwayland cava zip"
-
-    print_command "yay -S --needed $base_packages"
-
-    echo -e "${CYAN}${ARROW} Что будет установлено:${NC}"
-    echo -e "  • ${WHITE}Базовые утилиты${NC} - curl, nano, rsync, sudo, unzip, wget, zip"
-    echo -e "  • ${WHITE}Системные компоненты${NC} - fastfetch, inxi, net-tools, networkmanager, pacman-contrib"
-    echo -e "  • ${WHITE}Инструменты сборки${NC} - cmake, meson, ninja"
-    echo -e "  • ${WHITE}XDG утилиты${NC} - xdg-desktop-portal, xdg-user-dirs, xdg-utils"
-    echo -e "  • ${WHITE}Системные сервисы${NC} - brightnessctl, libnotify, polkit, upower"
-    echo -e "  • ${WHITE}Wayland библиотеки${NC} - libxcb, wayland-protocols, xcb-proto, xcb-util"
-    echo -e "  • ${WHITE}Графические библиотеки${NC} - cairo, libinput, pango, pixman"
-    echo -e "  • ${WHITE}X11 совместимость${NC} - libx11, libxcomposite, libxcursor, libxfixes, xorg-xwayland"
-    echo -e "  • ${WHITE}Железо и прошивки${NC} - amd-ucode, linux-headers"
-    echo ""
-
-    echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
-    echo -e "  • Это фундамент системы - без этого ничего не заработает"
-    echo -e "  • Компиляторы нужны для сборки AUR пакетов"
-    echo -e "  • Библиотеки Wayland и X11 для работы графических приложений"
-    echo -e "  • Системные сервисы для управления питанием и Bluetooth"
-    echo ""
-
-    echo -e "${YELLOW}${WARNING} Это базовый набор. Установка обязательна для дальнейшей работы.${NC}"
-    echo ""
-
-    if confirm_action "Установить базовую систему и библиотеки?"; then
-        execute_command "yay -S --needed $base_packages" \
-            "Базовая система и библиотеки успешно установлены!" \
-            "Ошибка при установке базовой системы!"
-        pause_for_user
-    else
-        add_skipped_action "Установка базовой системы и библиотек"
-    fi
-
-    install_hyprland_core
-}
-
-# Функция для установки Hyprland и его экосистемы
-install_hyprland_core() {
-    # ШАГ 6.2: Установка Hyprland и его экосистемы
-    print_step_info "6.2" "HYPRLAND И ЭКОСИСТЕМА" \
-        "Установка самого Hyprland, его компонентов, quickshell и инструментов для работы."
-
-    local hyprland_packages="aquamarine sosat cliphist grim hyprland hyprland-qtutils hyprcursor hyprgraphics hyprlang hyprpolkitagent hyprutils hyprwayland-scanner matugen-bin ddcutil gammastep quickshell-git satty slurp wl-clip-persist wl-clipboard xdg-desktop-portal-hyprland"
-
-    print_command "yay -S --needed $hyprland_packages"
-
-    echo -e "${CYAN}${ARROW} Что будет установлено:${NC}"
-    echo -e "  • ${WHITE}Hyprland${NC} - сам композитор Wayland"
-    echo -e "  • ${WHITE}Core зависимости${NC} - aquamarine, hyprcursor, hyprgraphics, hyprlang, hyprutils, hyprwayland-scanner"
-    echo -e "  • ${WHITE}Системная интеграция${NC} - hyprpolkitagent, xdg-desktop-portal-hyprland"
-    echo -e "  • ${WHITE}Quickshell${NC} - интерфейс (панель, виджеты, меню, уведомления, блокировка экрана)"
-    echo -e "  • ${WHITE}Цветовые схемы${NC} - matugen-bin для генерации тем"
-    echo -e "  • ${WHITE}Скриншоты${NC} - grim, satty"
-    echo -e "  • ${WHITE}Буфер обмена${NC} - cliphist, wl-clip-persist, wl-clipboard"
-    echo ""
-
-    echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
-    echo -e "  • Это сердце системы - сам Hyprland и все его компоненты"
-    echo -e "  • Quickshell - полноценный интерфейс для Hyprland"
-    echo -e "  • Инструменты для скриншотов и работы с буфером обмена"
-    echo -e "  • Автоматическая генерация цветовых схем под обои"
-    echo ""
-
-    echo -e "${YELLOW}${WARNING} Это большой набор пакетов. Установка займет некоторое время в зависимости от скорости интернета.${NC}"
-    echo ""
-
-    if confirm_action "Установить Hyprland и его экосистему?"; then
-        execute_command "yay -S --needed $hyprland_packages" \
-            "Hyprland и его экосистема успешно установлены!" \
-            "Ошибка при установке Hyprland!"
-        pause_for_user
-    else
-        add_skipped_action "Установка Hyprland и его экосистемы"
-    fi
-
-    install_user_environment
-}
-
-# Функция для установки пользовательского окружения
-install_user_environment() {
-    # ШАГ 6.3: Установка пользовательского окружения
-    print_step_info "6.3" "ПОЛЬЗОВАТЕЛЬСКОЕ ОКРУЖЕНИЕ" \
-        "Установка Qt/GTK тем, терминалов, файлового менеджера, аудиосистемы и визуального оформления."
-
-    local environment_packages="fish gtk2 gtk4-layer-shell gvfs-afc gvfs-mtp gvfs-smb kitty kora-icon-theme kvantum lib32-pipewire nwg-look pavucontrol pipewire pipewire-alsa pipewire-pulse polkit-gnome qt5-quickcontrols2 qt5-wayland qt5ct qt6-base qt6-declarative qt6-svg qt6-wayland qt6ct sddm udisks2 udiskie vimix-cursors winbox wireplumber xdg-desktop-portal-gtk adw-gtk-theme"
-
-    print_command "yay -S --needed $environment_packages"
-
-    echo -e "${CYAN}${ARROW} Что будет установлено:${NC}"
-    echo -e "  • ${WHITE}Qt библиотеки${NC} - qt5-quickcontrols2, qt5-wayland, qt5ct, qt6-base, qt6-declarative, qt6-svg, qt6-wayland, qt6ct"
-    echo -e "  • ${WHITE}GTK библиотеки${NC} - gtk2, gtk4-layer-shell, xdg-desktop-portal-gtk"
-    echo -e "  • ${WHITE}Темы и настройки${NC} - kvantum, nwg-look"
-    echo -e "  • ${WHITE}Иконки и курсоры${NC} - kora-icon-theme, vimix-cursors"
-    echo -e "  • ${WHITE}Терминал${NC} - kitty"
-    echo -e "  • ${WHITE}Оболочка${NC} - fish"
-    echo -e "  • ${WHITE}Менеджер входа${NC} - sddm"
-    echo -e "  • ${WHITE}Polkit агент${NC} - polkit-gnome"
-      echo -e "  • ${WHITE}Монтирование дисков${NC} - gvfs-afc, gvfs-mtp, gvfs-smb, udisks2, udiskie"
-    echo -e "  • ${WHITE}Аудиосистема${NC} - lib32-pipewire, pavucontrol, pipewire, pipewire-alsa, pipewire-pulse, wireplumber"
-    echo -e "  • ${WHITE}Дополнительно${NC} - winbox"
-    echo ""
-
-    echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
-    echo -e "  • Все для комфортной работы - темы, файловый менеджер, аудио"
-    echo -e "  • Pipewire - современная аудиосистема (замена pulseaudio)"
-    echo -e "  • Thunar - легкий и быстрый файловый менеджер"
-    echo -e "  • SDDM - красивый экран входа в систему"
-    echo ""
-
-    echo -e "${YELLOW}${WARNING} Это большой набор пакетов. Установка займет некоторое время в зависимости от скорости интернета.${NC}"
-    echo ""
-
-    if confirm_action "Установить пользовательское окружение?"; then
-        execute_command "yay -S --needed $environment_packages" \
-            "Пользовательское окружение успешно установлено!" \
-            "Ошибка при установке пользовательского окружения!"
-        pause_for_user
-    else
-        add_skipped_action "Установка пользовательского окружения"
-    fi
-
-    install_applications
-}
-
-# Функция для установки приложений
-install_applications() {
-    # ШАГ 7: Установка рабочих приложений
-    print_step_info "7" "УСТАНОВКА РАБОЧИХ ПРИЛОЖЕНИЙ" \
-        "Установка полезных приложений для повседневной работы в Hyprland."
-
-    local work_packages="brave-bin filezilla ghostty gnome-calculator gnome-disk-utility gnome-font-viewer gvfs loupe lsd mcfly mission-center mpv ncdu obsidian onlyoffice-bin pandoc papers qbittorrent starship telegram-desktop thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler visual-studio-code-bin xarchiver zed zoxide"
-
-    print_command "yay -S --needed $work_packages"
-
-    echo -e "${CYAN}${ARROW} Подробное описание приложений :${NC}"
-    echo -e "  • ${WHITE}ghostty${NC} - современный быстрый терминал"
-    echo -e "  • ${WHITE}starship${NC} - красивая настраиваемая командная строка"
-    echo -e "  • ${WHITE}zed${NC} - простой текстовый редактор (как Блокнот)"
-    echo -e "  • ${WHITE}mpv${NC} - мощный видеоплеер с поддержкой всех форматов"
-    echo -e "  • ${WHITE}loupe${NC} - современный просмотрщик изображений"
-    echo -e "  • ${WHITE}onlyoffice-bin${NC} - полноценный офисный пакет (Word, Excel, PowerPoint)"
-    echo -e "  • ${WHITE}xarchiver${NC} - архиватор с графическим интерфейсом"
-    echo -e "  • ${WHITE}papers${NC} - просмотрщик PDF документов"
-    echo -e "  • ${WHITE}qbittorrent${NC} - торрент-клиент"
-    echo -e "  • ${WHITE}brave${NC} - современный веб-браузер"
-    echo -e "  • ${WHITE}obsidian${NC} - продвинутый редактор заметок"
-    echo -e "  • ${WHITE}visual-studio-code${NC} - популярный редактор кода"
-    echo -e "  • ${WHITE}telegram-desktop${NC} - мессенджер Telegram"
-    echo -e "  • ${WHITE}mission-center${NC} - системный монитор (диспетчер задач)"
-    echo -e "  • ${WHITE}thunar${NC} - файловый менеджер с плагинами"
-    echo -e "  • ${WHITE}gvfs, tumbler${NC} - поддержка миниатюр и монтирования"
-    echo ""
-
-    echo -e "${YELLOW}${WARNING} Это большой набор приложений. Вы можете пропустить этот шаг и установить нужные программы позже.${NC}"
-    echo ""
-
-    if confirm_action "Установить рабочие приложения?"; then
-        execute_command "yay -S --needed $work_packages --noconfirm" \
-            "Рабочие приложения успешно установлены!" \
-            "Ошибка при установке приложений!"
-        pause_for_user
-    else
-        add_skipped_action "Установка рабочих приложений"
-    fi
-
-    install_codecs
-}
-
-# Функция для установки кодеков
-install_codecs() {
-    # ШАГ 8: Установка кодеков
-    print_step_info "8" "МУЛЬТИМЕДИЙНЫЕ КОДЕКИ" \
-        "Установка кодеков для воспроизведения видео, аудио и других мультимедийных файлов."
-
-    local codec_packages="a52dec faac faad2 ffmpeg flac gst-libav gst-plugin-pipewire gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly gstreamer jasper lame lib32-gst-plugins-good lib32-libva lib32-libvpx libdca libde265 libdv libdvdcss libdvdnav libdvdread libmad libmpeg2 libtheora libvorbis libvpx opencore-amr openjpeg2 speex wavpack x264 x265 xvidcore"
-
-    print_command "yay -S --needed $codec_packages"
-
-    echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
-    echo -e "  • Воспроизведение всех популярных видеоформатов (MP4, AVI, MKV, и т.д.)"
-    echo -e "  • Поддержка DVD и Blu-ray дисков"
-    echo -e "  • Кодирование и декодирование аудио (MP3, FLAC, OGG)"
-    echo -e "  • Работа с потоковым видео (YouTube, Twitch)"
-    echo -e "  • Поддержка профессиональных кодеков (x264, x265)"
-    echo ""
-
-    if confirm_action "Установить мультимедийные кодеки?"; then
-        execute_command "yay -S --needed $codec_packages --noconfirm" \
-            "Кодеки успешно установлены!" \
-            "Ошибка при установке кодеков!"
-        pause_for_user
-    else
-        add_skipped_action "Установка мультимедийных кодеков"
-    fi
-
-    install_fonts_and_themes
-}
-
-# Функция для установки шрифтов и тем
-install_fonts_and_themes() {
-    # ШАГ 9: Установка шрифтов, тем, иконок и обоев
-    print_step_info "9" "ШРИФТЫ И ОФОРМЛЕНИЕ" \
-        "Установка красивых шрифтов, тем оформления, иконок и обоев для создания современного интерфейса."
-
-    local font_packages="awesome-terminal-fonts inter-font nerd-fonts noto-fonts noto-fonts-emoji ttf-dejavu ttf-fira-code ttf-fira-sans ttf-font-awesome ttf-hack ttf-jetbrains-mono ttf-liberation ttf-material-design-icons ttf-ms-fonts ttf-opensans ttf-pt-sans ttf-roboto"
-
-    print_command "yay -S --needed $font_packages"
-
-    echo -e "${CYAN}${ARROW} Подробное объяснение:${NC}"
-    echo -e "  • ${WHITE}Системные шрифты${NC} - DejaVu, Liberation, Noto (для интерфейса системы)"
-    echo -e "  • ${WHITE}Программистские шрифты${NC} - JetBrains Mono, Fira Code, Hack (для кода)"
-    echo -e "  • ${WHITE}Иконочные шрифты${NC} - Font Awesome, Material Design (красивые иконки)"
-    echo -e "  • ${WHITE}Nerd Fonts${NC} - шрифты с иконками для терминала (стрелки, символы Git)"
-    echo -e "  • ${WHITE}Эмодзи${NC} - поддержка смайликов и эмодзи в системе"
-    echo ""
-
-    echo -e "${YELLOW}${WARNING} Это большой набор шрифтов. Установка займет время.${NC}"
-    echo ""
-
-    if confirm_action "Установить шрифты?"; then
-        execute_command "yay -S --needed $font_packages --noconfirm" \
-            "Шрифты успешно установлены!" \
-            "Ошибка при установке шрифтов!"
-
-        echo -e "${CYAN}${ARROW} Установка Material Symbols Rounded...${NC}"
-        execute_command "sudo curl -L \"https://github.com/google/material-design-icons/raw/master/variablefont/MaterialSymbolsRounded%5BFILL%2CGRAD%2Copsz%2Cwght%5D.ttf\" -o /usr/share/fonts/MaterialSymbolsRounded.ttf" \
-            "Material Symbols Rounded успешно установлен!" \
-            "Ошибка при установке Material Symbols Rounded!"
-    else
-        add_skipped_action "Установка шрифтов"
-    fi
-
-    # Копирование пользовательских файлов
-    echo -e "${CYAN}${ARROW} Копирование пользовательских шрифтов, тем и иконок...${NC}"
-
-    if [ -d "fonts" ]; then
-        echo -e "${BLUE}╭─────────────────────────────────────────────────────────────────────────────╮${NC}"
-        echo -e "${BLUE}│ ${WHITE} 9.1 КОПИРОВАНИЕ ПОЛЬЗОВАТЕЛЬСКИХ ШРИФТОВ${NC}"
-        echo -e "${BLUE}╰─────────────────────────────────────────────────────────────────────────────╯${NC}"
-        echo ""
-        echo -e "${CYAN}${ARROW} Зачем нужно копировать пользовательские шрифты:${NC}"
-        echo -e "  • ${WHITE}Дополнительные шрифты${NC} - красивые шрифты, которых нет в стандартных пакетах"
-        echo -e "  • ${WHITE}Уникальное оформление${NC} - персонализация внешнего вида системы"
-        echo -e "  • ${WHITE}Системная доступность${NC} - шрифты станут доступны во всех приложениях"
-        echo -e "  • ${WHITE}Автоматическое обнаружение${NC} - система автоматически найдет и подключит шрифты"
-        echo ""
-
-        print_command "sudo cp -r fonts/* /usr/share/fonts/"
-
-        if confirm_action "Скопировать пользовательские шрифты из папки fonts/?"; then
-            execute_command "sudo cp -r fonts/* /usr/share/fonts/" \
-                "Пользовательские шрифты скопированы!" \
-                "Ошибка при копировании шрифтов!"
-        else
-            add_skipped_action "Копирование пользовательских шрифтов"
-        fi
-    fi
-
-    if [ -d "themes" ]; then
-        echo -e "${BLUE}╭─────────────────────────────────────────────────────────────────────────────╮${NC}"
-        echo -e "${BLUE}│ ${WHITE} 9.2 КОПИРОВАНИЕ ПОЛЬЗОВАТЕЛЬСКИХ ТЕМ${NC}"
-        echo -e "${BLUE}╰─────────────────────────────────────────────────────────────────────────────╯${NC}"
-        echo ""
-        echo -e "${CYAN}${ARROW} Зачем нужно копировать пользовательские темы:${NC}"
-        echo -e "  • ${WHITE}Красивое оформление${NC} - уникальные темы для GTK приложений и окон"
-        echo -e "  • ${WHITE}Персонализация интерфейса${NC} - создание собственного стиля рабочего стола"
-        echo -e "  • ${WHITE}Совместимость с приложениями${NC} - темы работают в Thunar, настройках и других программах"
-        echo -e "  • ${WHITE}Системная интеграция${NC} - темы автоматически появятся в настройках внешнего вида"
-        echo ""
-
-        print_command "sudo cp -r themes/* /usr/share/themes/"
-
-        if confirm_action "Скопировать пользовательские темы из папки themes/?"; then
-            execute_command "sudo cp -r themes/* /usr/share/themes/" \
-                "Пользовательские темы скопированы!" \
-                "Ошибка при копировании тем!"
-        else
-            add_skipped_action "Копирование пользовательских тем"
-        fi
-    fi
-
-    if [ -d "icons" ]; then
-        echo -e "${BLUE}╭─────────────────────────────────────────────────────────────────────────────╮${NC}"
-        echo -e "${BLUE}│ ${WHITE} 9.3 КОПИРОВАНИЕ ПОЛЬЗОВАТЕЛЬСКИХ ИКОНОК${NC}"
-        echo -e "${BLUE}╰─────────────────────────────────────────────────────────────────────────────╯${NC}"
-        echo ""
-        echo -e "${CYAN}${ARROW} Зачем нужно копировать пользовательские иконки:${NC}"
-        echo -e "  • ${WHITE}Красивые иконки${NC} - набор иконок для файлов и приложений"
-        echo -e "  • ${WHITE}Системная интеграция${NC} - иконки появятся в файловом менеджере и меню приложений"
-        echo ""
-
-        print_command "sudo cp -r icons/* /usr/share/icons/"
-
-        if confirm_action "Скопировать пользовательские иконки из папки icons/?"; then
-            execute_command "sudo cp -r icons/* /usr/share/icons/" \
-                "Пользовательские иконки скопированы!" \
-                "Ошибка при копировании иконок!"
-        else
-            add_skipped_action "Копирование пользовательских иконок"
-        fi
-    fi
-
-    if [ -d "обои" ]; then
-        echo -e "${BLUE}╭─────────────────────────────────────────────────────────────────────────────╮${NC}"
-        echo -e "${BLUE}│ ${WHITE} 9.4 КОПИРОВАНИЕ ПОЛЬЗОВАТЕЛЬСКИХ ОБОЕВ${NC}"
-        echo -e "${BLUE}╰─────────────────────────────────────────────────────────────────────────────╯${NC}"
-        echo ""
-        echo -e "${CYAN}${ARROW} Зачем нужно копировать пользовательские обои:${NC}"
-        echo -e "  • ${WHITE}Красивые обои${NC} - коллекция обоев для рабочего стола"
-        echo -e "  • ${WHITE}Персонализация${NC} - создание уникального внешнего вида рабочего стола"
-        echo -e "  • ${WHITE}Удобный доступ${NC} - обои будут доступны в папке Изображения"
-        echo -e "  • ${WHITE}Интеграция с waypaper${NC} - программа для смены обоев найдет их автоматически"
-        echo ""
-
-        print_command "mkdir -p ~/Изображения && cp -r обои ~/Изображения/"
-
-        if confirm_action "Скопировать пользовательские обои из папки обои/?"; then
-            execute_command "mkdir -p ~/Изображения && cp -r обои ~/Изображения/" \
-                "Пользовательские обои скопированы!" \
-                "Ошибка при копировании обоев!"
-        else
-            add_skipped_action "Копирование пользовательских обоев"
-        fi
-    fi
-
-
-    if confirm_action "Обновить кэш шрифтов?"; then
-        execute_command "sudo fc-cache -f" \
-            "Кэш шрифтов обновлен!" \
-            "Ошибка при обновлении кэша шрифтов!"
-    else
-        add_skipped_action "Обновление кэша шрифтов"
-    fi
-
-    install_fish_and_settings
-}
-
-# Функция для настройки fish и системных настроек
-install_fish_and_settings() {
-    # ШАГ 10: Смена оболочки на Fish
-    print_step_info "10" "НАСТРОЙКА ОБОЛОЧКИ FISH" \
+    # ШАГ 8: Смена оболочки на Fish
+    print_step_info "8" "НАСТРОЙКА ОБОЛОЧКИ FISH" \
         "Смена стандартной оболочки bash на более удобную и функциональную Fish."
 
     print_command "chsh -s \$(which fish)"
@@ -732,31 +431,322 @@ install_fish_and_settings() {
         add_skipped_action "Настройка оболочки Fish"
     fi
 
-    # ШАГ 11: Добавление пользователя в группу input
-    print_step_info "11" "НАСТРОЙКА ПРАВ ПОЛЬЗОВАТЕЛЯ" \
-        "Добавление текущего пользователя в группу input для корректной работы Hyprland."
+    clear
 
-    print_command "sudo usermod -a -G input \"\$(whoami)\""
+    install_hyprland_packages
+}
+
+# Функция для установки всех пакетов Hyprland
+install_hyprland_packages() {
+    # ШАГ 9: Установка базовой системы и библиотек
+    print_step_info "9" "УСТАНОВКА БАЗОВОЙ СИСТЕМЫ И БИБЛИОТЕК" \
+        "Установка системных утилит, компиляторов и всех необходимых библиотек для работы Hyprland."
+
+    local base_packages="amd-ucode brightnessctl cairo cmake cpio curl dbus fastfetch glaze inxi libdisplay-info libinput libliftoff libnotify libx11 libxcb libxcomposite libxcursor libxfixes libxkbcommon libxrender linux-headers meson nano net-tools networkmanager ninja pacman-contrib pango pixman polkit re2 rsync sudo tomlplusplus unzip upower wayland-protocols wget qt6-multimedia xcb-proto xcb-util xcb-util-errors xcb-util-keysyms xcb-util-wm go xdg-desktop-portal xdg-user-dirs xdg-utils xorg-xwayland cava zip gnome-keyring"
+
+    print_command "yay -S --needed $base_packages"
 
     echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
-    echo -e "  • Linux использует группы для управления правами доступа"
-    echo -e "  • Группа 'input' дает доступ к устройствам ввода (клавиатура, мышь, тачпад)"
-    echo -e "  • Hyprland нужны эти права для корректной работы с периферией"
-    echo -e "  • Без этого могут быть проблемы с управлением курсором или клавиатурой"
-    echo -e "  • Это стандартная и безопасная настройка"
+    echo -e "  • Это фундамент системы - без этого ничего не заработает"
+    echo -e "  • Компиляторы нужны для сборки AUR пакетов"
+    echo -e "  • Библиотеки Wayland и X11 для работы графических приложений"
+    echo -e "  • Системные сервисы для управления питанием и Bluetooth"
     echo ""
 
-    if confirm_action "Добавить пользователя в группу input?"; then
-        execute_command "sudo usermod -a -G input \"\$(whoami)\"" \
-            "Пользователь добавлен в группу input!" \
-            "Ошибка при добавлении в группу!"
+    echo -e "${YELLOW}${WARNING} Это базовый набор. Установка обязательна для дальнейшей работы.${NC}"
+    echo ""
+
+    if confirm_action "Установить базовую систему и библиотеки?"; then
+        execute_command "yay -S --needed $base_packages" \
+            "Базовая система и библиотеки успешно установлены!" \
+            "Ошибка при установке базовой системы!"
         pause_for_user
     else
-        add_skipped_action "Настройка прав пользователя"
+        add_skipped_action "Установка базовой системы и библиотек"
     fi
 
-    # ШАГ 12: Включение оптимизации SSD
-    print_step_info "12" "ВКЛЮЧЕНИЕ ОПТИМИЗАЦИИ SSD" \
+    clear
+
+    install_hyprland_core
+}
+
+# Функция для установки Hyprland и его экосистемы
+install_hyprland_core() {
+    # ШАГ 10: Установка Hyprland и его экосистемы
+    print_step_info "10" "УСТАНОВКА HYPRLAND И ЕГО ЭКОСИСТЕМЫ" \
+        "Установка самого Hyprland, его компонентов, quickshell и инструментов для работы."
+
+    local hyprland_packages="aquamarine socat cliphist grim hyprland  hyprcursor hyprgraphics hyprlang hyprpolkitagent hyprutils hyprwayland-scanner matugen-bin ddcutil gammastep quickshell satty slurp wl-clip-persist wl-clipboard xdg-desktop-portal-hyprland"
+
+    print_command "yay -S --needed $hyprland_packages"
+
+    echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
+    echo -e "  • Это сердце системы - сам Hyprland и все его компоненты"
+    echo -e "  • Quickshell - полноценный интерфейс для Hyprland"
+    echo -e "  • Инструменты для скриншотов и работы с буфером обмена"
+    echo -e "  • Автоматическая генерация цветовых схем под обои"
+    echo ""
+
+    echo -e "${YELLOW}${WARNING} Это большой набор пакетов. Установка займет некоторое время в зависимости от скорости интернета.${NC}"
+    echo ""
+
+    if confirm_action "Установить Hyprland и его экосистему?"; then
+        execute_command "yay -S --needed $hyprland_packages" \
+            "Hyprland и его экосистема успешно установлены!" \
+            "Ошибка при установке Hyprland!"
+        pause_for_user
+    else
+        add_skipped_action "Установка Hyprland и его экосистемы"
+    fi
+
+    clear
+
+    install_user_environment
+}
+
+# Функция для установки пользовательского окружения
+install_user_environment() {
+    # ШАГ 11: Установка пользовательского окружения
+    print_step_info "11" "УСТАНОВКА ПОЛЬЗОВАТЕЛЬСКОГО ОКРУЖЕНИЯ" \
+        "Установка Qt/GTK тем, терминалов, файлового менеджера, аудиосистемы и визуального оформления."
+
+    local environment_packages="fish gtk2 gtk4-layer-shell gvfs-afc gvfs-mtp gvfs-smb kitty kora-icon-theme kvantum lib32-pipewire nwg-look pavucontrol pipewire pipewire-alsa pipewire-pulse polkit-gnome qt5-quickcontrols2 qt5-wayland qt5ct qt6-base qt6-declarative qt6-svg qt6-wayland qt6ct sddm udisks2 udiskie vimix-cursors wireplumber xdg-desktop-portal-gtk adw-gtk-theme"
+
+    print_command "yay -S --needed $environment_packages"
+
+    echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
+    echo -e "  • Все для комфортной работы - темы, файловый менеджер, аудио"
+    echo -e "  • Pipewire - современная аудиосистема (замена pulseaudio)"
+    echo -e "  • Thunar - легкий и быстрый файловый менеджер"
+    echo -e "  • SDDM - красивый экран входа в систему"
+    echo ""
+
+    echo -e "${YELLOW}${WARNING} Это большой набор пакетов. Установка займет некоторое время в зависимости от скорости интернета.${NC}"
+    echo ""
+
+    if confirm_action "Установить пользовательское окружение?"; then
+        execute_command "yay -S --needed $environment_packages" \
+            "Пользовательское окружение успешно установлено!" \
+            "Ошибка при установке пользовательского окружения!"
+        pause_for_user
+    else
+        add_skipped_action "Установка пользовательского окружения"
+    fi
+
+    clear
+
+    install_applications
+}
+
+# Функция для установки приложений
+install_applications() {
+    # ШАГ 12: Установка рабочих приложений
+    print_step_info "12" "УСТАНОВКА РАБОЧИХ ПРИЛОЖЕНИЙ" \
+        "Установка полезных приложений для повседневной работы в Hyprland."
+
+    local work_packages="brave-bin filezilla ghostty gnome-calculator gnome-disk-utility gnome-font-viewer gvfs loupe lsd mcfly mpv ncdu obsidian libreoffice-fresh-ru pandoc papers qbittorrent starship telegram-desktop thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler visual-studio-code-bin xarchiver zed zoxide"
+
+    print_command "yay -S --needed $work_packages"
+
+    echo -e "${YELLOW}${WARNING} Это большой набор приложений. Вы можете пропустить этот шаг и установить нужные программы позже.${NC}"
+    echo ""
+
+    if confirm_action "Установить рабочие приложения?"; then
+        execute_command "yay -S --needed $work_packages --noconfirm" \
+            "Рабочие приложения успешно установлены!" \
+            "Ошибка при установке приложений!"
+        pause_for_user
+    else
+        add_skipped_action "Установка рабочих приложений"
+    fi
+
+    clear
+
+    install_codecs
+}
+
+# Функция для установки кодеков
+install_codecs() {
+    # ШАГ 13: Установка мультимедийных кодеков
+    print_step_info "13" "УСТАНОВКА МУЛЬТИМЕДИЙНЫХ КОДЕКОВ" \
+        "Установка кодеков для воспроизведения видео, аудио и других мультимедийных файлов."
+
+    local codec_packages="a52dec faac faad2 ffmpeg flac gst-libav gst-plugin-pipewire gst-plugins-bad gst-plugins-base gst-plugins-good gst-plugins-ugly gstreamer jasper lame lib32-gst-plugins-good lib32-libva lib32-libvpx libdca libde265 libdv libdvdcss libdvdnav libdvdread libmad libmpeg2 libtheora libvorbis libvpx opencore-amr openjpeg2 speex wavpack x264 x265 xvidcore"
+
+    print_command "yay -S --needed $codec_packages"
+
+    echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
+    echo -e "  • Воспроизведение всех популярных видеоформатов (MP4, AVI, MKV, и т.д.)"
+    echo -e "  • Поддержка DVD и Blu-ray дисков"
+    echo -e "  • Кодирование и декодирование аудио (MP3, FLAC, OGG)"
+    echo -e "  • Работа с потоковым видео (YouTube, Twitch)"
+    echo -e "  • Поддержка профессиональных кодеков (x264, x265)"
+    echo ""
+
+    if confirm_action "Установить мультимедийные кодеки?"; then
+        execute_command "yay -S --needed $codec_packages --noconfirm" \
+            "Кодеки успешно установлены!" \
+            "Ошибка при установке кодеков!"
+        pause_for_user
+    else
+        add_skipped_action "Установка мультимедийных кодеков"
+    fi
+
+    clear
+
+    install_gaming_packages
+}
+
+# Функция для установки шрифтов и тем
+install_fonts_and_themes() {
+    # ШАГ 17: Установка пакетов шрифтов
+    print_step_info "17" "УСТАНОВКА ПАКЕТОВ ШРИФТОВ" \
+        "Установка красивых шрифтов для системы и терминала."
+
+    local font_packages="nerd-fonts noto-fonts noto-fonts-emoji ttf-fira-code ttf-font-awesome ttf-jetbrains-mono ttf-material-design-icons"
+
+    print_command "yay -S --needed $font_packages"
+
+    echo -e "${CYAN}${ARROW} Подробное объяснение:${NC}"
+    echo -e "  • ${WHITE}Системные шрифты${NC} - DejaVu, Liberation, Noto (для интерфейса системы)"
+    echo -e "  • ${WHITE}Программистские шрифты${NC} - JetBrains Mono, Fira Code, Hack (для кода)"
+    echo -e "  • ${WHITE}Иконочные шрифты${NC} - Font Awesome, Material Design (красивые иконки)"
+    echo -e "  • ${WHITE}Nerd Fonts${NC} - шрифты с иконками для терминала (стрелки, символы Git)"
+    echo -e "  • ${WHITE}Эмодзи${NC} - поддержка смайликов и эмодзи в системе"
+    echo ""
+
+    echo -e "${YELLOW}${WARNING} Это большой набор шрифтов. Установка займет время.${NC}"
+    echo ""
+
+    if confirm_action "Установить шрифты?"; then
+        execute_command "yay -S --needed $font_packages --noconfirm" \
+            "Шрифты успешно установлены!" \
+            "Ошибка при установке шрифтов!"
+
+        echo -e "${CYAN}${ARROW} Установка Material Symbols Rounded...${NC}"
+        execute_command "sudo curl -L \"https://github.com/google/material-design-icons/raw/master/variablefont/MaterialSymbolsRounded%5BFILL%2CGRAD%2Copsz%2Cwght%5D.ttf\" -o /usr/share/fonts/MaterialSymbolsRounded.ttf" \
+            "Material Symbols Rounded успешно установлен!" \
+            "Ошибка при установке Material Symbols Rounded!"
+
+        echo -e "${CYAN}${ARROW} Обновление кэша шрифтов...${NC}"
+        execute_command "sudo fc-cache -f" \
+            "Кэш шрифтов обновлен!" \
+            "Ошибка при обновлении кэша шрифтов!"
+    else
+        add_skipped_action "Установка шрифтов"
+    fi
+
+    # Копирование пользовательских файлов
+    echo -e "${CYAN}${ARROW} Копирование пользовательских шрифтов, тем и иконок...${NC}"
+
+    if [ -d "fonts" ]; then
+        clear
+        print_step_info "18" "КОПИРОВАНИЕ ПОЛЬЗОВАТЕЛЬСКИХ ШРИФТОВ" \
+            "Копирование дополнительных шрифтов из папки fonts."
+        echo ""
+        echo -e "${CYAN}${ARROW} Зачем нужно копировать пользовательские шрифты:${NC}"
+        echo -e "  • ${WHITE}Дополнительные шрифты${NC} - красивые шрифты, которых нет в стандартных пакетах"
+        echo -e "  • ${WHITE}Уникальное оформление${NC} - персонализация внешнего вида системы"
+        echo -e "  • ${WHITE}Системная доступность${NC} - шрифты станут доступны во всех приложениях"
+        echo -e "  • ${WHITE}Автоматическое обнаружение${NC} - система автоматически найдет и подключит шрифты"
+        echo ""
+
+        print_command "sudo cp -r fonts/* /usr/share/fonts/"
+
+        if confirm_action "Скопировать пользовательские шрифты из папки fonts/?"; then
+            execute_command "sudo cp -r fonts/* /usr/share/fonts/" \
+                "Пользовательские шрифты скопированы!" \
+                "Ошибка при копировании шрифтов!"
+
+            echo -e "${CYAN}${ARROW} Обновление кэша шрифтов...${NC}"
+            execute_command "sudo fc-cache -f" \
+                "Кэш шрифтов обновлен!" \
+                "Ошибка при обновлении кэша шрифтов!"
+            pause_for_user
+        else
+            add_skipped_action "Копирование пользовательских шрифтов"
+        fi
+    fi
+
+    if [ -d "themes" ]; then
+        clear
+        print_step_info "19" "КОПИРОВАНИЕ ПОЛЬЗОВАТЕЛЬСКИХ ТЕМ" \
+            "Копирование пользовательских тем оформления из папки themes."
+        echo ""
+        echo -e "${CYAN}${ARROW} Зачем нужно копировать пользовательские темы:${NC}"
+        echo -e "  • ${WHITE}Красивое оформление${NC} - уникальные темы для GTK приложений и окон"
+        echo -e "  • ${WHITE}Персонализация интерфейса${NC} - создание собственного стиля рабочего стола"
+        echo -e "  • ${WHITE}Совместимость с приложениями${NC} - темы работают в Thunar, настройках и других программах"
+        echo -e "  • ${WHITE}Системная интеграция${NC} - темы автоматически появятся в настройках внешнего вида"
+        echo ""
+
+        print_command "sudo cp -r themes/* /usr/share/themes/"
+
+        if confirm_action "Скопировать пользовательские темы из папки themes/?"; then
+            execute_command "sudo cp -r themes/* /usr/share/themes/" \
+                "Пользовательские темы скопированы!" \
+                "Ошибка при копировании тем!"
+            pause_for_user
+        else
+            add_skipped_action "Копирование пользовательских тем"
+        fi
+    fi
+
+    if [ -d "icons" ]; then
+        clear
+        print_step_info "20" "КОПИРОВАНИЕ ПОЛЬЗОВАТЕЛЬСКИХ ИКОНОК" \
+            "Копирование пользовательских иконок из папки icons."
+        echo ""
+        echo -e "${CYAN}${ARROW} Зачем нужно копировать пользовательские иконки:${NC}"
+        echo -e "  • ${WHITE}Красивые иконки${NC} - набор иконок для файлов и приложений"
+        echo -e "  • ${WHITE}Системная интеграция${NC} - иконки появятся в файловом менеджере и меню приложений"
+        echo ""
+
+        print_command "sudo cp -r icons/* /usr/share/icons/"
+
+        if confirm_action "Скопировать пользовательские иконки из папки icons/?"; then
+            execute_command "sudo cp -r icons/* /usr/share/icons/" \
+                "Пользовательские иконки скопированы!" \
+                "Ошибка при копировании иконок!"
+            pause_for_user
+        else
+            add_skipped_action "Копирование пользовательских иконок"
+        fi
+    fi
+
+    if [ -d "обои" ]; then
+        clear
+        print_step_info "21" "КОПИРОВАНИЕ ПОЛЬЗОВАТЕЛЬСКИХ ОБОЕВ" \
+            "Копирование пользовательских обоев из папки обои."
+        echo ""
+        echo -e "${CYAN}${ARROW} Зачем нужно копировать пользовательские обои:${NC}"
+        echo -e "  • ${WHITE}Красивые обои${NC} - коллекция обоев для рабочего стола"
+        echo -e "  • ${WHITE}Персонализация${NC} - создание уникального внешнего вида рабочего стола"
+        echo -e "  • ${WHITE}Удобный доступ${NC} - обои будут доступны в папке Изображения"
+        echo -e "  • ${WHITE}Интеграция с waypaper${NC} - программа для смены обоев найдет их автоматически"
+        echo ""
+
+        print_command "mkdir -p ~/Изображения && cp -r обои ~/Изображения/"
+
+        if confirm_action "Скопировать пользовательские обои из папки обои/?"; then
+            execute_command "mkdir -p ~/Изображения && cp -r обои ~/Изображения/" \
+                "Пользовательские обои скопированы!" \
+                "Ошибка при копировании обоев!"
+            pause_for_user
+        else
+            add_skipped_action "Копирование пользовательских обоев"
+        fi
+    fi
+
+    clear
+
+    final_configuration
+}
+
+# Функция для настройки fish и системных настроек
+install_fish_and_settings() {
+    # ШАГ 3: Включение оптимизации SSD
+    print_step_info "3" "ВКЛЮЧЕНИЕ ОПТИМИЗАЦИИ SSD" \
         "Включение автоматической очистки SSD для продления срока службы и повышения производительности."
 
     print_command "sudo systemctl enable fstrim.timer"
@@ -778,23 +768,20 @@ install_fish_and_settings() {
         add_skipped_action "Включение оптимизации SSD"
     fi
 
-    install_bluetooth
+    clear
+
+    install_mirrors_and_keys
 }
 
 # Функция для установки и настройки Bluetooth
 install_bluetooth() {
-    # ШАГ 13: Установка и настройка Bluetooth
-    print_step_info "13" "НАСТРОЙКА BLUETOOTH" \
+    # ШАГ 24: Установка и настройка Bluetooth
+    print_step_info "24" "УСТАНОВКА И НАСТРОЙКА BLUETOOTH" \
         "Установка пакетов для работы с Bluetooth устройствами."
 
-    local bluetooth_packages="bluez bluez-utils"
+    local bluetooth_packages="bluez bluez-libs bluez-utils"
 
     print_command "yay -S --needed $bluetooth_packages"
-
-    echo -e "${CYAN}${ARROW} Что будет установлено:${NC}"
-    echo -e "  • ${WHITE}bluez${NC} - основной стек Bluetooth для Linux"
-    echo -e "  • ${WHITE}bluez-utils${NC} - утилиты для работы с Bluetooth"
-    echo ""
 
     echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
     echo -e "  • Подключение Bluetooth наушников, клавиатур, мышей"
@@ -817,22 +804,16 @@ install_bluetooth() {
         add_skipped_action "Установка и настройка Bluetooth"
     fi
 
-    install_sddm_config
+    clear
+
+    install_printing_packages
 }
 
 # Функция для настройки SDDM
 install_sddm_config() {
-    # ШАГ 14: Настройка SDDM
-    print_step_info "14" "НАСТРОЙКА SDDM" \
+    # ШАГ 23: Установка тем SDDM
+    print_step_info "23" "УСТАНОВКА ТЕМ SDDM" \
         "Установка красивых тем экрана входа где вы вводите пароль"
-
-    echo -e "${CYAN}${ARROW} Что будет установлено:${NC}"
-    echo -e "  • 25+ красивых тем для экрана входа на выбор или все сразу"
-    echo -e "  • Поддержка Wayland и виртуальной клавиатуры"
-    echo -e "  • Кастомные шрифты и иконки"
-    echo -e "  • Анимированные фоны и эффекты"
-    echo -e "  • Использование отдельного автоматизированного скрипта для этой процедуры"
-    echo ""
 
     echo -e "${YELLOW}${WARNING} Для этого будет скачан другой скрипт, который проведет вас через установку темы экрана входа. ${NC}"
 
@@ -870,44 +851,18 @@ install_sddm_config() {
         echo -e "${YELLOW}${WARNING} Установка тем SDDM пропущена${NC}"
     fi
 
-    # Предложение установки игровых пакетов
-    echo -e "${BLUE}╭─────────────────────────────────────────────────────────────────────────────╮${NC}"
-    echo -e "${BLUE}│ ${WHITE}ДОПОЛНИТЕЛЬНО: ПАКЕТЫ ДЛЯ ИГР${NC}"
-    echo -e "${BLUE}│${NC}"
-    echo -e "${BLUE}│ ${CYAN}Установка драйверов, библиотек Wine и системных оптимизаций для игр${NC}"
-    echo -e "${BLUE}╰─────────────────────────────────────────────────────────────────────────────╯${NC}"
-    echo ""
+    clear
 
-    echo -e "${CYAN}${ARROW} Что включает в себя:${NC}"
-    echo -e "  • ${WHITE}Игровые драйверы${NC} - Mesa, Vulkan, DXVK для AMD видеокарт"
-    echo -e "  • ${WHITE}Wine и библиотеки${NC} - для запуска Windows-игр"
-    echo -e "  • ${WHITE}Системные оптимизации${NC} - настройки ядра для лучшей производительности"
-    echo -e "  • ${WHITE}Игровые утилиты${NC} - MangoHUD, GameMode"
-    echo ""
-
-    echo -e "${YELLOW}${WARNING} При согласии ничего не установится - вы попадете в меню установки различных компанентов для игр${NC}"
-    echo ""
-
-    if confirm_action "Хотите перейти к установке пакетов для игр?"; then
-        install_gaming_packages
-    fi
-
-    # Установка пакетов печати
-    install_printing_packages
-
-    final_configuration
+    install_bluetooth
 }
 
 # Функция для установки игровых пакетов
 install_gaming_packages() {
-    print_step_info "15" "НАСТРОЙКА ДЛЯ ИГР" \
-        "Установка пакетов и настроек для комфортной игры на Linux."
-
     # Игровые пакеты
-    print_step_info "15.1" "ИГРОВЫЕ ПАКЕТЫ" \
+    print_step_info "14" "УСТАНОВКА ИГРОВЫХ ПАКЕТОВ" \
         "Установка драйверов, библиотек и инструментов для комфортной игры на Linux с AMD видеокартой."
 
-    local gaming_packages="mesa lib32-mesa vkd3d lib32-vkd3d xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau vulkan-mesa-layers ttf-liberation goverlay mangohud gamemode proton-cachyos proton-cachyos-slr umu-launcher glfw protontricks gamescope dxvk-bin"
+    local gaming_packages="mesa lib32-mesa vkd3d lib32-vkd3d vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau vulkan-mesa-layers ttf-liberation goverlay mangohud lib32-mangohud gamemode umu-launcher glfw protontricks gamescope dxvk-bin"
 
     print_command "yay -S --needed $gaming_packages"
 
@@ -933,11 +888,13 @@ install_gaming_packages() {
         add_skipped_action "Установка игровых пакетов"
     fi
 
+    clear
+
     # Wine пакеты
-    print_step_info "15.2" "WINE ДЛЯ WINDOWS-ИГР" \
+    print_step_info "15" "УСТАНОВКА ПАКЕТОВ WINE" \
         "Wine позволяет запускать Windows-приложения и игры на Linux. Это большой набор пакетов для полной совместимости."
 
-    local wine_packages="wine giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses ocl-icd lib32-ocl-icd libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader lib32-opencl-icd-loader wine-gecko wine-mono winetricks vulkan-tools zenity fontconfig lib32-fontconfig wqy-zenhei"
+    local wine_packages="wine giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses ocl-icd lib32-ocl-icd libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader lib32-opencl-icd-loader wine-gecko wine-mono winetricks vulkan-tools zenity fontconfig lib32-fontconfig wqy-zenhei dbus-glib lib32-acl lib32-attr lib32-dbus-glib lib32-freeglut lib32-gettext lib32-glu lib32-libcanberra lib32-libice lib32-libltdl lib32-libmodplug lib32-libnl lib32-libnm lib32-libpcap lib32-libsm lib32-libsoup lib32-libusb lib32-libvdpau lib32-libwebp lib32-libxcrypt-compat lib32-libxmu lib32-libxss lib32-libxt lib32-lzo lib32-nspr lib32-nss lib32-sdl2-compat lib32-sdl2_image lib32-sdl2_mixer lib32-sdl2_ttf lib32-sdl3 lib32-tdb libibus libsoup libxmp opusfile sdl2_image sdl2_mixer sdl2_ttf steam"
 
     print_command "yay -S --needed $wine_packages"
 
@@ -961,8 +918,10 @@ install_gaming_packages() {
         add_skipped_action "Установка пакетов Wine"
     fi
 
+    clear
+
     # Системные оптимизации
-    print_step_info "15.3" "УВЕЛИЧЕНИЕ ЛИМИТА ПАМЯТИ ДЛЯ ИГР" \
+    print_step_info "16" "УВЕЛИЧЕНИЕ ЛИМИТА ПАМЯТИ ДЛЯ ИГР" \
         "Увеличение vm.max_map_count для современных игр, требующих большого количества памяти."
 
     echo -e "${CYAN}${ARROW} Что будет настроено:${NC}"
@@ -993,11 +952,15 @@ install_gaming_packages() {
     else
         add_skipped_action "Увеличение лимита памяти для игр"
     fi
+
+    clear
+
+    install_fonts_and_themes
 }
 
 # Функция для установки пакетов печати
 install_printing_packages() {
-    print_step_info "16" "НАСТРОЙКА ПЕЧАТИ" \
+    print_step_info "25" "УСТАНОВКА ПАКЕТОВ ПЕЧАТИ" \
         "Установка пакетов для работы с принтерами и сканерами."
 
     local printing_packages="cups cups-filters cups-pdf libcups libcupsfilters splix python-pycups lib32-libcups simple-scan hplip hplip-plugin print-manager"
@@ -1023,18 +986,13 @@ install_printing_packages() {
     else
         add_skipped_action "Установка пакетов печати"
     fi
-}
 
-# Финальная конфигурация
-final_configuration() {
-    print_step_info "17" "ФИНАЛЬНАЯ НАСТРОЙКА" \
-        "Завершающие настройки и копирование конфигурационных файлов."
+    clear
 
-    # Настройка Git
-    echo -e "${BLUE}╭─────────────────────────────────────────────────────────────────────────────╮${NC}"
-    echo -e "${BLUE}│ ${WHITE} 17.1 НАСТРОЙКА GIT${NC}"
-    echo -e "${BLUE}╰─────────────────────────────────────────────────────────────────────────────╯${NC}"
-    echo ""
+    # Настройка Git - ШАГ 26
+    print_step_info "26" "НАСТРОЙКА СОХРАНЕНИЯ ПАРОЛЕЙ GIT" \
+        "Настройка автоматического сохранения паролей для GitHub/GitLab."
+
     echo -e "${CYAN}${ARROW} Настройка Git (сохранение паролей):${NC}"
     echo -e "  • ${WHITE}Что это${NC} - автоматическое сохранение паролей для GitHub/GitLab"
     echo -e "  • ${WHITE}Зачем нужно${NC} - чтобы не вводить пароль каждый раз при git push/pull"
@@ -1045,16 +1003,24 @@ final_configuration() {
         execute_command "git config --global credential.helper store" \
             "Сохранение паролей Git включено!" \
             "Ошибка при настройке Git!"
+        pause_for_user
     else
         add_skipped_action "Настройка сохранения паролей Git"
     fi
 
+    clear
+
+    final_configuration_services
+}
+
+# Финальная конфигурация
+final_configuration() {
     # Копирование конфигурационных файлов
     if [ -d ".config" ]; then
-        echo -e "${BLUE}╭─────────────────────────────────────────────────────────────────────────────╮${NC}"
-        echo -e "${BLUE}│ ${WHITE} 17.2 КОПИРОВАНИЕ КОНФИГУРАЦИОННЫХ ФАЙЛОВ${NC}"
-        echo -e "${BLUE}╰─────────────────────────────────────────────────────────────────────────────╯${NC}"
-        echo ""
+        clear
+        print_step_info "22" "КОПИРОВАНИЕ КОНФИГУРАЦИОННЫХ ФАЙЛОВ" \
+            "Копирование готовых настроек для Hyprland и приложений."
+
         echo -e "${CYAN}${ARROW} Копирование конфигурационных файлов:${NC}"
         echo -e "  • ${WHITE}Что это${NC} - готовые настройки для Hyprland, терминалов"
         echo -e "  • ${WHITE}Зачем нужно${NC} - чтобы система сразу работала красиво и удобно"
@@ -1066,16 +1032,24 @@ final_configuration() {
             execute_command "cp -r .config/* ~/.config/" \
                 "Конфигурационные файлы скопированы!" \
                 "Ошибка при копировании конфигов!"
+            pause_for_user
         else
             add_skipped_action "Копирование конфигурационных файлов"
         fi
     fi
 
+    clear
+
+    install_sddm_config
+}
+
+# Продолжение final_configuration после всех установок
+final_configuration_services() {
     # Включение служб
-    echo -e "${BLUE}╭─────────────────────────────────────────────────────────────────────────────╮${NC}"
-    echo -e "${BLUE}│ ${WHITE} 17.3 ВКЛЮЧЕНИЕ СИСТЕМНЫХ СЛУЖБ${NC}"
-    echo -e "${BLUE}╰─────────────────────────────────────────────────────────────────────────────╯${NC}"
-    echo ""
+    clear
+    print_step_info "27" "ВКЛЮЧЕНИЕ СЛУЖБЫ SDDM" \
+        "Включение SDDM для автозапуска."
+
     echo -e "${CYAN}${ARROW} Включение необходимых системных служб...${NC}"
     echo ""
 
@@ -1090,9 +1064,15 @@ final_configuration() {
         execute_command "sudo systemctl enable sddm" \
             "Служба SDDM включена!" \
             "Ошибка при включении SDDM!"
+        pause_for_user
     else
         add_skipped_action "Включение службы SDDM"
     fi
+
+    clear
+
+    print_step_info "28" "ВКЛЮЧЕНИЕ СЛУЖБЫ NETWORKMANAGER" \
+        "Включение NetworkManager для автозапуска."
 
     # NetworkManager - управление сетью
     echo -e "${CYAN}${ARROW} Служба NetworkManager (управление сетью):${NC}"
@@ -1105,13 +1085,19 @@ final_configuration() {
         execute_command "sudo systemctl enable NetworkManager" \
             "Служба NetworkManager включена!" \
             "Ошибка при включении NetworkManager!"
+        pause_for_user
     else
         add_skipped_action "Включение службы NetworkManager"
     fi
 
     # Финальное сообщение
-    print_header
-    echo -e "${GREEN}${FIRE} УСТАНОВКА ЗАВЕРШЕНА! ${FIRE}${NC}"
+    clear
+    echo ""
+    echo -e "${GREEN}╔══════════════════════════════════════════════════════════════════════════════╗${NC}"
+    echo -e "${GREEN}║                                                                              ║${NC}"
+    echo -e "${GREEN}║                    ${FIRE} ${WHITE}УСТАНОВКА ЗАВЕРШЕНА!${NC} ${FIRE}                                    ${GREEN}║${NC}"
+    echo -e "${GREEN}║                                                                              ║${NC}"
+    echo -e "${GREEN}╚══════════════════════════════════════════════════════════════════════════════╝${NC}"
     echo ""
     show_final_report
     echo ""
