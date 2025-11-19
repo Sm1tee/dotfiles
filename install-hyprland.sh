@@ -476,7 +476,7 @@ install_hyprland_core() {
     print_step_info "10" "УСТАНОВКА HYPRLAND И ЕГО ЭКОСИСТЕМЫ" \
         "Установка самого Hyprland, его компонентов, quickshell и инструментов для работы."
 
-    local hyprland_packages="aquamarine socat cliphist grim hyprland  hyprcursor hyprgraphics hyprlang hyprpolkitagent hyprutils hyprwayland-scanner matugen-bin ddcutil gammastep quickshell satty slurp wl-clip-persist wl-clipboard xdg-desktop-portal-hyprland"
+    local hyprland_packages="aquamarine socat cliphist grim hyprland hyprqt6engine hyprcursor hyprgraphics hyprlang hyprpolkitagent hyprutils hyprwayland-scanner matugen-bin ddcutil gammastep quickshell satty slurp wl-clip-persist wl-clipboard xdg-desktop-portal-hyprland"
 
     print_command "yay -S --needed $hyprland_packages"
 
@@ -510,7 +510,7 @@ install_user_environment() {
     print_step_info "11" "УСТАНОВКА ПОЛЬЗОВАТЕЛЬСКОГО ОКРУЖЕНИЯ" \
         "Установка Qt/GTK тем, терминалов, файлового менеджера, аудиосистемы и визуального оформления."
 
-    local environment_packages="fish gtk2 gtk4-layer-shell gvfs-afc gvfs-mtp gvfs-smb kitty kora-icon-theme kvantum lib32-pipewire nwg-look pavucontrol pipewire pipewire-alsa pipewire-pulse polkit-gnome qt5-quickcontrols2 qt5-wayland qt5ct qt6-base qt6-declarative qt6-svg qt6-wayland qt6ct sddm udisks2 udiskie vimix-cursors wireplumber xdg-desktop-portal-gtk adw-gtk-theme"
+    local environment_packages="fish gtk2 gtk4-layer-shell gvfs-afc gvfs-mtp gvfs-smb kitty kora-icon-theme kvantum lib32-pipewire nwg-look pavucontrol pipewire pipewire-alsa pipewire-pulse polkit-gnome qt5-quickcontrols2 qt5-wayland  qt6-base qt6-declarative qt6-svg qt6-wayland  sddm udisks2 udiskie vimix-cursors wireplumber xdg-desktop-portal-gtk adw-gtk-theme"
 
     print_command "yay -S --needed $environment_packages"
 
@@ -544,7 +544,7 @@ install_applications() {
     print_step_info "12" "УСТАНОВКА РАБОЧИХ ПРИЛОЖЕНИЙ" \
         "Установка полезных приложений для повседневной работы в Hyprland."
 
-    local work_packages="brave-bin filezilla ghostty gnome-calculator gnome-disk-utility gnome-font-viewer gvfs loupe lsd mcfly mpv ncdu obsidian libreoffice-fresh-ru pandoc papers qbittorrent starship telegram-desktop thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler visual-studio-code-bin xarchiver zed zoxide"
+    local work_packages="brave-bin filezilla ghostty gnome-calculator gnome-disk-utility gnome-font-viewer gvfs loupe lsd mcfly mpv ncdu obsidian libreoffice-fresh-ru pandoc papers qbittorrent starship telegram-desktop thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler visual-studio-code-bin xarchiver zed zoxide trash-cli"
 
     print_command "yay -S --needed $work_packages"
 
@@ -603,7 +603,7 @@ install_fonts_and_themes() {
     print_step_info "17" "УСТАНОВКА ПАКЕТОВ ШРИФТОВ" \
         "Установка красивых шрифтов для системы и терминала."
 
-    local font_packages="nerd-fonts noto-fonts noto-fonts-emoji ttf-fira-code ttf-font-awesome ttf-jetbrains-mono ttf-material-design-icons"
+    local font_packages="nerd-fonts inter-font noto-fonts noto-fonts-emoji ttf-fira-code ttf-font-awesome ttf-jetbrains-mono ttf-material-design-icons"
 
     print_command "yay -S --needed $font_packages"
 
@@ -862,7 +862,7 @@ install_gaming_packages() {
     print_step_info "14" "УСТАНОВКА ИГРОВЫХ ПАКЕТОВ" \
         "Установка драйверов, библиотек и инструментов для комфортной игры на Linux с AMD видеокартой."
 
-    local gaming_packages="mesa lib32-mesa vkd3d lib32-vkd3d vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau vulkan-mesa-layers ttf-liberation goverlay mangohud lib32-mangohud gamemode umu-launcher glfw protontricks gamescope dxvk-bin"
+    local gaming_packages="mesa lib32-mesa vkd3d lib32-vkd3d vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau vulkan-mesa-layers ttf-liberation goverlay mangohud lib32-mangohud gamemode umu-launcher glfw protontricks gamescope dxvk-bin libmanette webkit2gtk woff2"
 
     print_command "yay -S --needed $gaming_packages"
 
