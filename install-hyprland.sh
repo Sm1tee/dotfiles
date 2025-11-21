@@ -242,6 +242,36 @@ main() {
     install_fish_and_settings
 }
 
+# Функция для настройки fish и системных настроек
+install_fish_and_settings() {
+    # ШАГ 3: Включение оптимизации SSD
+    print_step_info "3" "ВКЛЮЧЕНИЕ ОПТИМИЗАЦИИ SSD" \
+        "Включение автоматической очистки SSD для продления срока службы и повышения производительности."
+
+    print_command "sudo systemctl enable fstrim.timer"
+
+    echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
+    echo -e "  • SSD диски работают по-другому, чем обычные жесткие диски"
+    echo -e "  • Автоматическая очистка неиспользуемых блоков SSD каждую неделю"
+    echo -e "  • Повышение производительности записи (файлы сохраняются быстрее)"
+    echo -e "  • Продление срока службы SSD (диск прослужит дольше)"
+    echo -e "  • Это безопасно и рекомендуется всеми производителями SSD"
+    echo ""
+
+    if confirm_action "Включить оптимизацию SSD?"; then
+        execute_command "sudo systemctl enable fstrim.timer" \
+            "Оптимизация SSD успешно включена!" \
+            "Ошибка при включении оптимизации SSD!"
+        pause_for_user
+    else
+        add_skipped_action "Включение оптимизации SSD"
+    fi
+
+    clear
+
+    install_mirrors_and_keys
+}
+
 # Функция для установки зеркал и ключей
 install_mirrors_and_keys() {
     # ШАГ 4: Оптимизация зеркал Arch Linux
@@ -418,6 +448,10 @@ install_aur_helpers() {
     echo ""
 
     if confirm_action "Сменить оболочку на Fish?"; then
+        execute_command "sudo pacman -S --needed fish" \
+            "Fish установлен!" \
+            "Ошибка при установке Fish!"
+
         execute_command "chsh -s \$(which fish)" \
             "Оболочка успешно изменена на Fish!" \
             "Ошибка при смене оболочки!"
@@ -442,7 +476,7 @@ install_hyprland_packages() {
     print_step_info "9" "УСТАНОВКА БАЗОВОЙ СИСТЕМЫ И БИБЛИОТЕК" \
         "Установка системных утилит, компиляторов и всех необходимых библиотек для работы Hyprland."
 
-    local base_packages="amd-ucode brightnessctl cairo cmake cpio curl dbus fastfetch glaze inxi libdisplay-info libinput libliftoff libnotify libx11 libxcb libxcomposite libxcursor libxfixes libxkbcommon libxrender linux-headers meson nano net-tools networkmanager ninja pacman-contrib pango pixman polkit re2 rsync sudo tomlplusplus unzip upower wayland-protocols wget qt6-multimedia xcb-proto xcb-util xcb-util-errors xcb-util-keysyms xcb-util-wm go xdg-desktop-portal xdg-user-dirs xdg-utils xorg-xwayland cava zip gnome-keyring"
+    local base_packages="amd-ucode brightnessctl cairo cmake cpio curl dbus fastfetch glaze inxi libdisplay-info libinput libliftoff libnotify libx11 libxcb libxcomposite libxcursor libxfixes libxkbcommon libxrender linux-headers meson nano net-tools networkmanager ninja pacman-contrib pango pixman polkit re2 rsync sudo tomlplusplus unzip upower wayland-protocols wget qt6-multimedia xcb-proto xcb-util xcb-util-errors xcb-util-keysyms xcb-util-wm go xdg-desktop-portal xdg-user-dirs xdg-utils xorg-xwayland cava zip gnome-keyring p7zip unrar"
 
     print_command "yay -S --needed $base_packages"
 
@@ -510,7 +544,7 @@ install_user_environment() {
     print_step_info "11" "УСТАНОВКА ПОЛЬЗОВАТЕЛЬСКОГО ОКРУЖЕНИЯ" \
         "Установка Qt/GTK тем, терминалов, файлового менеджера, аудиосистемы и визуального оформления."
 
-    local environment_packages="fish gtk2 gtk4-layer-shell gvfs-afc gvfs-mtp gvfs-smb kitty kora-icon-theme kvantum lib32-pipewire nwg-look pavucontrol pipewire pipewire-alsa pipewire-pulse polkit-gnome qt5-quickcontrols2 qt5-wayland  qt6-base qt6-declarative qt6-svg qt6-wayland  sddm udisks2 udiskie vimix-cursors wireplumber xdg-desktop-portal-gtk adw-gtk-theme"
+    local environment_packages="fish gtk2 gtk4-layer-shell gvfs-afc gvfs-mtp gvfs-smb kitty kora-icon-theme kvantum lib32-pipewire nwg-look pavucontrol pipewire pipewire-alsa pipewire-pulse polkit-gnome qt5-quickcontrols2 qt5-wayland  qt6-base qt6-declarative qt6-svg qt6-wayland  sddm udisks2 udiskie vimix-cursors wireplumber xdg-desktop-portal-gtk adw-gtk-theme appmenu-gtk-module libdbusmenu-glib"
 
     print_command "yay -S --needed $environment_packages"
 
@@ -519,6 +553,7 @@ install_user_environment() {
     echo -e "  • Pipewire - современная аудиосистема (замена pulseaudio)"
     echo -e "  • Thunar - легкий и быстрый файловый менеджер"
     echo -e "  • SDDM - красивый экран входа в систему"
+    echo -e "  • Поддержка Global Menu для приложений"
     echo ""
 
     echo -e "${YELLOW}${WARNING} Это большой набор пакетов. Установка займет некоторое время в зависимости от скорости интернета.${NC}"
@@ -597,6 +632,162 @@ install_codecs() {
     install_gaming_packages
 }
 
+# Функция для установки игровых пакетов
+install_gaming_packages() {
+    # Игровые пакеты
+    print_step_info "14" "УСТАНОВКА ИГРОВЫХ ПАКЕТОВ" \
+        "Установка драйверов, библиотек и инструментов для комфортной игры на Linux с AMD видеокартой."
+
+    local gaming_packages="mesa lib32-mesa vkd3d lib32-vkd3d vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau vulkan-mesa-layers ttf-liberation goverlay mangohud lib32-mangohud gamemode umu-launcher glfw protontricks gamescope dxvk-bin libmanette webkit2gtk woff2"
+
+    print_command "yay -S --needed $gaming_packages"
+
+    echo -e "${CYAN}${ARROW} Что это даёт для игр (объяснение ):${NC}"
+    echo -e "  • ${WHITE}mesa/vulkan-radeon${NC} - современные графические драйверы AMD"
+    echo -e "  • ${WHITE}lib32-*${NC} - поддержка 32-битных игр (старые игры)"
+    echo -e "  • ${WHITE}mangohud${NC} - отображение FPS и температуры в играх"
+    echo -e "  • ${WHITE}gamemode${NC} - автоматическая оптимизация системы для игр"
+    echo -e "  • ${WHITE}dxvk${NC} - перевод DirectX в Vulkan для лучшей производительности"
+    echo ""
+
+    echo -e "${RED}${WARNING} ВНИМАНИЕ! Эти пакеты ТОЛЬКО для AMD видеокарт!${NC}"
+    echo -e "${YELLOW}${WARNING} Для NVIDIA или Intel видеокарт нужны другие драйверы.${NC}"
+    echo -e "${YELLOW}${WARNING} Установка этих пакетов на систему с NVIDIA может вызвать конфликты.${NC}"
+    echo ""
+
+    if confirm_action "Установить игровые пакеты?"; then
+        execute_command "yay -S --needed $gaming_packages --noconfirm" \
+            "Игровые пакеты установлены!" \
+            "Ошибка при установке игровых пакетов!"
+        pause_for_user
+    else
+        add_skipped_action "Установка игровых пакетов"
+    fi
+
+    clear
+
+    # Wine пакеты
+    print_step_info "15" "УСТАНОВКА ПАКЕТОВ WINE" \
+        "Wine позволяет запускать Windows-приложения и игры на Linux. Это большой набор пакетов для полной совместимости."
+
+    local wine_packages="wine giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses ocl-icd lib32-ocl-icd libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader lib32-opencl-icd-loader wine-gecko wine-mono winetricks vulkan-tools zenity fontconfig lib32-fontconfig wqy-zenhei dbus-glib lib32-acl lib32-attr lib32-dbus-glib lib32-freeglut lib32-gettext lib32-glu lib32-libcanberra lib32-libice lib32-libltdl lib32-libmodplug lib32-libnl lib32-libnm lib32-libpcap lib32-libsm lib32-libsoup lib32-libusb lib32-libvdpau lib32-libwebp lib32-libxcrypt-compat lib32-libxmu lib32-libxss lib32-libxt lib32-lzo lib32-nspr lib32-nss lib32-sdl2-compat lib32-sdl2_image lib32-sdl2_mixer lib32-sdl2_ttf lib32-sdl3 lib32-tdb libibus libsoup libxmp opusfile sdl2_image sdl2_mixer sdl2_ttf steam"
+
+    print_command "yay -S --needed $wine_packages"
+
+    echo -e "${CYAN}${ARROW} Что это даёт (объяснение ):${NC}"
+    echo -e "  • ${WHITE}wine${NC} - основная программа для запуска Windows-приложений"
+    echo -e "  • ${WHITE}winetricks${NC} - удобный инструмент для настройки Wine"
+    echo -e "  • ${WHITE}lib32-*${NC} - 32-битные библиотеки для старых игр"
+    echo -e "  • ${WHITE}vulkan/opengl${NC} - графические драйверы для игр"
+    echo -e "  • ${WHITE}audio библиотеки${NC} - поддержка звука в играх"
+    echo ""
+
+    echo -e "${YELLOW}${WARNING} Это большой набор пакетов. Установка займёт временя.${NC}"
+    echo ""
+
+    if confirm_action "Установить пакеты Wine для Windows-игр?"; then
+        execute_command "yay -S --needed $wine_packages --noconfirm" \
+            "Пакеты Wine установлены!" \
+            "Ошибка при установке Wine!"
+        pause_for_user
+    else
+        add_skipped_action "Установка пакетов Wine"
+    fi
+
+    clear
+
+    # Системные оптимизации
+    print_step_info "16" "ОПТИМИЗАЦИЯ СИСТЕМЫ ДЛЯ ИГР" \
+        "Настройка параметров ядра и переменных окружения для максимальной производительности в играх."
+
+    echo -e "${CYAN}${ARROW} Что будет настроено:${NC}"
+    echo -e "  • ${WHITE}vm.max_map_count = 2147483642${NC} - увеличение лимита памяти для тяжелых игр"
+    echo -e "  • ${WHITE}MESA_SHADER_CACHE_MAX_SIZE=12G${NC} - увеличение кэша шейдеров (меньше статтеров)"
+    echo -e "  • ${WHITE}AMD_VULKAN_ICD=RADV${NC} - принудительное использование драйвера RADV (лучше для игр)"
+    echo ""
+
+    echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
+    echo -e "  • Устранение вылетов в Star Citizen, Elden Ring, Hogwarts Legacy"
+    echo -e "  • Уменьшение 'фризов' при первой загрузке локаций"
+    echo -e "  • Стабильная работа через Proton/Wine"
+    echo ""
+
+    print_command "echo 'vm.max_map_count = 2147483642' | sudo tee /etc/sysctl.d/99-max-map-count.conf"
+    print_command "sudo sh -c 'echo \"AMD_VULKAN_ICD=RADV\" >> /etc/environment'"
+    print_command "sudo sh -c 'echo \"MESA_SHADER_CACHE_MAX_SIZE=12G\" >> /etc/environment'"
+
+    echo -e "${YELLOW}${WARNING} Эти настройки безопасны и рекомендуются для игровых систем на AMD.${NC}"
+    echo ""
+
+    if confirm_action "Применить игровые оптимизации?"; then
+        # 1. Max Map Count
+        echo 'vm.max_map_count = 2147483642' | sudo tee /etc/sysctl.d/99-max-map-count.conf > /dev/null
+        execute_command "sudo sysctl --system" \
+            "Лимит памяти успешно увеличен!" \
+            "Ошибка при применении настройки sysctl!"
+
+        # 2. Environment Variables
+        # Проверяем, есть ли уже такие строки, чтобы не дублировать
+        if ! grep -q "AMD_VULKAN_ICD=RADV" /etc/environment; then
+            execute_command "sudo sh -c 'echo \"AMD_VULKAN_ICD=RADV\" >> /etc/environment'" \
+                "Драйвер RADV установлен по умолчанию!" \
+                "Ошибка при настройке RADV!"
+        else
+             echo -e "${GREEN}${CHECKMARK} RADV уже настроен.${NC}"
+        fi
+
+        if ! grep -q "MESA_SHADER_CACHE_MAX_SIZE=12G" /etc/environment; then
+            execute_command "sudo sh -c 'echo \"MESA_SHADER_CACHE_MAX_SIZE=12G\" >> /etc/environment'" \
+                "Кэш шейдеров увеличен до 12GB!" \
+                "Ошибка при настройке кэша шейдеров!"
+        else
+             echo -e "${GREEN}${CHECKMARK} Кэш шейдеров уже настроен.${NC}"
+        fi
+
+        # 3. SCX Scheduler (sched-ext)
+        echo -e "${CYAN}${ARROW} Настройка игрового планировщика CPU (SCX)...${NC}"
+        
+        # Отключаем конфликтующий ananicy если есть
+        if systemctl list-unit-files | grep -q ananicy-cpp; then
+             execute_command "sudo systemctl disable --now ananicy-cpp" \
+                "Старый планировщик ananicy отключен" \
+                "Ошибка при отключении ananicy (возможно не установлен)"
+        fi
+
+        # Установка пакетов
+        execute_command "sudo pacman -S --needed scx-scheds scx-tools --noconfirm" \
+            "Пакеты SCX установлены!" \
+            "Ошибка при установке SCX!"
+
+        # Создание конфига
+        echo 'default_sched = "scx_lavd"
+
+[scheds.scx_lavd]
+auto_mode = ["--autopower"]' | sudo tee /etc/scx_loader.toml > /dev/null
+
+        if [ -f "/etc/scx_loader.toml" ]; then
+             echo -e "${GREEN}${CHECKMARK} Конфиг SCX создан!${NC}"
+        else
+             echo -e "${RED}${CROSS} Ошибка создания конфига SCX!${NC}"
+        fi
+
+        # Включение сервиса
+        execute_command "sudo systemctl enable --now scx_loader" \
+            "Игровой планировщик SCX активирован!" \
+            "Ошибка при активации SCX!"
+
+        echo -e "${CYAN}${ARROW} Проверка настройки vm.max_map_count:${NC}"
+        sysctl vm.max_map_count
+        pause_for_user
+    else
+        add_skipped_action "Оптимизация системы для игр"
+    fi
+
+    clear
+
+    install_fonts_and_themes
+}
+
 # Функция для установки шрифтов и тем
 install_fonts_and_themes() {
     # ШАГ 17: Установка пакетов шрифтов
@@ -666,6 +857,8 @@ install_fonts_and_themes() {
         else
             add_skipped_action "Копирование пользовательских шрифтов"
         fi
+    else
+        add_skipped_action "Копирование шрифтов (папка fonts не найдена)"
     fi
 
     if [ -d "themes" ]; then
@@ -690,6 +883,8 @@ install_fonts_and_themes() {
         else
             add_skipped_action "Копирование пользовательских тем"
         fi
+    else
+        add_skipped_action "Копирование тем (папка themes не найдена)"
     fi
 
     if [ -d "icons" ]; then
@@ -712,6 +907,8 @@ install_fonts_and_themes() {
         else
             add_skipped_action "Копирование пользовательских иконок"
         fi
+    else
+        add_skipped_action "Копирование иконок (папка icons не найдена)"
     fi
 
     if [ -d "обои" ]; then
@@ -723,7 +920,6 @@ install_fonts_and_themes() {
         echo -e "  • ${WHITE}Красивые обои${NC} - коллекция обоев для рабочего стола"
         echo -e "  • ${WHITE}Персонализация${NC} - создание уникального внешнего вида рабочего стола"
         echo -e "  • ${WHITE}Удобный доступ${NC} - обои будут доступны в папке Изображения"
-        echo -e "  • ${WHITE}Интеграция с waypaper${NC} - программа для смены обоев найдет их автоматически"
         echo ""
 
         print_command "mkdir -p ~/Изображения && cp -r обои ~/Изображения/"
@@ -736,6 +932,8 @@ install_fonts_and_themes() {
         else
             add_skipped_action "Копирование пользовательских обоев"
         fi
+    else
+        add_skipped_action "Копирование обоев (папка обои не найдена)"
     fi
 
     clear
@@ -743,70 +941,36 @@ install_fonts_and_themes() {
     final_configuration
 }
 
-# Функция для настройки fish и системных настроек
-install_fish_and_settings() {
-    # ШАГ 3: Включение оптимизации SSD
-    print_step_info "3" "ВКЛЮЧЕНИЕ ОПТИМИЗАЦИИ SSD" \
-        "Включение автоматической очистки SSD для продления срока службы и повышения производительности."
+# Финальная конфигурация
+final_configuration() {
+    # Копирование конфигурационных файлов
+    if [ -d ".config" ]; then
+        clear
+        print_step_info "22" "КОПИРОВАНИЕ КОНФИГУРАЦИОННЫХ ФАЙЛОВ" \
+            "Копирование готовых настроек для Hyprland и приложений."
 
-    print_command "sudo systemctl enable fstrim.timer"
+        echo -e "${CYAN}${ARROW} Копирование конфигурационных файлов:${NC}"
+        echo -e "  • ${WHITE}Что это${NC} - готовые настройки для Hyprland, терминалов"
+        echo -e "  • ${WHITE}Зачем нужно${NC} - чтобы система сразу работала красиво и удобно"
+        echo -e "  • ${WHITE}Откуда${NC} - из папки .config в текущей директории"
+        echo -e "  • ${WHITE}Куда${NC} - в ~/.config (домашняя папка пользователя)"
+        echo ""
 
-    echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
-    echo -e "  • SSD диски работают по-другому, чем обычные жесткие диски"
-    echo -e "  • Автоматическая очистка неиспользуемых блоков SSD каждую неделю"
-    echo -e "  • Повышение производительности записи (файлы сохраняются быстрее)"
-    echo -e "  • Продление срока службы SSD (диск прослужит дольше)"
-    echo -e "  • Это безопасно и рекомендуется всеми производителями SSD"
-    echo ""
-
-    if confirm_action "Включить оптимизацию SSD?"; then
-        execute_command "sudo systemctl enable fstrim.timer" \
-            "Оптимизация SSD успешно включена!" \
-            "Ошибка при включении оптимизации SSD!"
-        pause_for_user
+        if confirm_action "Скопировать конфигурационные файлы из .config/?"; then
+            execute_command "cp -r .config/* ~/.config/" \
+                "Конфигурационные файлы скопированы!" \
+                "Ошибка при копировании конфигов!"
+            pause_for_user
+        else
+            add_skipped_action "Копирование конфигурационных файлов"
+        fi
     else
-        add_skipped_action "Включение оптимизации SSD"
+        add_skipped_action "Копирование конфигов (папка .config не найдена)"
     fi
 
     clear
 
-    install_mirrors_and_keys
-}
-
-# Функция для установки и настройки Bluetooth
-install_bluetooth() {
-    # ШАГ 24: Установка и настройка Bluetooth
-    print_step_info "24" "УСТАНОВКА И НАСТРОЙКА BLUETOOTH" \
-        "Установка пакетов для работы с Bluetooth устройствами."
-
-    local bluetooth_packages="bluez bluez-libs bluez-utils"
-
-    print_command "yay -S --needed $bluetooth_packages"
-
-    echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
-    echo -e "  • Подключение Bluetooth наушников, клавиатур, мышей"
-    echo -e "  • Передача файлов по Bluetooth"
-    echo -e "  • Управление Bluetooth устройствами через GUI"
-    echo ""
-
-    if confirm_action "Установить Bluetooth?"; then
-        execute_command "yay -S --needed $bluetooth_packages" \
-            "Bluetooth успешно установлен!" \
-            "Ошибка при установке Bluetooth!"
-
-        echo -e "${CYAN}${ARROW} Включение службы Bluetooth...${NC}"
-        execute_command "sudo systemctl enable bluetooth" \
-            "Служба Bluetooth включена!" \
-            "Ошибка при включении службы Bluetooth!"
-
-        pause_for_user
-    else
-        add_skipped_action "Установка и настройка Bluetooth"
-    fi
-
-    clear
-
-    install_printing_packages
+    install_sddm_config
 }
 
 # Функция для настройки SDDM
@@ -856,106 +1020,40 @@ install_sddm_config() {
     install_bluetooth
 }
 
-# Функция для установки игровых пакетов
-install_gaming_packages() {
-    # Игровые пакеты
-    print_step_info "14" "УСТАНОВКА ИГРОВЫХ ПАКЕТОВ" \
-        "Установка драйверов, библиотек и инструментов для комфортной игры на Linux с AMD видеокартой."
+# Функция для установки и настройки Bluetooth
+install_bluetooth() {
+    # ШАГ 24: Установка и настройка Bluetooth
+    print_step_info "24" "УСТАНОВКА И НАСТРОЙКА BLUETOOTH" \
+        "Установка пакетов для работы с Bluetooth устройствами."
 
-    local gaming_packages="mesa lib32-mesa vkd3d lib32-vkd3d vulkan-radeon lib32-vulkan-radeon libva-mesa-driver lib32-libva-mesa-driver mesa-vdpau lib32-mesa-vdpau vulkan-mesa-layers ttf-liberation goverlay mangohud lib32-mangohud gamemode umu-launcher glfw protontricks gamescope dxvk-bin libmanette webkit2gtk woff2"
+    local bluetooth_packages="bluez bluez-libs bluez-utils"
 
-    print_command "yay -S --needed $gaming_packages"
-
-    echo -e "${CYAN}${ARROW} Что это даёт для игр (объяснение ):${NC}"
-    echo -e "  • ${WHITE}mesa/vulkan-radeon${NC} - современные графические драйверы AMD"
-    echo -e "  • ${WHITE}lib32-*${NC} - поддержка 32-битных игр (старые игры)"
-    echo -e "  • ${WHITE}mangohud${NC} - отображение FPS и температуры в играх"
-    echo -e "  • ${WHITE}gamemode${NC} - автоматическая оптимизация системы для игр"
-    echo -e "  • ${WHITE}dxvk${NC} - перевод DirectX в Vulkan для лучшей производительности"
-    echo ""
-
-    echo -e "${RED}${WARNING} ВНИМАНИЕ! Эти пакеты ТОЛЬКО для AMD видеокарт!${NC}"
-    echo -e "${YELLOW}${WARNING} Для NVIDIA или Intel видеокарт нужны другие драйверы.${NC}"
-    echo -e "${YELLOW}${WARNING} Установка этих пакетов на систему с NVIDIA может вызвать конфликты.${NC}"
-    echo ""
-
-    if confirm_action "Установить игровые пакеты?"; then
-        execute_command "yay -S --needed $gaming_packages --noconfirm" \
-            "Игровые пакеты установлены!" \
-            "Ошибка при установке игровых пакетов!"
-        pause_for_user
-    else
-        add_skipped_action "Установка игровых пакетов"
-    fi
-
-    clear
-
-    # Wine пакеты
-    print_step_info "15" "УСТАНОВКА ПАКЕТОВ WINE" \
-        "Wine позволяет запускать Windows-приложения и игры на Linux. Это большой набор пакетов для полной совместимости."
-
-    local wine_packages="wine giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libgcrypt libgcrypt lib32-libxinerama ncurses lib32-ncurses ocl-icd lib32-ocl-icd libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader lib32-opencl-icd-loader wine-gecko wine-mono winetricks vulkan-tools zenity fontconfig lib32-fontconfig wqy-zenhei dbus-glib lib32-acl lib32-attr lib32-dbus-glib lib32-freeglut lib32-gettext lib32-glu lib32-libcanberra lib32-libice lib32-libltdl lib32-libmodplug lib32-libnl lib32-libnm lib32-libpcap lib32-libsm lib32-libsoup lib32-libusb lib32-libvdpau lib32-libwebp lib32-libxcrypt-compat lib32-libxmu lib32-libxss lib32-libxt lib32-lzo lib32-nspr lib32-nss lib32-sdl2-compat lib32-sdl2_image lib32-sdl2_mixer lib32-sdl2_ttf lib32-sdl3 lib32-tdb libibus libsoup libxmp opusfile sdl2_image sdl2_mixer sdl2_ttf steam"
-
-    print_command "yay -S --needed $wine_packages"
-
-    echo -e "${CYAN}${ARROW} Что это даёт (объяснение ):${NC}"
-    echo -e "  • ${WHITE}wine${NC} - основная программа для запуска Windows-приложений"
-    echo -e "  • ${WHITE}winetricks${NC} - удобный инструмент для настройки Wine"
-    echo -e "  • ${WHITE}lib32-*${NC} - 32-битные библиотеки для старых игр"
-    echo -e "  • ${WHITE}vulkan/opengl${NC} - графические драйверы для игр"
-    echo -e "  • ${WHITE}audio библиотеки${NC} - поддержка звука в играх"
-    echo ""
-
-    echo -e "${YELLOW}${WARNING} Это большой набор пакетов. Установка займёт временя.${NC}"
-    echo ""
-
-    if confirm_action "Установить пакеты Wine для Windows-игр?"; then
-        execute_command "yay -S --needed $wine_packages --noconfirm" \
-            "Пакеты Wine установлены!" \
-            "Ошибка при установке Wine!"
-        pause_for_user
-    else
-        add_skipped_action "Установка пакетов Wine"
-    fi
-
-    clear
-
-    # Системные оптимизации
-    print_step_info "16" "УВЕЛИЧЕНИЕ ЛИМИТА ПАМЯТИ ДЛЯ ИГР" \
-        "Увеличение vm.max_map_count для современных игр, требующих большого количества памяти."
-
-    echo -e "${CYAN}${ARROW} Что будет настроено:${NC}"
-    echo -e "  • ${WHITE}vm.max_map_count = 2147483642${NC} - увеличение лимита mmap для современных игр"
-    echo ""
+    print_command "yay -S --needed $bluetooth_packages"
 
     echo -e "${CYAN}${ARROW} Зачем нужно:${NC}"
-    echo -e "  • Необходимо для запуска некоторых современных игр (Star Citizen, Elden Ring и др.)"
-    echo -e "  • Требуется для многих игр на Proton/Wine"
-    echo -e "  • По умолчанию лимит слишком мал для требовательных игр"
+    echo -e "  • Подключение Bluetooth наушников, клавиатур, мышей"
+    echo -e "  • Передача файлов по Bluetooth"
+    echo -e "  • Управление Bluetooth устройствами через GUI"
     echo ""
 
-    print_command "echo 'vm.max_map_count = 2147483642' | sudo tee /etc/sysctl.d/99-max-map-count.conf"
+    if confirm_action "Установить Bluetooth?"; then
+        execute_command "yay -S --needed $bluetooth_packages" \
+            "Bluetooth успешно установлен!" \
+            "Ошибка при установке Bluetooth!"
 
-    echo -e "${YELLOW}${WARNING} Эта настройка безопасна и не влияет на производительность системы.${NC}"
-    echo ""
+        echo -e "${CYAN}${ARROW} Включение службы Bluetooth...${NC}"
+        execute_command "sudo systemctl enable bluetooth" \
+            "Служба Bluetooth включена!" \
+            "Ошибка при включении службы Bluetooth!"
 
-    if confirm_action "Увеличить лимит памяти для игр?"; then
-        echo 'vm.max_map_count = 2147483642' | sudo tee /etc/sysctl.d/99-max-map-count.conf > /dev/null
-
-        execute_command "sudo sysctl --system" \
-            "Лимит памяти успешно увеличен!" \
-            "Ошибка при применении настройки!"
-
-        echo -e "${CYAN}${ARROW} Проверка настройки vm.max_map_count:${NC}"
-        sysctl vm.max_map_count
         pause_for_user
     else
-        add_skipped_action "Увеличение лимита памяти для игр"
+        add_skipped_action "Установка и настройка Bluetooth"
     fi
 
     clear
 
-    install_fonts_and_themes
+    install_printing_packages
 }
 
 # Функция для установки пакетов печати
@@ -1011,36 +1109,6 @@ install_printing_packages() {
     clear
 
     final_configuration_services
-}
-
-# Финальная конфигурация
-final_configuration() {
-    # Копирование конфигурационных файлов
-    if [ -d ".config" ]; then
-        clear
-        print_step_info "22" "КОПИРОВАНИЕ КОНФИГУРАЦИОННЫХ ФАЙЛОВ" \
-            "Копирование готовых настроек для Hyprland и приложений."
-
-        echo -e "${CYAN}${ARROW} Копирование конфигурационных файлов:${NC}"
-        echo -e "  • ${WHITE}Что это${NC} - готовые настройки для Hyprland, терминалов"
-        echo -e "  • ${WHITE}Зачем нужно${NC} - чтобы система сразу работала красиво и удобно"
-        echo -e "  • ${WHITE}Откуда${NC} - из папки .config в текущей директории"
-        echo -e "  • ${WHITE}Куда${NC} - в ~/.config (домашняя папка пользователя)"
-        echo ""
-
-        if confirm_action "Скопировать конфигурационные файлы из .config/?"; then
-            execute_command "cp -r .config/* ~/.config/" \
-                "Конфигурационные файлы скопированы!" \
-                "Ошибка при копировании конфигов!"
-            pause_for_user
-        else
-            add_skipped_action "Копирование конфигурационных файлов"
-        fi
-    fi
-
-    clear
-
-    install_sddm_config
 }
 
 # Продолжение final_configuration после всех установок
