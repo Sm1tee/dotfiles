@@ -494,6 +494,13 @@ install_hyprland_packages() {
         execute_command "yay -S --needed $base_packages" \
             "Базовая система и библиотеки успешно установлены!" \
             "Ошибка при установке базовой системы!"
+
+        # Создание стандартных папок пользователя
+        echo -e "${CYAN}${ARROW} Создание стандартных папок пользователя...${NC}"
+        execute_command "xdg-user-dirs-update" \
+            "Стандартные папки созданы!" \
+            "Ошибка при создании стандартных папок!"
+
         pause_for_user
     else
         add_skipped_action "Установка базовой системы и библиотек"
