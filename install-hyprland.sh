@@ -579,7 +579,7 @@ install_applications() {
     print_step_info "12" "УСТАНОВКА РАБОЧИХ ПРИЛОЖЕНИЙ" \
         "Установка полезных приложений для повседневной работы в Hyprland."
 
-    local work_packages="brave-bin filezilla ghostty gnome-calculator gnome-disk-utility gnome-font-viewer gvfs loupe lsd mcfly mpv ncdu obsidian libreoffice-fresh-ru pandoc papers qbittorrent starship telegram-desktop thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler visual-studio-code-bin xarchiver zed zoxide trash-cli"
+    local work_packages="brave-bin filezilla ghostty gnome-calculator gnome-disk-utility gnome-font-viewer gvfs loupe lsd duf mcfly mpv ncdu obsidian libreoffice-fresh-ru pandoc papers qbittorrent starship telegram-desktop thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler visual-studio-code-bin xarchiver zed zoxide trash-cli"
 
     print_command "yay -S --needed $work_packages"
 
@@ -746,7 +746,7 @@ install_gaming_packages() {
 
         # 3. SCX Scheduler (sched-ext)
         echo -e "${CYAN}${ARROW} Настройка игрового планировщика CPU (SCX)...${NC}"
-        
+
         # Отключаем конфликтующий ananicy если есть
         if systemctl list-unit-files | grep -q ananicy-cpp; then
              execute_command "sudo systemctl disable --now ananicy-cpp" \

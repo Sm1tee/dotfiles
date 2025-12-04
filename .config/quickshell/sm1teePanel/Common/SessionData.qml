@@ -53,6 +53,7 @@ Singleton {
     property string wallpaperCyclingTime: "06:00" // HH:mm format
     property var monitorCyclingSettings: ({})
     property string lastBrightnessDevice: ""
+    property int lastBrightnessValue: 50
     property string launchPrefix: ""
     property string wallpaperTransition: "fade"
     readonly property var availableWallpaperTransitions: ["none", "fade", "wipe", "disc", "stripes", "iris bloom", "pixelate", "portal"]
@@ -143,6 +144,7 @@ Singleton {
                 wallpaperCyclingTime = settings.wallpaperCyclingTime !== undefined ? settings.wallpaperCyclingTime : "06:00"
                 monitorCyclingSettings = settings.monitorCyclingSettings !== undefined ? settings.monitorCyclingSettings : {}
                 lastBrightnessDevice = settings.lastBrightnessDevice !== undefined ? settings.lastBrightnessDevice : ""
+                lastBrightnessValue = settings.lastBrightnessValue !== undefined ? settings.lastBrightnessValue : 50
                 launchPrefix = settings.launchPrefix !== undefined ? settings.launchPrefix : ""
                 wallpaperTransition = settings.wallpaperTransition !== undefined ? settings.wallpaperTransition : "fade"
                 includedTransitions = settings.includedTransitions !== undefined ? settings.includedTransitions : availableWallpaperTransitions.filter(t => t !== "none")
@@ -208,6 +210,7 @@ Singleton {
                                                 "wallpaperCyclingTime": wallpaperCyclingTime,
                                                 "monitorCyclingSettings": monitorCyclingSettings,
                                                 "lastBrightnessDevice": lastBrightnessDevice,
+                                                "lastBrightnessValue": lastBrightnessValue,
                                                 "launchPrefix": launchPrefix,
                                                 "wallpaperTransition": wallpaperTransition,
                                                 "includedTransitions": includedTransitions,
@@ -622,6 +625,11 @@ Singleton {
 
     function setLastBrightnessDevice(device) {
         lastBrightnessDevice = device
+        saveSettings()
+    }
+
+    function setLastBrightnessValue(value) {
+        lastBrightnessValue = value
         saveSettings()
     }
 

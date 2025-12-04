@@ -1,13 +1,13 @@
 [Added Associations]
 application/x-bat=org.xfce.mousepad.desktop;
 application/x-msdownload=ru.linux_gaming.PortProton.desktop;
-image/jpeg=brave-browser.desktop;org.gnome.Loupe.desktop;
+image/jpeg=oculante.desktop;org.gnome.Loupe.desktop;brave-browser.desktop;
 image/png=gimp.desktop;krita_png.desktop;org.gnome.Loupe.desktop;
 application/xml=org.xfce.mousepad.desktop;
-text/html=org.xfce.mousepad.desktop;vivaldi-stable.desktop;
+text/html=dev.zed.Zed.desktop;org.xfce.mousepad.desktop;vivaldi-stable.desktop;
 application/vnd.microsoft.portable-executable=ru.linux_gaming.PortProton.desktop;wine.desktop;
-application/x-shellscript=dev.zed.Zed.desktop;code.desktop;org.xfce.mousepad.desktop;
-video/mp4=brave-browser.desktop;mpv.desktop;vivaldi-stable.desktop;
+application/x-shellscript=dev.zed.Zed.desktop;code.desktop;kitty-open.desktop;org.xfce.mousepad.desktop;
+video/mp4=com.github.rafostar.Clapper.desktop;brave-browser.desktop;mpv.desktop;vivaldi-stable.desktop;
 application/x-desktop=org.xfce.mousepad.desktop;cursor-cursor.desktop;
 text/markdown=code.desktop;
 application/octet-stream=xarchiver.desktop;
@@ -28,6 +28,8 @@ image/vnd.adobe.photoshop=gimp.desktop;
 application/yaml=org.xfce.mousepad.desktop;code.desktop;
 application/toml=dev.zed.Zed.desktop;code.desktop;
 text/x-csrc=dev.zed.Zed.desktop;
+application/pdf=org.gnome.Papers.desktop;
+text/vnd.trolltech.linguist=dev.zed.Zed.desktop;
 
 [Default Applications]
 inode/directory=thunar.desktop

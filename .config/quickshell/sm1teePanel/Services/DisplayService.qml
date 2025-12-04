@@ -20,7 +20,7 @@ Singleton {
     property bool ddcAvailable: false
     property var ddcInitQueue: []
     property bool skipDdcRead: false
-    property int _lastKnownBrightness: 50
+    property int _lastKnownBrightness: SessionData.lastBrightnessValue
     property int brightnessLevel: {
         const deviceToUse = lastIpcDevice === "" ? getDefaultDevice() : (lastIpcDevice || currentDevice)
         if (!deviceToUse) {
@@ -62,6 +62,7 @@ Singleton {
             deviceBrightness = newBrightness
             // Обновляем последнее известное значение при установке яркости
             _lastKnownBrightness = clampedValue
+            SessionData.setLastBrightnessValue(clampedValue)
         }
 
         const deviceInfo = getCurrentDeviceInfoByName(actualDevice)
@@ -627,6 +628,7 @@ Singleton {
 
                             // Обновляем _lastKnownBrightness - это устройство станет текущим
                             _lastKnownBrightness = brightness
+                            SessionData.setLastBrightnessValue(brightness)
 
                             var newPending = Object.assign({}, ddcPendingInit)
                             delete newPending[deviceName]
@@ -680,6 +682,7 @@ Singleton {
                         deviceBrightness = newBrightness
                         // Обновляем _lastKnownBrightness
                         _lastKnownBrightness = brightness
+                        SessionData.setLastBrightnessValue(brightness)
                     }
 
                     brightnessInitialized = true
@@ -722,6 +725,7 @@ Singleton {
                             deviceBrightness = newBrightness
                             // Обновляем _lastKnownBrightness
                             _lastKnownBrightness = brightness
+                            SessionData.setLastBrightnessValue(brightness)
                         }
 
                         brightnessInitialized = true

@@ -99,27 +99,11 @@ Singleton {
     
     Timer {
         id: wakeUpRefreshTimer
-        interval: 2000
+        interval: 2500
         repeat: false
         onTriggered: {
             if (networkAvailable) {
                 console.log("NetworkManagerService: Refreshing state after wake up")
-                getState()
-                // Повторяем через 3 секунды для надежности
-                Qt.callLater(() => {
-                    wakeUpSecondRefreshTimer.restart()
-                })
-            }
-        }
-    }
-    
-    Timer {
-        id: wakeUpSecondRefreshTimer
-        interval: 3000
-        repeat: false
-        onTriggered: {
-            if (networkAvailable) {
-                console.log("NetworkManagerService: Second refresh after wake up")
                 getState()
             }
         }
@@ -301,7 +285,11 @@ Singleton {
             if (response.error) {
                 connectionError = response.error
                 lastConnectionError = response.error
-                connectionStatus = response.error.includes("password") || response.error.includes("authentication")
+                const errorLower = response.error.toLowerCase()
+                connectionStatus = errorLower.includes("password") || 
+                                 errorLower.includes("authentication") || 
+                                 errorLower.includes("secret") || 
+                                 errorLower.includes("credential")
                     ? "invalid_password"
                     : "failed"
 
@@ -448,7 +436,11 @@ Singleton {
             if (response.error) {
                 connectionError = response.error
                 lastConnectionError = response.error
-                connectionStatus = response.error.includes("password") || response.error.includes("authentication")
+                const errorLower = response.error.toLowerCase()
+                connectionStatus = errorLower.includes("password") || 
+                                 errorLower.includes("authentication") || 
+                                 errorLower.includes("secret") || 
+                                 errorLower.includes("credential")
                     ? "invalid_password"
                     : "failed"
 

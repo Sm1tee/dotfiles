@@ -3,7 +3,6 @@
 ;
 ; (gtk_accel_path "<Actions>/ThunarStandardView/sort-by-type" "")
 ; (gtk_accel_path "<Actions>/ThunarStatusBar/toggle-last-modified" "")
-; (gtk_accel_path "<Actions>/ThunarBookmarks/55a636207b983d30ba71b08aca91ccf8" "")
 ; (gtk_accel_path "<Actions>/ThunarBookmarks/74e5679688b99a8753bff8f1b74c1a9a" "")
 ; (gtk_accel_path "<Actions>/Thunarwindow/menu" "")
 (gtk_accel_path "<Actions>/ThunarActions/uca-action-1742730083275159-1" "<Alt>q")
@@ -34,6 +33,7 @@
 ; (gtk_accel_path "<Actions>/ThunarWindow/zoom-out-alt" "<Primary>KP_Subtract")
 ; (gtk_accel_path "<Actions>/ThunarWindow/open-file-menu" "F10")
 ; (gtk_accel_path "<Actions>/ThunarWindow/contents" "F1")
+; (gtk_accel_path "<Actions>/ThunarBookmarks/1a2ff6ea3664b33828d9524d2a5535f5" "")
 ; (gtk_accel_path "<Actions>/ThunarWindow/show-highlight" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/sort-descending" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/sort-by-name" "")
@@ -42,6 +42,7 @@
 ; (gtk_accel_path "<Actions>/ThunarStandardView/properties" "<Alt>Return")
 ; (gtk_accel_path "<Actions>/ThunarActionManager/cut-2" "")
 ; (gtk_accel_path "<Actions>/ThunarStandardView/sort-by-dtime" "")
+; (gtk_accel_path "<Actions>/ThunarBookmarks/e93701b9de023a56b70ead2124a64ada" "")
 ; (gtk_accel_path "<Actions>/ThunarWindow/switch-next-tab" "<Primary>Page_Down")
 ; (gtk_accel_path "<Actions>/ThunarWindow/open-templates" "")
 ; (gtk_accel_path "<Actions>/ThunarActionManager/paste-2" "<Shift>Insert")

@@ -10,15 +10,15 @@
     <value type="string" value="computer:///"/>
     <value type="string" value="network:///"/>
     <value type="string" value="file:///home/smitee/%D0%A0%D0%B0%D0%B1%D0%BE%D1%87%D0%B8%D0%B9%20%D1%81%D1%82%D0%BE%D0%BB"/>
-    <value type="string" value="recent:///"/>
     <value type="string" value="file:///home/smitee/.config/walker"/>
+    <value type="string" value="recent:///"/>
   </property>
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_100_PERCENT"/>
-  <property name="last-details-view-column-widths" type="string" value="50,50,166,184,50,830,50,50,297,50,50,98,50,205"/>
+  <property name="last-details-view-column-widths" type="string" value="50,50,156,184,50,830,50,50,941,50,50,89,50,58"/>
   <property name="last-renamer-dialog-maximized" type="bool" value="true"/>
   <property name="misc-single-click" type="bool" value="false"/>
-  <property name="last-sort-column" type="string" value="THUNAR_COLUMN_DATE_MODIFIED"/>
-  <property name="last-sort-order" type="string" value="GTK_SORT_DESCENDING"/>
+  <property name="last-sort-column" type="string" value="THUNAR_COLUMN_NAME"/>
+  <property name="last-sort-order" type="string" value="GTK_SORT_ASCENDING"/>
   <property name="last-compact-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_200_PERCENT"/>
   <property name="last-location-bar" type="string" value="ThunarLocationEntry"/>
   <property name="last-image-preview-visible" type="bool" value="false"/>
