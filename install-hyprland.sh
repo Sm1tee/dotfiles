@@ -1068,7 +1068,7 @@ install_printing_packages() {
     print_step_info "25" "УСТАНОВКА ПАКЕТОВ ПЕЧАТИ" \
         "Установка пакетов для работы с принтерами и сканерами."
 
-    local printing_packages="cups cups-filters cups-pdf libcups libcupsfilters splix python-pycups lib32-libcups simple-scan hplip hplip-plugin print-manager"
+    local printing_packages="cups python-pyqt5 cups-filters cups-pdf libcups libcupsfilters splix python-pycups lib32-libcups simple-scan hplip hplip-plugin print-manager"
 
     print_command "yay -S --needed $printing_packages"
 
