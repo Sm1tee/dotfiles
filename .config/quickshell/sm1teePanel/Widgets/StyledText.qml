@@ -30,7 +30,7 @@ Text {
     font.weight: SettingsData.fontWeight
     wrapMode: Text.WordWrap
     elide: Text.ElideRight
-    verticalAlignment: Text.AlignVCenter
+    verticalAlignment: Text.AlignTop
     antialiasing: true
 
     Behavior on opacity {

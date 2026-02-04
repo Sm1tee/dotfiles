@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Controls
+import qs.Common
 import qs.Widgets
 
 GridView {
@@ -149,7 +150,7 @@ GridView {
         id: returnToBoundsAnimation
         target: gridView
         property: "contentY"
-        duration: 300
+        duration: Theme.mediumDuration
         easing.type: Easing.OutQuad
     }
 

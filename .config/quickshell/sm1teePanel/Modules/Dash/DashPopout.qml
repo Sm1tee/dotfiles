@@ -6,6 +6,7 @@ import Quickshell
 import Quickshell.Services.Mpris
 import Quickshell.Wayland
 import qs.Common
+import qs.Services
 import qs.Widgets
 import qs.Modules.Dash
 
@@ -75,6 +76,47 @@ Popout {
                 if (event.key === Qt.Key_Escape) {
                     root.dashVisible = false
                     event.accepted = true
+                    return
+                }
+
+                // Tab/Shift+Tab для переключения вкладок
+                if (event.key === Qt.Key_Tab && !(event.modifiers & Qt.ShiftModifier)) {
+                    let nextIndex = root.currentTabIndex + 1
+                    while (nextIndex < tabBar.model.length && tabBar.model[nextIndex] && tabBar.model[nextIndex].isAction) {
+                        nextIndex++
+                    }
+                    if (nextIndex >= tabBar.model.length) {
+                        nextIndex = 0
+                    }
+                    root.currentTabIndex = nextIndex
+                    event.accepted = true
+                    return
+                }
+
+                if (event.key === Qt.Key_Backtab || (event.key === Qt.Key_Tab && (event.modifiers & Qt.ShiftModifier))) {
+                    let prevIndex = root.currentTabIndex - 1
+                    while (prevIndex >= 0 && tabBar.model[prevIndex] && tabBar.model[prevIndex].isAction) {
+                        prevIndex--
+                    }
+                    if (prevIndex < 0) {
+                        prevIndex = tabBar.model.length - 1
+                        while (prevIndex >= 0 && tabBar.model[prevIndex] && tabBar.model[prevIndex].isAction) {
+                            prevIndex--
+                        }
+                    }
+                    if (prevIndex >= 0) {
+                        root.currentTabIndex = prevIndex
+                    }
+                    event.accepted = true
+                    return
+                }
+
+                // Передаём клавиши в WallpaperTab когда он активен
+                if (root.currentTabIndex === 2 && wallpaperTabLoader.item?.handleKeyEvent) {
+                    if (wallpaperTabLoader.item.handleKeyEvent(event)) {
+                        event.accepted = true
+                        return
+                    }
                 }
             }
 
@@ -131,7 +173,8 @@ Popout {
                     model: {
                         let tabs = [
                             { icon: "dashboard", text: "Обзор" },
-                            { icon: "music_note", text: "Медиа" }
+                            { icon: "music_note", text: "Медиа" },
+                            { icon: "wallpaper", text: "Обои" }
                         ]
                         
                         if (SettingsData.weatherEnabled) {
@@ -147,10 +190,10 @@ Popout {
                     }
 
                     onActionTriggered: function(index) {
-                        let settingsIndex = SettingsData.weatherEnabled ? 3 : 2
+                        let settingsIndex = SettingsData.weatherEnabled ? 4 : 3
                         if (index === settingsIndex) {
                             dashVisible = false
-                            settingsModal.show()
+                            PopoutService.openSettings()
                         }
                     }
 
@@ -165,36 +208,50 @@ Popout {
                     id: pages
                     width: parent.width
                     implicitHeight: {
-                        if (currentIndex === 0) return overviewTab.implicitHeight
-                        if (currentIndex === 1) return mediaTab.implicitHeight
-                        if (SettingsData.weatherEnabled && currentIndex === 2) return weatherTab.implicitHeight
-                        return overviewTab.implicitHeight
+                        if (currentIndex === 0) return overviewTabLoader.item?.implicitHeight ?? 410
+                        if (currentIndex === 1) return mediaTabLoader.item?.implicitHeight ?? 410
+                        if (currentIndex === 2) return wallpaperTabLoader.item?.implicitHeight ?? 410
+                        if (SettingsData.weatherEnabled && currentIndex === 3) return weatherTabLoader.item?.implicitHeight ?? 410
+                        return 410
                     }
                     currentIndex: root.currentTabIndex
 
-                    OverviewTab {
-                        id: overviewTab
+                    Loader {
+                        id: overviewTabLoader
+                        active: root.currentTabIndex === 0 || root.dashVisible
+                        sourceComponent: OverviewTab {
+                            onSwitchToWeatherTab: {
+                                if (SettingsData.weatherEnabled) {
+                                    tabBar.currentIndex = 3
+                                    tabBar.tabClicked(3)
+                                }
+                            }
 
-                        onSwitchToWeatherTab: {
-                            if (SettingsData.weatherEnabled) {
-                                tabBar.currentIndex = 2
-                                tabBar.tabClicked(2)
+                            onSwitchToMediaTab: {
+                                tabBar.currentIndex = 1
+                                tabBar.tabClicked(1)
                             }
                         }
+                    }
 
-                        onSwitchToMediaTab: {
-                            tabBar.currentIndex = 1
-                            tabBar.tabClicked(1)
+                    Loader {
+                        id: mediaTabLoader
+                        active: root.currentTabIndex === 1
+                        sourceComponent: MediaPlayerTab {}
+                    }
+
+                    Loader {
+                        id: wallpaperTabLoader
+                        active: root.currentTabIndex === 2
+                        sourceComponent: WallpaperTab {
+                            targetScreen: root.triggerScreen
                         }
                     }
 
-                    MediaPlayerTab {
-                        id: mediaTab
-                    }
-
-                    WeatherTab {
-                        id: weatherTab
-                        visible: SettingsData.weatherEnabled && root.currentTabIndex === 2
+                    Loader {
+                        id: weatherTabLoader
+                        active: SettingsData.weatherEnabled && root.currentTabIndex === 3
+                        sourceComponent: WeatherTab {}
                     }
                 }
             }

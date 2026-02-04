@@ -40,10 +40,10 @@ Item {
         z: dragArea.drag.active ? 10000 : 1
 
         Behavior on border.width {
-            NumberAnimation { duration: 150 }
+            NumberAnimation { duration: Theme.shorterDuration }
         }
         Behavior on opacity {
-            NumberAnimation { duration: 150 }
+            NumberAnimation { duration: Theme.shorterDuration }
         }
     }
 

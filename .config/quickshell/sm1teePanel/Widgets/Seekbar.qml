@@ -110,7 +110,7 @@ Item {
                     anchors.verticalCenter: parent.verticalCenter
                     color: parent.fillColor
                     radius: height / 2
-                    Behavior on width { NumberAnimation { duration: 80 } }
+                    Behavior on width { NumberAnimation { duration: Theme.shorterDuration } }
                 }
 
                 Rectangle {
@@ -122,7 +122,7 @@ Item {
                     x: Math.max(0, Math.min(parent.width, parent.width * root.value)) - width / 2
                     y: parent.midY - height / 2
                     z: 3
-                    Behavior on x { NumberAnimation { duration: 80 } }
+                    Behavior on x { NumberAnimation { duration: Theme.shorterDuration } }
                 }
 
                 MouseArea {

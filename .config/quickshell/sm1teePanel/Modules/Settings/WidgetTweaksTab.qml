@@ -8,6 +8,16 @@ import qs.Widgets
 Item {
     id: widgetTweaksTab
 
+    function getScreenPreferences(componentId) {
+        return SettingsData.screenPreferences && SettingsData.screenPreferences[componentId] || ["all"];
+    }
+
+    function setScreenPreferences(componentId, screenNames) {
+        var prefs = SettingsData.screenPreferences || {};
+        prefs[componentId] = screenNames;
+        SettingsData.setScreenPreferences(prefs);
+    }
+
     FileBrowserModal {
         id: logoFileBrowser
         browserTitle: "Выберите логотип лаунчера"
@@ -59,7 +69,7 @@ Item {
                         }
 
                         StyledText {
-                            text: "Настройки лаунчера"
+                            text: "Лаунчер"
                             font.pixelSize: Theme.fontSizeLarge
                             font.weight: Font.Medium
                             color: Theme.surfaceText
@@ -79,13 +89,7 @@ Item {
                             font.weight: Font.Medium
                         }
 
-                        StyledText {
-                            width: parent.width
-                            text: "Выберите логотип, отображаемый на кнопке лаунчера в панели"
-                            font.pixelSize: Theme.fontSizeSmall
-                            color: Theme.surfaceVariantText
-                            wrapMode: Text.WordWrap
-                        }
+
                     }
 
                     ButtonGroup {
@@ -409,13 +413,7 @@ Item {
                             font.weight: Font.Medium
                         }
 
-                        StyledText {
-                            width: parent.width
-                            text: "Добавить пользовательский префикс ко всем запускам приложений."
-                            font.pixelSize: Theme.fontSizeSmall
-                            color: Theme.surfaceVariantText
-                            wrapMode: Text.WordWrap
-                        }
+
                     }
 
                     TextField {
@@ -427,208 +425,6 @@ Item {
                         }
                     }
 
-                    // Недавно использованные приложения
-                    Column {
-                        id: recentAppsSection
-                        width: parent.width
-                        spacing: Theme.spacingS
-
-                        property var rankedAppsModel: {
-                            var apps = []
-                            for (var appId in (AppUsageHistoryData.appUsageRanking
-                                               || {})) {
-                                var appData = (AppUsageHistoryData.appUsageRanking
-                                               || {})[appId]
-                                apps.push({
-                                              "id": appId,
-                                              "name": appData.name,
-                                              "exec": appData.exec,
-                                              "icon": appData.icon,
-                                              "comment": appData.comment,
-                                              "usageCount": appData.usageCount,
-                                              "lastUsed": appData.lastUsed
-                                          })
-                            }
-                            apps.sort(function (a, b) {
-                                if (a.usageCount !== b.usageCount)
-                                    return b.usageCount - a.usageCount
-
-                                return a.name.localeCompare(b.name)
-                            })
-                            return apps.slice(0, 20)
-                        }
-
-                        Row {
-                            width: parent.width
-                            spacing: Theme.spacingM
-
-                            StyledText {
-                                text: "Недавно использованные приложения"
-                                font.pixelSize: Theme.fontSizeSmall
-                                color: Theme.surfaceText
-                                font.weight: Font.Medium
-                                anchors.verticalCenter: parent.verticalCenter
-                            }
-
-                            Item {
-                                width: parent.width - parent.children[0].width
-                                       - clearAllButton.width - Theme.spacingM * 2
-                                height: 1
-                            }
-
-                            ActionButton {
-                                id: clearAllButton
-
-                                iconName: "delete_sweep"
-                                iconSize: Theme.iconSize - 2
-                                iconColor: Theme.error
-                                anchors.verticalCenter: parent.verticalCenter
-                                onClicked: {
-                                    AppUsageHistoryData.appUsageRanking = {}
-                                    SettingsData.saveSettings()
-                                }
-                            }
-                        }
-
-                        StyledText {
-                            width: parent.width
-                            text: "Приложения упорядочены по частоте использования, затем по времени последнего использования, затем по алфавиту."
-                            font.pixelSize: Theme.fontSizeSmall
-                            color: Theme.surfaceVariantText
-                            wrapMode: Text.WordWrap
-                        }
-                    }
-
-                    Column {
-                        id: rankedAppsList
-
-                        width: parent.width
-                        spacing: Theme.spacingS
-
-                        Repeater {
-                            model: recentAppsSection.rankedAppsModel
-
-                            delegate: Rectangle {
-                                width: rankedAppsList.width
-                                height: 48
-                                radius: Theme.cornerRadius
-                                color: Qt.rgba(Theme.surfaceContainer.r,
-                                               Theme.surfaceContainer.g,
-                                               Theme.surfaceContainer.b, 0.3)
-                                border.color: Qt.rgba(Theme.outline.r,
-                                                      Theme.outline.g,
-                                                      Theme.outline.b, 0.1)
-                                border.width: 0
-
-                                Row {
-                                    anchors.left: parent.left
-                                    anchors.leftMargin: Theme.spacingM
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    spacing: Theme.spacingM
-
-                                    StyledText {
-                                        text: (index + 1).toString()
-                                        font.pixelSize: Theme.fontSizeSmall
-                                        font.weight: Font.Medium
-                                        color: Theme.primary
-                                        width: 20
-                                        anchors.verticalCenter: parent.verticalCenter
-                                    }
-
-                                    Image {
-                                        width: 24
-                                        height: 24
-                                        source: modelData.icon ? "image://icon/" + modelData.icon : "image://icon/application-x-executable"
-                                        sourceSize.width: 24
-                                        sourceSize.height: 24
-                                        fillMode: Image.PreserveAspectFit
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        onStatusChanged: {
-                                            if (status === Image.Error)
-                                                source = "image://icon/application-x-executable"
-                                        }
-                                    }
-
-                                    Column {
-                                        anchors.verticalCenter: parent.verticalCenter
-                                        spacing: 2
-
-                                        StyledText {
-                                            text: modelData.name
-                                                  || "Unknown App"
-                                            font.pixelSize: Theme.fontSizeMedium
-                                            font.weight: Font.Medium
-                                            color: Theme.surfaceText
-                                        }
-
-                                        StyledText {
-                                            text: {
-                                                if (!modelData.lastUsed)
-                                                    return "Never used"
-
-                                                var date = new Date(modelData.lastUsed)
-                                                var now = new Date()
-                                                var diffMs = now - date
-                                                var diffMins = Math.floor(
-                                                            diffMs / (1000 * 60))
-                                                var diffHours = Math.floor(
-                                                            diffMs / (1000 * 60 * 60))
-                                                var diffDays = Math.floor(
-                                                            diffMs / (1000 * 60 * 60 * 24))
-                                                if (diffMins < 1)
-                                                    return "Last launched just now"
-
-                                                if (diffMins < 60)
-                                                    return "Last launched " + diffMins + " minute"
-                                                            + (diffMins === 1 ? "" : "s") + " ago"
-
-                                                if (diffHours < 24)
-                                                    return "Last launched " + diffHours + " hour"
-                                                            + (diffHours === 1 ? "" : "s") + " ago"
-
-                                                if (diffDays < 7)
-                                                    return "Last launched " + diffDays + " day"
-                                                            + (diffDays === 1 ? "" : "s") + " ago"
-
-                                                return "Last launched " + date.toLocaleDateString()
-                                            }
-                                            font.pixelSize: Theme.fontSizeSmall
-                                            color: Theme.surfaceVariantText
-                                        }
-                                    }
-                                }
-
-                                ActionButton {
-                                    anchors.right: parent.right
-                                    anchors.rightMargin: Theme.spacingM
-                                    anchors.verticalCenter: parent.verticalCenter
-                                    circular: true
-                                    iconName: "close"
-                                    iconSize: Theme.iconSizeSmall
-                                    iconColor: Theme.error
-                                    onClicked: {
-                                        var currentRanking = Object.assign(
-                                                    {},
-                                                    AppUsageHistoryData.appUsageRanking
-                                                    || {})
-                                        delete currentRanking[modelData.id]
-                                        AppUsageHistoryData.appUsageRanking = currentRanking
-                                        SettingsData.saveSettings()
-                                    }
-                                }
-                            }
-                        }
-
-                        StyledText {
-                            width: parent.width
-                            text: recentAppsSection.rankedAppsModel.length
-                                  === 0 ? "Приложения еще не запускались." : ""
-                            font.pixelSize: Theme.fontSizeMedium
-                            color: Theme.surfaceVariantText
-                            horizontalAlignment: Text.AlignHCenter
-                            visible: recentAppsSection.rankedAppsModel.length === 0
-                        }
-                    }
                 }
             }
 
@@ -660,7 +456,7 @@ Item {
                         }
 
                         StyledText {
-                            text: "Настройки рабочих столов"
+                            text: "Рабочие столы"
                             font.pixelSize: Theme.fontSizeLarge
                             font.weight: Font.Medium
                             color: Theme.surfaceText
@@ -669,19 +465,28 @@ Item {
                     }
 
                     Toggle {
+                        width: parent.width
+                        text: "Отдельные столы для каждого монитора"
+                        description: ""
+                        checked: SettingsData.workspacesPerMonitor
+                        onToggled: checked => {
+                            return SettingsData.setWorkspacesPerMonitor(checked);
+                        }
+                    }
+
+                    Rectangle {
+                        width: parent.width
+                        height: 1
+                        color: Theme.outline
+                        opacity: 0.2
+                    }
+
+                    Toggle {
                         id: workspaceIndexToggle
                         width: parent.width
                         text: "Показывать номера рабочих столов"
-                        description: "Номера в переключателях рабочих столов."
-                        
-                        Component.onCompleted: checked = SettingsData.showWorkspaceIndex
-                        
-                        Connections {
-                            target: SettingsData
-                            function onShowWorkspaceIndexChanged() {
-                                workspaceIndexToggle.checked = SettingsData.showWorkspaceIndex
-                            }
-                        }
+                        description: ""
+                        checked: SettingsData.showWorkspaceIndex
                         
                         onToggled: checked => {
                             if (checked && SettingsData.showWorkspaceApps) {
@@ -691,20 +496,19 @@ Item {
                         }
                     }
 
+                    Rectangle {
+                        width: parent.width
+                        height: 1
+                        color: Theme.outline
+                        opacity: 0.2
+                    }
+
                     Toggle {
                         id: workspaceAppsToggle
                         width: parent.width
                         text: "Показывать иконки приложений"
-                        description: "Иконки открытых приложений в переключателях рабочих столов."
-                        
-                        Component.onCompleted: checked = SettingsData.showWorkspaceApps
-                        
-                        Connections {
-                            target: SettingsData
-                            function onShowWorkspaceAppsChanged() {
-                                workspaceAppsToggle.checked = SettingsData.showWorkspaceApps
-                            }
-                        }
+                        description: ""
+                        checked: SettingsData.showWorkspaceApps
                         
                         onToggled: checked => {
                             if (checked && SettingsData.showWorkspaceIndex) {
@@ -714,36 +518,119 @@ Item {
                         }
                     }
 
-		    Row {
-                        width: parent.width - Theme.spacingL
-                        spacing: Theme.spacingL
+                    Rectangle {
+                        width: parent.width
+                        height: 1
+                        color: Theme.outline
+                        opacity: 0.2
+                    }
+
+                    Item {
+                        width: parent.width
+                        height: Math.round(60 * SettingsData.fontScale)
                         visible: SettingsData.showWorkspaceApps
                         opacity: visible ? 1 : 0
-                        anchors.left: parent.left
-                        anchors.leftMargin: Theme.spacingL
 
-                        Column {
-                            width: 120
-                            spacing: Theme.spacingS
+                        Row {
+                            anchors.left: parent.left
+                            anchors.leftMargin: Theme.spacingM
+                            anchors.right: maxAppsDropdownBtn.left
+                            anchors.rightMargin: Theme.spacingM
+                            anchors.verticalCenter: parent.verticalCenter
 
                             StyledText {
-                                text: "Макс. приложений"
-                                font.pixelSize: Theme.fontSizeSmall
-                                color: Theme.surfaceText
+                                anchors.verticalCenter: parent.verticalCenter
+                                text: "Максимальное количество иконок"
+                                font.pixelSize: Theme.fontSizeMedium
                                 font.weight: Font.Medium
+                                color: Theme.surfaceText
+                            }
+                        }
+
+                        Rectangle {
+                            id: maxAppsDropdownBtn
+                            width: 120
+                            height: Math.round(40 * SettingsData.fontScale)
+                            anchors.right: parent.right
+                            anchors.rightMargin: Theme.spacingM
+                            anchors.verticalCenter: parent.verticalCenter
+                            radius: Theme.cornerRadius
+                            color: maxAppsArea.containsMouse || maxAppsPopup.visible ? Theme.surfaceContainerHigh : Theme.surfaceContainer
+                            border.color: maxAppsPopup.visible ? Theme.primary : Qt.rgba(Theme.outline.r, Theme.outline.g, Theme.outline.b, 0.2)
+                            border.width: maxAppsPopup.visible ? 2 : 1
+
+                            Row {
+                                anchors.centerIn: parent
+                                spacing: Theme.spacingS
+
+                                StyledText {
+                                    text: SettingsData.maxWorkspaceIcons.toString()
+                                    font.pixelSize: Theme.fontSizeMedium
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+
+                                Icon {
+                                    name: "expand_more"
+                                    size: Theme.iconSizeSmall
+                                    color: Theme.surfaceText
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
                             }
 
-                            TextField {
-                                width: 100
-                                height: 28
-                                placeholderText: "#ffffff"
-                                text: SettingsData.maxWorkspaceIcons
-                                maximumLength: 7
-                                font.pixelSize: Theme.fontSizeSmall
-                                topPadding: Theme.spacingXS
-                                bottomPadding: Theme.spacingXS
-                                onEditingFinished: {
-                                    SettingsData.setMaxWorkspaceIcons(parseInt(text, 10))
+                            MouseArea {
+                                id: maxAppsArea
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                cursorShape: Qt.PointingHandCursor
+                                onClicked: maxAppsPopup.open()
+                            }
+                        }
+
+                        Popup {
+                            id: maxAppsPopup
+                            x: maxAppsDropdownBtn.x
+                            y: maxAppsDropdownBtn.y + maxAppsDropdownBtn.height + Theme.spacingXS
+                            width: maxAppsDropdownBtn.width
+                            padding: Theme.spacingXS
+                            modal: false
+
+                            background: Rectangle {
+                                color: Theme.surfaceContainer
+                                radius: Theme.cornerRadius
+                                border.color: Qt.rgba(Theme.outline.r, Theme.outline.g, Theme.outline.b, 0.2)
+                            }
+
+                            Column {
+                                width: parent.width
+                                spacing: 2
+
+                                Repeater {
+                                    model: ["1", "2", "3", "4", "5", "6"]
+
+                                    delegate: Rectangle {
+                                        width: maxAppsPopup.width - Theme.spacingXS * 2
+                                        height: 32
+                                        radius: Theme.cornerRadius - 2
+                                        color: optionArea.containsMouse ? Theme.surfaceContainerHigh : "transparent"
+
+                                        StyledText {
+                                            anchors.centerIn: parent
+                                            text: modelData
+                                            font.pixelSize: Theme.fontSizeMedium
+                                            color: SettingsData.maxWorkspaceIcons.toString() === modelData ? Theme.primary : Theme.surfaceText
+                                        }
+
+                                        MouseArea {
+                                            id: optionArea
+                                            anchors.fill: parent
+                                            hoverEnabled: true
+                                            cursorShape: Qt.PointingHandCursor
+                                            onClicked: {
+                                                SettingsData.setMaxWorkspaceIcons(parseInt(modelData, 10))
+                                                maxAppsPopup.close()
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -756,53 +643,123 @@ Item {
                         }
                     }
 
-                    Toggle {
+                    Rectangle {
                         width: parent.width
-                        text: "Рабочие столы по мониторам"
-                        description: "Отдельные рабочие столы для каждого монитора."
-                        checked: SettingsData.workspacesPerMonitor
-                        onToggled: checked => {
-                            return SettingsData.setWorkspacesPerMonitor(checked);
-                        }
+                        height: 1
+                        color: Theme.outline
+                        opacity: 0.2
                     }
 
-                    Column {
+                    Item {
                         width: parent.width
-                        spacing: Theme.spacingS
+                        height: Math.round(60 * SettingsData.fontScale)
 
-                        StyledText {
-                            text: "Минимальное количество рабочих столов"
-                            font.pixelSize: Theme.fontSizeMedium
-                            font.weight: Font.Medium
-                            color: Theme.surfaceText
+                        Row {
+                            anchors.left: parent.left
+                            anchors.leftMargin: Theme.spacingM
+                            anchors.right: minWorkspacesDropdownBtn.left
+                            anchors.rightMargin: Theme.spacingM
+                            anchors.verticalCenter: parent.verticalCenter
+
+                            StyledText {
+                                anchors.verticalCenter: parent.verticalCenter
+                                text: "Минимальное количество рабочих столов"
+                                font.pixelSize: Theme.fontSizeMedium
+                                font.weight: Font.Medium
+                                color: Theme.surfaceText
+                            }
                         }
 
-                        ButtonGroup {
-                            id: paddingButtonGroup
-                            width: parent.width
-                            fillWidth: true
-                            buttonPadding: Theme.spacingXS
-                            spacing: 2
-                            checkEnabled: false
-                            model: ["Выкл", "3", "6", "9"]
-                            selectionMode: "single"
-                                currentIndex: {
-                                    if (SettingsData.workspacePaddingCount === 0) return 0
-                                    if (SettingsData.workspacePaddingCount === 3) return 1
-                                    if (SettingsData.workspacePaddingCount === 6) return 2
-                                    if (SettingsData.workspacePaddingCount === 9) return 3
-                                    return 0
+                        Rectangle {
+                            id: minWorkspacesDropdownBtn
+                            width: 120
+                            height: Math.round(40 * SettingsData.fontScale)
+                            anchors.right: parent.right
+                            anchors.rightMargin: Theme.spacingM
+                            anchors.verticalCenter: parent.verticalCenter
+                            radius: Theme.cornerRadius
+                            color: minWorkspacesArea.containsMouse || minWorkspacesPopup.visible ? Theme.surfaceContainerHigh : Theme.surfaceContainer
+                            border.color: minWorkspacesPopup.visible ? Theme.primary : Qt.rgba(Theme.outline.r, Theme.outline.g, Theme.outline.b, 0.2)
+                            border.width: minWorkspacesPopup.visible ? 2 : 1
+
+                            Row {
+                                anchors.centerIn: parent
+                                spacing: Theme.spacingS
+
+                                StyledText {
+                                    text: SettingsData.workspacePaddingCount === 0 ? "Выкл" : SettingsData.workspacePaddingCount.toString()
+                                    font.pixelSize: Theme.fontSizeMedium
+                                    anchors.verticalCenter: parent.verticalCenter
                                 }
-                                onSelectionChanged: (index, selected) => {
-                                    if (selected) {
-                                        const countMap = [0, 3, 6, 9]
-                                        SettingsData.setWorkspacePaddingCount(countMap[index])
+
+                                Icon {
+                                    name: "expand_more"
+                                    size: Theme.iconSizeSmall
+                                    color: Theme.surfaceText
+                                    anchors.verticalCenter: parent.verticalCenter
+                                }
+                            }
+
+                            MouseArea {
+                                id: minWorkspacesArea
+                                anchors.fill: parent
+                                hoverEnabled: true
+                                cursorShape: Qt.PointingHandCursor
+                                onClicked: minWorkspacesPopup.open()
+                            }
+                        }
+
+                        Popup {
+                            id: minWorkspacesPopup
+                            x: minWorkspacesDropdownBtn.x
+                            y: minWorkspacesDropdownBtn.y + minWorkspacesDropdownBtn.height + Theme.spacingXS
+                            width: minWorkspacesDropdownBtn.width
+                            padding: Theme.spacingXS
+                            modal: false
+
+                            background: Rectangle {
+                                color: Theme.surfaceContainer
+                                radius: Theme.cornerRadius
+                                border.color: Qt.rgba(Theme.outline.r, Theme.outline.g, Theme.outline.b, 0.2)
+                            }
+
+                            Column {
+                                width: parent.width
+                                spacing: 2
+
+                                Repeater {
+                                    model: [{"label": "Выкл", "value": 0}, {"label": "3", "value": 3}, {"label": "6", "value": 6}, {"label": "9", "value": 9}]
+
+                                    delegate: Rectangle {
+                                        width: minWorkspacesPopup.width - Theme.spacingXS * 2
+                                        height: 32
+                                        radius: Theme.cornerRadius - 2
+                                        color: minWsOptionArea.containsMouse ? Theme.surfaceContainerHigh : "transparent"
+
+                                        StyledText {
+                                            anchors.centerIn: parent
+                                            text: modelData.label
+                                            font.pixelSize: Theme.fontSizeMedium
+                                            color: SettingsData.workspacePaddingCount === modelData.value ? Theme.primary : Theme.surfaceText
+                                        }
+
+                                        MouseArea {
+                                            id: minWsOptionArea
+                                            anchors.fill: parent
+                                            hoverEnabled: true
+                                            cursorShape: Qt.PointingHandCursor
+                                            onClicked: {
+                                                SettingsData.setWorkspacePaddingCount(modelData.value)
+                                                minWorkspacesPopup.close()
+                                            }
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
+            }
 
             StyledRect {
                 width: parent.width
@@ -832,7 +789,7 @@ Item {
                         }
 
                         StyledText {
-                            text: "Настройки медиаплеера"
+                            text: "Медиаплеер"
                             font.pixelSize: Theme.fontSizeLarge
                             font.weight: Font.Medium
                             color: Theme.surfaceText
@@ -843,7 +800,7 @@ Item {
                     Toggle {
                         width: parent.width
                         text: "Волновые индикаторы прогресса"
-                        description: "Использовать анимированные волновые индикаторы для воспроизведения медиа"
+                        description: ""
                         checked: SettingsData.waveProgressEnabled
                         onToggled: checked => {
                             return SettingsData.setWaveProgressEnabled(checked)
@@ -880,7 +837,7 @@ Item {
                         }
 
                         StyledText {
-                            text: "Настройки запущенных приложений"
+                            text: "Запущенные приложения"
                             font.pixelSize: Theme.fontSizeLarge
                             font.weight: Font.Medium
                             color: Theme.surfaceText
@@ -891,7 +848,7 @@ Item {
                     Toggle {
                         width: parent.width
                         text: "Только приложения текущего рабочего стола"
-                        description: "Показывать только приложения, запущенные на текущем рабочем столе"
+                        description: ""
                         checked: SettingsData.runningAppsCurrentWorkspace
                         onToggled: checked => {
                                        return SettingsData.setRunningAppsCurrentWorkspace(
@@ -1095,6 +1052,25 @@ Item {
                         }
                     }
 
+                    Toggle {
+                        width: parent.width
+                        text: "Отображать на всех мониторах"
+                        checked: widgetTweaksTab.getScreenPreferences("notifications").includes("all")
+                        onToggled: checked => {
+                            if (checked)
+                                widgetTweaksTab.setScreenPreferences("notifications", ["all"])
+                            else
+                                widgetTweaksTab.setScreenPreferences("notifications", [])
+                        }
+                    }
+
+                    Rectangle {
+                        width: parent.width
+                        height: 1
+                        color: Theme.outline
+                        opacity: 0.2
+                    }
+
                     Column {
                         width: parent.width
                         spacing: 0
@@ -1104,7 +1080,7 @@ Item {
                         Dropdown {
                             width: parent.width - parent.leftPadding - parent.rightPadding
                             text: "Позиция всплывающих окон"
-                            description: "Выберите, где будут появляться всплывающие уведомления на экране"
+                            description: ""
                             currentValue: {
                                 if (SettingsData.notificationPopupPosition === -1) {
                                     return "Сверху по центру"
@@ -1150,56 +1126,266 @@ Item {
 
             StyledRect {
                 width: parent.width
-                height: osdRow.implicitHeight + Theme.spacingL * 2
+                height: osdSection.implicitHeight + Theme.spacingL * 2
                 radius: Theme.cornerRadius
                 color: Theme.surfaceContainerHigh
                 border.color: Qt.rgba(Theme.outline.r, Theme.outline.g,
                                       Theme.outline.b, 0.2)
                 border.width: 0
 
-                Row {
-                    id: osdRow
+                Column {
+                    id: osdSection
 
                     anchors.fill: parent
                     anchors.margins: Theme.spacingL
                     spacing: Theme.spacingM
 
-                    Icon {
-                        name: "tune"
-                        size: Theme.iconSize
-                        color: Theme.primary
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingM
 
-                    Column {
-                        width: parent.width - Theme.iconSize - Theme.spacingM - osdToggle.width - Theme.spacingM
-                        spacing: Theme.spacingXS
-                        anchors.verticalCenter: parent.verticalCenter
-
-                        StyledText {
-                            text: "Показывать проценты на индикаторах"
-                            font.pixelSize: Theme.fontSizeLarge
-                            font.weight: Font.Medium
-                            color: Theme.surfaceText
+                        Icon {
+                            name: "picture_in_picture"
+                            size: Theme.iconSize
+                            color: Theme.primary
+                            anchors.verticalCenter: parent.verticalCenter
                         }
 
                         StyledText {
-                            text: "Отображать проценты на всплывающих индикаторах громкости и яркости"
-                            font.pixelSize: Theme.fontSizeSmall
-                            color: Theme.surfaceVariantText
-                            wrapMode: Text.WordWrap
-                            width: parent.width
+                            text: "Экранные индикаторы"
+                            font.pixelSize: Theme.fontSizeLarge
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
+                            anchors.verticalCenter: parent.verticalCenter
                         }
                     }
 
                     Toggle {
-                        id: osdToggle
+                        width: parent.width
+                        text: "Отображать на всех мониторах"
+                        checked: widgetTweaksTab.getScreenPreferences("osd").includes("all")
+                        onToggled: checked => {
+                            if (checked)
+                                widgetTweaksTab.setScreenPreferences("osd", ["all"])
+                            else
+                                widgetTweaksTab.setScreenPreferences("osd", [])
+                        }
+                    }
 
-                        anchors.verticalCenter: parent.verticalCenter
+                    Rectangle {
+                        width: parent.width
+                        height: 1
+                        color: Theme.outline
+                        opacity: 0.2
+                    }
+
+                    Toggle {
+                        width: parent.width
+                        text: "Показывать проценты"
                         checked: SettingsData.osdAlwaysShowValue
-                        onToggleCompleted: checked => {
-                                       SettingsData.setOsdAlwaysShowValue(checked)
-                                   }
+                        onToggled: checked => {
+                            SettingsData.setOsdAlwaysShowValue(checked)
+                        }
+                    }
+                }
+            }
+
+            StyledRect {
+                width: parent.width
+                height: toastSection.implicitHeight + Theme.spacingL * 2
+                radius: Theme.cornerRadius
+                color: Theme.surfaceContainerHigh
+                border.color: Qt.rgba(Theme.outline.r, Theme.outline.g,
+                                      Theme.outline.b, 0.2)
+                border.width: 0
+
+                Column {
+                    id: toastSection
+
+                    anchors.fill: parent
+                    anchors.margins: Theme.spacingL
+                    spacing: Theme.spacingM
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingM
+
+                        Icon {
+                            name: "campaign"
+                            size: Theme.iconSize
+                            color: Theme.primary
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        StyledText {
+                            text: "Всплывающие сообщения"
+                            font.pixelSize: Theme.fontSizeLarge
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+
+                    Toggle {
+                        width: parent.width
+                        text: "Отображать на всех мониторах"
+                        checked: widgetTweaksTab.getScreenPreferences("toast").includes("all")
+                        onToggled: checked => {
+                            if (checked)
+                                widgetTweaksTab.setScreenPreferences("toast", ["all"])
+                            else
+                                widgetTweaksTab.setScreenPreferences("toast", [])
+                        }
+                    }
+                }
+            }
+
+            StyledRect {
+                width: parent.width
+                height: notepadSection.implicitHeight + Theme.spacingL * 2
+                radius: Theme.cornerRadius
+                color: Theme.surfaceContainerHigh
+                border.color: Qt.rgba(Theme.outline.r, Theme.outline.g,
+                                      Theme.outline.b, 0.2)
+                border.width: 0
+
+                Column {
+                    id: notepadSection
+
+                    anchors.fill: parent
+                    anchors.margins: Theme.spacingL
+                    spacing: Theme.spacingM
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingM
+
+                        Icon {
+                            name: "sticky_note_2"
+                            size: Theme.iconSize
+                            color: Theme.primary
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        StyledText {
+                            text: "Блокнот"
+                            font.pixelSize: Theme.fontSizeLarge
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+
+                    Toggle {
+                        width: parent.width
+                        text: "Отображать на всех мониторах"
+                        checked: widgetTweaksTab.getScreenPreferences("notepad").includes("all")
+                        onToggled: checked => {
+                            if (checked)
+                                widgetTweaksTab.setScreenPreferences("notepad", ["all"])
+                            else
+                                widgetTweaksTab.setScreenPreferences("notepad", [])
+                        }
+                    }
+                }
+            }
+
+            StyledRect {
+                width: parent.width
+                height: wallpaperSection.implicitHeight + Theme.spacingL * 2
+                radius: Theme.cornerRadius
+                color: Theme.surfaceContainerHigh
+                border.color: Qt.rgba(Theme.outline.r, Theme.outline.g,
+                                      Theme.outline.b, 0.2)
+                border.width: 0
+
+                Column {
+                    id: wallpaperSection
+
+                    anchors.fill: parent
+                    anchors.margins: Theme.spacingL
+                    spacing: Theme.spacingM
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingM
+
+                        Icon {
+                            name: "wallpaper"
+                            size: Theme.iconSize
+                            color: Theme.primary
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        StyledText {
+                            text: "Обои"
+                            font.pixelSize: Theme.fontSizeLarge
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+
+                    Toggle {
+                        width: parent.width
+                        text: "Отображать на всех мониторах"
+                        checked: widgetTweaksTab.getScreenPreferences("wallpaper").includes("all")
+                        onToggled: checked => {
+                            if (checked)
+                                widgetTweaksTab.setScreenPreferences("wallpaper", ["all"])
+                            else
+                                widgetTweaksTab.setScreenPreferences("wallpaper", [])
+                        }
+                    }
+                }
+            }
+
+            StyledRect {
+                width: parent.width
+                height: systemTraySection.implicitHeight + Theme.spacingL * 2
+                radius: Theme.cornerRadius
+                color: Theme.surfaceContainerHigh
+                border.color: Qt.rgba(Theme.outline.r, Theme.outline.g,
+                                      Theme.outline.b, 0.2)
+                border.width: 0
+
+                Column {
+                    id: systemTraySection
+
+                    anchors.fill: parent
+                    anchors.margins: Theme.spacingL
+                    spacing: Theme.spacingM
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingM
+
+                        Icon {
+                            name: "notifications"
+                            size: Theme.iconSize
+                            color: Theme.primary
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        StyledText {
+                            text: "Системный трей"
+                            font.pixelSize: Theme.fontSizeLarge
+                            font.weight: Font.Medium
+                            color: Theme.surfaceText
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+                    }
+
+                    Toggle {
+                        width: parent.width
+                        text: "Отображать на всех мониторах"
+                        checked: widgetTweaksTab.getScreenPreferences("systemTray").includes("all")
+                        onToggled: checked => {
+                            if (checked)
+                                widgetTweaksTab.setScreenPreferences("systemTray", ["all"])
+                            else
+                                widgetTweaksTab.setScreenPreferences("systemTray", [])
+                        }
                     }
                 }
             }

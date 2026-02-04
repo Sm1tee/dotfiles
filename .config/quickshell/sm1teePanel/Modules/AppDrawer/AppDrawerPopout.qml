@@ -2,7 +2,6 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Effects
 import Quickshell
-import Quickshell.Io
 import Quickshell.Wayland
 import Quickshell.Widgets
 import qs.Common
@@ -180,7 +179,7 @@ Popout {
 
                     Item {
                         width: parent.width
-                        height: 40
+                        height: Math.round(40 * SettingsData.fontScale)
 
                         StyledText {
                             anchors.left: parent.left
@@ -212,7 +211,7 @@ Popout {
 
                         width: parent.width - Theme.spacingS * 2
                         anchors.horizontalCenter: parent.horizontalCenter
-                        height: 52
+                        height: Math.round(52 * SettingsData.fontScale)
                         cornerRadius: Theme.cornerRadius
                         backgroundColor: Qt.rgba(Theme.surfaceVariant.r, Theme.surfaceVariant.g, Theme.surfaceVariant.b, Theme.getContentBackgroundAlpha() * 0.7)
                         normalBorderColor: Qt.rgba(Theme.outline.r, Theme.outline.g, Theme.outline.b, 0.3)
@@ -269,22 +268,26 @@ Popout {
                     }
 
                     Row {
+                        id: toolbarRow
                         width: parent.width
-                        height: 40
+                        height: Math.round(40 * SettingsData.fontScale)
                         spacing: Theme.spacingM
                         visible: searchField.text.length === 0
                         leftPadding: Theme.spacingS
 
+                        readonly property real scaledButtonSize: Math.round(36 * SettingsData.fontScale)
+                        readonly property real dropdownWidth: Math.round(180 * SettingsData.fontScale)
+
                         Rectangle {
-                            width: 180
-                            height: 40
+                            width: toolbarRow.dropdownWidth
+                            height: toolbarRow.height
                             radius: Theme.cornerRadius
                             color: "transparent"
 
                             Dropdown {
                                 anchors.fill: parent
                                 text: ""
-                                dropdownWidth: 180
+                                dropdownWidth: toolbarRow.dropdownWidth
                                 currentValue: appLauncher.selectedCategory
                                 options: appLauncher.categories
                                 optionIcons: appLauncher.categoryIcons
@@ -295,7 +298,7 @@ Popout {
                         }
 
                         ActionButton {
-                            buttonSize: 36
+                            buttonSize: toolbarRow.scaledButtonSize
                             circular: false
                             iconName: "visibility_off"
                             iconSize: Theme.fontSizeXLarge
@@ -308,7 +311,7 @@ Popout {
                         }
 
                         Item {
-                            width: parent.width - 335
+                            width: Math.max(0, parent.width - toolbarRow.dropdownWidth - toolbarRow.scaledButtonSize * 3 - Theme.spacingM * 3 - Theme.spacingS - 4)
                             height: 1
                         }
 
@@ -317,7 +320,7 @@ Popout {
                             anchors.verticalCenter: parent.verticalCenter
 
                             ActionButton {
-                                buttonSize: 36
+                                buttonSize: toolbarRow.scaledButtonSize
                                 circular: false
                                 iconName: "view_list"
                                 iconSize: Theme.fontSizeXLarge
@@ -329,7 +332,7 @@ Popout {
                             }
 
                             ActionButton {
-                                buttonSize: 36
+                                buttonSize: toolbarRow.scaledButtonSize
                                 circular: false
                                 iconName: "grid_view"
                                 iconSize: Theme.fontSizeXLarge
@@ -345,9 +348,9 @@ Popout {
                     Rectangle {
                         width: parent.width
                         height: {
-                            let usedHeight = 40 + Theme.spacingS
-                            usedHeight += 52 + Theme.spacingS
-                            usedHeight += (searchField.text.length === 0 ? 40 : 0)
+                            let usedHeight = Math.round(40 * SettingsData.fontScale) + Theme.spacingS
+                            usedHeight += Math.round(52 * SettingsData.fontScale) + Theme.spacingS
+                            usedHeight += (searchField.text.length === 0 ? Math.round(40 * SettingsData.fontScale) : 0)
                             return parent.height - usedHeight
                         }
                         radius: Theme.cornerRadius
@@ -356,8 +359,8 @@ Popout {
                         ListView {
                             id: appList
 
-                            property int itemHeight: 72
-                            property int iconSize: 56
+                            property int itemHeight: Math.round(72 * SettingsData.fontScale)
+                            property int iconSize: Math.round(48 * SettingsData.fontScale)
                             property bool showDescription: true
                             property int itemSpacing: Theme.spacingS
                             property bool hoverUpdatesSelection: false
@@ -426,7 +429,6 @@ Popout {
 
                                         IconImage {
                                             id: listIconImg
-
                                             anchors.fill: parent
                                             anchors.margins: Theme.spacingXS
                                             source: Quickshell.iconPath(model.icon, true)
@@ -437,14 +439,9 @@ Popout {
 
                                         Rectangle {
                                             anchors.fill: parent
-                                            anchors.leftMargin: Theme.spacingS
-                                            anchors.rightMargin: Theme.spacingS
-                                            anchors.bottomMargin: Theme.spacingM
-                                            visible: !listIconImg.visible
+                                            visible: listIconImg.status !== Image.Ready
                                             color: Theme.surfaceLight
                                             radius: Theme.cornerRadius
-                                            border.width: 0
-                                            border.color: Theme.primarySelected
 
                                             StyledText {
                                                 anchors.centerIn: parent
@@ -519,16 +516,16 @@ Popout {
                             property int currentIndex: appLauncher.selectedIndex
                             property int columns: 4
                             property bool adaptiveColumns: false
-                            property int minCellWidth: 120
-                            property int maxCellWidth: 160
-                            property int cellPadding: 8
+                            property int minCellWidth: Math.round(120 * SettingsData.fontScale)
+                            property int maxCellWidth: Math.round(160 * SettingsData.fontScale)
+                            property int cellPadding: Math.round(8 * SettingsData.fontScale)
                             property real iconSizeRatio: 0.6
-                            property int maxIconSize: 56
-                            property int minIconSize: 32
+                            property int maxIconSize: Math.round(48 * SettingsData.fontScale)
+                            property int minIconSize: Math.round(28 * SettingsData.fontScale)
                             property bool hoverUpdatesSelection: false
                             property bool keyboardNavigationActive: appLauncher.keyboardNavigationActive
                             property int baseCellWidth: adaptiveColumns ? Math.max(minCellWidth, Math.min(maxCellWidth, width / columns)) : (width - Theme.spacingS * 2) / columns
-                            property int baseCellHeight: baseCellWidth + 20
+                            property int baseCellHeight: baseCellWidth + Math.round(20 * SettingsData.fontScale)
                             property int actualColumns: adaptiveColumns ? Math.floor(width / cellWidth) : columns
                             property int remainingSpace: width - (actualColumns * cellWidth)
 
@@ -591,18 +588,13 @@ Popout {
 
                                     Item {
                                         property int iconSize: Math.min(appGrid.maxIconSize, Math.max(appGrid.minIconSize, appGrid.cellWidth * appGrid.iconSizeRatio))
-
                                         width: iconSize
                                         height: iconSize
                                         anchors.horizontalCenter: parent.horizontalCenter
 
                                         IconImage {
                                             id: gridIconImg
-
                                             anchors.fill: parent
-                            anchors.leftMargin: Theme.spacingS
-                            anchors.rightMargin: Theme.spacingS
-                            anchors.bottomMargin: Theme.spacingS
                                             source: Quickshell.iconPath(model.icon, true)
                                             smooth: true
                                             asynchronous: true
@@ -611,14 +603,9 @@ Popout {
 
                                         Rectangle {
                                             anchors.fill: parent
-                            anchors.leftMargin: Theme.spacingS
-                            anchors.rightMargin: Theme.spacingS
-                            anchors.bottomMargin: Theme.spacingS
-                                            visible: !gridIconImg.visible
+                                            visible: gridIconImg.status !== Image.Ready
                                             color: Theme.surfaceLight
                                             radius: Theme.cornerRadius
-                                            border.width: 0
-                                            border.color: Theme.primarySelected
 
                                             StyledText {
                                                 anchors.centerIn: parent
@@ -1115,22 +1102,4 @@ Popout {
         }
     }
 
-    IpcHandler {
-        function open(): string {
-            appDrawerPopout.open()
-            return "APPDRAWER_OPEN_SUCCESS"
-        }
-
-        function close(): string {
-            appDrawerPopout.close()
-            return "APPDRAWER_CLOSE_SUCCESS"
-        }
-
-        function toggle(): string {
-            appDrawerPopout.toggle()
-            return "APPDRAWER_TOGGLE_SUCCESS"
-        }
-
-        target: "appdrawer"
-    }
 }

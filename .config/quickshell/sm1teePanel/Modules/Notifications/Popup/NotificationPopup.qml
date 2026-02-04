@@ -61,7 +61,10 @@ PanelWindow {
         win.exitFinished()
     }
 
-    visible: hasValidData
+    readonly property bool hasFullscreenOnScreen: win.screen ? (CompositorService.fullscreenScreens[win.screen.name] === true) : false
+    readonly property bool shouldHideForFullscreen: !SettingsData.notificationOverlayEnabled && hasFullscreenOnScreen && notificationData && notificationData.urgency !== NotificationUrgency.Critical
+
+    visible: hasValidData && !shouldHideForFullscreen
     WlrLayershell.layer: {
         if (!notificationData)
             return WlrLayershell.Top

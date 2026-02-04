@@ -296,30 +296,48 @@ Item {
 
     IpcHandler {
         function open(): string {
-            if (PopoutService.spotlightModal) {
-                PopoutService.spotlightModal.show()
-                return "SPOTLIGHT_OPEN_SUCCESS"
-            }
-            return "SPOTLIGHT_OPEN_FAILED"
+            PopoutService.openSpotlight()
+            return "SPOTLIGHT_OPEN_SUCCESS"
         }
 
         function close(): string {
-            if (PopoutService.spotlightModal) {
-                PopoutService.spotlightModal.hide()
-                return "SPOTLIGHT_CLOSE_SUCCESS"
-            }
-            return "SPOTLIGHT_CLOSE_FAILED"
+            PopoutService.closeSpotlight()
+            return "SPOTLIGHT_CLOSE_SUCCESS"
         }
 
         function toggle(): string {
-            if (PopoutService.spotlightModal) {
-                PopoutService.spotlightModal.toggle()
-                return "SPOTLIGHT_TOGGLE_SUCCESS"
+            if (PopoutService.spotlightModal && PopoutService.spotlightModal.shouldBeVisible) {
+                PopoutService.closeSpotlight()
+            } else {
+                PopoutService.openSpotlight()
             }
-            return "SPOTLIGHT_TOGGLE_FAILED"
+            return "SPOTLIGHT_TOGGLE_SUCCESS"
         }
 
         target: "spotlight-legacy"
+    }
+
+    IpcHandler {
+        function open(): string {
+            PopoutService.openSpotlight()
+            return "SPOTLIGHT_OPEN_SUCCESS"
+        }
+
+        function close(): string {
+            PopoutService.closeSpotlight()
+            return "SPOTLIGHT_CLOSE_SUCCESS"
+        }
+
+        function toggle(): string {
+            if (PopoutService.spotlightModal && PopoutService.spotlightModal.shouldBeVisible) {
+                PopoutService.closeSpotlight()
+            } else {
+                PopoutService.openSpotlight()
+            }
+            return "SPOTLIGHT_TOGGLE_SUCCESS"
+        }
+
+        target: "spotlight"
     }
 
     IpcHandler {

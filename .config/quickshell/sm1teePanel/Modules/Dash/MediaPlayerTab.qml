@@ -286,11 +286,11 @@ Item {
                 color: Qt.rgba(Theme.surface.r, Theme.surface.g, Theme.surface.b, paletteReady ? 0.92 : 0.985)
             }
         }
-        Behavior on opacity { NumberAnimation { duration: 160 } }
+        Behavior on opacity { NumberAnimation { duration: Theme.shorterDuration } }
     }
 
-    Behavior on dom { ColorAnimation { duration: 220; easing.type: Easing.InOutQuad } }
-    Behavior on acc { ColorAnimation { duration: 220; easing.type: Easing.InOutQuad } }
+    Behavior on dom { ColorAnimation { duration: Theme.shortDuration; easing.type: Easing.InOutQuad } }
+    Behavior on acc { ColorAnimation { duration: Theme.shortDuration; easing.type: Easing.InOutQuad } }
 
     Column {
         anchors.centerIn: parent
@@ -1311,13 +1311,13 @@ Item {
                                 target: ripple
                                 properties: "width,height"
                                 to: 28
-                                duration: 180
+                                duration: Theme.shorterDuration
                             }
                             NumberAnimation {
                                 target: ripple
                                 property: "opacity"
                                 to: 0
-                                duration: 150
+                                duration: Theme.shorterDuration
                             }
                         }
                     }

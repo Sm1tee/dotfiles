@@ -22,9 +22,9 @@ Row {
         id: addWidgetPopup
         parent: popoutContent
         x: parent ? Math.round((parent.width - width) / 2) : 0
-        y: parent ? Math.round((parent.height - height) / 2) : 0
+        y: parent ? parent.height + Theme.spacingM : 0
         width: 400
-        height: 300
+        height: Math.min(450, root.availableWidgets.length * 80 + 80)
         modal: true
         focus: true
         closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
@@ -69,11 +69,12 @@ Row {
                 anchors.right: parent.right
                 anchors.bottom: parent.bottom
                 spacing: Theme.spacingS
+                clip: true
                 model: root.availableWidgets
 
                 delegate: Rectangle {
                     width: 400 - Theme.spacingL * 2
-                    height: 50
+                    height: Math.max(60, contentColumn.implicitHeight + Theme.spacingM * 2)
                     radius: Theme.cornerRadius
                     color: widgetMouseArea.containsMouse ? Theme.primaryHover : Theme.surfaceContainerHigh
                     border.color: Qt.rgba(Theme.outline.r, Theme.outline.g, Theme.outline.b, 0.2)
@@ -92,15 +93,16 @@ Row {
                         }
 
                         Column {
+                            id: contentColumn
                             anchors.verticalCenter: parent.verticalCenter
                             spacing: 2
-                            width: 400 - Theme.spacingL * 2 - Theme.iconSize - Theme.spacingM * 3 - Theme.iconSize
+                            width: parent.width - Theme.iconSize * 2 - Theme.spacingM * 2
 
                             Typography {
                                 text: modelData.text
                                 style: Typography.Style.Body
                                 color: Theme.surfaceText
-                                elide: Text.ElideRight
+                                wrapMode: Text.WordWrap
                                 width: parent.width
                             }
 
@@ -108,7 +110,7 @@ Row {
                                 text: modelData.description
                                 style: Typography.Style.Caption
                                 color: Theme.outline
-                                elide: Text.ElideRight
+                                wrapMode: Text.WordWrap
                                 width: parent.width
                             }
                         }

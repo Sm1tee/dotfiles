@@ -87,7 +87,7 @@ Rectangle {
             backgroundColor: "transparent"
             onClicked: {
                 root.settingsButtonClicked()
-                settingsModal.show()
+                PopoutService.openSettings()
             }
         }
 

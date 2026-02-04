@@ -15,15 +15,19 @@ Singleton {
     property var systemUpdatePopout: null
 
     property var settingsModal: null
+    property var settingsModalLoader: null
     property var clipboardHistoryModal: null
     property var spotlightModal: null
+    property var spotlightModalLoader: null
     property var powerMenuModal: null
     property var processListModal: null
     property var processListModalLoader: null
     property var colorPickerModal: null
+    property var colorPickerModalLoader: null
     property var notificationModal: null
     property var wifiPasswordModal: null
     property var networkInfoModal: null
+    property var lockLoader: null
 
     property var notepadSlideouts: []
 
@@ -174,7 +178,12 @@ Singleton {
     }
 
     function openSettings() {
-        settingsModal?.show()
+        if (settingsModalLoader) {
+            settingsModalLoader.active = true
+            Qt.callLater(() => settingsModal?.show())
+        } else if (settingsModal) {
+            settingsModal.show()
+        }
     }
 
     function closeSettings() {
@@ -190,7 +199,12 @@ Singleton {
     }
 
     function openSpotlight() {
-        spotlightModal?.show()
+        if (spotlightModalLoader) {
+            spotlightModalLoader.active = true
+            Qt.callLater(() => spotlightModal?.show())
+        } else if (spotlightModal) {
+            spotlightModal.show()
+        }
     }
 
     function closeSpotlight() {
@@ -228,11 +242,25 @@ Singleton {
     }
 
     function showColorPicker() {
-        colorPickerModal?.show()
+        if (colorPickerModalLoader) {
+            colorPickerModalLoader.active = true
+            Qt.callLater(() => colorPickerModal?.show())
+        } else if (colorPickerModal) {
+            colorPickerModal.show()
+        }
     }
 
     function hideColorPicker() {
         colorPickerModal?.close()
+    }
+
+    function activateLock() {
+        if (lockLoader) {
+            lockLoader.active = true
+            Qt.callLater(() => {
+                if (lockLoader.item) lockLoader.item.activate()
+            })
+        }
     }
 
     function showNotificationModal() {

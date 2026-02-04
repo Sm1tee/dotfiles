@@ -8,6 +8,16 @@ import qs.Widgets
 Item {
     id: dockTab
 
+    function getScreenPreferences(componentId) {
+        return SettingsData.screenPreferences && SettingsData.screenPreferences[componentId] || ["all"];
+    }
+
+    function setScreenPreferences(componentId, screenNames) {
+        var prefs = SettingsData.screenPreferences || {};
+        prefs[componentId] = screenNames;
+        SettingsData.setScreenPreferences(prefs);
+    }
+
     Flickable {
         anchors.fill: parent
         anchors.topMargin: Theme.spacingL
@@ -110,6 +120,59 @@ Item {
                         spacing: Theme.spacingM
 
                         Icon {
+                            name: "monitor"
+                            size: Theme.iconSize
+                            color: Theme.primary
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        Column {
+                            width: parent.width - Theme.iconSize - Theme.spacingM
+                                   - allDisplaysToggle.width - Theme.spacingM
+                            spacing: Theme.spacingXS
+                            anchors.verticalCenter: parent.verticalCenter
+
+                            StyledText {
+                                text: "Отображать на всех мониторах"
+                                font.pixelSize: Theme.fontSizeLarge
+                                font.weight: Font.Medium
+                                color: Theme.surfaceText
+                            }
+
+                            StyledText {
+                                text: "Показывать на всех подключенных дисплеях"
+                                font.pixelSize: Theme.fontSizeSmall
+                                color: Theme.surfaceVariantText
+                                wrapMode: Text.WordWrap
+                                width: parent.width
+                            }
+                        }
+
+                        Toggle {
+                            id: allDisplaysToggle
+                            anchors.verticalCenter: parent.verticalCenter
+                            checked: dockTab.getScreenPreferences("dock").includes("all")
+                            onToggled: checked => {
+                                if (checked)
+                                    dockTab.setScreenPreferences("dock", ["all"])
+                                else
+                                    dockTab.setScreenPreferences("dock", [])
+                            }
+                        }
+                    }
+
+                    Rectangle {
+                        width: parent.width
+                        height: 1
+                        color: Theme.outline
+                        opacity: 0.2
+                    }
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingM
+
+                        Icon {
                             name: "visibility_off"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -130,7 +193,7 @@ Item {
                             }
 
                             StyledText {
-                                text: "Скрывать док когда он не используется и показывать при наведении на область дока"
+                                text: "Скрывать док когда он не используется"
                                 font.pixelSize: Theme.fontSizeSmall
                                 color: Theme.surfaceVariantText
                                 wrapMode: Text.WordWrap

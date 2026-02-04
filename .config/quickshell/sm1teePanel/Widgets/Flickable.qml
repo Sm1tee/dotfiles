@@ -159,7 +159,7 @@ Flickable {
         id: returnToBoundsAnimation
         target: flickable
         property: "contentY"
-        duration: 300
+        duration: Theme.mediumDuration
         easing.type: Easing.OutQuad
     }
 

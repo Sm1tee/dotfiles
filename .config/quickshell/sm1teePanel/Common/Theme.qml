@@ -246,20 +246,20 @@ Singleton {
 
     readonly property var animationDurations: [
         { shorter: 0, short: 0, medium: 0, long: 0, extraLong: 0 },           // 0: Нет
-        { shorter: 50, short: 75, medium: 150, long: 250, extraLong: 500 },   // 1: Макс (не используется)
-        { shorter: 75, short: 125, medium: 250, long: 400, extraLong: 800 },  // 2: Быстро
-        { shorter: 150, short: 250, medium: 500, long: 800, extraLong: 1600 }, // 3: Средне
-        { shorter: 250, short: 400, medium: 800, long: 1200, extraLong: 2400 } // 4: Медленно
+        { shorter: 50, short: 100, medium: 150, long: 200, extraLong: 300 },  // 1: (не используется)
+        { shorter: 50, short: 100, medium: 150, long: 200, extraLong: 300 },  // 2: Быстро
+        { shorter: 100, short: 200, medium: 300, long: 450, extraLong: 600 }, // 3: Средне
+        { shorter: 200, short: 400, medium: 600, long: 900, extraLong: 1200 } // 4: Медленно
     ]
 
     readonly property int currentAnimationSpeed: typeof SettingsData !== "undefined" ? SettingsData.animationSpeed : SettingsData.AnimationSpeed.Short
     readonly property var currentDurations: animationDurations[currentAnimationSpeed] || animationDurations[SettingsData.AnimationSpeed.Short]
 
-    property int shorterDuration: currentDurations.shorter
-    property int shortDuration: currentDurations.short
-    property int mediumDuration: currentDurations.medium
-    property int longDuration: currentDurations.long
-    property int extraLongDuration: currentDurations.extraLong
+    readonly property int shorterDuration: currentDurations.shorter
+    readonly property int shortDuration: currentDurations.short
+    readonly property int mediumDuration: currentDurations.medium
+    readonly property int longDuration: currentDurations.long
+    readonly property int extraLongDuration: currentDurations.extraLong
     property int standardEasing: Easing.OutCubic
     property int emphasizedEasing: Easing.OutQuart
 

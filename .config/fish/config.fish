@@ -17,3 +17,4 @@ starship init fish | source
 
 
 # string match -q "$TERM_PROGRAM" "kiro" and . (kiro --locate-shell-integration-path fish)
+set -gx PATH /opt/rocm/bin $PATH

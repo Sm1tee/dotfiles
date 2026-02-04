@@ -20,6 +20,30 @@ Singleton {
 
     property bool useNiriSorting: isNiri && NiriService
 
+    // Reactive property to track fullscreen windows per screen
+    property var fullscreenScreens: {
+        const result = {}
+
+        if (isHyprland && Hyprland.toplevels) {
+            const hyprlandToplevels = Array.from(Hyprland.toplevels.values)
+            for (const hyprToplevel of hyprlandToplevels) {
+                if (hyprToplevel.fullscreen && hyprToplevel.monitor) {
+                    result[hyprToplevel.monitor.name] = true
+                }
+            }
+        }
+
+        if (isNiri && NiriService.windows) {
+            for (const win of NiriService.windows) {
+                if (win.is_fullscreen && win.output) {
+                    result[win.output] = true
+                }
+            }
+        }
+
+        return result
+    }
+
     property var sortedToplevels: {
         if (!ToplevelManager.toplevels || !ToplevelManager.toplevels.values) {
             return []
@@ -185,6 +209,10 @@ Singleton {
             return Hyprland.dispatch("dpms on")
         }
         console.warn("CompositorService: Cannot power on monitors, unknown compositor")
+    }
+
+    function hasFullscreenWindow(screenName) {
+        return fullscreenScreens[screenName] === true
     }
 
     Process {

@@ -138,13 +138,13 @@ Item {
                             target: ripple
                             properties: "width,height"
                             to: 28
-                            duration: 180
+                            duration: Theme.shorterDuration
                         }
                         NumberAnimation {
                             target: ripple
                             property: "opacity"
                             to: 0
-                            duration: 150
+                            duration: Theme.shorterDuration
                         }
                     }
                 }

@@ -10,6 +10,16 @@ Item {
 
     property var parentModal: null
 
+    function getScreenPreferences(componentId) {
+        return SettingsData.screenPreferences && SettingsData.screenPreferences[componentId] || ["all"];
+    }
+
+    function setScreenPreferences(componentId, screenNames) {
+        var prefs = SettingsData.screenPreferences || {};
+        prefs[componentId] = screenNames;
+        SettingsData.setScreenPreferences(prefs);
+    }
+
     function getWidgetsForPopup() {
         return baseWidgetDefinitions.filter(widget => {
             if (widget.warning && widget.warning.includes("Plugin is disabled")) {
@@ -198,21 +208,15 @@ Item {
         }, {
             "id": "workspaceSwitcher",
             "enabled": true
-        }, {
-            "id": "focusedWindow",
-            "enabled": true
         }]
     property var defaultCenterWidgets: [{
-            "id": "music",
-            "enabled": true
-        }, {
             "id": "clock",
-            "enabled": true
-        }, {
-            "id": "weather",
             "enabled": true
         }]
     property var defaultRightWidgets: [{
+            "id": "keyboard_layout_name",
+            "enabled": true
+        }, {
             "id": "systemTray",
             "enabled": true
         }, {
@@ -736,6 +740,59 @@ Item {
                         spacing: Theme.spacingM
 
                         Icon {
+                            name: "monitor"
+                            size: Theme.iconSize
+                            color: Theme.primary
+                            anchors.verticalCenter: parent.verticalCenter
+                        }
+
+                        Column {
+                            width: parent.width - Theme.iconSize - Theme.spacingM
+                                   - barAllDisplaysToggle.width - Theme.spacingM
+                            spacing: Theme.spacingXS
+                            anchors.verticalCenter: parent.verticalCenter
+
+                            StyledText {
+                                text: "Отображать на всех мониторах"
+                                font.pixelSize: Theme.fontSizeLarge
+                                font.weight: Font.Medium
+                                color: Theme.surfaceText
+                            }
+
+                            StyledText {
+                                text: "Показывать на всех подключенных дисплеях"
+                                font.pixelSize: Theme.fontSizeSmall
+                                color: Theme.surfaceVariantText
+                                wrapMode: Text.WordWrap
+                                width: parent.width
+                            }
+                        }
+
+                        Toggle {
+                            id: barAllDisplaysToggle
+                            anchors.verticalCenter: parent.verticalCenter
+                            checked: barTab.getScreenPreferences("bar").includes("all")
+                            onToggled: checked => {
+                                if (checked)
+                                    barTab.setScreenPreferences("bar", ["all"])
+                                else
+                                    barTab.setScreenPreferences("bar", [])
+                            }
+                        }
+                    }
+
+                    Rectangle {
+                        width: parent.width
+                        height: 1
+                        color: Theme.outline
+                        opacity: 0.2
+                    }
+
+                    Row {
+                        width: parent.width
+                        spacing: Theme.spacingM
+
+                        Icon {
                             name: "visibility_off"
                             size: Theme.iconSize
                             color: Theme.primary
@@ -756,7 +813,7 @@ Item {
                             }
 
                             StyledText {
-                                text: "Автоматически скрывать панель для расширения рабочего пространства"
+                                text: "Автоматически скрывать панель"
                                 font.pixelSize: Theme.fontSizeSmall
                                 color: Theme.surfaceVariantText
                                 wrapMode: Text.WordWrap
@@ -900,9 +957,9 @@ Item {
 
                             ActionButton {
                                 id: resetEdgeSpacingBtn
-                                buttonSize: 20
+                                buttonSize: Theme.iconSize
                                 iconName: "refresh"
-                                iconSize: Theme.fontSizeSmall
+                                iconSize: Theme.iconSizeSmall
                                 backgroundColor: Theme.surfaceContainerHigh
                                 iconColor: Theme.surfaceText
                                 anchors.verticalCenter: parent.verticalCenter
@@ -973,9 +1030,9 @@ Item {
 
                             ActionButton {
                                 id: resetExclusiveZoneBtn
-                                buttonSize: 20
+                                buttonSize: Theme.iconSize
                                 iconName: "refresh"
-                                iconSize: Theme.fontSizeSmall
+                                iconSize: Theme.iconSizeSmall
                                 backgroundColor: Theme.surfaceContainerHigh
                                 iconColor: Theme.surfaceText
                                 anchors.verticalCenter: parent.verticalCenter
@@ -1048,9 +1105,9 @@ Item {
 
                             ActionButton {
                                 id: resetSizeBtn
-                                buttonSize: 20
+                                buttonSize: Theme.iconSize
                                 iconName: "refresh"
-                                iconSize: Theme.fontSizeSmall
+                                iconSize: Theme.iconSizeSmall
                                 backgroundColor: Theme.surfaceContainerHigh
                                 iconColor: Theme.surfaceText
                                 anchors.verticalCenter: parent.verticalCenter
@@ -1102,6 +1159,13 @@ Item {
                                    }
                     }
 
+                    Rectangle {
+                        width: parent.width
+                        height: 1
+                        color: Theme.outline
+                        opacity: 0.2
+                    }
+
                     Toggle {
                         width: parent.width
                         text: "Прозрачные виджеты"
@@ -1111,6 +1175,13 @@ Item {
                                        SettingsData.setBarNoBackground(
                                            checked)
                                    }
+                    }
+
+                    Rectangle {
+                        width: parent.width
+                        height: 1
+                        color: Theme.outline
+                        opacity: 0.2
                     }
 
                     Toggle {
@@ -1124,7 +1195,12 @@ Item {
                                    }
                     }
 
-
+                    Rectangle {
+                        width: parent.width
+                        height: 1
+                        color: Theme.outline
+                        opacity: 0.2
+                    }
 
                     Rectangle {
                         width: parent.width
@@ -1208,6 +1284,13 @@ Item {
                                 }
                             }
                         }
+                    }
+
+                    Rectangle {
+                        width: parent.width
+                        height: 1
+                        color: Theme.outline
+                        opacity: 0.2
                     }
 
                     Rectangle {
@@ -1339,68 +1422,16 @@ Item {
                             Layout.fillWidth: true
                         }
 
-                        Rectangle {
-                            id: resetButton
-                            width: 80
-                            height: 28
-                            radius: Theme.cornerRadius
-                            color: resetArea.containsMouse ? Theme.surfacePressed : Theme.surfaceVariant
+                        Button {
+                            text: "Сбросить"
+                            iconName: "refresh"
+                            backgroundColor: Theme.surfaceContainerHigh
+                            textColor: Theme.surfaceText
                             Layout.alignment: Qt.AlignVCenter
-                            border.width: 0
-                            border.color: resetArea.containsMouse ? Theme.outline : Qt.rgba(
-                                                                        Theme.outline.r,
-                                                                        Theme.outline.g,
-                                                                        Theme.outline.b,
-                                                                        0.5)
-
-                            Row {
-                                anchors.centerIn: parent
-                                spacing: Theme.spacingXS
-
-                                Icon {
-                                    name: "refresh"
-                                    size: 14
-                                    color: Theme.surfaceText
-                                    anchors.verticalCenter: parent.verticalCenter
-                                }
-
-                                StyledText {
-                                    text: "Сброс"
-                                    font.pixelSize: Theme.fontSizeSmall
-                                    font.weight: Font.Medium
-                                    color: Theme.surfaceText
-                                    anchors.verticalCenter: parent.verticalCenter
-                                }
-                            }
-
-                            MouseArea {
-                                id: resetArea
-
-                                anchors.fill: parent
-                                hoverEnabled: true
-                                cursorShape: Qt.PointingHandCursor
-                                onClicked: {
-                                    SettingsData.setBarLeftWidgets(
-                                                defaultLeftWidgets)
-                                    SettingsData.setBarCenterWidgets(
-                                                defaultCenterWidgets)
-                                    SettingsData.setBarRightWidgets(
-                                                defaultRightWidgets)
-                                }
-                            }
-
-                            Behavior on color {
-                                ColorAnimation {
-                                    duration: Theme.shortDuration
-                                    easing.type: Theme.standardEasing
-                                }
-                            }
-
-                            Behavior on border.color {
-                                ColorAnimation {
-                                    duration: Theme.shortDuration
-                                    easing.type: Theme.standardEasing
-                                }
+                            onClicked: {
+                                SettingsData.setBarLeftWidgets(defaultLeftWidgets)
+                                SettingsData.setBarCenterWidgets(defaultCenterWidgets)
+                                SettingsData.setBarRightWidgets(defaultRightWidgets)
                             }
                         }
                     }

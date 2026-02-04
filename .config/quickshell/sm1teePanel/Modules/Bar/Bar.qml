@@ -334,14 +334,14 @@ Item {
 
                     Behavior on x {
                         NumberAnimation {
-                            duration: 200
+                            duration: Theme.shortDuration
                             easing.type: Easing.OutCubic
                         }
                     }
 
                     Behavior on y {
                         NumberAnimation {
-                            duration: 200
+                            duration: Theme.shortDuration
                             easing.type: Easing.OutCubic
                         }
                     }

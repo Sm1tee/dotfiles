@@ -33,7 +33,7 @@ Singleton {
     property string currentThemeName: "blue"
     property string customThemeFile: ""
     property string matugenScheme: "scheme-tonal-spot"
-    property bool runUserMatugenTemplates: true
+    property bool runUserMatugenTemplates: false
     property bool hyprlandBorderSync: false
     property real barTransparency: 1.0
     property real barWidgetTransparency: 1.0
@@ -90,9 +90,9 @@ Singleton {
     property string clockDateFormat: ""
     property string lockDateFormat: ""
     property int mediaSize: 1
-    property var barLeftWidgets: ["launcherButton", "workspaceSwitcher", "focusedWindow"]
-    property var barCenterWidgets: ["music", "clock", "weather"]
-    property var barRightWidgets: ["systemTray", "clipboard", "cpuUsage", "memUsage", "notificationButton", "battery", "controlCenterButton"]
+    property var barLeftWidgets: ["launcherButton", "workspaceSwitcher"]
+    property var barCenterWidgets: ["clock"]
+    property var barRightWidgets: ["keyboard_layout_name", "systemTray", "clipboard", "notificationButton", "battery", "controlCenterButton"]
     property var barWidgetOrder: []
     property alias barLeftWidgetsModel: leftWidgetsModel
     property alias barCenterWidgetsModel: centerWidgetsModel
@@ -144,10 +144,10 @@ Singleton {
     property bool barAutoHide: false
     property bool barOpenOnOverview: false
     property bool barVisible: true
-    property real barSpacing: 4
+    property real barSpacing: 0
     property real barBottomGap: 0
-    property real barInnerPadding: 4
-    property bool barSquareCorners: false
+    property real barInnerPadding: 0
+    property bool barSquareCorners: true
     property bool barNoBackground: false
     property bool barGothCornersEnabled: false
 
@@ -271,7 +271,7 @@ Singleton {
                 }
                 customThemeFile = settings.customThemeFile !== undefined ? settings.customThemeFile : ""
                 matugenScheme = settings.matugenScheme !== undefined ? settings.matugenScheme : "scheme-tonal-spot"
-                runUserMatugenTemplates = settings.runUserMatugenTemplates !== undefined ? settings.runUserMatugenTemplates : true
+                runUserMatugenTemplates = settings.runUserMatugenTemplates !== undefined ? settings.runUserMatugenTemplates : false
                 hyprlandBorderSync = settings.hyprlandBorderSync !== undefined ? settings.hyprlandBorderSync : false
                 barTransparency = settings.barTransparency !== undefined ? (settings.barTransparency > 1 ? settings.barTransparency / 100 : settings.barTransparency) : (settings.topBarTransparency !== undefined ? (settings.topBarTransparency > 1 ? settings.topBarTransparency / 100 : settings.topBarTransparency) : 1.0)
                 barWidgetTransparency = settings.barWidgetTransparency !== undefined ? (settings.barWidgetTransparency > 1 ? settings.barWidgetTransparency / 100 : settings.barWidgetTransparency) : (settings.topBarWidgetTransparency !== undefined ? (settings.topBarWidgetTransparency > 1 ? settings.topBarWidgetTransparency / 100 : settings.topBarWidgetTransparency) : 1.0)
@@ -345,9 +345,9 @@ Singleton {
                                                                                return ["systemTray", "clipboard", "systemResources", "notificationButton", "battery", "controlCenterButton"].includes(w)
                                                                            })
                 } else {
-                    var leftWidgets = settings.barLeftWidgets !== undefined ? settings.barLeftWidgets : (settings.topBarLeftWidgets !== undefined ? settings.topBarLeftWidgets : ["launcherButton", "workspaceSwitcher", "focusedWindow"])
-                    var centerWidgets = settings.barCenterWidgets !== undefined ? settings.barCenterWidgets : (settings.topBarCenterWidgets !== undefined ? settings.topBarCenterWidgets : ["music", "clock", "weather"])
-                    var rightWidgets = settings.barRightWidgets !== undefined ? settings.barRightWidgets : (settings.topBarRightWidgets !== undefined ? settings.topBarRightWidgets : ["systemTray", "clipboard", "cpuUsage", "memUsage", "notificationButton", "battery", "controlCenterButton"])
+                    var leftWidgets = settings.barLeftWidgets !== undefined ? settings.barLeftWidgets : (settings.topBarLeftWidgets !== undefined ? settings.topBarLeftWidgets : ["launcherButton", "workspaceSwitcher"])
+                    var centerWidgets = settings.barCenterWidgets !== undefined ? settings.barCenterWidgets : (settings.topBarCenterWidgets !== undefined ? settings.topBarCenterWidgets : ["clock"])
+                    var rightWidgets = settings.barRightWidgets !== undefined ? settings.barRightWidgets : (settings.topBarRightWidgets !== undefined ? settings.topBarRightWidgets : ["keyboard_layout_name", "systemTray", "clipboard", "notificationButton", "battery", "controlCenterButton"])
                     barLeftWidgets = leftWidgets
                     barCenterWidgets = centerWidgets
                     barRightWidgets = rightWidgets
@@ -401,10 +401,10 @@ Singleton {
                 notificationTimeoutCritical = settings.notificationTimeoutCritical !== undefined ? settings.notificationTimeoutCritical : 0
                 notificationPopupPosition = settings.notificationPopupPosition !== undefined ? settings.notificationPopupPosition : SettingsData.Position.Top
                 osdAlwaysShowValue = settings.osdAlwaysShowValue !== undefined ? settings.osdAlwaysShowValue : false
-                barSpacing = settings.barSpacing !== undefined ? settings.barSpacing : (settings.topBarSpacing !== undefined ? settings.topBarSpacing : 4)
+                barSpacing = settings.barSpacing !== undefined ? settings.barSpacing : (settings.topBarSpacing !== undefined ? settings.topBarSpacing : 0)
                 barBottomGap = settings.barBottomGap !== undefined ? settings.barBottomGap : (settings.topBarBottomGap !== undefined ? settings.topBarBottomGap : 0)
-                barInnerPadding = settings.barInnerPadding !== undefined ? settings.barInnerPadding : (settings.topBarInnerPadding !== undefined ? settings.topBarInnerPadding : 4)
-                barSquareCorners = settings.barSquareCorners !== undefined ? settings.barSquareCorners : (settings.topBarSquareCorners !== undefined ? settings.topBarSquareCorners : false)
+                barInnerPadding = settings.barInnerPadding !== undefined ? settings.barInnerPadding : (settings.topBarInnerPadding !== undefined ? settings.topBarInnerPadding : 0)
+                barSquareCorners = settings.barSquareCorners !== undefined ? settings.barSquareCorners : (settings.topBarSquareCorners !== undefined ? settings.topBarSquareCorners : true)
                 barNoBackground = settings.barNoBackground !== undefined ? settings.barNoBackground : (settings.topBarNoBackground !== undefined ? settings.topBarNoBackground : false)
                 barGothCornersEnabled = settings.barGothCornersEnabled !== undefined ? settings.barGothCornersEnabled : (settings.topBarGothCornersEnabled !== undefined ? settings.topBarGothCornersEnabled : false)
                 barPosition = settings.barPosition !== undefined ? settings.barPosition : (settings.barAtBottom !== undefined ? (settings.barAtBottom ? SettingsData.Position.Bottom : SettingsData.Position.Top) : (settings.topBarAtBottom !== undefined ? (settings.topBarAtBottom ? SettingsData.Position.Bottom : SettingsData.Position.Top) : SettingsData.Position.Top))
@@ -911,9 +911,9 @@ Singleton {
     }
 
     function resetBarWidgetsToDefault() {
-        var defaultLeft = ["launcherButton", "workspaceSwitcher", "focusedWindow"]
-        var defaultCenter = ["music", "clock", "weather"]
-        var defaultRight = ["systemTray", "clipboard", "notificationButton", "battery", "controlCenterButton"]
+        var defaultLeft = ["launcherButton", "workspaceSwitcher"]
+        var defaultCenter = ["clock"]
+        var defaultRight = ["keyboard_layout_name", "systemTray", "clipboard", "notificationButton", "battery", "controlCenterButton"]
         barLeftWidgets = defaultLeft
         barCenterWidgets = defaultCenter
         barRightWidgets = defaultRight
@@ -922,9 +922,9 @@ Singleton {
         updateListModel(rightWidgetsModel, defaultRight)
         showLauncherButton = true
         showWorkspaceSwitcher = true
-        showFocusedWindow = true
-        showWeather = true
-        showMusic = true
+        showFocusedWindow = false
+        showWeather = false
+        showMusic = false
         showClipboard = true
         showCpuUsage = true
         showMemUsage = true

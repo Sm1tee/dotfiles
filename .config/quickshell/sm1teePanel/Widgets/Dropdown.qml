@@ -37,6 +37,7 @@ Item {
         id: labelColumn
 
         anchors.left: parent.left
+        anchors.leftMargin: Theme.spacingM
         anchors.right: dropdown.left
         anchors.verticalCenter: parent.verticalCenter
         anchors.rightMargin: Theme.spacingL
@@ -44,7 +45,7 @@ Item {
 
         StyledText {
             text: root.text
-            font.pixelSize: Math.round(Theme.fontSizeMedium * 1.2)
+            font.pixelSize: Theme.fontSizeMedium
             color: Theme.surfaceText
             font.weight: Font.Medium
         }
@@ -218,7 +219,7 @@ Item {
         width: root.popupWidth === -1 ? undefined : (root.popupWidth > 0 ? root.popupWidth : (dropdown.width + root.popupWidthOffset))
         height: Math.min(root.maxPopupHeight, (root.enableFuzzySearch ? 54 : 0) + Math.min(filteredOptions.length, 10) * 36 + 16)
         padding: 0
-        modal: true
+        modal: false
         closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
 
         background: Rectangle {

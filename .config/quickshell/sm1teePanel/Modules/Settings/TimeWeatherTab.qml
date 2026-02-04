@@ -485,6 +485,7 @@ Item {
                     anchors.fill: parent
                     anchors.margins: Theme.spacingL
                     spacing: Theme.spacingM
+                    clip: false
 
                     Timer {
                         id: coordUpdateTimer
@@ -542,7 +543,7 @@ Item {
 
                     Column {
                         width: parent.width
-                        spacing: Theme.spacingXS
+                        spacing: Theme.spacingM
                         visible: !SettingsData.useAutoLocation
 
                         Rectangle {
@@ -565,18 +566,19 @@ Item {
 
                                 Column {
                                     width: (parent.width - Theme.spacingM) / 2
-                                    spacing: Theme.spacingXS
+                                    spacing: Theme.spacingS
 
                                     StyledText {
                                         text: "Широта"
                                         font.pixelSize: Theme.fontSizeSmall
                                         color: Theme.surfaceVariantText
+                                        height: implicitHeight
+                                        verticalAlignment: Text.AlignBottom
                                     }
 
                                     TextField {
                                         id: latitudeInput
                                         width: parent.width
-                                        height: 48
                                         placeholderText: "40.7128"
                                         backgroundColor: Theme.surfaceVariant
                                         normalBorderColor: Theme.primarySelected
@@ -619,18 +621,19 @@ Item {
 
                                 Column {
                                     width: (parent.width - Theme.spacingM) / 2
-                                    spacing: Theme.spacingXS
+                                    spacing: Theme.spacingS
 
                                     StyledText {
                                         text: "Долгота"
                                         font.pixelSize: Theme.fontSizeSmall
                                         color: Theme.surfaceVariantText
+                                        height: implicitHeight
+                                        verticalAlignment: Text.AlignBottom
                                     }
 
                                     TextField {
                                         id: longitudeInput
                                         width: parent.width
-                                        height: 48
                                         placeholderText: "-74.0060"
                                         backgroundColor: Theme.surfaceVariant
                                         normalBorderColor: Theme.primarySelected

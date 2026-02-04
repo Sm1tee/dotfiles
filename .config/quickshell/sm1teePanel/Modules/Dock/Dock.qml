@@ -235,14 +235,14 @@ Variants {
 
             Behavior on height {
                 NumberAnimation {
-                    duration: 200
+                    duration: Theme.shortDuration
                     easing.type: Easing.OutCubic
                 }
             }
 
             Behavior on width {
                 NumberAnimation {
-                    duration: 200
+                    duration: Theme.shortDuration
                     easing.type: Easing.OutCubic
                 }
             }
@@ -276,14 +276,14 @@ Variants {
 
                     Behavior on x {
                         NumberAnimation {
-                            duration: 200
+                            duration: Theme.shortDuration
                             easing.type: Easing.OutCubic
                         }
                     }
 
                     Behavior on y {
                         NumberAnimation {
-                            duration: 200
+                            duration: Theme.shortDuration
                             easing.type: Easing.OutCubic
                         }
                     }

@@ -79,7 +79,7 @@ PanelWindow {
             Behavior on x {
                 NumberAnimation {
                     id: slideAnimation
-                    duration: 450
+                    duration: Theme.mediumDuration
                     easing.type: Easing.OutCubic
 
                     onRunningChanged: {
@@ -93,7 +93,7 @@ PanelWindow {
 
         Behavior on width {
             NumberAnimation {
-                duration: 250
+                duration: Theme.shortDuration
                 easing.type: Easing.OutCubic
             }
         }

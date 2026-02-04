@@ -62,18 +62,16 @@ Item {
                     Toggle {
                         width: parent.width
                         text: "Показывать действия питания"
-                        description: "Показывать кнопки выключения, перезагрузки и выхода на экране блокировки"
+                        description: ""
                         checked: SettingsData.lockScreenShowPowerActions
                         onToggled: checked => SettingsData.setLockScreenShowPowerActions(checked)
                     }
 
-                    StyledText {
-                        text: "Требуется сервер для интеграции с системой. Блокировка работает и без него."
-                        font.pixelSize: Theme.fontSizeSmall
-                        color: Theme.warning
-                        visible: !SessionService.loginctlAvailable
+                    Rectangle {
                         width: parent.width
-                        wrapMode: Text.Wrap
+                        height: 1
+                        color: Theme.outline
+                        opacity: 0.2
                     }
 
                     Toggle {
@@ -87,6 +85,16 @@ Item {
                                 SessionData.setLoginctlLockIntegration(checked)
                             }
                         }
+                    }
+
+                    StyledText {
+                        text: "Требуется сервер для интеграции с системой. Блокировка работает и без него."
+                        font.pixelSize: Theme.fontSizeSmall
+                        color: Theme.warning
+                        visible: !SessionService.loginctlAvailable
+                        width: parent.width
+                        wrapMode: Text.Wrap
+                        leftPadding: Theme.spacingM
                     }
 
                     Toggle {

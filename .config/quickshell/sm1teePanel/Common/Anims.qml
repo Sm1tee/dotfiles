@@ -3,13 +3,14 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import Quickshell
+import qs.Common
 
 Singleton {
     id: root
 
-    readonly property int durShort: 200
-    readonly property int durMed: 450
-    readonly property int durLong: 600
+    readonly property int durShort: Theme.shortDuration
+    readonly property int durMed: Theme.mediumDuration
+    readonly property int durLong: Theme.longDuration
 
     readonly property int slidePx: 80
 

@@ -192,7 +192,7 @@ Popout {
 
             Behavior on implicitHeight {
                 NumberAnimation {
-                    duration: 180
+                    duration: Theme.shorterDuration
                     easing.type: Easing.OutQuart
                 }
             }

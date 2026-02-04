@@ -58,6 +58,10 @@ Item {
       id: lockLoader
       active: false
 
+      Component.onCompleted: {
+          PopoutService.lockLoader = lockLoader
+      }
+
       Lock {
           id: lock
           anchors.fill: parent
@@ -68,14 +72,6 @@ Item {
       }
   }
 
-  Timer {
-      id: lockInitTimer
-      interval: 100
-      running: true
-      repeat: false
-      onTriggered: lockLoader.active = true
-  }
-
   Loader {
       id: barLoader
       asynchronous: false  // Асинхронная загрузка для ускорения старта
@@ -84,7 +80,10 @@ Item {
       property bool initialized: false
 
       sourceComponent: Bar {
-          onColorPickerRequested: colorPickerModal.show()
+          onColorPickerRequested: {
+              colorPickerModalLoader.active = true
+              if (colorPickerModalLoader.item) colorPickerModalLoader.item.show()
+          }
       }
 
       Component.onCompleted: {
@@ -194,7 +193,7 @@ Item {
           powerMenuModalLoader: controlCenterLoader.powerModalLoaderRef
 
           onLockRequested: {
-              lockLoader.item.activate()
+              PopoutService.activateLock()
           }
 
           Component.onCompleted: {
@@ -305,11 +304,20 @@ Item {
       }
   }
 
-  SettingsModal {
-      id: settingsModal
+  LazyLoader {
+      id: settingsModalLoader
+      active: false
 
       Component.onCompleted: {
-          PopoutService.settingsModal = settingsModal
+          PopoutService.settingsModalLoader = settingsModalLoader
+      }
+
+      SettingsModal {
+          id: settingsModal
+
+          Component.onCompleted: {
+              PopoutService.settingsModal = settingsModal
+          }
       }
   }
 
@@ -327,11 +335,20 @@ Item {
       }
   }
 
-  SpotlightModal {
-      id: spotlightModal
+  LazyLoader {
+      id: spotlightModalLoader
+      active: false
 
       Component.onCompleted: {
-          PopoutService.spotlightModal = spotlightModal
+          PopoutService.spotlightModalLoader = spotlightModalLoader
+      }
+
+      SpotlightModal {
+          id: spotlightModal
+
+          Component.onCompleted: {
+              PopoutService.spotlightModal = spotlightModal
+          }
       }
   }
 
@@ -351,11 +368,20 @@ Item {
       }
   }
 
-  ColorPickerModal {
-      id: colorPickerModal
+  LazyLoader {
+      id: colorPickerModalLoader
+      active: false
 
       Component.onCompleted: {
-          PopoutService.colorPickerModal = colorPickerModal
+          PopoutService.colorPickerModalLoader = colorPickerModalLoader
+      }
+
+      ColorPickerModal {
+          id: colorPickerModal
+
+          Component.onCompleted: {
+              PopoutService.colorPickerModal = colorPickerModal
+          }
       }
   }
 

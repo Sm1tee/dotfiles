@@ -20,8 +20,8 @@ Item {
     readonly property bool showText: text && !hideText
 
     readonly property int trackWidth: Math.round(52 * SettingsData.fontScale)
-    readonly property int trackHeight: Math.round(30 * SettingsData.fontScale)
-    readonly property int insetCircle: Math.round(24 * SettingsData.fontScale)
+    readonly property int trackHeight: Math.round(32 * SettingsData.fontScale)
+    readonly property int thumbSize: Math.round(24 * SettingsData.fontScale)
 
     width: showText ? parent.width : trackWidth
     height: showText ? Math.round(60 * SettingsData.fontScale) : trackHeight
@@ -80,7 +80,7 @@ Item {
         }
     }
 
-    StyledRect {
+    Rectangle {
         id: toggleTrack
 
         width: showText ? trackWidth : Math.max(parent.width, trackWidth)
@@ -88,40 +88,69 @@ Item {
         anchors.right: parent.right
         anchors.rightMargin: showText ? Theme.spacingM : 0
         anchors.verticalCenter: parent.verticalCenter
-        radius: Theme.cornerRadius
+        radius: height / 2
 
-        color: (checked && enabled) ? Theme.primary : Theme.surfaceVariantAlpha
-        opacity: toggling ? 0.6 : (enabled ? 1 : 0.4)
+        color: {
+            if (!enabled) return Theme.surfaceVariant
+            return checked ? Theme.primary : Theme.surfaceContainerHigh
+        }
+        opacity: toggling ? 0.7 : (enabled ? 1 : 0.5)
 
-        border.color: (!checked || !enabled) ? Theme.outline : "transparent"
+        border.color: {
+            if (!enabled) return Theme.outline
+            return checked ? "transparent" : Theme.outline
+        }
+        border.width: checked ? 0 : 2
 
-        readonly property int pad: Math.round((height - thumb.width) / 2)
-        readonly property int edgeLeft: pad
-        readonly property int edgeRight: width - thumb.width - pad
+        Behavior on color {
+            ColorAnimation {
+                duration: Theme.shortDuration
+                easing.type: Easing.OutCubic
+            }
+        }
 
-        StyledRect {
+        Behavior on border.width {
+            NumberAnimation {
+                duration: Theme.shortDuration
+                easing.type: Easing.OutCubic
+            }
+        }
+
+        readonly property int padding: Math.round((height - thumbSize) / 2)
+        readonly property int thumbLeftPos: padding
+        readonly property int thumbRightPos: width - thumbSize - padding
+
+        // Shadow under thumb
+        Rectangle {
+            id: thumbShadow
+            width: thumbSize + 2
+            height: thumbSize + 2
+            radius: height / 2
+            anchors.verticalCenter: parent.verticalCenter
+            color: Qt.rgba(0, 0, 0, 0.2)
+            x: thumb.x - 1
+            y: 1
+        }
+
+        Rectangle {
             id: thumb
 
-            width: (checked && enabled) ? insetCircle : insetCircle - 4
-            height: (checked && enabled) ? insetCircle : insetCircle - 4
-            radius: Theme.cornerRadius
+            width: thumbSize
+            height: thumbSize
+            radius: height / 2
             anchors.verticalCenter: parent.verticalCenter
 
-            color: (checked && enabled) ? Theme.surface : Theme.outline
-            border.color: (checked && enabled) ? Theme.outline : Theme.outline
-            border.width: (checked && enabled) ? 1 : 2
+            color: toggle.enabled ? (toggle.checked ? "#000000" : Theme.surfaceVariantText) : Theme.surfaceVariant
 
-            x: (checked && enabled) ? toggleTrack.edgeRight : toggleTrack.edgeLeft
+            x: checked ? toggleTrack.thumbRightPos : toggleTrack.thumbLeftPos
 
             Behavior on x {
-                SequentialAnimation {
-                    NumberAnimation {
-                        duration: Appearance.anim.durations.normal
-                        easing.type: Easing.BezierSpline
-                        easing.bezierCurve: Appearance.anim.curves.emphasizedDecel
-                    }
-                    ScriptAction {
-                        script: {
+                NumberAnimation {
+                    duration: Theme.shortDuration
+                    easing.type: Easing.OutBack
+                    easing.overshoot: 1.2
+                    onRunningChanged: {
+                        if (!running) {
                             toggle.toggleCompleted(toggle.checked)
                         }
                     }
@@ -130,51 +159,15 @@ Item {
 
             Behavior on color {
                 ColorAnimation {
-                    duration: Appearance.anim.durations.normal
-                    easing.type: Easing.BezierSpline
-                    easing.bezierCurve: Appearance.anim.curves.emphasized
-                }
-            }
-
-            Behavior on border.width {
-                NumberAnimation {
-                    duration: Appearance.anim.durations.normal
-                    easing.type: Easing.BezierSpline
-                    easing.bezierCurve: Appearance.anim.curves.emphasized
-                }
-            }
-
-            Icon {
-                id: checkIcon
-                anchors.centerIn: parent
-                name: "check"
-                size: 20
-                color: Theme.surfaceText
-                filled: true
-                opacity: checked && enabled ? 1 : 0
-                scale: checked && enabled ? 1 : 0.6
-
-                Behavior on opacity {
-                    NumberAnimation {
-                        duration: Anims.durShort
-                        easing.type: Easing.BezierSpline
-                        easing.bezierCurve: Anims.emphasized
-                    }
-                }
-                Behavior on scale {
-                    NumberAnimation {
-                        duration: Anims.durShort
-                        easing.type: Easing.BezierSpline
-                        easing.bezierCurve: Anims.emphasized
-                    }
+                    duration: Theme.shortDuration
+                    easing.type: Easing.OutCubic
                 }
             }
         }
 
-        StateLayer {
-            disabled: !toggle.enabled
-            stateColor: Theme.primary
-            cornerRadius: parent.radius
+        MouseArea {
+            anchors.fill: parent
+            cursorShape: toggle.enabled ? Qt.PointingHandCursor : Qt.ArrowCursor
             onClicked: toggle.handleClick()
         }
     }

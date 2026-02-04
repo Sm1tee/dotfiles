@@ -21,7 +21,7 @@ ScrollBar {
 
     Behavior on opacity {
         NumberAnimation {
-            duration: 160
+            duration: Theme.shorterDuration
             easing.type: Easing.OutQuad
         }
     }

@@ -141,7 +141,7 @@ Rectangle {
 
                 Behavior on width {
                     NumberAnimation {
-                        duration: 120
+                        duration: Theme.shorterDuration
                         easing.type: Easing.OutCubic
                     }
                 }
@@ -180,7 +180,7 @@ Rectangle {
 
                 Behavior on width {
                     NumberAnimation {
-                        duration: 120
+                        duration: Theme.shorterDuration
                         easing.type: Easing.OutCubic
                     }
                 }

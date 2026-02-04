@@ -22,7 +22,7 @@ Item {
     readonly property real playX: snap(root.width * root.value)
     readonly property real midY: snap(height / 2)
 
-    Behavior on currentAmp { NumberAnimation { duration: 300; easing.type: Easing.OutCubic } }
+    Behavior on currentAmp { NumberAnimation { duration: Theme.mediumDuration; easing.type: Easing.OutCubic } }
     onIsPlayingChanged: currentAmp = isPlaying ? amp : 0
 
     Shape {
